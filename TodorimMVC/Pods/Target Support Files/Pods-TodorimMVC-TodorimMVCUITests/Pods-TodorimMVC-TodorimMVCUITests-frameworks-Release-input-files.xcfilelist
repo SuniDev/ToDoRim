@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-TodorimMVC-TodorimMVCUITests/Pods-TodorimMVC-TodorimMVCUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Hero/Hero.framework
+${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
+${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
