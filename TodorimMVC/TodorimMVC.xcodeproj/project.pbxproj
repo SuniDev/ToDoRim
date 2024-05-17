@@ -21,6 +21,10 @@
 		EA3967542BF731410087062B /* DataGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967512BF731410087062B /* DataGroup.swift */; };
 		EA3967552BF731410087062B /* DataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967522BF731410087062B /* DataTask.swift */; };
 		EA3967572BF7346F0087062B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967562BF7346F0087062B /* Group.swift */; };
+		EA3967592BF73AEE0087062B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967582BF73AEE0087062B /* DatabaseManager.swift */; };
+		EA39675C2BF73BBF0087062B /* GroupDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA39675B2BF73BBF0087062B /* GroupDatabase.swift */; };
+		EA39675E2BF73BC80087062B /* TaskDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA39675D2BF73BC80087062B /* TaskDatabase.swift */; };
+		EA3967602BF73F4A0087062B /* AppDataase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA39675F2BF73F4A0087062B /* AppDataase.swift */; };
 		EA6088312BF6F11A00DA07D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6088302BF6F11A00DA07D7 /* AppDelegate.swift */; };
 		EA6088332BF6F11A00DA07D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6088322BF6F11A00DA07D7 /* SceneDelegate.swift */; };
 		EA6088352BF6F11A00DA07D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6088342BF6F11A00DA07D7 /* ViewController.swift */; };
@@ -71,6 +75,10 @@
 		EA3967512BF731410087062B /* DataGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGroup.swift; sourceTree = "<group>"; };
 		EA3967522BF731410087062B /* DataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTask.swift; sourceTree = "<group>"; };
 		EA3967562BF7346F0087062B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		EA3967582BF73AEE0087062B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		EA39675B2BF73BBF0087062B /* GroupDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDatabase.swift; sourceTree = "<group>"; };
+		EA39675D2BF73BC80087062B /* TaskDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDatabase.swift; sourceTree = "<group>"; };
+		EA39675F2BF73F4A0087062B /* AppDataase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataase.swift; sourceTree = "<group>"; };
 		EA60882D2BF6F11A00DA07D7 /* TodorimMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodorimMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA6088302BF6F11A00DA07D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA6088322BF6F11A00DA07D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,7 +168,6 @@
 				EA6088322BF6F11A00DA07D7 /* SceneDelegate.swift */,
 				EA3967482BF72A020087062B /* Configs.swift */,
 				EA39674B2BF72B200087062B /* Strings.swift */,
-				EA3967412BF71C0C0087062B /* Model */,
 				EA39673F2BF71BE50087062B /* Entity */,
 				EA3967402BF71BFF0087062B /* Extension */,
 			);
@@ -257,6 +264,18 @@
 			path = OldVersion;
 			sourceTree = "<group>";
 		};
+		EA39675A2BF73B3A0087062B /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				EA3967582BF73AEE0087062B /* DatabaseManager.swift */,
+				EA39675F2BF73F4A0087062B /* AppDataase.swift */,
+				EA39675B2BF73BBF0087062B /* GroupDatabase.swift */,
+				EA39675D2BF73BC80087062B /* TaskDatabase.swift */,
+				EA3967412BF71C0C0087062B /* Model */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		EA6088242BF6F11A00DA07D7 = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +303,7 @@
 			children = (
 				EA39672D2BF6F5280087062B /* Resources */,
 				EA39673B2BF71B480087062B /* Global */,
+				EA39675A2BF73B3A0087062B /* Database */,
 				EA39673E2BF71B8F0087062B /* Scene */,
 				EA6088342BF6F11A00DA07D7 /* ViewController.swift */,
 				EA6088362BF6F11A00DA07D7 /* Main.storyboard */,
@@ -569,17 +589,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA3967542BF731410087062B /* DataGroup.swift in Sources */,
+				EA3967602BF73F4A0087062B /* AppDataase.swift in Sources */,
 				EA3967532BF731410087062B /* DataTaskv2.swift in Sources */,
 				EA6088352BF6F11A00DA07D7 /* ViewController.swift in Sources */,
 				EA3967372BF6F6C70087062B /* Colors.swift in Sources */,
 				EA39674C2BF72B200087062B /* Strings.swift in Sources */,
+				EA39675E2BF73BC80087062B /* TaskDatabase.swift in Sources */,
 				EA3967392BF6F6CC0087062B /* Icons.swift in Sources */,
+				EA39675C2BF73BBF0087062B /* GroupDatabase.swift in Sources */,
 				EA3967572BF7346F0087062B /* Group.swift in Sources */,
 				EA3967552BF731410087062B /* DataTask.swift in Sources */,
 				EA6088312BF6F11A00DA07D7 /* AppDelegate.swift in Sources */,
 				EA3967352BF6F6BC0087062B /* Assets.swift in Sources */,
 				EA6088332BF6F11A00DA07D7 /* SceneDelegate.swift in Sources */,
 				EA39674E2BF731280087062B /* Task.swift in Sources */,
+				EA3967592BF73AEE0087062B /* DatabaseManager.swift in Sources */,
 				EA3967492BF72A020087062B /* Configs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
