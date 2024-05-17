@@ -9,7 +9,7 @@ import Foundation
 
 internal struct Configs {
     // 반복 알림 타입
-    internal enum notiRepeat: String {
+    internal enum notiDateRepeat: String {
         case none = "반복 안함"
         case daily = "매 일"
         case weekly = "매 주"
