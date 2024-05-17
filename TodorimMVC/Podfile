@@ -1,0 +1,26 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'TodorimMVC' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for TodorimMVC
+  #CodeConvention
+	#UI
+	pod 'SwiftGen', '~> 6.0'
+	pod 'Hero'      # https://github.com/lkzhao/Hero
+
+	#Realm
+	pod 'RealmSwift'
+
+  target 'TodorimMVCTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'TodorimMVCUITests' do
+    # Pods for testing
+  end
+
+end

@@ -1,0 +1,6 @@
+framework module Pods_TodorimMVC {
+  umbrella header "Pods-TodorimMVC-umbrella.h"
+
+  export *
+  module * { export * }
+}
