@@ -14,6 +14,8 @@
 		EA3967352BF6F6BC0087062B /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967342BF6F6BC0087062B /* Assets.swift */; };
 		EA3967372BF6F6C70087062B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967362BF6F6C70087062B /* Colors.swift */; };
 		EA3967392BF6F6CC0087062B /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967382BF6F6CC0087062B /* Icons.swift */; };
+		EA3967492BF72A020087062B /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967482BF72A020087062B /* Configs.swift */; };
+		EA39674C2BF72B200087062B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA39674B2BF72B200087062B /* Strings.swift */; };
 		EA6088312BF6F11A00DA07D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6088302BF6F11A00DA07D7 /* AppDelegate.swift */; };
 		EA6088332BF6F11A00DA07D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6088322BF6F11A00DA07D7 /* SceneDelegate.swift */; };
 		EA6088352BF6F11A00DA07D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6088342BF6F11A00DA07D7 /* ViewController.swift */; };
@@ -57,6 +59,8 @@
 		EA3967342BF6F6BC0087062B /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		EA3967362BF6F6C70087062B /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		EA3967382BF6F6CC0087062B /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		EA3967482BF72A020087062B /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
+		EA39674B2BF72B200087062B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		EA60882D2BF6F11A00DA07D7 /* TodorimMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodorimMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA6088302BF6F11A00DA07D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA6088322BF6F11A00DA07D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,16 +143,19 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		EA39673B2BF71B480087062B /* Common */ = {
+		EA39673B2BF71B480087062B /* Global */ = {
 			isa = PBXGroup;
 			children = (
 				EA6088302BF6F11A00DA07D7 /* AppDelegate.swift */,
 				EA6088322BF6F11A00DA07D7 /* SceneDelegate.swift */,
+				EA3967482BF72A020087062B /* Configs.swift */,
+				EA39674B2BF72B200087062B /* Strings.swift */,
 				EA3967412BF71C0C0087062B /* Model */,
 				EA39673F2BF71BE50087062B /* Entity */,
 				EA3967402BF71BFF0087062B /* Extension */,
+				EA39673E2BF71B8F0087062B /* Scene */,
 			);
-			path = Common;
+			path = Global;
 			sourceTree = "<group>";
 		};
 		EA39673E2BF71B8F0087062B /* Scene */ = {
@@ -253,8 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				EA39672D2BF6F5280087062B /* Resources */,
-				EA39673B2BF71B480087062B /* Common */,
-				EA39673E2BF71B8F0087062B /* Scene */,
+				EA39673B2BF71B480087062B /* Global */,
 				EA6088342BF6F11A00DA07D7 /* ViewController.swift */,
 				EA6088362BF6F11A00DA07D7 /* Main.storyboard */,
 			);
@@ -540,10 +546,12 @@
 			files = (
 				EA6088352BF6F11A00DA07D7 /* ViewController.swift in Sources */,
 				EA3967372BF6F6C70087062B /* Colors.swift in Sources */,
+				EA39674C2BF72B200087062B /* Strings.swift in Sources */,
 				EA3967392BF6F6CC0087062B /* Icons.swift in Sources */,
 				EA6088312BF6F11A00DA07D7 /* AppDelegate.swift in Sources */,
 				EA3967352BF6F6BC0087062B /* Assets.swift in Sources */,
 				EA6088332BF6F11A00DA07D7 /* SceneDelegate.swift in Sources */,
+				EA3967492BF72A020087062B /* Configs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
