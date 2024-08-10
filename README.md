@@ -31,11 +31,11 @@
 ### 개발환경
 iOS, Xcode
 ### 언어 및 프레임워크
-- 개발 도구 : Xcode (Version 15.1)h
-- 사용 언어 : Swift5
-- 프레임워크 : UIKit, MapKit, CoreLocation, UserNotifications
-- 아키텍처 : MVC
-- 라이브러리 : Hero, FAPaginationLayout, RealmSwift 등
+Swift5, UIKit, MapKit, CoreLocation, UserNotifications
+### 아키텍처 및 디자인 패턴
+MVC
+### 라이브러리
+Hero, FAPaginationLayout, RealmSwift 등
 
 <br>
 
