@@ -9,32 +9,130 @@
 /* Begin PBXBuildFile section */
 		5AA1C315A042AD836FC0F47A /* Pods_TodorimMVCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F19D903CFDF125B7A831A11 /* Pods_TodorimMVCTests.framework */; };
 		9CD969E0ACD99D3BD2A88C60 /* Pods_TodorimMVC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B4362F0F23248F4E503F83 /* Pods_TodorimMVC.framework */; };
-		EA3967302BF6F54A0087062B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA39672F2BF6F54A0087062B /* Colors.xcassets */; };
-		EA3967322BF6F55A0087062B /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA3967312BF6F55A0087062B /* Icons.xcassets */; };
-		EA3967352BF6F6BC0087062B /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967342BF6F6BC0087062B /* Assets.swift */; };
-		EA3967372BF6F6C70087062B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967362BF6F6C70087062B /* Colors.swift */; };
-		EA3967392BF6F6CC0087062B /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967382BF6F6CC0087062B /* Icons.swift */; };
-		EA3967492BF72A020087062B /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967482BF72A020087062B /* Configs.swift */; };
-		EA39674C2BF72B200087062B /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA39674B2BF72B200087062B /* Strings.swift */; };
-		EA39674E2BF731280087062B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA39674D2BF731280087062B /* Task.swift */; };
-		EA3967532BF731410087062B /* DataTaskv2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967502BF731410087062B /* DataTaskv2.swift */; };
-		EA3967542BF731410087062B /* DataGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967512BF731410087062B /* DataGroup.swift */; };
-		EA3967552BF731410087062B /* DataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967522BF731410087062B /* DataTask.swift */; };
-		EA3967572BF7346F0087062B /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967562BF7346F0087062B /* Group.swift */; };
-		EA3967592BF73AEE0087062B /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3967582BF73AEE0087062B /* DatabaseManager.swift */; };
-		EA39675C2BF73BBF0087062B /* GroupDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA39675B2BF73BBF0087062B /* GroupDatabase.swift */; };
-		EA39675E2BF73BC80087062B /* TaskDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA39675D2BF73BC80087062B /* TaskDatabase.swift */; };
-		EA3967602BF73F4A0087062B /* AppDataase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA39675F2BF73F4A0087062B /* AppDataase.swift */; };
-		EA6088312BF6F11A00DA07D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6088302BF6F11A00DA07D7 /* AppDelegate.swift */; };
-		EA6088332BF6F11A00DA07D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6088322BF6F11A00DA07D7 /* SceneDelegate.swift */; };
-		EA6088352BF6F11A00DA07D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6088342BF6F11A00DA07D7 /* ViewController.swift */; };
-		EA6088382BF6F11A00DA07D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA6088362BF6F11A00DA07D7 /* Main.storyboard */; };
-		EA60883A2BF6F11B00DA07D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA6088392BF6F11B00DA07D7 /* Assets.xcassets */; };
-		EA60883D2BF6F11B00DA07D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA60883B2BF6F11B00DA07D7 /* LaunchScreen.storyboard */; };
 		EA6088482BF6F11B00DA07D7 /* TodorimMVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6088472BF6F11B00DA07D7 /* TodorimMVCTests.swift */; };
 		EA6088522BF6F11B00DA07D7 /* TodorimMVCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6088512BF6F11B00DA07D7 /* TodorimMVCUITests.swift */; };
 		EA6088542BF6F11B00DA07D7 /* TodorimMVCUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6088532BF6F11B00DA07D7 /* TodorimMVCUITestsLaunchTests.swift */; };
 		EA87CACBE33B35C1C1BF56E4 /* Pods_TodorimMVC_TodorimMVCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30C7508212D26F38EA7E46EB /* Pods_TodorimMVC_TodorimMVCUITests.framework */; };
+		EAC6814B2C6903B00010ECCC /* DataGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681452C6903B00010ECCC /* DataGroup.swift */; };
+		EAC6814C2C6903B00010ECCC /* DataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681462C6903B00010ECCC /* DataTask.swift */; };
+		EAC6814D2C6903B00010ECCC /* DataTaskv2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681472C6903B00010ECCC /* DataTaskv2.swift */; };
+		EAC6814E2C6903B00010ECCC /* NotiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681482C6903B00010ECCC /* NotiConfig.swift */; };
+		EAC6815F2C6903BE0010ECCC /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6814F2C6903BE0010ECCC /* CustomDatePicker.swift */; };
+		EAC681602C6903BE0010ECCC /* CustomDayPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681502C6903BE0010ECCC /* CustomDayPicker.swift */; };
+		EAC681612C6903BE0010ECCC /* CustomGroupPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681512C6903BE0010ECCC /* CustomGroupPicker.swift */; };
+		EAC681622C6903BE0010ECCC /* CustomTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681522C6903BE0010ECCC /* CustomTabButton.swift */; };
+		EAC681632C6903BE0010ECCC /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681532C6903BE0010ECCC /* CustomTextField.swift */; };
+		EAC681642C6903BE0010ECCC /* CustomTextFieldCusor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681542C6903BE0010ECCC /* CustomTextFieldCusor.swift */; };
+		EAC681652C6903BE0010ECCC /* CustomTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681552C6903BE0010ECCC /* CustomTimePicker.swift */; };
+		EAC681662C6903BE0010ECCC /* CustomWeekPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681562C6903BE0010ECCC /* CustomWeekPicker.swift */; };
+		EAC681672C6903BE0010ECCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681582C6903BE0010ECCC /* AppDelegate.swift */; };
+		EAC681682C6903BE0010ECCC /* CommonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681592C6903BE0010ECCC /* CommonGroup.swift */; };
+		EAC681692C6903BE0010ECCC /* CommonNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6815A2C6903BE0010ECCC /* CommonNav.swift */; };
+		EAC6816A2C6903BE0010ECCC /* CommonNoti.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6815B2C6903BE0010ECCC /* CommonNoti.swift */; };
+		EAC6816B2C6903BE0010ECCC /* CommonRealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6815C2C6903BE0010ECCC /* CommonRealmDB.swift */; };
+		EAC6816C2C6903BE0010ECCC /* CommonSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6815D2C6903BE0010ECCC /* CommonSetting.swift */; };
+		EAC6818C2C6903C60010ECCC /* AddGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6816D2C6903C60010ECCC /* AddGroupCell.swift */; };
+		EAC6818D2C6903C60010ECCC /* AddGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC6816E2C6903C60010ECCC /* AddGroupCell.xib */; };
+		EAC6818E2C6903C60010ECCC /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6816F2C6903C60010ECCC /* GroupCell.swift */; };
+		EAC6818F2C6903C60010ECCC /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC681702C6903C60010ECCC /* GroupCell.xib */; };
+		EAC681902C6903C60010ECCC /* GroupColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681712C6903C60010ECCC /* GroupColorCell.swift */; };
+		EAC681912C6903C60010ECCC /* GroupColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC681722C6903C60010ECCC /* GroupColorCell.xib */; };
+		EAC681922C6903C60010ECCC /* GroupTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681732C6903C60010ECCC /* GroupTaskCell.swift */; };
+		EAC681932C6903C60010ECCC /* GroupTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC681742C6903C60010ECCC /* GroupTaskCell.xib */; };
+		EAC681942C6903C60010ECCC /* AddGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681762C6903C60010ECCC /* AddGroupVC.swift */; };
+		EAC681952C6903C60010ECCC /* GroupTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681772C6903C60010ECCC /* GroupTaskVC.swift */; };
+		EAC681962C6903C60010ECCC /* GroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681782C6903C60010ECCC /* GroupVC.swift */; };
+		EAC681972C6903C60010ECCC /* ModifyGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681792C6903C60010ECCC /* ModifyGroupVC.swift */; };
+		EAC681982C6903C60010ECCC /* IntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6817B2C6903C60010ECCC /* IntroVC.swift */; };
+		EAC681992C6903C60010ECCC /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6817D2C6903C60010ECCC /* TabBarVC.swift */; };
+		EAC6819A2C6903C60010ECCC /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6817F2C6903C60010ECCC /* TaskCell.swift */; };
+		EAC6819B2C6903C60010ECCC /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC681802C6903C60010ECCC /* TaskCell.xib */; };
+		EAC6819C2C6903C60010ECCC /* TaskOneNotiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681812C6903C60010ECCC /* TaskOneNotiCell.swift */; };
+		EAC6819D2C6903C60010ECCC /* TaskOneNotiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC681822C6903C60010ECCC /* TaskOneNotiCell.xib */; };
+		EAC6819E2C6903C60010ECCC /* TaskTwoNotiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681832C6903C60010ECCC /* TaskTwoNotiCell.swift */; };
+		EAC6819F2C6903C60010ECCC /* TaskTwoNotiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC681842C6903C60010ECCC /* TaskTwoNotiCell.xib */; };
+		EAC681A02C6903C60010ECCC /* AddTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681862C6903C60010ECCC /* AddTaskVC.swift */; };
+		EAC681A12C6903C60010ECCC /* SearchLocationMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681872C6903C60010ECCC /* SearchLocationMapVC.swift */; };
+		EAC681A22C6903C60010ECCC /* SearchLocationTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681882C6903C60010ECCC /* SearchLocationTVC.swift */; };
+		EAC681A32C6903C60010ECCC /* SearchLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681892C6903C60010ECCC /* SearchLocationVC.swift */; };
+		EAC681AC2C6903D80010ECCC /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC681A42C6903D80010ECCC /* Group.storyboard */; };
+		EAC681AD2C6903D80010ECCC /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC681A52C6903D80010ECCC /* Intro.storyboard */; };
+		EAC681AE2C6903D80010ECCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC681A72C6903D80010ECCC /* LaunchScreen.storyboard */; };
+		EAC681AF2C6903D80010ECCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC681A92C6903D80010ECCC /* Main.storyboard */; };
+		EAC681B02C6903D80010ECCC /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC681AA2C6903D80010ECCC /* Task.storyboard */; };
+		EAC6820B2C6903E20010ECCC /* CustomizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681B12C6903E20010ECCC /* CustomizedTabBar.swift */; };
+		EAC6820C2C6903E20010ECCC /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681B42C6903E20010ECCC /* DateHelper.swift */; };
+		EAC6820D2C6903E20010ECCC /* CAGradientLayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681B62C6903E20010ECCC /* CAGradientLayerExtension.swift */; };
+		EAC6820E2C6903E20010ECCC /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681B72C6903E20010ECCC /* DateExtension.swift */; };
+		EAC6820F2C6903E20010ECCC /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681B82C6903E20010ECCC /* DoubleExtension.swift */; };
+		EAC682102C6903E20010ECCC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681B92C6903E20010ECCC /* StringExtension.swift */; };
+		EAC682112C6903E20010ECCC /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681BA2C6903E20010ECCC /* UIColorExtension.swift */; };
+		EAC682122C6903E20010ECCC /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681BB2C6903E20010ECCC /* UITextFieldExtension.swift */; };
+		EAC682132C6903E20010ECCC /* FAPaginationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681BD2C6903E20010ECCC /* FAPaginationLayout.swift */; };
+		EAC682142C6903E20010ECCC /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681BF2C6903E20010ECCC /* Geotification.swift */; };
+		EAC682152C6903E20010ECCC /* HeroAnimatorViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681C12C6903E20010ECCC /* HeroAnimatorViewContext.swift */; };
+		EAC682162C6903E20010ECCC /* HeroCoreAnimationViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681C22C6903E20010ECCC /* HeroCoreAnimationViewContext.swift */; };
+		EAC682172C6903E20010ECCC /* HeroDefaultAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681C32C6903E20010ECCC /* HeroDefaultAnimator.swift */; };
+		EAC682182C6903E20010ECCC /* HeroViewPropertyViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681C42C6903E20010ECCC /* HeroViewPropertyViewContext.swift */; };
+		EAC682192C6903E20010ECCC /* HeroDebugPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681C62C6903E20010ECCC /* HeroDebugPlugin.swift */; };
+		EAC6821A2C6903E20010ECCC /* HeroDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681C72C6903E20010ECCC /* HeroDebugView.swift */; };
+		EAC6821B2C6903E20010ECCC /* Array+HeroModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681C92C6903E20010ECCC /* Array+HeroModifier.swift */; };
+		EAC6821C2C6903E20010ECCC /* CALayer+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681CA2C6903E20010ECCC /* CALayer+Hero.swift */; };
+		EAC6821D2C6903E20010ECCC /* CAMediaTimingFunction+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681CB2C6903E20010ECCC /* CAMediaTimingFunction+Hero.swift */; };
+		EAC6821E2C6903E20010ECCC /* CG+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681CC2C6903E20010ECCC /* CG+Hero.swift */; };
+		EAC6821F2C6903E20010ECCC /* DispatchQueue+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681CD2C6903E20010ECCC /* DispatchQueue+Hero.swift */; };
+		EAC682202C6903E20010ECCC /* UIKit+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681CE2C6903E20010ECCC /* UIKit+Hero.swift */; };
+		EAC682212C6903E20010ECCC /* UIView+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681CF2C6903E20010ECCC /* UIView+Hero.swift */; };
+		EAC682222C6903E20010ECCC /* UIViewController+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681D02C6903E20010ECCC /* UIViewController+Hero.swift */; };
+		EAC682232C6903E20010ECCC /* HeroStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681D22C6903E20010ECCC /* HeroStringConvertible.swift */; };
+		EAC682242C6903E20010ECCC /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681D32C6903E20010ECCC /* Lexer.swift */; };
+		EAC682252C6903E20010ECCC /* Nodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681D42C6903E20010ECCC /* Nodes.swift */; };
+		EAC682262C6903E20010ECCC /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681D52C6903E20010ECCC /* Parser.swift */; };
+		EAC682272C6903E20010ECCC /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681D62C6903E20010ECCC /* Regex.swift */; };
+		EAC682282C6903E20010ECCC /* BasePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681D82C6903E20010ECCC /* BasePreprocessor.swift */; };
+		EAC682292C6903E20010ECCC /* CascadePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681D92C6903E20010ECCC /* CascadePreprocessor.swift */; };
+		EAC6822A2C6903E20010ECCC /* ConditionalPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681DA2C6903E20010ECCC /* ConditionalPreprocessor.swift */; };
+		EAC6822B2C6903E20010ECCC /* DefaultAnimationPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681DB2C6903E20010ECCC /* DefaultAnimationPreprocessor.swift */; };
+		EAC6822C2C6903E20010ECCC /* IgnoreSubviewModifiersPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681DC2C6903E20010ECCC /* IgnoreSubviewModifiersPreprocessor.swift */; };
+		EAC6822D2C6903E20010ECCC /* MatchPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681DD2C6903E20010ECCC /* MatchPreprocessor.swift */; };
+		EAC6822E2C6903E20010ECCC /* SourcePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681DE2C6903E20010ECCC /* SourcePreprocessor.swift */; };
+		EAC6822F2C6903E20010ECCC /* HeroProgressRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681E02C6903E20010ECCC /* HeroProgressRunner.swift */; };
+		EAC682302C6903E20010ECCC /* HeroTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681E12C6903E20010ECCC /* HeroTransition.swift */; };
+		EAC682312C6903E20010ECCC /* HeroTransition+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681E22C6903E20010ECCC /* HeroTransition+Animate.swift */; };
+		EAC682322C6903E20010ECCC /* HeroTransition+Complete.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681E32C6903E20010ECCC /* HeroTransition+Complete.swift */; };
+		EAC682332C6903E20010ECCC /* HeroTransition+CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681E42C6903E20010ECCC /* HeroTransition+CustomTransition.swift */; };
+		EAC682342C6903E20010ECCC /* HeroTransition+Interactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681E52C6903E20010ECCC /* HeroTransition+Interactive.swift */; };
+		EAC682352C6903E20010ECCC /* HeroTransition+Start.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681E62C6903E20010ECCC /* HeroTransition+Start.swift */; };
+		EAC682362C6903E20010ECCC /* HeroTransition+UINavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681E72C6903E20010ECCC /* HeroTransition+UINavigationControllerDelegate.swift */; };
+		EAC682372C6903E20010ECCC /* HeroTransition+UITabBarControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681E82C6903E20010ECCC /* HeroTransition+UITabBarControllerDelegate.swift */; };
+		EAC682382C6903E20010ECCC /* HeroTransition+UIViewControllerTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681E92C6903E20010ECCC /* HeroTransition+UIViewControllerTransitioningDelegate.swift */; };
+		EAC682392C6903E20010ECCC /* HeroTransitionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681EA2C6903E20010ECCC /* HeroTransitionState.swift */; };
+		EAC6823A2C6903E20010ECCC /* HeroCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681ED2C6903E20010ECCC /* HeroCompatible.swift */; };
+		EAC6823B2C6903E20010ECCC /* HeroContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681EE2C6903E20010ECCC /* HeroContext.swift */; };
+		EAC6823C2C6903E20010ECCC /* HeroModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681EF2C6903E20010ECCC /* HeroModifier.swift */; };
+		EAC6823D2C6903E20010ECCC /* HeroModifier+Advanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681F02C6903E20010ECCC /* HeroModifier+Advanced.swift */; };
+		EAC6823E2C6903E20010ECCC /* HeroModifier+HeroStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681F12C6903E20010ECCC /* HeroModifier+HeroStringConvertible.swift */; };
+		EAC6823F2C6903E20010ECCC /* HeroPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681F22C6903E20010ECCC /* HeroPlugin.swift */; };
+		EAC682402C6903E20010ECCC /* HeroTargetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681F32C6903E20010ECCC /* HeroTargetState.swift */; };
+		EAC682412C6903E20010ECCC /* HeroTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681F42C6903E20010ECCC /* HeroTypes.swift */; };
+		EAC682422C6903E20010ECCC /* HeroViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681F52C6903E20010ECCC /* HeroViewControllerDelegate.swift */; };
+		EAC682432C6903E20010ECCC /* SwiftSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681F62C6903E20010ECCC /* SwiftSupport.swift */; };
+		EAC682442C6903E20010ECCC /* CKRecordConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681F92C6903E20010ECCC /* CKRecordConvertible.swift */; };
+		EAC682452C6903E20010ECCC /* CKRecordRecoverable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681FA2C6903E20010ECCC /* CKRecordRecoverable.swift */; };
+		EAC682462C6903E20010ECCC /* CreamAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681FB2C6903E20010ECCC /* CreamAsset.swift */; };
+		EAC682472C6903E20010ECCC /* DatabaseManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681FC2C6903E20010ECCC /* DatabaseManagerProtocol.swift */; };
+		EAC682482C6903E20010ECCC /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681FD2C6903E20010ECCC /* ErrorHandler.swift */; };
+		EAC682492C6903E20010ECCC /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681FE2C6903E20010ECCC /* Manifest.swift */; };
+		EAC6824A2C6903E20010ECCC /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC681FF2C6903E20010ECCC /* Notification+Name.swift */; };
+		EAC6824B2C6903E20010ECCC /* PrivateDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682002C6903E20010ECCC /* PrivateDatabaseManager.swift */; };
+		EAC6824C2C6903E20010ECCC /* PublicDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682012C6903E20010ECCC /* PublicDatabaseManager.swift */; };
+		EAC6824D2C6903E20010ECCC /* Syncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682022C6903E20010ECCC /* Syncable.swift */; };
+		EAC6824E2C6903E20010ECCC /* SyncEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682032C6903E20010ECCC /* SyncEngine.swift */; };
+		EAC6824F2C6903E20010ECCC /* SyncObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682042C6903E20010ECCC /* SyncObject.swift */; };
+		EAC682502C6903E20010ECCC /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682062C6903E20010ECCC /* MadokaTextField.swift */; };
+		EAC682512C6903E20010ECCC /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682082C6903E20010ECCC /* TextFieldEffects.swift */; };
+		EAC682562C6903EA0010ECCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAC682522C6903EA0010ECCC /* Assets.xcassets */; };
+		EAC682572C6903EA0010ECCC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAC682542C6903EA0010ECCC /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,35 +161,135 @@
 		53C0999CE823C803C51D5D43 /* Pods-TodorimMVC-TodorimMVCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodorimMVC-TodorimMVCUITests.debug.xcconfig"; path = "Target Support Files/Pods-TodorimMVC-TodorimMVCUITests/Pods-TodorimMVC-TodorimMVCUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E5B4362F0F23248F4E503F83 /* Pods_TodorimMVC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodorimMVC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98C2CB1575D25B16AC4CF56 /* Pods-TodorimMVC-TodorimMVCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodorimMVC-TodorimMVCUITests.release.xcconfig"; path = "Target Support Files/Pods-TodorimMVC-TodorimMVCUITests/Pods-TodorimMVC-TodorimMVCUITests.release.xcconfig"; sourceTree = "<group>"; };
-		EA39672F2BF6F54A0087062B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		EA3967312BF6F55A0087062B /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
-		EA3967342BF6F6BC0087062B /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
-		EA3967362BF6F6C70087062B /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		EA3967382BF6F6CC0087062B /* Icons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
-		EA3967482BF72A020087062B /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
-		EA39674B2BF72B200087062B /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
-		EA39674D2BF731280087062B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		EA3967502BF731410087062B /* DataTaskv2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTaskv2.swift; sourceTree = "<group>"; };
-		EA3967512BF731410087062B /* DataGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGroup.swift; sourceTree = "<group>"; };
-		EA3967522BF731410087062B /* DataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTask.swift; sourceTree = "<group>"; };
-		EA3967562BF7346F0087062B /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		EA3967582BF73AEE0087062B /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
-		EA39675B2BF73BBF0087062B /* GroupDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDatabase.swift; sourceTree = "<group>"; };
-		EA39675D2BF73BC80087062B /* TaskDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDatabase.swift; sourceTree = "<group>"; };
-		EA39675F2BF73F4A0087062B /* AppDataase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataase.swift; sourceTree = "<group>"; };
 		EA60882D2BF6F11A00DA07D7 /* TodorimMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodorimMVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA6088302BF6F11A00DA07D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EA6088322BF6F11A00DA07D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EA6088342BF6F11A00DA07D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EA6088372BF6F11A00DA07D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EA6088392BF6F11B00DA07D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EA60883C2BF6F11B00DA07D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EA60883E2BF6F11B00DA07D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA6088432BF6F11B00DA07D7 /* TodorimMVCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodorimMVCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA6088472BF6F11B00DA07D7 /* TodorimMVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodorimMVCTests.swift; sourceTree = "<group>"; };
 		EA60884D2BF6F11B00DA07D7 /* TodorimMVCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodorimMVCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA6088512BF6F11B00DA07D7 /* TodorimMVCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodorimMVCUITests.swift; sourceTree = "<group>"; };
 		EA6088532BF6F11B00DA07D7 /* TodorimMVCUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodorimMVCUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EAC681452C6903B00010ECCC /* DataGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGroup.swift; sourceTree = "<group>"; };
+		EAC681462C6903B00010ECCC /* DataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTask.swift; sourceTree = "<group>"; };
+		EAC681472C6903B00010ECCC /* DataTaskv2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTaskv2.swift; sourceTree = "<group>"; };
+		EAC681482C6903B00010ECCC /* NotiConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotiConfig.swift; sourceTree = "<group>"; };
+		EAC6814F2C6903BE0010ECCC /* CustomDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
+		EAC681502C6903BE0010ECCC /* CustomDayPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDayPicker.swift; sourceTree = "<group>"; };
+		EAC681512C6903BE0010ECCC /* CustomGroupPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomGroupPicker.swift; sourceTree = "<group>"; };
+		EAC681522C6903BE0010ECCC /* CustomTabButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabButton.swift; sourceTree = "<group>"; };
+		EAC681532C6903BE0010ECCC /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		EAC681542C6903BE0010ECCC /* CustomTextFieldCusor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextFieldCusor.swift; sourceTree = "<group>"; };
+		EAC681552C6903BE0010ECCC /* CustomTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTimePicker.swift; sourceTree = "<group>"; };
+		EAC681562C6903BE0010ECCC /* CustomWeekPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomWeekPicker.swift; sourceTree = "<group>"; };
+		EAC681582C6903BE0010ECCC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EAC681592C6903BE0010ECCC /* CommonGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonGroup.swift; sourceTree = "<group>"; };
+		EAC6815A2C6903BE0010ECCC /* CommonNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonNav.swift; sourceTree = "<group>"; };
+		EAC6815B2C6903BE0010ECCC /* CommonNoti.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "\U0010CommonNoti.swift"; sourceTree = "<group>"; };
+		EAC6815C2C6903BE0010ECCC /* CommonRealmDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonRealmDB.swift; sourceTree = "<group>"; };
+		EAC6815D2C6903BE0010ECCC /* CommonSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonSetting.swift; sourceTree = "<group>"; };
+		EAC6816D2C6903C60010ECCC /* AddGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGroupCell.swift; sourceTree = "<group>"; };
+		EAC6816E2C6903C60010ECCC /* AddGroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddGroupCell.xib; sourceTree = "<group>"; };
+		EAC6816F2C6903C60010ECCC /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
+		EAC681702C6903C60010ECCC /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
+		EAC681712C6903C60010ECCC /* GroupColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupColorCell.swift; sourceTree = "<group>"; };
+		EAC681722C6903C60010ECCC /* GroupColorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupColorCell.xib; sourceTree = "<group>"; };
+		EAC681732C6903C60010ECCC /* GroupTaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTaskCell.swift; sourceTree = "<group>"; };
+		EAC681742C6903C60010ECCC /* GroupTaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupTaskCell.xib; sourceTree = "<group>"; };
+		EAC681762C6903C60010ECCC /* AddGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGroupVC.swift; sourceTree = "<group>"; };
+		EAC681772C6903C60010ECCC /* GroupTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTaskVC.swift; sourceTree = "<group>"; };
+		EAC681782C6903C60010ECCC /* GroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupVC.swift; sourceTree = "<group>"; };
+		EAC681792C6903C60010ECCC /* ModifyGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyGroupVC.swift; sourceTree = "<group>"; };
+		EAC6817B2C6903C60010ECCC /* IntroVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroVC.swift; sourceTree = "<group>"; };
+		EAC6817D2C6903C60010ECCC /* TabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		EAC6817F2C6903C60010ECCC /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		EAC681802C6903C60010ECCC /* TaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
+		EAC681812C6903C60010ECCC /* TaskOneNotiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskOneNotiCell.swift; sourceTree = "<group>"; };
+		EAC681822C6903C60010ECCC /* TaskOneNotiCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskOneNotiCell.xib; sourceTree = "<group>"; };
+		EAC681832C6903C60010ECCC /* TaskTwoNotiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTwoNotiCell.swift; sourceTree = "<group>"; };
+		EAC681842C6903C60010ECCC /* TaskTwoNotiCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskTwoNotiCell.xib; sourceTree = "<group>"; };
+		EAC681862C6903C60010ECCC /* AddTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskVC.swift; sourceTree = "<group>"; };
+		EAC681872C6903C60010ECCC /* SearchLocationMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchLocationMapVC.swift; sourceTree = "<group>"; };
+		EAC681882C6903C60010ECCC /* SearchLocationTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchLocationTVC.swift; sourceTree = "<group>"; };
+		EAC681892C6903C60010ECCC /* SearchLocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchLocationVC.swift; sourceTree = "<group>"; };
+		EAC681A42C6903D80010ECCC /* Group.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
+		EAC681A52C6903D80010ECCC /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		EAC681A62C6903D80010ECCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EAC681A82C6903D80010ECCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EAC681AA2C6903D80010ECCC /* Task.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
+		EAC681B12C6903E20010ECCC /* CustomizedTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizedTabBar.swift; sourceTree = "<group>"; };
+		EAC681B32C6903E20010ECCC /* DateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHelper.h; sourceTree = "<group>"; };
+		EAC681B42C6903E20010ECCC /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		EAC681B62C6903E20010ECCC /* CAGradientLayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAGradientLayerExtension.swift; sourceTree = "<group>"; };
+		EAC681B72C6903E20010ECCC /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		EAC681B82C6903E20010ECCC /* DoubleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		EAC681B92C6903E20010ECCC /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		EAC681BA2C6903E20010ECCC /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		EAC681BB2C6903E20010ECCC /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		EAC681BD2C6903E20010ECCC /* FAPaginationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAPaginationLayout.swift; sourceTree = "<group>"; };
+		EAC681BF2C6903E20010ECCC /* Geotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geotification.swift; sourceTree = "<group>"; };
+		EAC681C12C6903E20010ECCC /* HeroAnimatorViewContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroAnimatorViewContext.swift; sourceTree = "<group>"; };
+		EAC681C22C6903E20010ECCC /* HeroCoreAnimationViewContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroCoreAnimationViewContext.swift; sourceTree = "<group>"; };
+		EAC681C32C6903E20010ECCC /* HeroDefaultAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDefaultAnimator.swift; sourceTree = "<group>"; };
+		EAC681C42C6903E20010ECCC /* HeroViewPropertyViewContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroViewPropertyViewContext.swift; sourceTree = "<group>"; };
+		EAC681C62C6903E20010ECCC /* HeroDebugPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDebugPlugin.swift; sourceTree = "<group>"; };
+		EAC681C72C6903E20010ECCC /* HeroDebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDebugView.swift; sourceTree = "<group>"; };
+		EAC681C92C6903E20010ECCC /* Array+HeroModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+HeroModifier.swift"; sourceTree = "<group>"; };
+		EAC681CA2C6903E20010ECCC /* CALayer+Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Hero.swift"; sourceTree = "<group>"; };
+		EAC681CB2C6903E20010ECCC /* CAMediaTimingFunction+Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAMediaTimingFunction+Hero.swift"; sourceTree = "<group>"; };
+		EAC681CC2C6903E20010ECCC /* CG+Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CG+Hero.swift"; sourceTree = "<group>"; };
+		EAC681CD2C6903E20010ECCC /* DispatchQueue+Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Hero.swift"; sourceTree = "<group>"; };
+		EAC681CE2C6903E20010ECCC /* UIKit+Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Hero.swift"; sourceTree = "<group>"; };
+		EAC681CF2C6903E20010ECCC /* UIView+Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Hero.swift"; sourceTree = "<group>"; };
+		EAC681D02C6903E20010ECCC /* UIViewController+Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Hero.swift"; sourceTree = "<group>"; };
+		EAC681D22C6903E20010ECCC /* HeroStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroStringConvertible.swift; sourceTree = "<group>"; };
+		EAC681D32C6903E20010ECCC /* Lexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
+		EAC681D42C6903E20010ECCC /* Nodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nodes.swift; sourceTree = "<group>"; };
+		EAC681D52C6903E20010ECCC /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		EAC681D62C6903E20010ECCC /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		EAC681D82C6903E20010ECCC /* BasePreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePreprocessor.swift; sourceTree = "<group>"; };
+		EAC681D92C6903E20010ECCC /* CascadePreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CascadePreprocessor.swift; sourceTree = "<group>"; };
+		EAC681DA2C6903E20010ECCC /* ConditionalPreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionalPreprocessor.swift; sourceTree = "<group>"; };
+		EAC681DB2C6903E20010ECCC /* DefaultAnimationPreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAnimationPreprocessor.swift; sourceTree = "<group>"; };
+		EAC681DC2C6903E20010ECCC /* IgnoreSubviewModifiersPreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IgnoreSubviewModifiersPreprocessor.swift; sourceTree = "<group>"; };
+		EAC681DD2C6903E20010ECCC /* MatchPreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchPreprocessor.swift; sourceTree = "<group>"; };
+		EAC681DE2C6903E20010ECCC /* SourcePreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourcePreprocessor.swift; sourceTree = "<group>"; };
+		EAC681E02C6903E20010ECCC /* HeroProgressRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroProgressRunner.swift; sourceTree = "<group>"; };
+		EAC681E12C6903E20010ECCC /* HeroTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroTransition.swift; sourceTree = "<group>"; };
+		EAC681E22C6903E20010ECCC /* HeroTransition+Animate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeroTransition+Animate.swift"; sourceTree = "<group>"; };
+		EAC681E32C6903E20010ECCC /* HeroTransition+Complete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeroTransition+Complete.swift"; sourceTree = "<group>"; };
+		EAC681E42C6903E20010ECCC /* HeroTransition+CustomTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeroTransition+CustomTransition.swift"; sourceTree = "<group>"; };
+		EAC681E52C6903E20010ECCC /* HeroTransition+Interactive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeroTransition+Interactive.swift"; sourceTree = "<group>"; };
+		EAC681E62C6903E20010ECCC /* HeroTransition+Start.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeroTransition+Start.swift"; sourceTree = "<group>"; };
+		EAC681E72C6903E20010ECCC /* HeroTransition+UINavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeroTransition+UINavigationControllerDelegate.swift"; sourceTree = "<group>"; };
+		EAC681E82C6903E20010ECCC /* HeroTransition+UITabBarControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeroTransition+UITabBarControllerDelegate.swift"; sourceTree = "<group>"; };
+		EAC681E92C6903E20010ECCC /* HeroTransition+UIViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeroTransition+UIViewControllerTransitioningDelegate.swift"; sourceTree = "<group>"; };
+		EAC681EA2C6903E20010ECCC /* HeroTransitionState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroTransitionState.swift; sourceTree = "<group>"; };
+		EAC681EC2C6903E20010ECCC /* Hero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hero.h; sourceTree = "<group>"; };
+		EAC681ED2C6903E20010ECCC /* HeroCompatible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroCompatible.swift; sourceTree = "<group>"; };
+		EAC681EE2C6903E20010ECCC /* HeroContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroContext.swift; sourceTree = "<group>"; };
+		EAC681EF2C6903E20010ECCC /* HeroModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroModifier.swift; sourceTree = "<group>"; };
+		EAC681F02C6903E20010ECCC /* HeroModifier+Advanced.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeroModifier+Advanced.swift"; sourceTree = "<group>"; };
+		EAC681F12C6903E20010ECCC /* HeroModifier+HeroStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeroModifier+HeroStringConvertible.swift"; sourceTree = "<group>"; };
+		EAC681F22C6903E20010ECCC /* HeroPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroPlugin.swift; sourceTree = "<group>"; };
+		EAC681F32C6903E20010ECCC /* HeroTargetState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroTargetState.swift; sourceTree = "<group>"; };
+		EAC681F42C6903E20010ECCC /* HeroTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroTypes.swift; sourceTree = "<group>"; };
+		EAC681F52C6903E20010ECCC /* HeroViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroViewControllerDelegate.swift; sourceTree = "<group>"; };
+		EAC681F62C6903E20010ECCC /* SwiftSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSupport.swift; sourceTree = "<group>"; };
+		EAC681F92C6903E20010ECCC /* CKRecordConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKRecordConvertible.swift; sourceTree = "<group>"; };
+		EAC681FA2C6903E20010ECCC /* CKRecordRecoverable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKRecordRecoverable.swift; sourceTree = "<group>"; };
+		EAC681FB2C6903E20010ECCC /* CreamAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreamAsset.swift; sourceTree = "<group>"; };
+		EAC681FC2C6903E20010ECCC /* DatabaseManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManagerProtocol.swift; sourceTree = "<group>"; };
+		EAC681FD2C6903E20010ECCC /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		EAC681FE2C6903E20010ECCC /* Manifest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manifest.swift; sourceTree = "<group>"; };
+		EAC681FF2C6903E20010ECCC /* Notification+Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
+		EAC682002C6903E20010ECCC /* PrivateDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateDatabaseManager.swift; sourceTree = "<group>"; };
+		EAC682012C6903E20010ECCC /* PublicDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicDatabaseManager.swift; sourceTree = "<group>"; };
+		EAC682022C6903E20010ECCC /* Syncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Syncable.swift; sourceTree = "<group>"; };
+		EAC682032C6903E20010ECCC /* SyncEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncEngine.swift; sourceTree = "<group>"; };
+		EAC682042C6903E20010ECCC /* SyncObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncObject.swift; sourceTree = "<group>"; };
+		EAC682062C6903E20010ECCC /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadokaTextField.swift; sourceTree = "<group>"; };
+		EAC682072C6903E20010ECCC /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
+		EAC682082C6903E20010ECCC /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
+		EAC682522C6903EA0010ECCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EAC682542C6903EA0010ECCC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F457AE0DB2B5A98DA18B8040 /* Pods-TodorimMVCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodorimMVCTests.release.xcconfig"; path = "Target Support Files/Pods-TodorimMVCTests/Pods-TodorimMVCTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,136 +344,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EA39672D2BF6F5280087062B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				EA3967342BF6F6BC0087062B /* Assets.swift */,
-				EA3967362BF6F6C70087062B /* Colors.swift */,
-				EA3967382BF6F6CC0087062B /* Icons.swift */,
-				EA60883B2BF6F11B00DA07D7 /* LaunchScreen.storyboard */,
-				EA60883E2BF6F11B00DA07D7 /* Info.plist */,
-				EA6088392BF6F11B00DA07D7 /* Assets.xcassets */,
-				EA39672F2BF6F54A0087062B /* Colors.xcassets */,
-				EA3967312BF6F55A0087062B /* Icons.xcassets */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		EA39673B2BF71B480087062B /* Global */ = {
-			isa = PBXGroup;
-			children = (
-				EA6088302BF6F11A00DA07D7 /* AppDelegate.swift */,
-				EA6088322BF6F11A00DA07D7 /* SceneDelegate.swift */,
-				EA3967482BF72A020087062B /* Configs.swift */,
-				EA39674B2BF72B200087062B /* Strings.swift */,
-				EA39673F2BF71BE50087062B /* Entity */,
-				EA3967402BF71BFF0087062B /* Extension */,
-			);
-			path = Global;
-			sourceTree = "<group>";
-		};
-		EA39673E2BF71B8F0087062B /* Scene */ = {
-			isa = PBXGroup;
-			children = (
-				EA3967422BF71C3A0087062B /* Common */,
-				EA3967432BF71C420087062B /* Main */,
-				EA3967442BF71C4E0087062B /* Group */,
-				EA3967462BF71C8B0087062B /* Todo */,
-			);
-			name = Scene;
-			path = Global/Scene;
-			sourceTree = "<group>";
-		};
-		EA39673F2BF71BE50087062B /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
-		EA3967402BF71BFF0087062B /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		EA3967412BF71C0C0087062B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				EA39674F2BF7312F0087062B /* OldVersion */,
-				EA39674D2BF731280087062B /* Task.swift */,
-				EA3967562BF7346F0087062B /* Group.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		EA3967422BF71C3A0087062B /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		EA3967432BF71C420087062B /* Main */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		EA3967442BF71C4E0087062B /* Group */ = {
-			isa = PBXGroup;
-			children = (
-				EA3967452BF71C590087062B /* Edit */,
-			);
-			path = Group;
-			sourceTree = "<group>";
-		};
-		EA3967452BF71C590087062B /* Edit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Edit;
-			sourceTree = "<group>";
-		};
-		EA3967462BF71C8B0087062B /* Todo */ = {
-			isa = PBXGroup;
-			children = (
-				EA3967472BF71CCE0087062B /* Edit */,
-			);
-			path = Todo;
-			sourceTree = "<group>";
-		};
-		EA3967472BF71CCE0087062B /* Edit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Edit;
-			sourceTree = "<group>";
-		};
-		EA39674F2BF7312F0087062B /* OldVersion */ = {
-			isa = PBXGroup;
-			children = (
-				EA3967512BF731410087062B /* DataGroup.swift */,
-				EA3967522BF731410087062B /* DataTask.swift */,
-				EA3967502BF731410087062B /* DataTaskv2.swift */,
-			);
-			path = OldVersion;
-			sourceTree = "<group>";
-		};
-		EA39675A2BF73B3A0087062B /* Database */ = {
-			isa = PBXGroup;
-			children = (
-				EA3967582BF73AEE0087062B /* DatabaseManager.swift */,
-				EA39675F2BF73F4A0087062B /* AppDataase.swift */,
-				EA39675B2BF73BBF0087062B /* GroupDatabase.swift */,
-				EA39675D2BF73BC80087062B /* TaskDatabase.swift */,
-				EA3967412BF71C0C0087062B /* Model */,
-			);
-			path = Database;
-			sourceTree = "<group>";
-		};
 		EA6088242BF6F11A00DA07D7 = {
 			isa = PBXGroup;
 			children = (
@@ -301,12 +369,12 @@
 		EA60882F2BF6F11A00DA07D7 /* TodorimMVC */ = {
 			isa = PBXGroup;
 			children = (
-				EA39672D2BF6F5280087062B /* Resources */,
-				EA39673B2BF71B480087062B /* Global */,
-				EA39675A2BF73B3A0087062B /* Database */,
-				EA39673E2BF71B8F0087062B /* Scene */,
-				EA6088342BF6F11A00DA07D7 /* ViewController.swift */,
-				EA6088362BF6F11A00DA07D7 /* Main.storyboard */,
+				EAC6814A2C6903B00010ECCC /* Configs */,
+				EAC6815E2C6903BE0010ECCC /* Commons */,
+				EAC6818B2C6903C60010ECCC /* Scences */,
+				EAC681AB2C6903D80010ECCC /* SB */,
+				EAC6820A2C6903E20010ECCC /* Utils */,
+				EAC682552C6903EA0010ECCC /* Supporting Files */,
 			);
 			path = TodorimMVC;
 			sourceTree = "<group>";
@@ -326,6 +394,361 @@
 				EA6088532BF6F11B00DA07D7 /* TodorimMVCUITestsLaunchTests.swift */,
 			);
 			path = TodorimMVCUITests;
+			sourceTree = "<group>";
+		};
+		EAC681492C6903B00010ECCC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681452C6903B00010ECCC /* DataGroup.swift */,
+				EAC681462C6903B00010ECCC /* DataTask.swift */,
+				EAC681472C6903B00010ECCC /* DataTaskv2.swift */,
+				EAC681482C6903B00010ECCC /* NotiConfig.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EAC6814A2C6903B00010ECCC /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681492C6903B00010ECCC /* Data */,
+			);
+			name = Configs;
+			path = "../../../ToDoRim-old/HSTODO/Configs";
+			sourceTree = "<group>";
+		};
+		EAC681572C6903BE0010ECCC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EAC6814F2C6903BE0010ECCC /* CustomDatePicker.swift */,
+				EAC681502C6903BE0010ECCC /* CustomDayPicker.swift */,
+				EAC681512C6903BE0010ECCC /* CustomGroupPicker.swift */,
+				EAC681522C6903BE0010ECCC /* CustomTabButton.swift */,
+				EAC681532C6903BE0010ECCC /* CustomTextField.swift */,
+				EAC681542C6903BE0010ECCC /* CustomTextFieldCusor.swift */,
+				EAC681552C6903BE0010ECCC /* CustomTimePicker.swift */,
+				EAC681562C6903BE0010ECCC /* CustomWeekPicker.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		EAC6815E2C6903BE0010ECCC /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681572C6903BE0010ECCC /* UI */,
+				EAC681582C6903BE0010ECCC /* AppDelegate.swift */,
+				EAC681592C6903BE0010ECCC /* CommonGroup.swift */,
+				EAC6815A2C6903BE0010ECCC /* CommonNav.swift */,
+				EAC6815B2C6903BE0010ECCC /* CommonNoti.swift */,
+				EAC6815C2C6903BE0010ECCC /* CommonRealmDB.swift */,
+				EAC6815D2C6903BE0010ECCC /* CommonSetting.swift */,
+			);
+			name = Commons;
+			path = "../../../ToDoRim-old/HSTODO/Commons";
+			sourceTree = "<group>";
+		};
+		EAC681752C6903C60010ECCC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EAC6816D2C6903C60010ECCC /* AddGroupCell.swift */,
+				EAC6816E2C6903C60010ECCC /* AddGroupCell.xib */,
+				EAC6816F2C6903C60010ECCC /* GroupCell.swift */,
+				EAC681702C6903C60010ECCC /* GroupCell.xib */,
+				EAC681712C6903C60010ECCC /* GroupColorCell.swift */,
+				EAC681722C6903C60010ECCC /* GroupColorCell.xib */,
+				EAC681732C6903C60010ECCC /* GroupTaskCell.swift */,
+				EAC681742C6903C60010ECCC /* GroupTaskCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		EAC6817A2C6903C60010ECCC /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681752C6903C60010ECCC /* Cell */,
+				EAC681762C6903C60010ECCC /* AddGroupVC.swift */,
+				EAC681772C6903C60010ECCC /* GroupTaskVC.swift */,
+				EAC681782C6903C60010ECCC /* GroupVC.swift */,
+				EAC681792C6903C60010ECCC /* ModifyGroupVC.swift */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		EAC6817C2C6903C60010ECCC /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				EAC6817B2C6903C60010ECCC /* IntroVC.swift */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		EAC6817E2C6903C60010ECCC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EAC6817D2C6903C60010ECCC /* TabBarVC.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EAC681852C6903C60010ECCC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				EAC6817F2C6903C60010ECCC /* TaskCell.swift */,
+				EAC681802C6903C60010ECCC /* TaskCell.xib */,
+				EAC681812C6903C60010ECCC /* TaskOneNotiCell.swift */,
+				EAC681822C6903C60010ECCC /* TaskOneNotiCell.xib */,
+				EAC681832C6903C60010ECCC /* TaskTwoNotiCell.swift */,
+				EAC681842C6903C60010ECCC /* TaskTwoNotiCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		EAC6818A2C6903C60010ECCC /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681852C6903C60010ECCC /* Cell */,
+				EAC681862C6903C60010ECCC /* AddTaskVC.swift */,
+				EAC681872C6903C60010ECCC /* SearchLocationMapVC.swift */,
+				EAC681882C6903C60010ECCC /* SearchLocationTVC.swift */,
+				EAC681892C6903C60010ECCC /* SearchLocationVC.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		EAC6818B2C6903C60010ECCC /* Scences */ = {
+			isa = PBXGroup;
+			children = (
+				EAC6817A2C6903C60010ECCC /* Group */,
+				EAC6817C2C6903C60010ECCC /* Intro */,
+				EAC6817E2C6903C60010ECCC /* Main */,
+				EAC6818A2C6903C60010ECCC /* Task */,
+			);
+			name = Scences;
+			path = ../Scences;
+			sourceTree = "<group>";
+		};
+		EAC681AB2C6903D80010ECCC /* SB */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681A42C6903D80010ECCC /* Group.storyboard */,
+				EAC681A52C6903D80010ECCC /* Intro.storyboard */,
+				EAC681A72C6903D80010ECCC /* LaunchScreen.storyboard */,
+				EAC681A92C6903D80010ECCC /* Main.storyboard */,
+				EAC681AA2C6903D80010ECCC /* Task.storyboard */,
+			);
+			name = SB;
+			path = "../../../ToDoRim-old/HSTODO/SB";
+			sourceTree = "<group>";
+		};
+		EAC681B22C6903E20010ECCC /* CustomTabShapeTest */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681B12C6903E20010ECCC /* CustomizedTabBar.swift */,
+			);
+			path = CustomTabShapeTest;
+			sourceTree = "<group>";
+		};
+		EAC681B52C6903E20010ECCC /* DateHelper */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681B32C6903E20010ECCC /* DateHelper.h */,
+				EAC681B42C6903E20010ECCC /* DateHelper.swift */,
+			);
+			path = DateHelper;
+			sourceTree = "<group>";
+		};
+		EAC681BC2C6903E20010ECCC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681B62C6903E20010ECCC /* CAGradientLayerExtension.swift */,
+				EAC681B72C6903E20010ECCC /* DateExtension.swift */,
+				EAC681B82C6903E20010ECCC /* DoubleExtension.swift */,
+				EAC681B92C6903E20010ECCC /* StringExtension.swift */,
+				EAC681BA2C6903E20010ECCC /* UIColorExtension.swift */,
+				EAC681BB2C6903E20010ECCC /* UITextFieldExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EAC681BE2C6903E20010ECCC /* FAPaginationLayout */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681BD2C6903E20010ECCC /* FAPaginationLayout.swift */,
+			);
+			path = FAPaginationLayout;
+			sourceTree = "<group>";
+		};
+		EAC681C02C6903E20010ECCC /* Geotify */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681BF2C6903E20010ECCC /* Geotification.swift */,
+			);
+			path = Geotify;
+			sourceTree = "<group>";
+		};
+		EAC681C52C6903E20010ECCC /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681C12C6903E20010ECCC /* HeroAnimatorViewContext.swift */,
+				EAC681C22C6903E20010ECCC /* HeroCoreAnimationViewContext.swift */,
+				EAC681C32C6903E20010ECCC /* HeroDefaultAnimator.swift */,
+				EAC681C42C6903E20010ECCC /* HeroViewPropertyViewContext.swift */,
+			);
+			path = Animator;
+			sourceTree = "<group>";
+		};
+		EAC681C82C6903E20010ECCC /* Debug Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681C62C6903E20010ECCC /* HeroDebugPlugin.swift */,
+				EAC681C72C6903E20010ECCC /* HeroDebugView.swift */,
+			);
+			path = "Debug Plugin";
+			sourceTree = "<group>";
+		};
+		EAC681D12C6903E20010ECCC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681C92C6903E20010ECCC /* Array+HeroModifier.swift */,
+				EAC681CA2C6903E20010ECCC /* CALayer+Hero.swift */,
+				EAC681CB2C6903E20010ECCC /* CAMediaTimingFunction+Hero.swift */,
+				EAC681CC2C6903E20010ECCC /* CG+Hero.swift */,
+				EAC681CD2C6903E20010ECCC /* DispatchQueue+Hero.swift */,
+				EAC681CE2C6903E20010ECCC /* UIKit+Hero.swift */,
+				EAC681CF2C6903E20010ECCC /* UIView+Hero.swift */,
+				EAC681D02C6903E20010ECCC /* UIViewController+Hero.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EAC681D72C6903E20010ECCC /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681D22C6903E20010ECCC /* HeroStringConvertible.swift */,
+				EAC681D32C6903E20010ECCC /* Lexer.swift */,
+				EAC681D42C6903E20010ECCC /* Nodes.swift */,
+				EAC681D52C6903E20010ECCC /* Parser.swift */,
+				EAC681D62C6903E20010ECCC /* Regex.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		EAC681DF2C6903E20010ECCC /* Preprocessors */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681D82C6903E20010ECCC /* BasePreprocessor.swift */,
+				EAC681D92C6903E20010ECCC /* CascadePreprocessor.swift */,
+				EAC681DA2C6903E20010ECCC /* ConditionalPreprocessor.swift */,
+				EAC681DB2C6903E20010ECCC /* DefaultAnimationPreprocessor.swift */,
+				EAC681DC2C6903E20010ECCC /* IgnoreSubviewModifiersPreprocessor.swift */,
+				EAC681DD2C6903E20010ECCC /* MatchPreprocessor.swift */,
+				EAC681DE2C6903E20010ECCC /* SourcePreprocessor.swift */,
+			);
+			path = Preprocessors;
+			sourceTree = "<group>";
+		};
+		EAC681EB2C6903E20010ECCC /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681E02C6903E20010ECCC /* HeroProgressRunner.swift */,
+				EAC681E12C6903E20010ECCC /* HeroTransition.swift */,
+				EAC681E22C6903E20010ECCC /* HeroTransition+Animate.swift */,
+				EAC681E32C6903E20010ECCC /* HeroTransition+Complete.swift */,
+				EAC681E42C6903E20010ECCC /* HeroTransition+CustomTransition.swift */,
+				EAC681E52C6903E20010ECCC /* HeroTransition+Interactive.swift */,
+				EAC681E62C6903E20010ECCC /* HeroTransition+Start.swift */,
+				EAC681E72C6903E20010ECCC /* HeroTransition+UINavigationControllerDelegate.swift */,
+				EAC681E82C6903E20010ECCC /* HeroTransition+UITabBarControllerDelegate.swift */,
+				EAC681E92C6903E20010ECCC /* HeroTransition+UIViewControllerTransitioningDelegate.swift */,
+				EAC681EA2C6903E20010ECCC /* HeroTransitionState.swift */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
+		EAC681F72C6903E20010ECCC /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681C52C6903E20010ECCC /* Animator */,
+				EAC681C82C6903E20010ECCC /* Debug Plugin */,
+				EAC681D12C6903E20010ECCC /* Extensions */,
+				EAC681D72C6903E20010ECCC /* Parser */,
+				EAC681DF2C6903E20010ECCC /* Preprocessors */,
+				EAC681EB2C6903E20010ECCC /* Transition */,
+				EAC681EC2C6903E20010ECCC /* Hero.h */,
+				EAC681ED2C6903E20010ECCC /* HeroCompatible.swift */,
+				EAC681EE2C6903E20010ECCC /* HeroContext.swift */,
+				EAC681EF2C6903E20010ECCC /* HeroModifier.swift */,
+				EAC681F02C6903E20010ECCC /* HeroModifier+Advanced.swift */,
+				EAC681F12C6903E20010ECCC /* HeroModifier+HeroStringConvertible.swift */,
+				EAC681F22C6903E20010ECCC /* HeroPlugin.swift */,
+				EAC681F32C6903E20010ECCC /* HeroTargetState.swift */,
+				EAC681F42C6903E20010ECCC /* HeroTypes.swift */,
+				EAC681F52C6903E20010ECCC /* HeroViewControllerDelegate.swift */,
+				EAC681F62C6903E20010ECCC /* SwiftSupport.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		EAC681F82C6903E20010ECCC /* Hero */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681F72C6903E20010ECCC /* Sources */,
+			);
+			path = Hero;
+			sourceTree = "<group>";
+		};
+		EAC682052C6903E20010ECCC /* IceCream */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681F92C6903E20010ECCC /* CKRecordConvertible.swift */,
+				EAC681FA2C6903E20010ECCC /* CKRecordRecoverable.swift */,
+				EAC681FB2C6903E20010ECCC /* CreamAsset.swift */,
+				EAC681FC2C6903E20010ECCC /* DatabaseManagerProtocol.swift */,
+				EAC681FD2C6903E20010ECCC /* ErrorHandler.swift */,
+				EAC681FE2C6903E20010ECCC /* Manifest.swift */,
+				EAC681FF2C6903E20010ECCC /* Notification+Name.swift */,
+				EAC682002C6903E20010ECCC /* PrivateDatabaseManager.swift */,
+				EAC682012C6903E20010ECCC /* PublicDatabaseManager.swift */,
+				EAC682022C6903E20010ECCC /* Syncable.swift */,
+				EAC682032C6903E20010ECCC /* SyncEngine.swift */,
+				EAC682042C6903E20010ECCC /* SyncObject.swift */,
+			);
+			path = IceCream;
+			sourceTree = "<group>";
+		};
+		EAC682092C6903E20010ECCC /* TextFieldEffects */ = {
+			isa = PBXGroup;
+			children = (
+				EAC682062C6903E20010ECCC /* MadokaTextField.swift */,
+				EAC682072C6903E20010ECCC /* TextFieldEffects.h */,
+				EAC682082C6903E20010ECCC /* TextFieldEffects.swift */,
+			);
+			path = TextFieldEffects;
+			sourceTree = "<group>";
+		};
+		EAC6820A2C6903E20010ECCC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EAC681B22C6903E20010ECCC /* CustomTabShapeTest */,
+				EAC681B52C6903E20010ECCC /* DateHelper */,
+				EAC681BC2C6903E20010ECCC /* Extensions */,
+				EAC681BE2C6903E20010ECCC /* FAPaginationLayout */,
+				EAC681C02C6903E20010ECCC /* Geotify */,
+				EAC681F82C6903E20010ECCC /* Hero */,
+				EAC682052C6903E20010ECCC /* IceCream */,
+				EAC682092C6903E20010ECCC /* TextFieldEffects */,
+			);
+			name = Utils;
+			path = "../../../ToDoRim-old/HSTODO/Utils";
+			sourceTree = "<group>";
+		};
+		EAC682552C6903EA0010ECCC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EAC682522C6903EA0010ECCC /* Assets.xcassets */,
+				EAC682542C6903EA0010ECCC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			path = "../../../ToDoRim-old/HSTODO/Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,11 +861,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA60883D2BF6F11B00DA07D7 /* LaunchScreen.storyboard in Resources */,
-				EA3967302BF6F54A0087062B /* Colors.xcassets in Resources */,
-				EA60883A2BF6F11B00DA07D7 /* Assets.xcassets in Resources */,
-				EA6088382BF6F11A00DA07D7 /* Main.storyboard in Resources */,
-				EA3967322BF6F55A0087062B /* Icons.xcassets in Resources */,
+				EAC6819F2C6903C60010ECCC /* TaskTwoNotiCell.xib in Resources */,
+				EAC681B02C6903D80010ECCC /* Task.storyboard in Resources */,
+				EAC6818D2C6903C60010ECCC /* AddGroupCell.xib in Resources */,
+				EAC681AD2C6903D80010ECCC /* Intro.storyboard in Resources */,
+				EAC681AE2C6903D80010ECCC /* LaunchScreen.storyboard in Resources */,
+				EAC6819D2C6903C60010ECCC /* TaskOneNotiCell.xib in Resources */,
+				EAC682572C6903EA0010ECCC /* Info.plist in Resources */,
+				EAC682562C6903EA0010ECCC /* Assets.xcassets in Resources */,
+				EAC681AF2C6903D80010ECCC /* Main.storyboard in Resources */,
+				EAC6819B2C6903C60010ECCC /* TaskCell.xib in Resources */,
+				EAC681AC2C6903D80010ECCC /* Group.storyboard in Resources */,
+				EAC681912C6903C60010ECCC /* GroupColorCell.xib in Resources */,
+				EAC681932C6903C60010ECCC /* GroupTaskCell.xib in Resources */,
+				EAC6818F2C6903C60010ECCC /* GroupCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,23 +1020,112 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA3967542BF731410087062B /* DataGroup.swift in Sources */,
-				EA3967602BF73F4A0087062B /* AppDataase.swift in Sources */,
-				EA3967532BF731410087062B /* DataTaskv2.swift in Sources */,
-				EA6088352BF6F11A00DA07D7 /* ViewController.swift in Sources */,
-				EA3967372BF6F6C70087062B /* Colors.swift in Sources */,
-				EA39674C2BF72B200087062B /* Strings.swift in Sources */,
-				EA39675E2BF73BC80087062B /* TaskDatabase.swift in Sources */,
-				EA3967392BF6F6CC0087062B /* Icons.swift in Sources */,
-				EA39675C2BF73BBF0087062B /* GroupDatabase.swift in Sources */,
-				EA3967572BF7346F0087062B /* Group.swift in Sources */,
-				EA3967552BF731410087062B /* DataTask.swift in Sources */,
-				EA6088312BF6F11A00DA07D7 /* AppDelegate.swift in Sources */,
-				EA3967352BF6F6BC0087062B /* Assets.swift in Sources */,
-				EA6088332BF6F11A00DA07D7 /* SceneDelegate.swift in Sources */,
-				EA39674E2BF731280087062B /* Task.swift in Sources */,
-				EA3967592BF73AEE0087062B /* DatabaseManager.swift in Sources */,
-				EA3967492BF72A020087062B /* Configs.swift in Sources */,
+				EAC6824E2C6903E20010ECCC /* SyncEngine.swift in Sources */,
+				EAC6823F2C6903E20010ECCC /* HeroPlugin.swift in Sources */,
+				EAC6822F2C6903E20010ECCC /* HeroProgressRunner.swift in Sources */,
+				EAC6820F2C6903E20010ECCC /* DoubleExtension.swift in Sources */,
+				EAC681972C6903C60010ECCC /* ModifyGroupVC.swift in Sources */,
+				EAC6823A2C6903E20010ECCC /* HeroCompatible.swift in Sources */,
+				EAC6823D2C6903E20010ECCC /* HeroModifier+Advanced.swift in Sources */,
+				EAC6820C2C6903E20010ECCC /* DateHelper.swift in Sources */,
+				EAC682432C6903E20010ECCC /* SwiftSupport.swift in Sources */,
+				EAC682292C6903E20010ECCC /* CascadePreprocessor.swift in Sources */,
+				EAC6816B2C6903BE0010ECCC /* CommonRealmDB.swift in Sources */,
+				EAC682192C6903E20010ECCC /* HeroDebugPlugin.swift in Sources */,
+				EAC6821C2C6903E20010ECCC /* CALayer+Hero.swift in Sources */,
+				EAC6815F2C6903BE0010ECCC /* CustomDatePicker.swift in Sources */,
+				EAC6818C2C6903C60010ECCC /* AddGroupCell.swift in Sources */,
+				EAC682492C6903E20010ECCC /* Manifest.swift in Sources */,
+				EAC682132C6903E20010ECCC /* FAPaginationLayout.swift in Sources */,
+				EAC681652C6903BE0010ECCC /* CustomTimePicker.swift in Sources */,
+				EAC6819A2C6903C60010ECCC /* TaskCell.swift in Sources */,
+				EAC681602C6903BE0010ECCC /* CustomDayPicker.swift in Sources */,
+				EAC682232C6903E20010ECCC /* HeroStringConvertible.swift in Sources */,
+				EAC682452C6903E20010ECCC /* CKRecordRecoverable.swift in Sources */,
+				EAC681A12C6903C60010ECCC /* SearchLocationMapVC.swift in Sources */,
+				EAC681A22C6903C60010ECCC /* SearchLocationTVC.swift in Sources */,
+				EAC682462C6903E20010ECCC /* CreamAsset.swift in Sources */,
+				EAC6814D2C6903B00010ECCC /* DataTaskv2.swift in Sources */,
+				EAC682412C6903E20010ECCC /* HeroTypes.swift in Sources */,
+				EAC6824B2C6903E20010ECCC /* PrivateDatabaseManager.swift in Sources */,
+				EAC6814B2C6903B00010ECCC /* DataGroup.swift in Sources */,
+				EAC682472C6903E20010ECCC /* DatabaseManagerProtocol.swift in Sources */,
+				EAC6819E2C6903C60010ECCC /* TaskTwoNotiCell.swift in Sources */,
+				EAC6820B2C6903E20010ECCC /* CustomizedTabBar.swift in Sources */,
+				EAC682182C6903E20010ECCC /* HeroViewPropertyViewContext.swift in Sources */,
+				EAC6821B2C6903E20010ECCC /* Array+HeroModifier.swift in Sources */,
+				EAC682372C6903E20010ECCC /* HeroTransition+UITabBarControllerDelegate.swift in Sources */,
+				EAC682422C6903E20010ECCC /* HeroViewControllerDelegate.swift in Sources */,
+				EAC682212C6903E20010ECCC /* UIView+Hero.swift in Sources */,
+				EAC682312C6903E20010ECCC /* HeroTransition+Animate.swift in Sources */,
+				EAC682302C6903E20010ECCC /* HeroTransition.swift in Sources */,
+				EAC6819C2C6903C60010ECCC /* TaskOneNotiCell.swift in Sources */,
+				EAC682512C6903E20010ECCC /* TextFieldEffects.swift in Sources */,
+				EAC6814E2C6903B00010ECCC /* NotiConfig.swift in Sources */,
+				EAC6822B2C6903E20010ECCC /* DefaultAnimationPreprocessor.swift in Sources */,
+				EAC682172C6903E20010ECCC /* HeroDefaultAnimator.swift in Sources */,
+				EAC682332C6903E20010ECCC /* HeroTransition+CustomTransition.swift in Sources */,
+				EAC682142C6903E20010ECCC /* Geotification.swift in Sources */,
+				EAC682442C6903E20010ECCC /* CKRecordConvertible.swift in Sources */,
+				EAC681662C6903BE0010ECCC /* CustomWeekPicker.swift in Sources */,
+				EAC682322C6903E20010ECCC /* HeroTransition+Complete.swift in Sources */,
+				EAC682342C6903E20010ECCC /* HeroTransition+Interactive.swift in Sources */,
+				EAC682222C6903E20010ECCC /* UIViewController+Hero.swift in Sources */,
+				EAC6822D2C6903E20010ECCC /* MatchPreprocessor.swift in Sources */,
+				EAC6821F2C6903E20010ECCC /* DispatchQueue+Hero.swift in Sources */,
+				EAC682402C6903E20010ECCC /* HeroTargetState.swift in Sources */,
+				EAC6814C2C6903B00010ECCC /* DataTask.swift in Sources */,
+				EAC6816C2C6903BE0010ECCC /* CommonSetting.swift in Sources */,
+				EAC681672C6903BE0010ECCC /* AppDelegate.swift in Sources */,
+				EAC6823C2C6903E20010ECCC /* HeroModifier.swift in Sources */,
+				EAC6822C2C6903E20010ECCC /* IgnoreSubviewModifiersPreprocessor.swift in Sources */,
+				EAC681622C6903BE0010ECCC /* CustomTabButton.swift in Sources */,
+				EAC682272C6903E20010ECCC /* Regex.swift in Sources */,
+				EAC682502C6903E20010ECCC /* MadokaTextField.swift in Sources */,
+				EAC682202C6903E20010ECCC /* UIKit+Hero.swift in Sources */,
+				EAC6824C2C6903E20010ECCC /* PublicDatabaseManager.swift in Sources */,
+				EAC681A32C6903C60010ECCC /* SearchLocationVC.swift in Sources */,
+				EAC681992C6903C60010ECCC /* TabBarVC.swift in Sources */,
+				EAC681642C6903BE0010ECCC /* CustomTextFieldCusor.swift in Sources */,
+				EAC681612C6903BE0010ECCC /* CustomGroupPicker.swift in Sources */,
+				EAC682282C6903E20010ECCC /* BasePreprocessor.swift in Sources */,
+				EAC6818E2C6903C60010ECCC /* GroupCell.swift in Sources */,
+				EAC682392C6903E20010ECCC /* HeroTransitionState.swift in Sources */,
+				EAC682122C6903E20010ECCC /* UITextFieldExtension.swift in Sources */,
+				EAC6823B2C6903E20010ECCC /* HeroContext.swift in Sources */,
+				EAC681682C6903BE0010ECCC /* CommonGroup.swift in Sources */,
+				EAC682262C6903E20010ECCC /* Parser.swift in Sources */,
+				EAC682252C6903E20010ECCC /* Nodes.swift in Sources */,
+				EAC6821D2C6903E20010ECCC /* CAMediaTimingFunction+Hero.swift in Sources */,
+				EAC6824D2C6903E20010ECCC /* Syncable.swift in Sources */,
+				EAC681962C6903C60010ECCC /* GroupVC.swift in Sources */,
+				EAC6821A2C6903E20010ECCC /* HeroDebugView.swift in Sources */,
+				EAC682112C6903E20010ECCC /* UIColorExtension.swift in Sources */,
+				EAC681942C6903C60010ECCC /* AddGroupVC.swift in Sources */,
+				EAC6820D2C6903E20010ECCC /* CAGradientLayerExtension.swift in Sources */,
+				EAC6823E2C6903E20010ECCC /* HeroModifier+HeroStringConvertible.swift in Sources */,
+				EAC682152C6903E20010ECCC /* HeroAnimatorViewContext.swift in Sources */,
+				EAC6821E2C6903E20010ECCC /* CG+Hero.swift in Sources */,
+				EAC681692C6903BE0010ECCC /* CommonNav.swift in Sources */,
+				EAC6820E2C6903E20010ECCC /* DateExtension.swift in Sources */,
+				EAC6822E2C6903E20010ECCC /* SourcePreprocessor.swift in Sources */,
+				EAC6824F2C6903E20010ECCC /* SyncObject.swift in Sources */,
+				EAC681922C6903C60010ECCC /* GroupTaskCell.swift in Sources */,
+				EAC681902C6903C60010ECCC /* GroupColorCell.swift in Sources */,
+				EAC681952C6903C60010ECCC /* GroupTaskVC.swift in Sources */,
+				EAC682362C6903E20010ECCC /* HeroTransition+UINavigationControllerDelegate.swift in Sources */,
+				EAC682242C6903E20010ECCC /* Lexer.swift in Sources */,
+				EAC681632C6903BE0010ECCC /* CustomTextField.swift in Sources */,
+				EAC6824A2C6903E20010ECCC /* Notification+Name.swift in Sources */,
+				EAC682102C6903E20010ECCC /* StringExtension.swift in Sources */,
+				EAC6822A2C6903E20010ECCC /* ConditionalPreprocessor.swift in Sources */,
+				EAC682162C6903E20010ECCC /* HeroCoreAnimationViewContext.swift in Sources */,
+				EAC6816A2C6903BE0010ECCC /* CommonNoti.swift in Sources */,
+				EAC682352C6903E20010ECCC /* HeroTransition+Start.swift in Sources */,
+				EAC682382C6903E20010ECCC /* HeroTransition+UIViewControllerTransitioningDelegate.swift in Sources */,
+				EAC681982C6903C60010ECCC /* IntroVC.swift in Sources */,
+				EAC682482C6903E20010ECCC /* ErrorHandler.swift in Sources */,
+				EAC681A02C6903C60010ECCC /* AddTaskVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,20 +1162,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EA6088362BF6F11A00DA07D7 /* Main.storyboard */ = {
+		EAC681A72C6903D80010ECCC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EA6088372BF6F11A00DA07D7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		EA60883B2BF6F11B00DA07D7 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EA60883C2BF6F11B00DA07D7 /* Base */,
+				EAC681A62C6903D80010ECCC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EAC681A92C6903D80010ECCC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAC681A82C6903D80010ECCC /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

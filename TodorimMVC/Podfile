@@ -8,7 +8,7 @@ target 'TodorimMVC' do
   # Pods for TodorimMVC
   #CodeConvention
 	#UI
-	pod 'SwiftGen', '~> 6.0'
+	pod 'SwiftGen'
 	pod 'Hero'      # https://github.com/lkzhao/Hero
 
 	#Realm
