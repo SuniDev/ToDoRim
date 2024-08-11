@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EAC6829E2C690C040010ECCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6829D2C690C040010ECCC /* AppDelegate.swift */; };
+		EAC682A02C690C040010ECCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6829F2C690C040010ECCC /* SceneDelegate.swift */; };
+		EAC682A22C690C040010ECCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682A12C690C040010ECCC /* ViewController.swift */; };
+		EAC682A52C690C040010ECCC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EAC682A42C690C040010ECCC /* Base */; };
+		EAC682A72C690C050010ECCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAC682A62C690C050010ECCC /* Assets.xcassets */; };
+		EAC682AA2C690C050010ECCC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EAC682A92C690C050010ECCC /* Base */; };
+		EAC682B52C690C050010ECCC /* TodorimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682B42C690C050010ECCC /* TodorimTests.swift */; };
+		EAC682BF2C690C050010ECCC /* TodorimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682BE2C690C050010ECCC /* TodorimUITests.swift */; };
+		EAC682C12C690C050010ECCC /* TodorimUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682C02C690C050010ECCC /* TodorimUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EAC682B12C690C050010ECCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAC682922C690C030010ECCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAC682992C690C040010ECCC;
+			remoteInfo = Todorim;
+		};
+		EAC682BB2C690C050010ECCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAC682922C690C030010ECCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAC682992C690C040010ECCC;
+			remoteInfo = Todorim;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EAC6829A2C690C040010ECCC /* Todorim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todorim.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAC6829D2C690C040010ECCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EAC6829F2C690C040010ECCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EAC682A12C690C040010ECCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EAC682A42C690C040010ECCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EAC682A62C690C050010ECCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EAC682A92C690C050010ECCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EAC682AB2C690C050010ECCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAC682B02C690C050010ECCC /* TodorimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodorimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAC682B42C690C050010ECCC /* TodorimTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodorimTests.swift; sourceTree = "<group>"; };
+		EAC682BA2C690C050010ECCC /* TodorimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodorimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAC682BE2C690C050010ECCC /* TodorimUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodorimUITests.swift; sourceTree = "<group>"; };
+		EAC682C02C690C050010ECCC /* TodorimUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodorimUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EAC682972C690C040010ECCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAC682AD2C690C050010ECCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAC682B72C690C050010ECCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EAC682912C690C030010ECCC = {
+			isa = PBXGroup;
+			children = (
+				EAC6829C2C690C040010ECCC /* Todorim */,
+				EAC682B32C690C050010ECCC /* TodorimTests */,
+				EAC682BD2C690C050010ECCC /* TodorimUITests */,
+				EAC6829B2C690C040010ECCC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EAC6829B2C690C040010ECCC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAC6829A2C690C040010ECCC /* Todorim.app */,
+				EAC682B02C690C050010ECCC /* TodorimTests.xctest */,
+				EAC682BA2C690C050010ECCC /* TodorimUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAC6829C2C690C040010ECCC /* Todorim */ = {
+			isa = PBXGroup;
+			children = (
+				EAC6829D2C690C040010ECCC /* AppDelegate.swift */,
+				EAC6829F2C690C040010ECCC /* SceneDelegate.swift */,
+				EAC682A12C690C040010ECCC /* ViewController.swift */,
+				EAC682A32C690C040010ECCC /* Main.storyboard */,
+				EAC682A62C690C050010ECCC /* Assets.xcassets */,
+				EAC682A82C690C050010ECCC /* LaunchScreen.storyboard */,
+				EAC682AB2C690C050010ECCC /* Info.plist */,
+			);
+			path = Todorim;
+			sourceTree = "<group>";
+		};
+		EAC682B32C690C050010ECCC /* TodorimTests */ = {
+			isa = PBXGroup;
+			children = (
+				EAC682B42C690C050010ECCC /* TodorimTests.swift */,
+			);
+			path = TodorimTests;
+			sourceTree = "<group>";
+		};
+		EAC682BD2C690C050010ECCC /* TodorimUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EAC682BE2C690C050010ECCC /* TodorimUITests.swift */,
+				EAC682C02C690C050010ECCC /* TodorimUITestsLaunchTests.swift */,
+			);
+			path = TodorimUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EAC682992C690C040010ECCC /* Todorim */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAC682C42C690C050010ECCC /* Build configuration list for PBXNativeTarget "Todorim" */;
+			buildPhases = (
+				EAC682962C690C040010ECCC /* Sources */,
+				EAC682972C690C040010ECCC /* Frameworks */,
+				EAC682982C690C040010ECCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Todorim;
+			productName = Todorim;
+			productReference = EAC6829A2C690C040010ECCC /* Todorim.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EAC682AF2C690C050010ECCC /* TodorimTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAC682C72C690C050010ECCC /* Build configuration list for PBXNativeTarget "TodorimTests" */;
+			buildPhases = (
+				EAC682AC2C690C050010ECCC /* Sources */,
+				EAC682AD2C690C050010ECCC /* Frameworks */,
+				EAC682AE2C690C050010ECCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EAC682B22C690C050010ECCC /* PBXTargetDependency */,
+			);
+			name = TodorimTests;
+			productName = TodorimTests;
+			productReference = EAC682B02C690C050010ECCC /* TodorimTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EAC682B92C690C050010ECCC /* TodorimUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAC682CA2C690C050010ECCC /* Build configuration list for PBXNativeTarget "TodorimUITests" */;
+			buildPhases = (
+				EAC682B62C690C050010ECCC /* Sources */,
+				EAC682B72C690C050010ECCC /* Frameworks */,
+				EAC682B82C690C050010ECCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EAC682BC2C690C050010ECCC /* PBXTargetDependency */,
+			);
+			name = TodorimUITests;
+			productName = TodorimUITests;
+			productReference = EAC682BA2C690C050010ECCC /* TodorimUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAC682922C690C030010ECCC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					EAC682992C690C040010ECCC = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					EAC682AF2C690C050010ECCC = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = EAC682992C690C040010ECCC;
+					};
+					EAC682B92C690C050010ECCC = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = EAC682992C690C040010ECCC;
+					};
+				};
+			};
+			buildConfigurationList = EAC682952C690C030010ECCC /* Build configuration list for PBXProject "Todorim" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EAC682912C690C030010ECCC;
+			productRefGroup = EAC6829B2C690C040010ECCC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EAC682992C690C040010ECCC /* Todorim */,
+				EAC682AF2C690C050010ECCC /* TodorimTests */,
+				EAC682B92C690C050010ECCC /* TodorimUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EAC682982C690C040010ECCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAC682A72C690C050010ECCC /* Assets.xcassets in Resources */,
+				EAC682AA2C690C050010ECCC /* Base in Resources */,
+				EAC682A52C690C040010ECCC /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAC682AE2C690C050010ECCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAC682B82C690C050010ECCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EAC682962C690C040010ECCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAC682A22C690C040010ECCC /* ViewController.swift in Sources */,
+				EAC6829E2C690C040010ECCC /* AppDelegate.swift in Sources */,
+				EAC682A02C690C040010ECCC /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAC682AC2C690C050010ECCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAC682B52C690C050010ECCC /* TodorimTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAC682B62C690C050010ECCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAC682BF2C690C050010ECCC /* TodorimUITests.swift in Sources */,
+				EAC682C12C690C050010ECCC /* TodorimUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EAC682B22C690C050010ECCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EAC682992C690C040010ECCC /* Todorim */;
+			targetProxy = EAC682B12C690C050010ECCC /* PBXContainerItemProxy */;
+		};
+		EAC682BC2C690C050010ECCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EAC682992C690C040010ECCC /* Todorim */;
+			targetProxy = EAC682BB2C690C050010ECCC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EAC682A32C690C040010ECCC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAC682A42C690C040010ECCC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EAC682A82C690C050010ECCC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAC682A92C690C050010ECCC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EAC682C22C690C050010ECCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EAC682C32C690C050010ECCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EAC682C52C690C050010ECCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3T5QFYSPG5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Todorim/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = suni.dev.Todorim;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EAC682C62C690C050010ECCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3T5QFYSPG5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Todorim/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = suni.dev.Todorim;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EAC682C82C690C050010ECCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3T5QFYSPG5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = suni.dev.TodorimTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Todorim.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Todorim";
+			};
+			name = Debug;
+		};
+		EAC682C92C690C050010ECCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3T5QFYSPG5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = suni.dev.TodorimTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Todorim.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Todorim";
+			};
+			name = Release;
+		};
+		EAC682CB2C690C050010ECCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3T5QFYSPG5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = suni.dev.TodorimUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Todorim;
+			};
+			name = Debug;
+		};
+		EAC682CC2C690C050010ECCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3T5QFYSPG5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = suni.dev.TodorimUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Todorim;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EAC682952C690C030010ECCC /* Build configuration list for PBXProject "Todorim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAC682C22C690C050010ECCC /* Debug */,
+				EAC682C32C690C050010ECCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAC682C42C690C050010ECCC /* Build configuration list for PBXNativeTarget "Todorim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAC682C52C690C050010ECCC /* Debug */,
+				EAC682C62C690C050010ECCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAC682C72C690C050010ECCC /* Build configuration list for PBXNativeTarget "TodorimTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAC682C82C690C050010ECCC /* Debug */,
+				EAC682C92C690C050010ECCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAC682CA2C690C050010ECCC /* Build configuration list for PBXNativeTarget "TodorimUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAC682CB2C690C050010ECCC /* Debug */,
+				EAC682CC2C690C050010ECCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EAC682922C690C030010ECCC /* Project object */;
+}
