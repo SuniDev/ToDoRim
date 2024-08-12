@@ -142,8 +142,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         var cellSize: CGSize = collectionView.bounds.size
-        cellSize.width -= collectionView.contentInset.left
-        cellSize.width -= collectionView.contentInset.right
+        cellSize.width -= collectionView.contentInset.left * 2
+        cellSize.width -= collectionView.contentInset.right * 2
         
         return cellSize
     }
