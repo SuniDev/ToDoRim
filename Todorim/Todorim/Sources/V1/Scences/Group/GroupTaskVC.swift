@@ -37,12 +37,12 @@ class GroupTaskVC: UIViewController {
     
     @IBAction func goModify(_ sender: UIButton) {
         
-        CommonNav.shared.moveModifyGroup(groupIndex, self)
+//        CommonNav.shared.moveModifyGroup(groupIndex, self)
     }
     
     @IBAction func addTask(_ sender: UIButton) {
         
-        CommonNav.shared.moveAddTask(groupIndex, self)
+//        CommonNav.shared.moveAddTask(groupIndex, self)
     }
     
     override func viewDidLoad() {
@@ -149,7 +149,7 @@ extension GroupTaskVC {
         let action = UIContextualAction(style: .destructive, title: "") { (action, view, completion) in
             let index = self.numberOfTask - indexPath.row - 1
 //            let taskNo = CommonGroup.shared.getTask(gIndex: self.groupIndex, tIndex: index).taskNo
-            CommonNav.shared.moveModifyTask(gIndex: self.groupIndex, tIndex: index, self)
+//            CommonNav.shared.moveModifyTask(gIndex: self.groupIndex, tIndex: index, self)
             completion(true)
         }
         action.image = UIImage(named: "edit_white")

@@ -75,7 +75,7 @@ extension SearchLocationTVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = matchingItems[indexPath.row].placemark
 
-        CommonNav.shared.moveSearchMap(superVC: superVC, searchVC: searchVC, pin: selectedItem)
+//        CommonNav.shared.moveSearchMap(superVC: superVC, searchVC: searchVC, pin: selectedItem)
     }
     
     func parseAddress(selectedItem:MKPlacemark) -> String {

@@ -39,7 +39,7 @@ class SearchLocationVC: UIViewController {
     @IBAction func searchPosition(_ sender: UIButton) {
         guard let coordinate = locationManager.location?.coordinate else { return }
         let pin = MKPlacemark(coordinate: coordinate)
-        CommonNav.shared.moveSearchMap(superVC: superVC, searchVC: self, pin: pin)
+//        CommonNav.shared.moveSearchMap(superVC: superVC, searchVC: self, pin: pin)
     }
     
     override func viewDidLoad() {

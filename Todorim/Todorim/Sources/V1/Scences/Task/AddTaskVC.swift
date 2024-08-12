@@ -581,7 +581,7 @@ extension AddTaskVC {
     }
     
     func tapSearchLocation(_ notification: NSNotification) {
-        CommonNav.shared.moveSearchLoc(superVC: self)
+//        CommonNav.shared.moveSearchLoc(superVC: self)
     }
     
     func setDateNotiArea() {
