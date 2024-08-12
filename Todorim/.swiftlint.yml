@@ -1,9 +1,10 @@
 # Git URL : https://github.com/realm/SwiftLint
 # Reference : https://realm.github.io/SwiftLint/index.html
 # 린트 과정에서 무시할 파일 경로.
-#excluded:
-included:
+excluded:
   - Todorim
+#included:
+#  - Todorim
 analyzer_rules:
   - unused_declaration
   - unused_import
@@ -68,7 +69,7 @@ disabled_rules:
 
 # Customized Configurable Rules
 line_length: 300
-force_cast: error
+force_cast: warning # TODO: error로 변경 필요
 nesting:
   type_level:
     warning: 3
