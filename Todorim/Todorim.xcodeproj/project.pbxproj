@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA7C5CC12C699B140099AB7C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5CC02C699B140099AB7C /* .swiftlint.yml */; };
+		EA7C5CC42C699B7C0099AB7C /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5CC32C699B7C0099AB7C /* Color.xcassets */; };
+		EA7C5CC72C699BA50099AB7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5CC52C699BA50099AB7C /* Localizable.strings */; };
+		EA7C5CCE2C69A5EC0099AB7C /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5CCD2C69A5EB0099AB7C /* swiftgen.yml */; };
 		EAC6829E2C690C040010ECCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6829D2C690C040010ECCC /* AppDelegate.swift */; };
 		EAC682A02C690C040010ECCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6829F2C690C040010ECCC /* SceneDelegate.swift */; };
 		EAC682A22C690C040010ECCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682A12C690C040010ECCC /* ViewController.swift */; };
@@ -36,6 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA7C5CC02C699B140099AB7C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		EA7C5CC32C699B7C0099AB7C /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		EA7C5CCD2C69A5EB0099AB7C /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		EA7C5CCF2C69A6650099AB7C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		EA7C5CD02C69A6650099AB7C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		EA7C5CD12C69A6650099AB7C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EAC6829A2C690C040010ECCC /* Todorim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todorim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAC6829D2C690C040010ECCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAC6829F2C690C040010ECCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,9 +86,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA7C5CC22C699B400099AB7C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EAC682A62C690C050010ECCC /* Assets.xcassets */,
+				EA7C5CC32C699B7C0099AB7C /* Color.xcassets */,
+				EA7C5CC52C699BA50099AB7C /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		EAC682912C690C030010ECCC = {
 			isa = PBXGroup;
 			children = (
+				EA7C5CCD2C69A5EB0099AB7C /* swiftgen.yml */,
+				EA7C5CC02C699B140099AB7C /* .swiftlint.yml */,
 				EAC6829C2C690C040010ECCC /* Todorim */,
 				EAC682B32C690C050010ECCC /* TodorimTests */,
 				EAC682BD2C690C050010ECCC /* TodorimUITests */,
@@ -99,11 +121,11 @@
 		EAC6829C2C690C040010ECCC /* Todorim */ = {
 			isa = PBXGroup;
 			children = (
+				EA7C5CC22C699B400099AB7C /* Resources */,
 				EAC6829D2C690C040010ECCC /* AppDelegate.swift */,
 				EAC6829F2C690C040010ECCC /* SceneDelegate.swift */,
 				EAC682A12C690C040010ECCC /* ViewController.swift */,
 				EAC682A32C690C040010ECCC /* Main.storyboard */,
-				EAC682A62C690C050010ECCC /* Assets.xcassets */,
 				EAC682A82C690C050010ECCC /* LaunchScreen.storyboard */,
 				EAC682AB2C690C050010ECCC /* Info.plist */,
 			);
@@ -134,15 +156,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAC682C42C690C050010ECCC /* Build configuration list for PBXNativeTarget "Todorim" */;
 			buildPhases = (
+				EA7C5CBF2C699A7D0099AB7C /* SwiftLint */,
 				EAC682962C690C040010ECCC /* Sources */,
 				EAC682972C690C040010ECCC /* Frameworks */,
 				EAC682982C690C040010ECCC /* Resources */,
+				EA7C5CCB2C69A5820099AB7C /* SwiftGen */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Todorim;
+			packageProductDependencies = (
+			);
 			productName = Todorim;
 			productReference = EAC6829A2C690C040010ECCC /* Todorim.app */;
 			productType = "com.apple.product-type.application";
@@ -208,13 +234,16 @@
 			};
 			buildConfigurationList = EAC682952C690C030010ECCC /* Build configuration list for PBXProject "Todorim" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = EAC682912C690C030010ECCC;
+			packageReferences = (
+			);
 			productRefGroup = EAC6829B2C690C040010ECCC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,7 +260,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA7C5CC12C699B140099AB7C /* .swiftlint.yml in Resources */,
+				EA7C5CCE2C69A5EC0099AB7C /* swiftgen.yml in Resources */,
+				EA7C5CC72C699BA50099AB7C /* Localizable.strings in Resources */,
 				EAC682A72C690C050010ECCC /* Assets.xcassets in Resources */,
+				EA7C5CC42C699B7C0099AB7C /* Color.xcassets in Resources */,
 				EAC682AA2C690C050010ECCC /* Base in Resources */,
 				EAC682A52C690C040010ECCC /* Base in Resources */,
 			);
@@ -252,6 +285,46 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EA7C5CBF2C699A7D0099AB7C /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		EA7C5CCB2C69A5820099AB7C /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nswiftgen config run\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EAC682962C690C040010ECCC /* Sources */ = {
@@ -297,10 +370,19 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		EA7C5CC52C699BA50099AB7C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA7C5CD12C69A6650099AB7C /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		EAC682A32C690C040010ECCC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				EAC682A42C690C040010ECCC /* Base */,
+				EA7C5CCF2C69A6650099AB7C /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -309,6 +391,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EAC682A92C690C050010ECCC /* Base */,
+				EA7C5CD02C69A6650099AB7C /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -321,6 +404,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -353,7 +437,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -368,7 +452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -384,6 +468,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -416,7 +501,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -425,7 +510,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -448,8 +533,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,6 +542,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = suni.dev.Todorim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -476,8 +565,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -485,6 +574,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = suni.dev.Todorim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
