@@ -19,14 +19,7 @@ class WriteGroupViewController: UIViewController {
     weak var delegate: WriteGroupViewControllerDelegate?
     var groupStorage: GroupStorage?
     var selectedColorIndex = 0
-    var isNew: Bool = false {
-        didSet {
-            addButtonView.isHidden = !isNew
-            editButtonView.isHidden = isNew
-            editBottomView.isHidden = isNew
-            titleLabel.text = isNew ? "그룹 추가" : "그룹 수정"
-        }
-    }
+    var isNew: Bool = false
     
     // MARK: - Outlet
     @IBOutlet weak var scrollView: UIScrollView!
@@ -86,6 +79,15 @@ class WriteGroupViewController: UIViewController {
         createKeyboardEvent()
         
         collectionView.register(UINib(nibName: "GroupColorCell", bundle: nil), forCellWithReuseIdentifier: "GroupColorCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        addButtonView.isHidden = !isNew
+        editButtonView.isHidden = isNew
+        editBottomView.isHidden = isNew
+        titleLabel.text = isNew ? "그룹 추가" : "그룹 수정"
     }
     
     

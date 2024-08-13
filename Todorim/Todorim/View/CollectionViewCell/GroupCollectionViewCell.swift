@@ -32,7 +32,7 @@ class GroupCollectionViewCell: UICollectionViewCell {
         
         self.setCardBorder()
         
-        tableView.register(UINib(nibName: "GroupTodoTableViewCell", bundle: nil), forCellReuseIdentifier: "GroupTodoTableViewCell")
+        tableView.register(UINib(nibName: "HomeTodoTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTodoTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -100,7 +100,7 @@ extension GroupCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupTodoTableViewCell", for: indexPath) as? GroupTodoTableViewCell,
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTodoTableViewCell", for: indexPath) as? HomeTodoTableViewCell,
               indexPath.row < todos.count else { return UITableViewCell() }
         
         let todo = todos[indexPath.row]
@@ -115,7 +115,7 @@ extension GroupCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension GroupCollectionViewCell: GroupTodoTableViewCellDelegate {
+extension GroupCollectionViewCell: HomeTodoTableViewCellDelegate {
     func completeTodo(with todo: Todo?, isComplete: Bool) {
         delegate?.completeTodo(with: todo, isComplete: isComplete)
     }

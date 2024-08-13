@@ -1,5 +1,5 @@
 //
-//  GroupTodoTableViewCell.swift
+//  HomeTodoTableViewCell.swift
 //  Todorim
 //
 //  Created by suni on 8/13/24.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-protocol GroupTodoTableViewCellDelegate: AnyObject {
+protocol HomeTodoTableViewCellDelegate: AnyObject {
     func completeTodo(with todo: Todo?, isComplete: Bool)
 }
-class GroupTodoTableViewCell: UITableViewCell {
+class HomeTodoTableViewCell: UITableViewCell {
     
     // MARK: - Outlet
     @IBOutlet weak var completeImage: UIImageView!
@@ -23,7 +23,7 @@ class GroupTodoTableViewCell: UITableViewCell {
     }
     
     // MARK: - Data
-    weak var delegate: GroupTodoTableViewCellDelegate?
+    weak var delegate: HomeTodoTableViewCellDelegate?
     var todo: Todo?
     
     override func awakeFromNib() {
@@ -31,7 +31,7 @@ class GroupTodoTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func configure(with todo: Todo, delegate: GroupTodoTableViewCellDelegate) {
+    func configure(with todo: Todo, delegate: HomeTodoTableViewCellDelegate) {
         self.todo = todo
         self.delegate = delegate
         
