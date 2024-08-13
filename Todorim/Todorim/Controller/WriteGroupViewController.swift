@@ -65,13 +65,13 @@ class WriteGroupViewController: UIViewController {
                 startColor: GroupColor.getStart(index: selectedColorIndex),
                 endColor: GroupColor.getEnd(index: selectedColorIndex),
                 appColorIndex: selectedColorIndex,
-                completion: { [weak self] isSuccess in
+                completion: { [weak self] isSuccess, group in
                     if isSuccess {
                         self?.delegate?.completeWriteGroup(group: group)
                     } else {
                         // TODO: 오류 메시지
-                }
-            })
+                    }
+                })
         } else {
             let alert = UIAlertController(title: "그룹 이름을 입력하세요.", message: "", preferredStyle: UIAlertController.Style.alert)
             let defaultAction = UIAlertAction(title: "확인", style: .default)
@@ -171,7 +171,6 @@ extension WriteGroupViewController: UICollectionViewDelegate, UICollectionViewDa
         guard let cell = collectionView.cellForItem(at: indexPath) as? GroupColorCell else { return }
         cell.backView.isHidden = !cell.backView.isHidden
         
-        var selectedColorIndex = group?.appColorIndex ?? 0
         let selectedIndex = IndexPath(row: selectedColorIndex, section: 0)
         if let selectedCell = collectionView.cellForItem(at: selectedIndex) as? GroupColorCell {
             selectedCell.backView.isHidden = !selectedCell.backView.isHidden
