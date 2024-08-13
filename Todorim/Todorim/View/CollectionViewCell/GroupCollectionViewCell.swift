@@ -30,14 +30,7 @@ class GroupCollectionViewCell: UICollectionViewCell {
         // Initialization code
         progress.transform = progress.transform.scaledBy(x: 1, y: 2)
         
-        self.contentView.layer.cornerRadius = 10.0
-        self.contentView.layer.masksToBounds = true
-        
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0.0, height: 0.5)
-        self.layer.shadowRadius = 6.0
-        self.layer.shadowOpacity = 0.2
-        self.layer.masksToBounds = false
+        self.setCardBorder()
         
         tableView.register(UINib(nibName: "GroupTodoTableViewCell", bundle: nil), forCellReuseIdentifier: "GroupTodoTableViewCell")
         tableView.delegate = self

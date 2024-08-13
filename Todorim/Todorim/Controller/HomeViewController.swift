@@ -69,7 +69,7 @@ class HomeViewController: UIViewController {
     
     func configureCollectionView() {
         collectionView.register(UINib(nibName: "GroupCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GroupCollectionViewCell")
-        collectionView.register(UINib(nibName: "AddGroupCell", bundle: nil), forCellWithReuseIdentifier: "AddGroupCell")
+        collectionView.register(UINib(nibName: "AddGroupCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddGroupCollectionViewCell")
         collectionView.contentInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 20)
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
     }
@@ -130,8 +130,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return cell
             }
         } else {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddGroupCell", for: indexPath) as? AddGroupCell {
-                cell.contentView.hero.id = "view_addGroup"
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddGroupCollectionViewCell", for: indexPath) as? AddGroupCollectionViewCell {
+                cell.configure()
                 return cell
             }
         }
