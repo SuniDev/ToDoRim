@@ -30,8 +30,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchGroup()
-        fetchTodo()
         configureUI()
     }
     
@@ -76,14 +74,6 @@ class HomeViewController: UIViewController {
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
     }
     
-    func fetchGroup() {
-        groups = groupStorage?.getGroups() ?? []
-    }
-    
-    func fetchTodo() {
-        todos = todoStorage?.getTodos() ?? []
-    }
-    
     func configureBackground(colors: [UIColor]) {
         gradientLayer = Utils.getVerticalLayer(frame: UIScreen.main.bounds, colors: colors)
         backgroundView.layer.addSublayer(gradientLayer)
@@ -106,6 +96,14 @@ class HomeViewController: UIViewController {
         colorAnimation.isRemovedOnCompletion = false
         colorAnimation.delegate = self
         gradientLayer.add(colorAnimation, forKey: "colorChange")
+    }
+    
+    func fetchGroup() {
+        groups = groupStorage?.getGroups() ?? []
+    }
+    
+    func fetchTodo() {
+        todos = todoStorage?.getTodos() ?? []
     }
 }
 
@@ -205,7 +203,7 @@ extension HomeViewController: GroupCollectionViewCellDelegate {
         viewController.todoStorage = todoStorage
         viewController.groupStorage = groupStorage
         viewController.group = group
-        viewController.todos = todos
+        viewController.todos = todos.filter { $0.groupId == group.groupId }
         
         navigationController?.hero.isEnabled = true
         navigationController?.hero.navigationAnimationType = .none

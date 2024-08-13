@@ -103,6 +103,11 @@ class GroupDetailViewController: UIViewController {
             self.progress.setProgress(percent, animated: true)
         }
     }
+    
+    func fetchTodo() {
+        guard let group else { return }
+        todos = todoStorage?.getTodos(groupId: group.groupId) ?? []
+    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -123,17 +128,63 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        CommonRealmDB.shared.updateTaskCheck(gIndex: groupIndex, tIndex: index) { (response) in
-//            if response {
-//                tableView.reloadRows(at: [indexPath], with: .none)
-//                self.updateProgress(animated: true)
-//            }
-//        }
+        guard indexPath.row < todos.count else { return }
+        
+        let todo = todos[indexPath.row]
+        let isComplete = !todo.isComplete
+        todoStorage?.updateComplete(with: todo, isComplete: isComplete, completion: { [weak self] isSuccess in
+            guard let self else { return }
+            if isSuccess {
+                self.fetchTodo()
+                self.tableView.reloadRows(at: [indexPath], with: .none)
+                self.updateProgress()
+            } else {
+                // TODO: - 오류 메시지
+            }
+        })
     }
     
-//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        let tModify = modifyTask(at: indexPath)
-//        let tDelete = deleteTask(at: indexPath)
-//        return UISwipeActionsConfiguration(actions: [tDelete,tModify])
-//    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editTodo = editTodoAction(at: indexPath)
+        let deleteTodo = deleteTodoAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [editTodo, deleteTodo])
+    }
+    
+    func editTodoAction(at indexPath: IndexPath) -> UIContextualAction {
+        let todoCount = todos.count
+        let action = UIContextualAction(style: .destructive, title: "") { (action, view, completion) in
+            // TODO: edit Todo
+            completion(true)
+        }
+        action.image = Asset.Assets.editWhite.image
+        action.backgroundColor = .lightGray
+        
+        return action
+    }
+    
+    func deleteTodoAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "") { [weak self] action, view, completion in
+            guard let self,
+                  indexPath.row < self.todos.count else {
+                completion(false)
+                return
+            }
+            let todo = todos[indexPath.row]
+            self.todoStorage?.deleteTodo(with: todo, completion: { [weak self] isSuccess in
+                if isSuccess {
+                    self?.fetchTodo()
+                    self?.tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+                    self?.updateProgress()
+                    completion(true)
+                } else {
+                    // TODO: 오류 메시지
+                    completion(false)
+                }
+            })
+        }
+        action.image = Asset.Assets.deleteWhite.image
+        action.backgroundColor = Asset.Color.red.color
+        
+        return action
+    }
 }

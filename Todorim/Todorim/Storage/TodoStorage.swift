@@ -98,14 +98,14 @@ class TodoStorage {
         }
     }
     
-    func deleteTodo(id: Int, completion: @escaping (Bool) -> ()) {
-        if let todo = getTodo(id: id) {
+    func deleteTodo(with todo: Todo, completion: @escaping (Bool) -> ()) {
+//        if let todo = getTodo(id: todo.todoId) {
             realmManager.delete(object: todo) { isSuccess, error in
                 completion(isSuccess)
             }
-        } else {
-            completion(false)
-        }
+//        } else {
+//            completion(false)
+//        }
     }
     
     func deleteTodos(groupId: Int, completion: @escaping (Bool) -> ()) {
