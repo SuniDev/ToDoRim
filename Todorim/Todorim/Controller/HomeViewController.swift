@@ -157,11 +157,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func moveAddGroup() {
-        guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "AddGroupViewController") as? AddGroupViewController else { return }
+        guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "WriteGroupViewController") as? WriteGroupViewController else { return }
         viewController.hero.isEnabled = true
         viewController.modalPresentationStyle = .fullScreen
+        
         viewController.delegate = self
         viewController.groupStorage = groupStorage
+        viewController.isNew = true
         
         navigationController?.hero.isEnabled = true
         navigationController?.hero.modalAnimationType = .cover(direction: .up)
@@ -201,7 +203,7 @@ extension HomeViewController: GroupCollectionViewCellDelegate {
 }
 
 extension HomeViewController: AddGroupViewControllerDelegate {
-    func completeAddGroup(group: Group) {
+    func completeWriteGroup(group: Group) {
         self.dismiss(animated: true) {
             self.fetchGroup()
             self.collectionView.reloadData()

@@ -1,5 +1,5 @@
 //
-//  AddGroupViewController.swift
+//  WriteGroupViewController.swift
 //  Todorim
 //
 //  Created by suni on 8/13/24.
@@ -8,29 +8,45 @@
 import UIKit
 
 protocol AddGroupViewControllerDelegate: AnyObject {
-    func completeAddGroup(group: Group)
+    func completeWriteGroup(group: Group)
 }
-class AddGroupViewController: UIViewController {
+class WriteGroupViewController: UIViewController {
     
     // MARK: - Data
     weak var delegate: AddGroupViewControllerDelegate?
     var groupStorage: GroupStorage?
     var selectedColorIndex = 0
+    var isNew: Bool = false {
+        didSet {
+            addButtonView.isHidden = !isNew
+            editButtonView.isHidden = isNew
+            editBottomView.isHidden = isNew
+            titleLabel.text = isNew ? "그룹 추가" : "그룹 수정"
+        }
+    }
     
     // MARK: - Outlet
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var backgroundView: UIView!
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var textfield: MadokaTextField!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var addButtonView: UIView!
+    @IBOutlet weak var editButtonView: UIView!
+    @IBOutlet weak var editBottomView: UIView!
+    
     
     // MARK: - Action
     @IBAction func changedTextField(_ sender: MadokaTextField) {
         sender.setMaxLength(max: 20)
     }
+    
     @IBAction func tappedCloseButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func tappedAddButton(_ sender: UIButton) {
         if isValidData() {
             let group = Group()
@@ -41,13 +57,21 @@ class AddGroupViewController: UIViewController {
             group.endColor = GroupColor.getEnd(index: selectedColorIndex)
             
             groupStorage?.add(group)
-            delegate?.completeAddGroup(group: group)
+            delegate?.completeWriteGroup(group: group)
         } else {
             let alert = UIAlertController(title: "그룹 이름을 입력하세요.", message: "", preferredStyle: UIAlertController.Style.alert)
             let defaultAction = UIAlertAction(title: "확인", style: .default)
             alert.addAction(defaultAction)
             self.present(alert, animated: false, completion: nil)
         }
+    }
+    
+    @IBAction func tappedEditButton(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func tappedDeleteButton(_ sender: UIButton) {
+        
     }
     
     override func viewDidLoad() {
@@ -85,7 +109,7 @@ class AddGroupViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
-extension AddGroupViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension WriteGroupViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return GroupColor.count
     }
@@ -123,7 +147,7 @@ extension AddGroupViewController: UICollectionViewDelegate, UICollectionViewData
 }
 
 // MARK: - UITextFieldDelegate
-extension AddGroupViewController: UITextFieldDelegate {
+extension WriteGroupViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         return true

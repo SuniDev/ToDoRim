@@ -6,13 +6,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add Group View Controller-->
+        <!--Write Group View Controller-->
         <scene sceneID="Oc6-zZ-UYU">
             <objects>
-                <viewController storyboardIdentifier="AddGroupViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="p8H-1N-9lT" customClass="AddGroupViewController" customModule="Todorim" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddGroupViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="p8H-1N-9lT" customClass="WriteGroupViewController" customModule="Todorim" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rZg-1o-NjB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,49 +132,117 @@
                                     <constraint firstAttribute="bottom" secondItem="n5T-LO-aH7" secondAttribute="bottom" id="x7T-hM-DsJ"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Coq-eU-GmM">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v01-vy-RTF" userLabel="Add Button View">
                                 <rect key="frame" x="0.0" y="728" width="375" height="50"/>
-                                <color key="backgroundColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Coq-eU-GmM">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <color key="backgroundColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                        <state key="normal" title="추가">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedAddButton:" destination="p8H-1N-9lT" eventType="touchUpInside" id="u1l-Tq-Jgj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Pg6-I1-Jpf"/>
+                                    <constraint firstItem="Coq-eU-GmM" firstAttribute="leading" secondItem="v01-vy-RTF" secondAttribute="leading" id="Ezh-ZJ-eDK"/>
+                                    <constraint firstAttribute="bottom" secondItem="Coq-eU-GmM" secondAttribute="bottom" id="T6d-gS-ysd"/>
+                                    <constraint firstItem="Coq-eU-GmM" firstAttribute="top" secondItem="v01-vy-RTF" secondAttribute="top" id="Ung-DS-dNy"/>
+                                    <constraint firstAttribute="trailing" secondItem="Coq-eU-GmM" secondAttribute="trailing" id="Wlx-rR-u7O"/>
+                                    <constraint firstAttribute="height" constant="50" id="YvY-E3-4yE"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
-                                <state key="normal" title="추가">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tappedAddButton:" destination="p8H-1N-9lT" eventType="touchUpInside" id="u1l-Tq-Jgj"/>
-                                </connections>
-                            </button>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="379-qR-KAh" userLabel="Edit Button View">
+                                <rect key="frame" x="0.0" y="728" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8V-5A-1vX">
+                                        <rect key="frame" x="187.66666666666663" y="0.0" width="187.33333333333337" height="50"/>
+                                        <color key="backgroundColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                        <state key="normal" title="수정">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedEditButton:" destination="p8H-1N-9lT" eventType="touchUpInside" id="sMU-GG-ANF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WoX-5V-xmG">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="50"/>
+                                        <color key="backgroundColor" name="Red"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                        <state key="normal" title="그룹 삭제">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedDeleteButton:" destination="p8H-1N-9lT" eventType="touchUpInside" id="SiH-fP-3U1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="f8V-5A-1vX" secondAttribute="trailing" id="663-Jz-QGk"/>
+                                    <constraint firstItem="WoX-5V-xmG" firstAttribute="leading" secondItem="379-qR-KAh" secondAttribute="leading" id="BoQ-Ye-Jnx"/>
+                                    <constraint firstAttribute="bottom" secondItem="f8V-5A-1vX" secondAttribute="bottom" id="c3e-ZL-RgJ"/>
+                                    <constraint firstItem="WoX-5V-xmG" firstAttribute="width" secondItem="f8V-5A-1vX" secondAttribute="width" id="f8F-b2-l79"/>
+                                    <constraint firstItem="WoX-5V-xmG" firstAttribute="top" secondItem="379-qR-KAh" secondAttribute="top" id="iLL-VD-5aJ"/>
+                                    <constraint firstItem="f8V-5A-1vX" firstAttribute="leading" secondItem="WoX-5V-xmG" secondAttribute="trailing" id="lLT-yF-gK3"/>
+                                    <constraint firstAttribute="bottom" secondItem="WoX-5V-xmG" secondAttribute="bottom" id="pBW-BC-TIm"/>
+                                    <constraint firstItem="f8V-5A-1vX" firstAttribute="top" secondItem="379-qR-KAh" secondAttribute="top" id="s1B-8Y-hhM"/>
+                                    <constraint firstAttribute="height" constant="50" id="tE5-FE-8VF"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDf-oo-LqE">
                                 <rect key="frame" x="0.0" y="778" width="375" height="34"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWU-J5-Dn2">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.66666666666666" height="34"/>
+                                        <color key="backgroundColor" name="Red"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" name="Default"/>
+                                <constraints>
+                                    <constraint firstItem="BWU-J5-Dn2" firstAttribute="leading" secondItem="IDf-oo-LqE" secondAttribute="leading" id="fgi-uO-E7L"/>
+                                    <constraint firstAttribute="bottom" secondItem="BWU-J5-Dn2" secondAttribute="bottom" id="llx-y6-AAS"/>
+                                    <constraint firstItem="BWU-J5-Dn2" firstAttribute="top" secondItem="IDf-oo-LqE" secondAttribute="top" id="r4t-fd-abn"/>
+                                    <constraint firstItem="BWU-J5-Dn2" firstAttribute="width" secondItem="IDf-oo-LqE" secondAttribute="width" multiplier="0.5" id="zhs-He-EYO"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VBf-A4-3Tu"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="VBf-A4-3Tu" firstAttribute="bottom" secondItem="v01-vy-RTF" secondAttribute="bottom" id="0Fw-Do-cEd"/>
                             <constraint firstItem="VBf-A4-3Tu" firstAttribute="trailing" secondItem="uut-6N-EtJ" secondAttribute="trailing" id="1XE-IP-5Xe"/>
                             <constraint firstItem="VBf-A4-3Tu" firstAttribute="trailing" secondItem="Bzl-9N-ba6" secondAttribute="trailing" id="2vC-hg-N2b"/>
-                            <constraint firstItem="Coq-eU-GmM" firstAttribute="trailing" secondItem="VBf-A4-3Tu" secondAttribute="trailing" id="6Iw-2T-2CN"/>
+                            <constraint firstItem="379-qR-KAh" firstAttribute="trailing" secondItem="VBf-A4-3Tu" secondAttribute="trailing" id="4IX-Ha-fb3"/>
+                            <constraint firstItem="VBf-A4-3Tu" firstAttribute="trailing" secondItem="v01-vy-RTF" secondAttribute="trailing" id="6Jw-21-pQr"/>
                             <constraint firstItem="VBf-A4-3Tu" firstAttribute="bottom" secondItem="uut-6N-EtJ" secondAttribute="bottom" id="9St-1X-Pxp"/>
-                            <constraint firstItem="VBf-A4-3Tu" firstAttribute="bottom" secondItem="Coq-eU-GmM" secondAttribute="bottom" id="AOL-e3-R6k"/>
                             <constraint firstItem="Bzl-9N-ba6" firstAttribute="top" secondItem="VBf-A4-3Tu" secondAttribute="top" id="Fwh-VP-JYR"/>
-                            <constraint firstItem="Coq-eU-GmM" firstAttribute="leading" secondItem="VBf-A4-3Tu" secondAttribute="leading" id="IjS-pG-fhL"/>
+                            <constraint firstItem="379-qR-KAh" firstAttribute="leading" secondItem="VBf-A4-3Tu" secondAttribute="leading" id="I2T-Gb-dHx"/>
                             <constraint firstItem="uut-6N-EtJ" firstAttribute="top" secondItem="Bzl-9N-ba6" secondAttribute="bottom" id="PcG-l5-DqS"/>
+                            <constraint firstItem="v01-vy-RTF" firstAttribute="leading" secondItem="VBf-A4-3Tu" secondAttribute="leading" id="SSX-92-YWw"/>
                             <constraint firstItem="IDf-oo-LqE" firstAttribute="leading" secondItem="VBf-A4-3Tu" secondAttribute="leading" id="UAL-nB-uoD"/>
-                            <constraint firstItem="IDf-oo-LqE" firstAttribute="top" secondItem="Coq-eU-GmM" secondAttribute="bottom" id="UU6-Rz-lSS"/>
+                            <constraint firstItem="VBf-A4-3Tu" firstAttribute="bottom" secondItem="379-qR-KAh" secondAttribute="bottom" id="Wpa-ul-0iO"/>
                             <constraint firstItem="uut-6N-EtJ" firstAttribute="leading" secondItem="VBf-A4-3Tu" secondAttribute="leading" id="XqW-BL-DOe"/>
                             <constraint firstItem="Bzl-9N-ba6" firstAttribute="leading" secondItem="VBf-A4-3Tu" secondAttribute="leading" id="Zmw-zI-0qY"/>
+                            <constraint firstItem="IDf-oo-LqE" firstAttribute="top" secondItem="uut-6N-EtJ" secondAttribute="bottom" id="cSU-9z-mAr"/>
                             <constraint firstItem="VBf-A4-3Tu" firstAttribute="trailing" secondItem="IDf-oo-LqE" secondAttribute="trailing" id="eIP-ja-lXO"/>
                             <constraint firstAttribute="bottom" secondItem="IDf-oo-LqE" secondAttribute="bottom" id="j2G-pC-cfi"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addButtonView" destination="v01-vy-RTF" id="dXz-jb-Tle"/>
                         <outlet property="backgroundView" destination="n5T-LO-aH7" id="1tE-HH-GJW"/>
                         <outlet property="collectionView" destination="GBr-bP-Nmt" id="dcM-jh-alP"/>
+                        <outlet property="editBottomView" destination="BWU-J5-Dn2" id="B7k-Iq-ntz"/>
+                        <outlet property="editButtonView" destination="379-qR-KAh" id="Ryz-zj-mLg"/>
                         <outlet property="scrollView" destination="uut-6N-EtJ" id="5gr-lN-f4n"/>
                         <outlet property="textfield" destination="pkT-7v-ZHH" id="CeL-fZ-uO8"/>
+                        <outlet property="titleLabel" destination="dAl-YP-G8z" id="cLi-y2-EK6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSk-x1-0RQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -550,5 +619,11 @@
         <namedColor name="Default">
             <color red="0.22352941176470589" green="0.22352941176470589" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="Red">
+            <color red="0.63921568627450975" green="0.19215686274509802" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

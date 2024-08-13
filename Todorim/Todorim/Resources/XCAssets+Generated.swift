@@ -60,6 +60,7 @@ internal enum Asset {
     internal static let end7 = ColorAsset(name: "End7")
     internal static let end8 = ColorAsset(name: "End8")
     internal static let end9 = ColorAsset(name: "End9")
+    internal static let red = ColorAsset(name: "Red")
     internal static let start1 = ColorAsset(name: "Start1")
     internal static let start2 = ColorAsset(name: "Start2")
     internal static let start3 = ColorAsset(name: "Start3")

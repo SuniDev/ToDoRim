@@ -76,7 +76,7 @@
                 <outlet property="percentLabel" destination="mvX-3w-3I1" id="92a-mZ-YrX"/>
                 <outlet property="progress" destination="a6Y-6i-aN2" id="YvY-SC-hNH"/>
                 <outlet property="tableView" destination="VRX-21-mVh" id="dlP-rn-iDd"/>
-                <outlet property="title" destination="RZ5-Mc-HfO" id="Awy-RN-fGK"/>
+                <outlet property="titleLabel" destination="RZ5-Mc-HfO" id="Awy-RN-fGK"/>
             </connections>
             <point key="canvasLocation" x="126.71755725190839" y="141.5492957746479"/>
         </collectionViewCell>

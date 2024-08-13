@@ -15,7 +15,7 @@ protocol GroupCollectionViewCellDelegate: AnyObject {
 class GroupCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Outlet
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var percentLabel: UILabel!
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var tableView: UITableView!
@@ -52,13 +52,13 @@ class GroupCollectionViewCell: UICollectionViewCell {
             progress.subviews[1].clipsToBounds = true
         }
         
-        title.text = group.title
+        titleLabel.text = group.title
         
         updateProgress()
         tableView.reloadData()
         
         contentView.hero.id = "view_\(group.groupId)"
-        title.hero.id = "title_\(group.groupId)"
+        titleLabel.hero.id = "title_\(group.groupId)"
         progress.hero.id = "progress_\(group.groupId)"
         percentLabel.hero.id = "percent_\(group.groupId)"
     }

@@ -14,7 +14,7 @@ class GroupTodoTableViewCell: UITableViewCell {
     
     // MARK: - Outlet
     @IBOutlet weak var completeImage: UIImageView!
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     // MARK: - IBAction
     @IBAction func tappedCompleteButton(_ sender: Any) {
@@ -37,13 +37,13 @@ class GroupTodoTableViewCell: UITableViewCell {
         
         if todo.isComplete {
             completeImage.image = Asset.Assets.checkGray.image
-            title.textColor = .lightGray
-            title.attributedText = Utils.getCompleteAttributedText(with: todo.title)
+            titleLabel.textColor = .lightGray
+            titleLabel.attributedText = Utils.getCompleteAttributedText(with: todo.title)
         } else {
             completeImage.image = Asset.Assets.uncheckDefault.image
-            title.textColor = Asset.Color.default.color
-            title.attributedText = nil
-            title.text = todo.title
+            titleLabel.textColor = Asset.Color.default.color
+            titleLabel.attributedText = nil
+            titleLabel.text = todo.title
         }
     }
 }

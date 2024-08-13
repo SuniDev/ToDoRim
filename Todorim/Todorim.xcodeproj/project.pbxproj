@@ -144,7 +144,7 @@
 		EA8BB6F52C6AEED400779FF9 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB6F42C6AEED400779FF9 /* UIView+Extension.swift */; };
 		EA8BB6F82C6AEF8600779FF9 /* AddGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB6F62C6AEF8600779FF9 /* AddGroupCollectionViewCell.swift */; };
 		EA8BB6F92C6AEF8600779FF9 /* AddGroupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA8BB6F72C6AEF8600779FF9 /* AddGroupCollectionViewCell.xib */; };
-		EA8BB6FB2C6AF19400779FF9 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB6FA2C6AF19400779FF9 /* AddGroupViewController.swift */; };
+		EA8BB6FB2C6AF19400779FF9 /* WriteGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB6FA2C6AF19400779FF9 /* WriteGroupViewController.swift */; };
 		EA8BB6FD2C6AF95B00779FF9 /* AppHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB6FC2C6AF95B00779FF9 /* AppHero.swift */; };
 		EAC682A02C690C040010ECCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6829F2C690C040010ECCC /* SceneDelegate.swift */; };
 		EAC682A72C690C050010ECCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAC682A62C690C050010ECCC /* Assets.xcassets */; };
@@ -323,7 +323,7 @@
 		EA8BB6F42C6AEED400779FF9 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		EA8BB6F62C6AEF8600779FF9 /* AddGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA8BB6F72C6AEF8600779FF9 /* AddGroupCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddGroupCollectionViewCell.xib; sourceTree = "<group>"; };
-		EA8BB6FA2C6AF19400779FF9 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
+		EA8BB6FA2C6AF19400779FF9 /* WriteGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteGroupViewController.swift; sourceTree = "<group>"; };
 		EA8BB6FC2C6AF95B00779FF9 /* AppHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHero.swift; sourceTree = "<group>"; };
 		EAC6829A2C690C040010ECCC /* Todorim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todorim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAC6829F2C690C040010ECCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -426,7 +426,7 @@
 			children = (
 				EA6B4FBD2C69B8BA00DC3254 /* IntroViewController.swift */,
 				EA6B4FE62C69F1DF00DC3254 /* HomeViewController.swift */,
-				EA8BB6FA2C6AF19400779FF9 /* AddGroupViewController.swift */,
+				EA8BB6FA2C6AF19400779FF9 /* WriteGroupViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1081,7 +1081,7 @@
 				EA7C5DCD2C69A7E20099AB7C /* HeroPlugin.swift in Sources */,
 				EA7C5DDF2C69A7E20099AB7C /* TextFieldEffects.swift in Sources */,
 				EA7C5DCF2C69A7E20099AB7C /* HeroTypes.swift in Sources */,
-				EA8BB6FB2C6AF19400779FF9 /* AddGroupViewController.swift in Sources */,
+				EA8BB6FB2C6AF19400779FF9 /* WriteGroupViewController.swift in Sources */,
 				EA7C5D2F2C69A7D80099AB7C /* SearchLocationMapVC.swift in Sources */,
 				EA7C5CFA2C69A7D40099AB7C /* CommonSetting.swift in Sources */,
 				EA7C5CF92C69A7D40099AB7C /* CommonRealmDB.swift in Sources */,
