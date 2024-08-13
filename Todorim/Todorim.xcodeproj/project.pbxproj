@@ -69,9 +69,7 @@
 		EA7C5D992C69A7E20099AB7C /* CustomizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D3F2C69A7E20099AB7C /* CustomizedTabBar.swift */; };
 		EA7C5D9A2C69A7E20099AB7C /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D422C69A7E20099AB7C /* DateHelper.swift */; };
 		EA7C5D9B2C69A7E20099AB7C /* CAGradientLayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D442C69A7E20099AB7C /* CAGradientLayer+Extension.swift */; };
-		EA7C5D9D2C69A7E20099AB7C /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D462C69A7E20099AB7C /* DoubleExtension.swift */; };
-		EA7C5D9E2C69A7E20099AB7C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D472C69A7E20099AB7C /* StringExtension.swift */; };
-		EA7C5D9F2C69A7E20099AB7C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D482C69A7E20099AB7C /* UIColorExtension.swift */; };
+		EA7C5D9E2C69A7E20099AB7C /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D472C69A7E20099AB7C /* String+Extension.swift */; };
 		EA7C5DA02C69A7E20099AB7C /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D492C69A7E20099AB7C /* UITextField+Extension.swift */; };
 		EA7C5DA12C69A7E20099AB7C /* FAPaginationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D4B2C69A7E20099AB7C /* FAPaginationLayout.swift */; };
 		EA7C5DA22C69A7E20099AB7C /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D4D2C69A7E20099AB7C /* Geotification.swift */; };
@@ -200,9 +198,7 @@
 		EA7C5D412C69A7E20099AB7C /* DateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHelper.h; sourceTree = "<group>"; };
 		EA7C5D422C69A7E20099AB7C /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		EA7C5D442C69A7E20099AB7C /* CAGradientLayer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+Extension.swift"; sourceTree = "<group>"; };
-		EA7C5D462C69A7E20099AB7C /* DoubleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
-		EA7C5D472C69A7E20099AB7C /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		EA7C5D482C69A7E20099AB7C /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		EA7C5D472C69A7E20099AB7C /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		EA7C5D492C69A7E20099AB7C /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		EA7C5D4B2C69A7E20099AB7C /* FAPaginationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAPaginationLayout.swift; sourceTree = "<group>"; };
 		EA7C5D4D2C69A7E20099AB7C /* Geotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geotification.swift; sourceTree = "<group>"; };
@@ -301,6 +297,7 @@
 				EA7C5D442C69A7E20099AB7C /* CAGradientLayer+Extension.swift */,
 				EA6B4FE82C69F52200DC3254 /* Date+Extension.swift */,
 				EA8BB6F42C6AEED400779FF9 /* UIView+Extension.swift */,
+				EA7C5D472C69A7E20099AB7C /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -508,16 +505,6 @@
 			path = DateHelper;
 			sourceTree = "<group>";
 		};
-		EA7C5D4A2C69A7E20099AB7C /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				EA7C5D462C69A7E20099AB7C /* DoubleExtension.swift */,
-				EA7C5D472C69A7E20099AB7C /* StringExtension.swift */,
-				EA7C5D482C69A7E20099AB7C /* UIColorExtension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		EA7C5D4C2C69A7E20099AB7C /* FAPaginationLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,7 +555,6 @@
 			children = (
 				EA7C5D402C69A7E20099AB7C /* CustomTabShapeTest */,
 				EA7C5D432C69A7E20099AB7C /* DateHelper */,
-				EA7C5D4A2C69A7E20099AB7C /* Extensions */,
 				EA7C5D4E2C69A7E20099AB7C /* Geotify */,
 				EA7C5D932C69A7E20099AB7C /* IceCream */,
 				EA7C5D972C69A7E20099AB7C /* TextFieldEffects */,
@@ -883,7 +869,7 @@
 				EA6B4FC72C69CB1700DC3254 /* RealmManager.swift in Sources */,
 				EA7C5D2A2C69A7D80099AB7C /* TaskOneNotiCell.swift in Sources */,
 				EA7C5DDC2C69A7E20099AB7C /* SyncEngine.swift in Sources */,
-				EA7C5D9E2C69A7E20099AB7C /* StringExtension.swift in Sources */,
+				EA7C5D9E2C69A7E20099AB7C /* String+Extension.swift in Sources */,
 				EA7C5CF52C69A7D40099AB7C /* AppDelegate.swift in Sources */,
 				EA7C5CEF2C69A7D40099AB7C /* CustomGroupPicker.swift in Sources */,
 				EA7C5CF82C69A7D40099AB7C /* CommonNoti.swift in Sources */,
@@ -899,8 +885,6 @@
 				EA6B4FE12C69EB9700DC3254 /* Strings+Generated.swift in Sources */,
 				EA7C5D252C69A7D80099AB7C /* ModifyGroupVC.swift in Sources */,
 				EA8BB6FD2C6AF95B00779FF9 /* AppHero.swift in Sources */,
-				EA7C5D9D2C69A7E20099AB7C /* DoubleExtension.swift in Sources */,
-				EA7C5D9F2C69A7E20099AB7C /* UIColorExtension.swift in Sources */,
 				EA8BB6F82C6AEF8600779FF9 /* AddGroupCollectionViewCell.swift in Sources */,
 				EAC682A02C690C040010ECCC /* SceneDelegate.swift in Sources */,
 				EA6B4FE52C69ED0400DC3254 /* AppUserDefaults.swift in Sources */,
