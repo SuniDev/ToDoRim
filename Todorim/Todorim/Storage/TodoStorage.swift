@@ -69,7 +69,7 @@ class TodoStorage {
                 updateTodo.title = todo.title
                 updateTodo.isDateNoti = todo.isDateNoti
                 updateTodo.date = todo.date
-                updateTodo.week = todo.week
+                updateTodo.weekType = todo.weekType
                 updateTodo.day = todo.day
                 updateTodo.repeatNotiType = todo.repeatNotiType
                 updateTodo.isLocationNoti = todo.isLocationNoti
@@ -86,7 +86,7 @@ class TodoStorage {
         }
     }
     
-    func updateIsComplete(with todo: Todo, isComplete: Bool, completion: @escaping (Bool) -> ()) {
+    func updateComplete(with todo: Todo, isComplete: Bool, completion: @escaping (Bool) -> ()) {
         if let updateTodo = getTodo(id: todo.todoId) {
             realmManager.update(block: {
                 updateTodo.isComplete = isComplete

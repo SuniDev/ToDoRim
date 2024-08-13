@@ -29,6 +29,8 @@ class GroupCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         progress.transform = progress.transform.scaledBy(x: 1, y: 2)
+        progress.layer.cornerRadius = progress.frame.height / 2
+        progress.layer.masksToBounds = true
         
         self.setCardBorder()
         
@@ -42,17 +44,11 @@ class GroupCollectionViewCell: UICollectionViewCell {
         self.todos = todos
         self.delegate = delegate
         
+        titleLabel.text = group.title
+        
         let colors = [group.startColor, group.endColor]
         let progressLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 5.0), colors: colors)
         progress.progressImage = progressLayer.createGradientImage()
-        progress.layer.cornerRadius = progress.frame.height / 2
-        progress.clipsToBounds = true
-        if progress.layer.sublayers?.count ?? 0 > 0 && progress.subviews.count > 0 {
-            progress.layer.sublayers?[1].cornerRadius = progress.frame.height / 2
-            progress.subviews[1].clipsToBounds = true
-        }
-        
-        titleLabel.text = group.title
         
         updateProgress()
         tableView.reloadData()
@@ -84,7 +80,9 @@ class GroupCollectionViewCell: UICollectionViewCell {
             percentLabel.text = "0 %"
         }
         
-        progress.setProgress(percent, animated: true)
+        DispatchQueue.main.async {
+            self.progress.setProgress(percent, animated: true)
+        }
     }
     
     @objc

@@ -187,7 +187,7 @@ extension HomeViewController: GroupCollectionViewCellDelegate {
     func completeTodo(with todo: Todo?, isComplete: Bool) {
         guard let todo else { return }
         
-        todoStorage?.updateIsComplete(with: todo, isComplete: isComplete, completion: { [weak self] isSuccess in
+        todoStorage?.updateComplete(with: todo, isComplete: isComplete, completion: { [weak self] isSuccess in
             guard let self else { return }
             if isSuccess {
                 self.fetchTodo()

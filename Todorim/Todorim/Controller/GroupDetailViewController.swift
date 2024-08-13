@@ -50,24 +50,26 @@ class GroupDetailViewController: UIViewController {
         configureTableView()
         
         progress.transform = progress.transform.scaledBy(x: 1, y: 2)
+        progress.layer.cornerRadius = progress.frame.height / 2
+        progress.layer.masksToBounds = true
         
         addButtonView.layer.cornerRadius = addButtonView.bounds.height / 2
         addButtonView.layer.masksToBounds = true
-
-        updateProgress()
         
         if let group {
             titleLabel.text = group.title
             
             let colors = [group.startColor, group.endColor]
-            let buttonLayer = Utils.getVerticalLayer(frame: CGRect(x: 0, y: 0, width: 70, height: 70), colors: colors)
-            addButtonView.layer.addSublayer(buttonLayer)
             
             let progressLayer = Utils.getHorizontalLayer(frame:  CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 5.0), colors: colors)
             progress.progressImage = progressLayer.createGradientImage()
+            
+            let buttonLayer = Utils.getVerticalLayer(frame: CGRect(x: 0, y: 0, width: 70, height: 70), colors: colors)
+            addButtonView.layer.addSublayer(buttonLayer)
         }
         
-      tableView.reloadData()
+        updateProgress()
+        tableView.reloadData()
     }
     
     func configureHeroID() {
@@ -80,7 +82,7 @@ class GroupDetailViewController: UIViewController {
     }
     
     func configureTableView() {
-        tableView.register(UINib(nibName: "TaskCell", bundle: nil), forCellReuseIdentifier: "TaskCell")
+        tableView.register(UINib(nibName: "TodoTableViewCell", bundle: nil), forCellReuseIdentifier: "TodoTableViewCell")
     }
     
     func updateProgress() {
@@ -97,7 +99,9 @@ class GroupDetailViewController: UIViewController {
             percentLabel.text = "0 %"
         }
         
-        progress.setProgress(percent, animated: true)
+        DispatchQueue.main.async {
+            self.progress.setProgress(percent, animated: true)
+        }
     }
 }
 
@@ -109,92 +113,13 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let data = todos[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell", for: indexPath) as? TodoTableViewCell,
+              indexPath.row < todos.count else { return UITableViewCell() }
         
-        if data.isDateNoti && data.isLocationNoti {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTwoNotiCell", for: indexPath) as! TaskTwoNotiCell
-//            cell.dateNotiTitle.text = setNotiDate(data)
-            cell.locNotiTitle.text = "\(data.isLocationNoti) \(data.locationNotiType.rawValue)"
-            cell.taskTitle.text = data.title
-            if data.isComplete {
-                cell.imgDateNoti.image = UIImage(named: "alarm_gray")
-                cell.imgLocNoti.image = UIImage(named: "map_gray")
-                cell.imgCheck.image = UIImage(named: "check_gray")
-                cell.dateNotiTitle.textColor = .lightGray
-                cell.locNotiTitle.textColor = .lightGray
-                cell.taskTitle.textColor = .lightGray
-                let attribute = NSMutableAttributedString(string: cell.taskTitle.text ?? "")
-                attribute.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(0, attribute.length))
-                cell.taskTitle.attributedText = attribute
-            } else {
-                cell.imgDateNoti.image = UIImage(named: "alarm_default")
-                cell.imgLocNoti.image = UIImage(named: "map_default")
-                cell.imgCheck.image = UIImage(named: "uncheck_default")
-                cell.dateNotiTitle.textColor = UIColor(rgb: 0x39393E)
-                cell.locNotiTitle.textColor = UIColor(rgb: 0x39393E)
-                cell.taskTitle.textColor = UIColor(rgb: 0x39393E)
-                // cc
-            }
-            return cell
-        } else if data.isDateNoti {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TaskOneNotiCell", for: indexPath) as! TaskOneNotiCell
-//            cell.notiTitle.text = setNotiDate(data)
-            cell.taskTitle.text = data.title
-            if data.isComplete {
-                cell.imgNoti.image = UIImage(named: "alarm_gray")
-                cell.imgCheck.image = UIImage(named: "check_gray")
-                cell.notiTitle.textColor = .lightGray
-                cell.taskTitle.textColor = .lightGray
-                // cc
-                let attribute = NSMutableAttributedString(string: cell.taskTitle.text ?? "")
-                attribute.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(0, attribute.length))
-                cell.taskTitle.attributedText = attribute
-            } else {
-                cell.imgNoti.image = UIImage(named: "alarm_default")
-                cell.imgCheck.image = UIImage(named: "uncheck_default")
-                cell.notiTitle.textColor = UIColor(rgb: 0x39393E)
-                cell.taskTitle.textColor = UIColor(rgb: 0x39393E)
-                // cc
-            }
-            return cell
-        } else if data.isLocationNoti {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TaskOneNotiCell", for: indexPath) as! TaskOneNotiCell
-            cell.notiTitle.text = "\(data.locationName) \(data.locationNotiType.rawValue)"
-            cell.taskTitle.text = data.title
-            if data.isComplete {
-                cell.imgNoti.image = UIImage(named: "map_gray")
-                cell.imgCheck.image = UIImage(named: "check_gray")
-                cell.notiTitle.textColor = .lightGray
-                cell.taskTitle.textColor = .lightGray
-                //  cc
-                let attribute = NSMutableAttributedString(string: cell.taskTitle.text ?? "")
-                attribute.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(0, attribute.length))
-                cell.taskTitle.attributedText = attribute
-            } else {
-                cell.imgNoti.image = UIImage(named: "map_default")
-                cell.imgCheck.image = UIImage(named: "uncheck_default")
-                cell.notiTitle.textColor = UIColor(rgb: 0x39393E)
-                cell.taskTitle.textColor = UIColor(rgb: 0x39393E)
-                // cc
-            }
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskCell
-            cell.taskTitle.text = data.title
-            if data.isComplete {
-                cell.imgCheck.image = UIImage(named: "check_gray")
-                cell.taskTitle.textColor = .lightGray
-                // cc
-                let attribute = NSMutableAttributedString(string: cell.taskTitle.text ?? "")
-                attribute.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(0, attribute.length))
-                cell.taskTitle.attributedText = attribute
-            } else {
-                cell.imgCheck.image = UIImage(named: "uncheck_default")
-                cell.taskTitle.textColor = UIColor(rgb: 0x39393E)
-                // cc
-            }
-            return cell
-        }
+        let todo = todos[indexPath.row]
+        cell.configure(with: todo)
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
