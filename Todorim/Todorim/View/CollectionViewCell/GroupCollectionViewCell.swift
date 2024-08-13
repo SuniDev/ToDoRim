@@ -8,8 +8,8 @@
 import UIKit
 
 protocol GroupCollectionViewCellDelegate: AnyObject {
-    func completeTodo(with group: Group, todo: Todo, isComplete: Bool)
-    func moveGroupDetail(with group: Group)
+    func completeTodo(with todo: Todo?, isComplete: Bool)
+    func moveGroupDetail(with group: Group?)
 }
 
 class GroupCollectionViewCell: UICollectionViewCell {
@@ -22,7 +22,7 @@ class GroupCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Data
     weak var delegate: GroupCollectionViewCellDelegate?
-    var group: Group = Group()
+    var group: Group?
     var todos: [Todo] = []
     
     override func awakeFromNib() {
@@ -39,12 +39,12 @@ class GroupCollectionViewCell: UICollectionViewCell {
         self.layer.shadowOpacity = 0.2
         self.layer.masksToBounds = false
         
-        tableView.register(UINib(nibName: "GroupTaskCell", bundle: nil), forCellReuseIdentifier: "GroupTaskCell")
+        tableView.register(UINib(nibName: "GroupTodoTableViewCell", bundle: nil), forCellReuseIdentifier: "GroupTodoTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
     }
     
-    func configure(group: Group, todos: [Todo], delegate: GroupCollectionViewCellDelegate) {
+    func configure(with group: Group, todos: [Todo], delegate: GroupCollectionViewCellDelegate) {
         self.group = group
         self.todos = todos
         self.delegate = delegate
@@ -52,6 +52,12 @@ class GroupCollectionViewCell: UICollectionViewCell {
         let colors = [group.startColor, group.endColor]
         let progressLayer = Utils.getProgressLayer(colors: colors)
         progress.progressImage = progressLayer.createGradientImage()
+        progress.layer.cornerRadius = progress.frame.height / 2
+        progress.clipsToBounds = true
+        if progress.layer.sublayers?.count ?? 0 > 0 && progress.subviews.count > 0 {
+            progress.layer.sublayers?[1].cornerRadius = progress.frame.height / 2
+            progress.subviews[1].clipsToBounds = true
+        }
         
         title.text = group.title
         
@@ -72,26 +78,11 @@ extension GroupCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupTaskCell", for: indexPath) as? GroupTaskCell,
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupTodoTableViewCell", for: indexPath) as? GroupTodoTableViewCell,
               indexPath.row < todos.count else { return UITableViewCell() }
         
         let todo = todos[indexPath.row]
-        cell.taskTitle.text = todo.title
-        if todo.isComplete {
-            cell.imgCheck.image = UIImage(named: "check_gray")
-            cell.taskTitle.textColor = .lightGray
-            let attribute = NSMutableAttributedString(string: cell.taskTitle.text ?? "")
-            attribute.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attribute.length))
-            cell.taskTitle.attributedText = attribute
-        }
-        else {
-            cell.imgCheck.image = UIImage(named: "uncheck_default")
-            cell.taskTitle.textColor = UIColor(rgb: 0x39393E)
-            // cc
-        }
-        
-        cell.btnCheck.tag = indexPath.row
-        cell.btnCheck.addTarget(self, action: #selector(checkTask(sender:)), for: .touchUpInside)
+        cell.configure(with: todo, delegate: self)
         
         return cell
     }
@@ -103,7 +94,6 @@ extension GroupCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension GroupCollectionViewCell {
-    
     func updateProgress() {
         var percent: Float = 0.0
         
@@ -121,27 +111,8 @@ extension GroupCollectionViewCell {
     }
 }
 
-@objc
-extension GroupCollectionViewCell {
-    func checkTask(sender: UIButton) {
-        let indexPath = IndexPath(row: sender.tag, section: 0)
-        let todo = todos[indexPath.row]
-        
-        
-//        CommonRealmDB.shared.updateTaskCheck(gIndex: groupIndex, tIndex: tIndex, completion: { (response) in
-//            if response {
-//                self.tableView.performBatchUpdates({
-//                    self.tableView.reloadRows(at: [indexPath], with: .automatic)
-//                }, completion: { (finished) in
-//                    self.tableView.performBatchUpdates({
-//                        self.updateProgress()
-//                        self.tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-//                        self.arrTask.remove(at: index)
-//                    }, completion: { (finished) in
-//                        self.tableView.reloadData()
-//                    })
-//                })
-//            }
-//        })
+extension GroupCollectionViewCell: GroupTodoTableViewCellDelegate {
+    func completeTodo(with todo: Todo?, isComplete: Bool) {
+        delegate?.completeTodo(with: todo, isComplete: isComplete)
     }
 }

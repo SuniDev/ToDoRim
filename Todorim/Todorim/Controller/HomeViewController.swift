@@ -126,7 +126,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupCollectionViewCell", for: indexPath) as? GroupCollectionViewCell {
                 let group = groups[indexPath.row]
                 let todos = todos.filter{ $0.groupId == group.groupId }
-                cell.configure(group: group, todos: todos, delegate: self)
+                cell.configure(with: group, todos: todos, delegate: self)
                 return cell
             }
         } else {
@@ -166,8 +166,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
 // MARK: - GroupCollectionViewCellDelegate
 extension HomeViewController: GroupCollectionViewCellDelegate {
-    func completeTodo(with group: Group, todo: Todo, isComplete: Bool) {
-        todoStorage?.update(todo, completion: { [weak self] isSuccess in
+    func completeTodo(with todo: Todo?, isComplete: Bool) {
+        guard let todo else { return }
+        
+        todoStorage?.updateIsComplete(with: todo, isComplete: isComplete, completion: { [weak self] isSuccess in
             guard let self else { return }
             if isSuccess {
                 self.fetchTodo()
@@ -178,7 +180,8 @@ extension HomeViewController: GroupCollectionViewCellDelegate {
         })
     }
     
-    func moveGroupDetail(with group: Group) {
+    func moveGroupDetail(with group: Group?) {
+        guard let group else { return }
         // TODO: - 상세로 이동
     }
 }

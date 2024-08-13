@@ -53,8 +53,6 @@
 		EA7C5D1B2C69A7D80099AB7C /* AddGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5CFC2C69A7D80099AB7C /* AddGroupCell.xib */; };
 		EA7C5D1E2C69A7D80099AB7C /* GroupColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5CFF2C69A7D80099AB7C /* GroupColorCell.swift */; };
 		EA7C5D1F2C69A7D80099AB7C /* GroupColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5D002C69A7D80099AB7C /* GroupColorCell.xib */; };
-		EA7C5D202C69A7D80099AB7C /* GroupTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D012C69A7D80099AB7C /* GroupTaskCell.swift */; };
-		EA7C5D212C69A7D80099AB7C /* GroupTaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5D022C69A7D80099AB7C /* GroupTaskCell.xib */; };
 		EA7C5D222C69A7D80099AB7C /* AddGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D042C69A7D80099AB7C /* AddGroupVC.swift */; };
 		EA7C5D232C69A7D80099AB7C /* GroupTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D052C69A7D80099AB7C /* GroupTaskVC.swift */; };
 		EA7C5D242C69A7D80099AB7C /* GroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D062C69A7D80099AB7C /* GroupVC.swift */; };
@@ -143,6 +141,8 @@
 		EA7C5DDD2C69A7E20099AB7C /* SyncObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D922C69A7E20099AB7C /* SyncObject.swift */; };
 		EA7C5DDE2C69A7E20099AB7C /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D942C69A7E20099AB7C /* MadokaTextField.swift */; };
 		EA7C5DDF2C69A7E20099AB7C /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D962C69A7E20099AB7C /* TextFieldEffects.swift */; };
+		EA8BB6F02C6AE40800779FF9 /* GroupTodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB6EE2C6AE40800779FF9 /* GroupTodoTableViewCell.swift */; };
+		EA8BB6F12C6AE40800779FF9 /* GroupTodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA8BB6EF2C6AE40800779FF9 /* GroupTodoTableViewCell.xib */; };
 		EAC682A02C690C040010ECCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6829F2C690C040010ECCC /* SceneDelegate.swift */; };
 		EAC682A72C690C050010ECCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAC682A62C690C050010ECCC /* Assets.xcassets */; };
 		EAC682B52C690C050010ECCC /* TodorimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682B42C690C050010ECCC /* TodorimTests.swift */; };
@@ -226,8 +226,6 @@
 		EA7C5CFC2C69A7D80099AB7C /* AddGroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddGroupCell.xib; sourceTree = "<group>"; };
 		EA7C5CFF2C69A7D80099AB7C /* GroupColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupColorCell.swift; sourceTree = "<group>"; };
 		EA7C5D002C69A7D80099AB7C /* GroupColorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupColorCell.xib; sourceTree = "<group>"; };
-		EA7C5D012C69A7D80099AB7C /* GroupTaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTaskCell.swift; sourceTree = "<group>"; };
-		EA7C5D022C69A7D80099AB7C /* GroupTaskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupTaskCell.xib; sourceTree = "<group>"; };
 		EA7C5D042C69A7D80099AB7C /* AddGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGroupVC.swift; sourceTree = "<group>"; };
 		EA7C5D052C69A7D80099AB7C /* GroupTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupTaskVC.swift; sourceTree = "<group>"; };
 		EA7C5D062C69A7D80099AB7C /* GroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupVC.swift; sourceTree = "<group>"; };
@@ -319,6 +317,8 @@
 		EA7C5D942C69A7E20099AB7C /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadokaTextField.swift; sourceTree = "<group>"; };
 		EA7C5D952C69A7E20099AB7C /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
 		EA7C5D962C69A7E20099AB7C /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
+		EA8BB6EE2C6AE40800779FF9 /* GroupTodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTodoTableViewCell.swift; sourceTree = "<group>"; };
+		EA8BB6EF2C6AE40800779FF9 /* GroupTodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTodoTableViewCell.xib; sourceTree = "<group>"; };
 		EAC6829A2C690C040010ECCC /* Todorim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todorim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAC6829F2C690C040010ECCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EAC682A62C690C050010ECCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -402,6 +402,7 @@
 		EA6B4FBA2C69B7F100DC3254 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EA8BB6ED2C6AE3E500779FF9 /* TableViewCell */,
 				EA6B4FEC2C69FC2100DC3254 /* CollectionViewCell */,
 				EA7C5D352C69A7DE0099AB7C /* LaunchScreen.storyboard */,
 				EA6B4FC32C69B96A00DC3254 /* Intro.storyboard */,
@@ -524,8 +525,6 @@
 				EA7C5CFC2C69A7D80099AB7C /* AddGroupCell.xib */,
 				EA7C5CFF2C69A7D80099AB7C /* GroupColorCell.swift */,
 				EA7C5D002C69A7D80099AB7C /* GroupColorCell.xib */,
-				EA7C5D012C69A7D80099AB7C /* GroupTaskCell.swift */,
-				EA7C5D022C69A7D80099AB7C /* GroupTaskCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -775,6 +774,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		EA8BB6ED2C6AE3E500779FF9 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EA8BB6EE2C6AE40800779FF9 /* GroupTodoTableViewCell.swift */,
+				EA8BB6EF2C6AE40800779FF9 /* GroupTodoTableViewCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		EAC682912C690C030010ECCC = {
 			isa = PBXGroup;
 			children = (
@@ -942,9 +950,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA8BB6F12C6AE40800779FF9 /* GroupTodoTableViewCell.xib in Resources */,
 				EA6B4FF02C69FC5400DC3254 /* GroupCollectionViewCell.xib in Resources */,
 				EA7C5CC12C699B140099AB7C /* .swiftlint.yml in Resources */,
-				EA7C5D212C69A7D80099AB7C /* GroupTaskCell.xib in Resources */,
 				EA6B4FC42C69B96A00DC3254 /* Intro.storyboard in Resources */,
 				EA7C5CCE2C69A5EC0099AB7C /* swiftgen.yml in Resources */,
 				EA7C5D292C69A7D80099AB7C /* TaskCell.xib in Resources */,
@@ -1056,7 +1064,6 @@
 				EA7C5DDF2C69A7E20099AB7C /* TextFieldEffects.swift in Sources */,
 				EA7C5DCF2C69A7E20099AB7C /* HeroTypes.swift in Sources */,
 				EA7C5D2F2C69A7D80099AB7C /* SearchLocationMapVC.swift in Sources */,
-				EA7C5D202C69A7D80099AB7C /* GroupTaskCell.swift in Sources */,
 				EA7C5CFA2C69A7D40099AB7C /* CommonSetting.swift in Sources */,
 				EA7C5CF92C69A7D40099AB7C /* CommonRealmDB.swift in Sources */,
 				EA7C5DD22C69A7E20099AB7C /* CKRecordConvertible.swift in Sources */,
@@ -1124,6 +1131,7 @@
 				EA7C5DD72C69A7E20099AB7C /* Manifest.swift in Sources */,
 				EA7C5DB32C69A7E20099AB7C /* Nodes.swift in Sources */,
 				EA7C5DB42C69A7E20099AB7C /* Parser.swift in Sources */,
+				EA8BB6F02C6AE40800779FF9 /* GroupTodoTableViewCell.swift in Sources */,
 				EA7C5DBA2C69A7E20099AB7C /* IgnoreSubviewModifiersPreprocessor.swift in Sources */,
 				EA7C5DDB2C69A7E20099AB7C /* Syncable.swift in Sources */,
 				EA7C5D1A2C69A7D80099AB7C /* AddGroupCell.swift in Sources */,

@@ -63,7 +63,7 @@ class TodoStorage {
         realmManager.add(todo)
     }
     
-    func update(_ todo: Todo, completion: @escaping (Bool) -> ()) {
+    func update(with todo: Todo, completion: @escaping (Bool) -> ()) {
         if let updateTodo = getTodo(id: todo.todoId) {
             realmManager.update(block: {
                 updateTodo.title = todo.title
@@ -86,8 +86,8 @@ class TodoStorage {
         }
     }
     
-    func updateIsComplete(_ isComplete: Bool, id: Int, completion: @escaping (Bool) -> ()) {
-        if let updateTodo = getTodo(id: id) {
+    func updateIsComplete(with todo: Todo, isComplete: Bool, completion: @escaping (Bool) -> ()) {
+        if let updateTodo = getTodo(id: todo.todoId) {
             realmManager.update(block: {
                 updateTodo.isComplete = isComplete
             }, completion: { isSuccess, error in
