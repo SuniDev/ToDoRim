@@ -8,9 +8,18 @@
 import Foundation
 
 enum AppHeroId: String {
-     case viewAddGroup = "view_add_group"
+    case viewGroupDetail = "view_group_detail"
+    case viewAddGroup = "view_add_group"
+    case button = "button"
+    case title = "title"
+    case percent = "percent"
+    case progress = "progress"
     
     func getId() -> String {
         return self.rawValue
+    }
+    
+    func getId(id: Int) -> String {
+        return self.rawValue + "_\(id)"
     }
 }

@@ -43,7 +43,7 @@ class GroupCollectionViewCell: UICollectionViewCell {
         self.delegate = delegate
         
         let colors = [group.startColor, group.endColor]
-        let progressLayer = Utils.getProgressLayer(colors: colors)
+        let progressLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 5.0), colors: colors)
         progress.progressImage = progressLayer.createGradientImage()
         progress.layer.cornerRadius = progress.frame.height / 2
         progress.clipsToBounds = true
@@ -57,10 +57,39 @@ class GroupCollectionViewCell: UICollectionViewCell {
         updateProgress()
         tableView.reloadData()
         
-        contentView.hero.id = "view_\(group.groupId)"
-        titleLabel.hero.id = "title_\(group.groupId)"
-        progress.hero.id = "progress_\(group.groupId)"
-        percentLabel.hero.id = "percent_\(group.groupId)"
+        configureHeroID()
+        
+        let tappedView = UITapGestureRecognizer.init(target: self, action: #selector(tappedView))
+        tableView.addGestureRecognizer(tappedView)
+    }
+    
+    func configureHeroID() {
+        let id = group?.groupId ?? 0
+        contentView.hero.id = AppHeroId.viewGroupDetail.getId(id: id)
+        titleLabel.hero.id = AppHeroId.title.getId(id: id)
+        progress.hero.id = AppHeroId.progress.getId(id: id)
+        percentLabel.hero.id = AppHeroId.percent.getId(id: id)
+    }
+    
+    func updateProgress() {
+        var percent: Float = 0.0
+        
+        let completeTodos = todos.filter { $0.isComplete }
+        
+        if completeTodos.count > 0 {
+            percent = Float(completeTodos.count) / Float(todos.count)
+            percentLabel.text = "\(Int(percent * 100)) %"
+        } else {
+            percent = 0.0
+            percentLabel.text = "0 %"
+        }
+        
+        progress.setProgress(percent, animated: true)
+    }
+    
+    @objc
+    func tappedView() {
+        delegate?.moveGroupDetail(with: group)
     }
 }
 
@@ -84,24 +113,6 @@ extension GroupCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
         delegate?.moveGroupDetail(with: group)
     }
     
-}
-
-extension GroupCollectionViewCell {
-    func updateProgress() {
-        var percent: Float = 0.0
-        
-        let completeTodos = todos.filter { $0.isComplete }
-        
-        if completeTodos.count > 0 {
-            percent = Float(completeTodos.count) / Float(todos.count)
-            percentLabel.text = "\(Int(percent * 100)) %"
-        } else {
-            percent = 0.0
-            percentLabel.text = "0 %"
-        }
-        
-        progress.setProgress(percent, animated: true)
-    }
 }
 
 extension GroupCollectionViewCell: GroupTodoTableViewCellDelegate {

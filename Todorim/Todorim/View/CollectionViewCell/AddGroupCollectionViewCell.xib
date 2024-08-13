@@ -35,6 +35,10 @@
                             <constraint firstItem="Wjh-TN-A3L" firstAttribute="centerY" secondItem="41f-iI-uWt" secondAttribute="centerY" id="Z2c-50-Kuy"/>
                             <constraint firstItem="Wjh-TN-A3L" firstAttribute="centerX" secondItem="41f-iI-uWt" secondAttribute="centerX" id="nGM-Kl-cFp"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -46,6 +50,10 @@
                 <constraint firstItem="41f-iI-uWt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="z5L-Ge-aVh"/>
             </constraints>
             <size key="customSize" width="154" height="258"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="29.007633587786259" y="93.661971830985919"/>
         </collectionViewCell>
     </objects>

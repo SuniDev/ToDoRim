@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Hero
+
 class HomeViewController: UIViewController {
     
     // MARK: - Data
@@ -83,7 +85,7 @@ class HomeViewController: UIViewController {
     }
     
     func configureBackground(colors: [UIColor]) {
-        gradientLayer = Utils.getBackgroundLayer(colors: colors)
+        gradientLayer = Utils.getVerticalLayer(frame: UIScreen.main.bounds, colors: colors)
         backgroundView.layer.addSublayer(gradientLayer)
     }
     
@@ -198,11 +200,23 @@ extension HomeViewController: GroupCollectionViewCellDelegate {
     
     func moveGroupDetail(with group: Group?) {
         guard let group else { return }
+        guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "GroupDetailViewController") as? GroupDetailViewController else { return }
         
+        viewController.todoStorage = todoStorage
+        viewController.groupStorage = groupStorage
+        viewController.group = group
+        viewController.todos = todos
+        
+        navigationController?.hero.isEnabled = true
+        navigationController?.hero.navigationAnimationType = .none
+        
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
 
-extension HomeViewController: AddGroupViewControllerDelegate {
+extension HomeViewController: WriteGroupViewControllerDelegate {
     func completeWriteGroup(group: Group) {
         self.dismiss(animated: true) {
             self.fetchGroup()

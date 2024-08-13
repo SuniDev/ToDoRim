@@ -7,13 +7,16 @@
 
 import UIKit
 
-protocol AddGroupViewControllerDelegate: AnyObject {
+import Hero
+
+protocol WriteGroupViewControllerDelegate: AnyObject {
     func completeWriteGroup(group: Group)
 }
+
 class WriteGroupViewController: UIViewController {
     
     // MARK: - Data
-    weak var delegate: AddGroupViewControllerDelegate?
+    weak var delegate: WriteGroupViewControllerDelegate?
     var groupStorage: GroupStorage?
     var selectedColorIndex = 0
     var isNew: Bool = false {
@@ -119,7 +122,7 @@ extension WriteGroupViewController: UICollectionViewDelegate, UICollectionViewDa
         
         // 배경 색상
         let colors = GroupColor.getColors(index: indexPath.row)
-        let gradientLayer = Utils.getIconLayer(colors: colors)
+        let gradientLayer = Utils.getVerticalLayer(frame: CGRect(x: 0, y: 0, width: 50, height: 50), colors: colors)
         cell.view.layer.addSublayer(gradientLayer)
         
         // default 색상

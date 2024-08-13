@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Hero
+
 class AddGroupCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
