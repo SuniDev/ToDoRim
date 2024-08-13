@@ -75,7 +75,7 @@
 		EA7C5D9D2C69A7E20099AB7C /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D462C69A7E20099AB7C /* DoubleExtension.swift */; };
 		EA7C5D9E2C69A7E20099AB7C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D472C69A7E20099AB7C /* StringExtension.swift */; };
 		EA7C5D9F2C69A7E20099AB7C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D482C69A7E20099AB7C /* UIColorExtension.swift */; };
-		EA7C5DA02C69A7E20099AB7C /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D492C69A7E20099AB7C /* UITextFieldExtension.swift */; };
+		EA7C5DA02C69A7E20099AB7C /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D492C69A7E20099AB7C /* UITextField+Extension.swift */; };
 		EA7C5DA12C69A7E20099AB7C /* FAPaginationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D4B2C69A7E20099AB7C /* FAPaginationLayout.swift */; };
 		EA7C5DA22C69A7E20099AB7C /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D4D2C69A7E20099AB7C /* Geotification.swift */; };
 		EA7C5DA32C69A7E20099AB7C /* HeroAnimatorViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D4F2C69A7E20099AB7C /* HeroAnimatorViewContext.swift */; };
@@ -144,6 +144,8 @@
 		EA8BB6F52C6AEED400779FF9 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB6F42C6AEED400779FF9 /* UIView+Extension.swift */; };
 		EA8BB6F82C6AEF8600779FF9 /* AddGroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB6F62C6AEF8600779FF9 /* AddGroupCollectionViewCell.swift */; };
 		EA8BB6F92C6AEF8600779FF9 /* AddGroupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA8BB6F72C6AEF8600779FF9 /* AddGroupCollectionViewCell.xib */; };
+		EA8BB6FB2C6AF19400779FF9 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB6FA2C6AF19400779FF9 /* AddGroupViewController.swift */; };
+		EA8BB6FD2C6AF95B00779FF9 /* AppHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB6FC2C6AF95B00779FF9 /* AppHero.swift */; };
 		EAC682A02C690C040010ECCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6829F2C690C040010ECCC /* SceneDelegate.swift */; };
 		EAC682A72C690C050010ECCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAC682A62C690C050010ECCC /* Assets.xcassets */; };
 		EAC682B52C690C050010ECCC /* TodorimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682B42C690C050010ECCC /* TodorimTests.swift */; };
@@ -250,7 +252,7 @@
 		EA7C5D462C69A7E20099AB7C /* DoubleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		EA7C5D472C69A7E20099AB7C /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		EA7C5D482C69A7E20099AB7C /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		EA7C5D492C69A7E20099AB7C /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		EA7C5D492C69A7E20099AB7C /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		EA7C5D4B2C69A7E20099AB7C /* FAPaginationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAPaginationLayout.swift; sourceTree = "<group>"; };
 		EA7C5D4D2C69A7E20099AB7C /* Geotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geotification.swift; sourceTree = "<group>"; };
 		EA7C5D4F2C69A7E20099AB7C /* HeroAnimatorViewContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroAnimatorViewContext.swift; sourceTree = "<group>"; };
@@ -321,6 +323,8 @@
 		EA8BB6F42C6AEED400779FF9 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		EA8BB6F62C6AEF8600779FF9 /* AddGroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA8BB6F72C6AEF8600779FF9 /* AddGroupCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddGroupCollectionViewCell.xib; sourceTree = "<group>"; };
+		EA8BB6FA2C6AF19400779FF9 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
+		EA8BB6FC2C6AF95B00779FF9 /* AppHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHero.swift; sourceTree = "<group>"; };
 		EAC6829A2C690C040010ECCC /* Todorim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todorim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAC6829F2C690C040010ECCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EAC682A62C690C050010ECCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -385,6 +389,7 @@
 		EA6B4FB82C69B7DE00DC3254 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EA7C5D492C69A7E20099AB7C /* UITextField+Extension.swift */,
 				EA6B4FDB2C69D5D400DC3254 /* UIColor+Extension.swift */,
 				EA7C5D442C69A7E20099AB7C /* CAGradientLayer+Extension.swift */,
 				EA6B4FE82C69F52200DC3254 /* Date+Extension.swift */,
@@ -421,6 +426,7 @@
 			children = (
 				EA6B4FBD2C69B8BA00DC3254 /* IntroViewController.swift */,
 				EA6B4FE62C69F1DF00DC3254 /* HomeViewController.swift */,
+				EA8BB6FA2C6AF19400779FF9 /* AddGroupViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -441,6 +447,7 @@
 				EA6B4FD92C69D34000DC3254 /* NotificationType.swift */,
 				EA6B4FD72C69D29F00DC3254 /* LocationSearch.swift */,
 				EA6B4FDD2C69EA9F00DC3254 /* GroupColor.swift */,
+				EA8BB6FC2C6AF95B00779FF9 /* AppHero.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -459,6 +466,7 @@
 		EA7C5CC22C699B400099AB7C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EA8BB6FE2C6AFEEA00779FF9 /* Library */,
 				EA6B4FDF2C69EB9700DC3254 /* Strings+Generated.swift */,
 				EA6B4FE02C69EB9700DC3254 /* XCAssets+Generated.swift */,
 				EAC682AB2C690C050010ECCC /* Info.plist */,
@@ -601,7 +609,6 @@
 				EA7C5D462C69A7E20099AB7C /* DoubleExtension.swift */,
 				EA7C5D472C69A7E20099AB7C /* StringExtension.swift */,
 				EA7C5D482C69A7E20099AB7C /* UIColorExtension.swift */,
-				EA7C5D492C69A7E20099AB7C /* UITextFieldExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -768,9 +775,7 @@
 				EA7C5D402C69A7E20099AB7C /* CustomTabShapeTest */,
 				EA7C5D432C69A7E20099AB7C /* DateHelper */,
 				EA7C5D4A2C69A7E20099AB7C /* Extensions */,
-				EA7C5D4C2C69A7E20099AB7C /* FAPaginationLayout */,
 				EA7C5D4E2C69A7E20099AB7C /* Geotify */,
-				EA7C5D862C69A7E20099AB7C /* Hero */,
 				EA7C5D932C69A7E20099AB7C /* IceCream */,
 				EA7C5D972C69A7E20099AB7C /* TextFieldEffects */,
 			);
@@ -784,6 +789,15 @@
 				EA8BB6EF2C6AE40800779FF9 /* GroupTodoTableViewCell.xib */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		EA8BB6FE2C6AFEEA00779FF9 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				EA7C5D862C69A7E20099AB7C /* Hero */,
+				EA7C5D4C2C69A7E20099AB7C /* FAPaginationLayout */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 		EAC682912C690C030010ECCC = {
@@ -1067,6 +1081,7 @@
 				EA7C5DCD2C69A7E20099AB7C /* HeroPlugin.swift in Sources */,
 				EA7C5DDF2C69A7E20099AB7C /* TextFieldEffects.swift in Sources */,
 				EA7C5DCF2C69A7E20099AB7C /* HeroTypes.swift in Sources */,
+				EA8BB6FB2C6AF19400779FF9 /* AddGroupViewController.swift in Sources */,
 				EA7C5D2F2C69A7D80099AB7C /* SearchLocationMapVC.swift in Sources */,
 				EA7C5CFA2C69A7D40099AB7C /* CommonSetting.swift in Sources */,
 				EA7C5CF92C69A7D40099AB7C /* CommonRealmDB.swift in Sources */,
@@ -1116,6 +1131,7 @@
 				EA7C5DA32C69A7E20099AB7C /* HeroAnimatorViewContext.swift in Sources */,
 				EA7C5DCA2C69A7E20099AB7C /* HeroModifier.swift in Sources */,
 				EA7C5DC72C69A7E20099AB7C /* HeroTransitionState.swift in Sources */,
+				EA8BB6FD2C6AF95B00779FF9 /* AppHero.swift in Sources */,
 				EA7C5DCC2C69A7E20099AB7C /* HeroModifier+HeroStringConvertible.swift in Sources */,
 				EA7C5D9D2C69A7E20099AB7C /* DoubleExtension.swift in Sources */,
 				EA7C5D9F2C69A7E20099AB7C /* UIColorExtension.swift in Sources */,
@@ -1127,7 +1143,7 @@
 				EA7C5D9B2C69A7E20099AB7C /* CAGradientLayer+Extension.swift in Sources */,
 				EA7C5DBD2C69A7E20099AB7C /* HeroProgressRunner.swift in Sources */,
 				EA7C5DCE2C69A7E20099AB7C /* HeroTargetState.swift in Sources */,
-				EA7C5DA02C69A7E20099AB7C /* UITextFieldExtension.swift in Sources */,
+				EA7C5DA02C69A7E20099AB7C /* UITextField+Extension.swift in Sources */,
 				EA7C5CF32C69A7D40099AB7C /* CustomTimePicker.swift in Sources */,
 				EA7C5D302C69A7D80099AB7C /* SearchLocationTVC.swift in Sources */,
 				EA6B4FEB2C69F54B00DC3254 /* Utils.swift in Sources */,

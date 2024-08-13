@@ -9,7 +9,6 @@
 import UIKit
 
 extension UITextField {
-    
     func setMaxLength(max: Int) {
         if let str = self.text {
             let length = str.count
@@ -18,5 +17,4 @@ extension UITextField {
             }
         }
     }
-    
 }

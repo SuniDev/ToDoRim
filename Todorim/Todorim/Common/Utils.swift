@@ -16,6 +16,10 @@ class Utils {
         return CAGradientLayer(frame: UIScreen.main.bounds, colors: colors, startPoint: CGPoint(x: 0.5, y: 0), endPoint: CGPoint(x: 0.5, y: 1))
     }
     
+    static func getIconLayer(colors: [UIColor]) -> CAGradientLayer {
+        return CAGradientLayer(frame: CGRect(x: 0, y: 0, width: 50, height: 50), colors: colors, startPoint: CGPoint(x: 0.5, y:0), endPoint: CGPoint(x:0.5, y:1))
+    }
+    
     static func getCompleteAttributedText(with text: String) -> NSMutableAttributedString {
         let attribute = NSMutableAttributedString(string: text)
         attribute.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attribute.length))

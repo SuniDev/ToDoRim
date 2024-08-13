@@ -150,12 +150,26 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row < groups.count {
-            // TODO: - 상세로 이동
+            moveGroupDetail(with: groups[indexPath.row])
         } else {
-            // TODO: - 추가로 이동
+            moveAddGroup()
         }
     }
     
+    func moveAddGroup() {
+        guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "AddGroupViewController") as? AddGroupViewController else { return }
+        viewController.hero.isEnabled = true
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.delegate = self
+        viewController.groupStorage = groupStorage
+        
+        navigationController?.hero.isEnabled = true
+        navigationController?.hero.modalAnimationType = .cover(direction: .up)
+        
+        DispatchQueue.main.async {
+            self.navigationController?.present(viewController, animated: true)
+        }
+    }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let margin = collectionView.contentInset.left + collectionView.contentInset.right
@@ -182,6 +196,15 @@ extension HomeViewController: GroupCollectionViewCellDelegate {
     
     func moveGroupDetail(with group: Group?) {
         guard let group else { return }
-        // TODO: - 상세로 이동
+        
+    }
+}
+
+extension HomeViewController: AddGroupViewControllerDelegate {
+    func completeAddGroup(group: Group) {
+        self.dismiss(animated: true) {
+            self.fetchGroup()
+            self.collectionView.reloadData()
+        }
     }
 }

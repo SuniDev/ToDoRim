@@ -86,10 +86,6 @@ extension AddGroupVC {
         
         if let text = textTitle.text {
             if text.isEmpty() {
-                let alert = UIAlertController(title: "그룹 이름을 입력하세요.", message: "", preferredStyle: UIAlertController.Style.alert)
-                let defaultAction = UIAlertAction(title: "확인", style: .default)
-                alert.addAction(defaultAction)
-                self.present(alert, animated: false, completion: nil)
             } else {
                 groupTitle = text
                 return true

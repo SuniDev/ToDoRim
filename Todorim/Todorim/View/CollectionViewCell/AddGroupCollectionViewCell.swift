@@ -16,6 +16,6 @@ class AddGroupCollectionViewCell: UICollectionViewCell {
     }
     
     func configure() {
-        self.contentView.hero.id = "view_addGroup"
+        self.contentView.hero.id = AppHeroId.viewAddGroup.getId()
     }
 }

@@ -8,6 +8,9 @@
 import UIKit
 
 struct GroupColor {
+    static var count: Int {
+        return 10
+    }
     
     static func getColors(index: Int) -> [UIColor] {
         return [getStart(index: index), getEnd(index: index)]
