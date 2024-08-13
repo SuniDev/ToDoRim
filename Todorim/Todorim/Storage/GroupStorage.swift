@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class GroupStorage {
     
@@ -51,18 +52,15 @@ class GroupStorage {
         realmManager.add(group)
     }
     
-    func update(_ group: Group, completion: @escaping (Bool) -> ()) {
-        if let updateGroup = getGroup(id: group.groupId) {
-            realmManager.update(block: {
-                updateGroup.title = group.title
-                updateGroup.startColor = group.startColor
-                updateGroup.endColor = group.endColor
-            }, completion: { isSuccess, error in
-                completion(isSuccess)
-            })
-        } else {
-            completion(false)
-        }
+    func update(with group: Group, title: String, startColor: UIColor, endColor: UIColor, appColorIndex: Int, completion: @escaping (Bool) -> ()) {
+        realmManager.update(block: {
+            group.title = title
+            group.startColor = startColor
+            group.endColor = endColor
+            group.appColorIndex = appColorIndex
+        }, completion: { isSuccess, error in
+            completion(isSuccess)
+        })
     }
     
     func delete(id: Int, completion: @escaping (Bool) -> ()) {

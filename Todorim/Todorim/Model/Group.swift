@@ -36,6 +36,8 @@ class Group: Object {
         }
     }
     
+    @objc dynamic var appColorIndex: Int = 0
+    
     override static func primaryKey() -> String? {
         return "groupId"
     }

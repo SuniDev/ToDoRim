@@ -18,8 +18,8 @@ class WriteGroupViewController: UIViewController {
     // MARK: - Data
     weak var delegate: WriteGroupViewControllerDelegate?
     var groupStorage: GroupStorage?
-    var selectedColorIndex = 0
-    var isNew: Bool = false
+    var group: Group?
+    var selectedColorIndex: Int = 0
     
     // MARK: - Outlet
     @IBOutlet weak var scrollView: UIScrollView!
@@ -44,13 +44,8 @@ class WriteGroupViewController: UIViewController {
     }
     
     @IBAction func tappedAddButton(_ sender: UIButton) {
-        if isValidData() {
-            let group = Group()
-            group.groupId = groupStorage?.getNextId() ?? 0
-            group.order = groupStorage?.getNextOrder() ?? 0
+        if isValidData(), let group {
             group.title = textfield?.text ?? ""
-            group.startColor = GroupColor.getStart(index: selectedColorIndex)
-            group.endColor = GroupColor.getEnd(index: selectedColorIndex)
             
             groupStorage?.add(group)
             delegate?.completeWriteGroup(group: group)
@@ -63,7 +58,26 @@ class WriteGroupViewController: UIViewController {
     }
     
     @IBAction func tappedEditButton(_ sender: UIButton) {
-        
+        if isValidData(), let group {
+            groupStorage?.update(
+                with: group,
+                title: textfield?.text ?? "",
+                startColor: GroupColor.getStart(index: selectedColorIndex),
+                endColor: GroupColor.getEnd(index: selectedColorIndex),
+                appColorIndex: selectedColorIndex,
+                completion: { [weak self] isSuccess in
+                    if isSuccess {
+                        self?.delegate?.completeWriteGroup(group: group)
+                    } else {
+                        // TODO: 오류 메시지
+                }
+            })
+        } else {
+            let alert = UIAlertController(title: "그룹 이름을 입력하세요.", message: "", preferredStyle: UIAlertController.Style.alert)
+            let defaultAction = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(defaultAction)
+            self.present(alert, animated: false, completion: nil)
+        }
     }
     
     @IBAction func tappedDeleteButton(_ sender: UIButton) {
@@ -72,9 +86,6 @@ class WriteGroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        view.hero.id = AppHeroId.viewAddGroup.getId()
-        
         scrollView.contentInsetAdjustmentBehavior = .never
         createKeyboardEvent()
         
@@ -84,10 +95,29 @@ class WriteGroupViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        addButtonView.isHidden = !isNew
-        editButtonView.isHidden = isNew
-        editBottomView.isHidden = isNew
-        titleLabel.text = isNew ? "그룹 추가" : "그룹 수정"
+        if let group {
+            addButtonView.isHidden = true
+            editButtonView.isHidden = false
+            editBottomView.isHidden = false
+            titleLabel.text = "그룹 수정"
+            
+            textfield.text = group.title
+            selectedColorIndex = group.appColorIndex
+        } else {
+            addButtonView.isHidden = false
+            editButtonView.isHidden = true
+            editBottomView.isHidden = true
+            titleLabel.text = "그룹 추가"
+            
+            group = Group()
+            group?.groupId = groupStorage?.getNextId() ?? 0
+            group?.order = groupStorage?.getNextOrder() ?? 0
+            group?.startColor = GroupColor.getStart(index: 0)
+            group?.endColor = GroupColor.getEnd(index: 0)
+            group?.appColorIndex = 0
+        }
+        
+        collectionView.reloadData()
     }
     
     
@@ -127,10 +157,8 @@ extension WriteGroupViewController: UICollectionViewDelegate, UICollectionViewDa
         let gradientLayer = Utils.getVerticalLayer(frame: CGRect(x: 0, y: 0, width: 50, height: 50), colors: colors)
         cell.view.layer.addSublayer(gradientLayer)
         
-        // default 색상
-        if indexPath.row == 0 {
-            cell.backView.isHidden = false
-        }
+        let isSelected = indexPath.row == selectedColorIndex
+        cell.backView.isHidden = !isSelected
         
         return cell
     }
@@ -140,12 +168,14 @@ extension WriteGroupViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! GroupColorCell
+        guard let cell = collectionView.cellForItem(at: indexPath) as? GroupColorCell else { return }
         cell.backView.isHidden = !cell.backView.isHidden
         
+        var selectedColorIndex = group?.appColorIndex ?? 0
         let selectedIndex = IndexPath(row: selectedColorIndex, section: 0)
-        let selectedCell = collectionView.cellForItem(at: selectedIndex) as! GroupColorCell
-        selectedCell.backView.isHidden = !selectedCell.backView.isHidden
+        if let selectedCell = collectionView.cellForItem(at: selectedIndex) as? GroupColorCell {
+            selectedCell.backView.isHidden = !selectedCell.backView.isHidden
+        }
         
         selectedColorIndex = indexPath.row
     }

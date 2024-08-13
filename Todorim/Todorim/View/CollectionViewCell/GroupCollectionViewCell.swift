@@ -61,7 +61,7 @@ class GroupCollectionViewCell: UICollectionViewCell {
     
     func configureHeroID() {
         let id = group?.groupId ?? 0
-        contentView.hero.id = AppHeroId.viewGroupDetail.getId(id: id)
+        contentView.hero.id = AppHeroId.viewGroup.getId(id: id)
         titleLabel.hero.id = AppHeroId.title.getId(id: id)
         progress.hero.id = AppHeroId.progress.getId(id: id)
         percentLabel.hero.id = AppHeroId.percent.getId(id: id)

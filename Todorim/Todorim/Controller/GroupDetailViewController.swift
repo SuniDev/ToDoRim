@@ -33,7 +33,7 @@ class GroupDetailViewController: UIViewController {
     }
     
     @IBAction func tappedEditGroupButton(_ sender: UIButton) {
-//        CommonNav.shared.moveModifyGroup(groupIndex, self)
+        moveEditGroup()
     }
     
     @IBAction func tappedAddTodoButton(_ sender: UIButton) {
@@ -56,6 +56,12 @@ class GroupDetailViewController: UIViewController {
         addButtonView.layer.cornerRadius = addButtonView.bounds.height / 2
         addButtonView.layer.masksToBounds = true
         
+        updateGroupColor()
+        updateProgress()
+        tableView.reloadData()
+    }
+    
+    func updateGroupColor() {
         if let group {
             titleLabel.text = group.title
             
@@ -67,14 +73,12 @@ class GroupDetailViewController: UIViewController {
             let buttonLayer = Utils.getVerticalLayer(frame: CGRect(x: 0, y: 0, width: 70, height: 70), colors: colors)
             addButtonView.layer.addSublayer(buttonLayer)
         }
-        
-        updateProgress()
-        tableView.reloadData()
     }
+    
     
     func configureHeroID() {
         let id = group?.groupId ?? 0
-        view.hero.id = AppHeroId.viewGroupDetail.getId(id: id)
+        view.hero.id = AppHeroId.viewGroup.getId(id: id)
         titleLabel.hero.id = AppHeroId.title.getId(id: id)
         progress.hero.id = AppHeroId.progress.getId(id: id)
         percentLabel.hero.id = AppHeroId.percent.getId(id: id)
@@ -107,6 +111,27 @@ class GroupDetailViewController: UIViewController {
     func fetchTodo() {
         guard let group else { return }
         todos = todoStorage?.getTodos(groupId: group.groupId) ?? []
+    }
+    
+    func moveEditGroup() {
+        guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "WriteGroupViewController") as? WriteGroupViewController else { return }
+        viewController.hero.isEnabled = true
+        viewController.modalPresentationStyle = .fullScreen
+        
+        viewController.delegate = self
+        viewController.groupStorage = groupStorage
+        viewController.group = group
+        
+        let groupId = group?.groupId ?? 0
+        viewController.view.hero.id = AppHeroId.viewGroup.getId(id: groupId)
+        viewController.textfield.hero.id = AppHeroId.title.getId(id: groupId)
+        
+        navigationController?.hero.isEnabled = true
+        navigationController?.hero.modalAnimationType = .cover(direction: .up)
+        
+        DispatchQueue.main.async {
+            self.navigationController?.present(viewController, animated: true)
+        }
     }
 }
 
@@ -186,5 +211,17 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
         action.backgroundColor = Asset.Color.red.color
         
         return action
+    }
+}
+
+// MARK: - WriteGroupViewControllerDelegate
+extension GroupDetailViewController: WriteGroupViewControllerDelegate {
+    func completeWriteGroup(group: Group) {
+        dismiss(animated: true) {
+            self.group = group
+            
+            self.titleLabel.text = group.title
+            self.updateGroupColor()
+        }
     }
 }

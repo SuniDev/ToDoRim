@@ -21,10 +21,10 @@
                                 <color key="backgroundColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TS-ew-T5E">
-                                <rect key="frame" x="320" y="65" width="40" height="40"/>
+                                <rect key="frame" x="324" y="65" width="40" height="40"/>
                             </button>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting_white2" translatesAutoresizingMaskIntoConstraints="NO" id="O1F-2D-S3P">
-                                <rect key="frame" x="325" y="70" width="30" height="30"/>
+                                <rect key="frame" x="329" y="70" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="TG1-AH-ZbZ"/>
                                     <constraint firstAttribute="height" constant="30" id="mNM-EM-v32"/>
@@ -80,7 +80,7 @@
                             <constraint firstItem="B44-zb-F0d" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lhH-2W-GlV" secondAttribute="trailing" constant="16" id="l1p-RR-Zy7"/>
                             <constraint firstItem="Hc4-iY-g0w" firstAttribute="leading" secondItem="B44-zb-F0d" secondAttribute="leading" constant="40" id="maT-as-qtM"/>
                             <constraint firstItem="O1F-2D-S3P" firstAttribute="trailing" secondItem="9TS-ew-T5E" secondAttribute="trailing" constant="-5" id="ufF-g3-meF"/>
-                            <constraint firstItem="B44-zb-F0d" firstAttribute="trailing" secondItem="O1F-2D-S3P" secondAttribute="trailing" constant="20" id="xc7-lR-wZ0"/>
+                            <constraint firstItem="B44-zb-F0d" firstAttribute="trailing" secondItem="O1F-2D-S3P" secondAttribute="trailing" constant="16" id="xc7-lR-wZ0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jcj-ua-n28"/>

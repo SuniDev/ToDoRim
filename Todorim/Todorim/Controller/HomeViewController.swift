@@ -163,7 +163,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         viewController.delegate = self
         viewController.groupStorage = groupStorage
-        viewController.isNew = true
+        viewController.view.hero.id = AppHeroId.viewGroup.getId()
         
         navigationController?.hero.isEnabled = true
         navigationController?.hero.modalAnimationType = .cover(direction: .up)
@@ -214,9 +214,10 @@ extension HomeViewController: GroupCollectionViewCellDelegate {
     }
 }
 
+// MARK: - WriteGroupViewControllerDelegate
 extension HomeViewController: WriteGroupViewControllerDelegate {
     func completeWriteGroup(group: Group) {
-        self.dismiss(animated: true) {
+        dismiss(animated: true) {
             self.fetchGroup()
             self.collectionView.reloadData()
         }

@@ -8,8 +8,7 @@
 import Foundation
 
 enum AppHeroId: String {
-    case viewGroupDetail = "view_group_detail"
-    case viewAddGroup = "view_add_group"
+    case viewGroup = "view_group"
     case button = "button"
     case title = "title"
     case percent = "percent"
