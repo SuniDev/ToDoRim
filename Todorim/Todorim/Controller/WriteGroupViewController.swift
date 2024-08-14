@@ -89,7 +89,7 @@ class WriteGroupViewController: UIViewController {
         scrollView.contentInsetAdjustmentBehavior = .never
         createKeyboardEvent()
         
-        collectionView.register(UINib(nibName: "GroupColorCell", bundle: nil), forCellWithReuseIdentifier: "GroupColorCell")
+        collectionView.register(UINib(nibName: "GroupColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GroupColorCollectionViewCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -150,15 +150,13 @@ extension WriteGroupViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupColorCell", for: indexPath) as! GroupColorCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupColorCollectionViewCell", for: indexPath) as! GroupColorCollectionViewCell
         
         // 배경 색상
         let colors = GroupColor.getColors(index: indexPath.row)
-        let gradientLayer = Utils.getVerticalLayer(frame: CGRect(x: 0, y: 0, width: 50, height: 50), colors: colors)
-        cell.view.layer.addSublayer(gradientLayer)
-        
         let isSelected = indexPath.row == selectedColorIndex
-        cell.backView.isHidden = !isSelected
+        
+        cell.configure(with: colors, isSelected: isSelected)
         
         return cell
     }
@@ -168,12 +166,13 @@ extension WriteGroupViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? GroupColorCell else { return }
-        cell.backView.isHidden = !cell.backView.isHidden
+        guard let cell = collectionView.cellForItem(at: indexPath) as? GroupColorCollectionViewCell else { return }
+        
+        cell.setSelect()
         
         let selectedIndex = IndexPath(row: selectedColorIndex, section: 0)
-        if let selectedCell = collectionView.cellForItem(at: selectedIndex) as? GroupColorCell {
-            selectedCell.backView.isHidden = !selectedCell.backView.isHidden
+        if let selectedCell = collectionView.cellForItem(at: selectedIndex) as? GroupColorCollectionViewCell {
+            selectedCell.setSelect()
         }
         
         selectedColorIndex = indexPath.row
