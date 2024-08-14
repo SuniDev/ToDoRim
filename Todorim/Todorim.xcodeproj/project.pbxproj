@@ -55,7 +55,6 @@
 		EA7C5D2B2C69A7D80099AB7C /* TaskOneNotiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5D102C69A7D80099AB7C /* TaskOneNotiCell.xib */; };
 		EA7C5D2C2C69A7D80099AB7C /* TaskTwoNotiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D112C69A7D80099AB7C /* TaskTwoNotiCell.swift */; };
 		EA7C5D2D2C69A7D80099AB7C /* TaskTwoNotiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5D122C69A7D80099AB7C /* TaskTwoNotiCell.xib */; };
-		EA7C5D2E2C69A7D80099AB7C /* AddTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D142C69A7D80099AB7C /* AddTaskVC.swift */; };
 		EA7C5D2F2C69A7D80099AB7C /* SearchLocationMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D152C69A7D80099AB7C /* SearchLocationMapVC.swift */; };
 		EA7C5D302C69A7D80099AB7C /* SearchLocationTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D162C69A7D80099AB7C /* SearchLocationTVC.swift */; };
 		EA7C5D312C69A7D80099AB7C /* SearchLocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D172C69A7D80099AB7C /* SearchLocationVC.swift */; };
@@ -177,7 +176,6 @@
 		EA7C5D102C69A7D80099AB7C /* TaskOneNotiCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskOneNotiCell.xib; sourceTree = "<group>"; };
 		EA7C5D112C69A7D80099AB7C /* TaskTwoNotiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTwoNotiCell.swift; sourceTree = "<group>"; };
 		EA7C5D122C69A7D80099AB7C /* TaskTwoNotiCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskTwoNotiCell.xib; sourceTree = "<group>"; };
-		EA7C5D142C69A7D80099AB7C /* AddTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskVC.swift; sourceTree = "<group>"; };
 		EA7C5D152C69A7D80099AB7C /* SearchLocationMapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchLocationMapVC.swift; sourceTree = "<group>"; };
 		EA7C5D162C69A7D80099AB7C /* SearchLocationTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchLocationTVC.swift; sourceTree = "<group>"; };
 		EA7C5D172C69A7D80099AB7C /* SearchLocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchLocationVC.swift; sourceTree = "<group>"; };
@@ -446,7 +444,6 @@
 			isa = PBXGroup;
 			children = (
 				EA7C5D132C69A7D80099AB7C /* Cell */,
-				EA7C5D142C69A7D80099AB7C /* AddTaskVC.swift */,
 				EA7C5D152C69A7D80099AB7C /* SearchLocationMapVC.swift */,
 				EA7C5D162C69A7D80099AB7C /* SearchLocationTVC.swift */,
 				EA7C5D172C69A7D80099AB7C /* SearchLocationVC.swift */,
@@ -813,7 +810,6 @@
 				EA7C5D2C2C69A7D80099AB7C /* TaskTwoNotiCell.swift in Sources */,
 				EABB9C692C6C34F200775657 /* GroupColorCollectionViewCell.swift in Sources */,
 				EA7C5DA22C69A7E20099AB7C /* Geotification.swift in Sources */,
-				EA7C5D2E2C69A7D80099AB7C /* AddTaskVC.swift in Sources */,
 				EABB9C732C6C410900775657 /* DatePicker.swift in Sources */,
 				EA8BB7062C6B27D200779FF9 /* TodoTableViewCell.swift in Sources */,
 				EA6B4FEF2C69FC5400DC3254 /* GroupCollectionViewCell.swift in Sources */,

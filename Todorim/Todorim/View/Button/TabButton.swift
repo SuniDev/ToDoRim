@@ -23,6 +23,10 @@ class TabButton {
         self.tabType = type
         self.color = color
         self.buttons = buttons
+        
+        for (index, button) in buttons.enumerated() {
+            addTargetButton(button: button, tag: index)
+        }
     }
     
     func addTargetButton(button: UIButton, tag: Int) {
