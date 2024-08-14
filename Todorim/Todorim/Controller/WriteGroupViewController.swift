@@ -31,7 +31,6 @@ class WriteGroupViewController: UIViewController {
     
     @IBOutlet weak var addButtonView: UIView!
     @IBOutlet weak var editButtonView: UIView!
-    @IBOutlet weak var editBottomView: UIView!
     
     
     // MARK: - Action
@@ -98,7 +97,6 @@ class WriteGroupViewController: UIViewController {
         if let group {
             addButtonView.isHidden = true
             editButtonView.isHidden = false
-            editBottomView.isHidden = false
             titleLabel.text = "그룹 수정"
             
             textfield.text = group.title
@@ -106,7 +104,6 @@ class WriteGroupViewController: UIViewController {
         } else {
             addButtonView.isHidden = false
             editButtonView.isHidden = true
-            editBottomView.isHidden = true
             titleLabel.text = "그룹 추가"
             
             group = Group()

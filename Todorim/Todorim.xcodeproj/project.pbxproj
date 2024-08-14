@@ -62,7 +62,7 @@
 		EA7C5D3A2C69A7DE0099AB7C /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5D322C69A7DE0099AB7C /* Group.storyboard */; };
 		EA7C5D3C2C69A7DE0099AB7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5D352C69A7DE0099AB7C /* LaunchScreen.storyboard */; };
 		EA7C5D3D2C69A7DE0099AB7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5D372C69A7DE0099AB7C /* Main.storyboard */; };
-		EA7C5D3E2C69A7DE0099AB7C /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5D382C69A7DE0099AB7C /* Task.storyboard */; };
+		EA7C5D3E2C69A7DE0099AB7C /* Todo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5D382C69A7DE0099AB7C /* Todo.storyboard */; };
 		EA7C5D992C69A7E20099AB7C /* CustomizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D3F2C69A7E20099AB7C /* CustomizedTabBar.swift */; };
 		EA7C5D9A2C69A7E20099AB7C /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D422C69A7E20099AB7C /* DateHelper.swift */; };
 		EA7C5D9B2C69A7E20099AB7C /* CAGradientLayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D442C69A7E20099AB7C /* CAGradientLayer+Extension.swift */; };
@@ -70,18 +70,6 @@
 		EA7C5DA02C69A7E20099AB7C /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D492C69A7E20099AB7C /* UITextField+Extension.swift */; };
 		EA7C5DA12C69A7E20099AB7C /* FAPaginationLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D4B2C69A7E20099AB7C /* FAPaginationLayout.swift */; };
 		EA7C5DA22C69A7E20099AB7C /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D4D2C69A7E20099AB7C /* Geotification.swift */; };
-		EA7C5DD22C69A7E20099AB7C /* CKRecordConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D872C69A7E20099AB7C /* CKRecordConvertible.swift */; };
-		EA7C5DD32C69A7E20099AB7C /* CKRecordRecoverable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D882C69A7E20099AB7C /* CKRecordRecoverable.swift */; };
-		EA7C5DD42C69A7E20099AB7C /* CreamAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D892C69A7E20099AB7C /* CreamAsset.swift */; };
-		EA7C5DD52C69A7E20099AB7C /* DatabaseManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D8A2C69A7E20099AB7C /* DatabaseManagerProtocol.swift */; };
-		EA7C5DD62C69A7E20099AB7C /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D8B2C69A7E20099AB7C /* ErrorHandler.swift */; };
-		EA7C5DD72C69A7E20099AB7C /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D8C2C69A7E20099AB7C /* Manifest.swift */; };
-		EA7C5DD82C69A7E20099AB7C /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D8D2C69A7E20099AB7C /* Notification+Name.swift */; };
-		EA7C5DD92C69A7E20099AB7C /* PrivateDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D8E2C69A7E20099AB7C /* PrivateDatabaseManager.swift */; };
-		EA7C5DDA2C69A7E20099AB7C /* PublicDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D8F2C69A7E20099AB7C /* PublicDatabaseManager.swift */; };
-		EA7C5DDB2C69A7E20099AB7C /* Syncable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D902C69A7E20099AB7C /* Syncable.swift */; };
-		EA7C5DDC2C69A7E20099AB7C /* SyncEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D912C69A7E20099AB7C /* SyncEngine.swift */; };
-		EA7C5DDD2C69A7E20099AB7C /* SyncObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D922C69A7E20099AB7C /* SyncObject.swift */; };
 		EA7C5DDE2C69A7E20099AB7C /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D942C69A7E20099AB7C /* MadokaTextField.swift */; };
 		EA7C5DDF2C69A7E20099AB7C /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D962C69A7E20099AB7C /* TextFieldEffects.swift */; };
 		EA8BB6F02C6AE40800779FF9 /* HomeTodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB6EE2C6AE40800779FF9 /* HomeTodoTableViewCell.swift */; };
@@ -97,6 +85,13 @@
 		EA8BB7072C6B27D200779FF9 /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA8BB7052C6B27D200779FF9 /* TodoTableViewCell.xib */; };
 		EABB9C692C6C34F200775657 /* GroupColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABB9C672C6C34F200775657 /* GroupColorCollectionViewCell.swift */; };
 		EABB9C6A2C6C34F200775657 /* GroupColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EABB9C682C6C34F200775657 /* GroupColorCollectionViewCell.xib */; };
+		EABB9C6C2C6C37BC00775657 /* WriteTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABB9C6B2C6C37BC00775657 /* WriteTodoViewController.swift */; };
+		EABB9C6F2C6C3E2900775657 /* GroupPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABB9C6E2C6C3E2900775657 /* GroupPicker.swift */; };
+		EABB9C712C6C404F00775657 /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABB9C702C6C404F00775657 /* TimePicker.swift */; };
+		EABB9C732C6C410900775657 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABB9C722C6C410900775657 /* DatePicker.swift */; };
+		EABB9C752C6C416400775657 /* DayPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABB9C742C6C416400775657 /* DayPicker.swift */; };
+		EABB9C772C6C424200775657 /* WeekPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABB9C762C6C424200775657 /* WeekPicker.swift */; };
+		EABB9C7A2C6C54CA00775657 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABB9C792C6C54CA00775657 /* TabButton.swift */; };
 		EAC682A02C690C040010ECCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6829F2C690C040010ECCC /* SceneDelegate.swift */; };
 		EAC682A72C690C050010ECCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAC682A62C690C050010ECCC /* Assets.xcassets */; };
 		EAC682B52C690C050010ECCC /* TodorimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682B42C690C050010ECCC /* TodorimTests.swift */; };
@@ -189,7 +184,7 @@
 		EA7C5D322C69A7DE0099AB7C /* Group.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
 		EA7C5D342C69A7DE0099AB7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA7C5D362C69A7DE0099AB7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EA7C5D382C69A7DE0099AB7C /* Task.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
+		EA7C5D382C69A7DE0099AB7C /* Todo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Todo.storyboard; sourceTree = "<group>"; };
 		EA7C5D3F2C69A7E20099AB7C /* CustomizedTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizedTabBar.swift; sourceTree = "<group>"; };
 		EA7C5D412C69A7E20099AB7C /* DateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHelper.h; sourceTree = "<group>"; };
 		EA7C5D422C69A7E20099AB7C /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
@@ -198,18 +193,6 @@
 		EA7C5D492C69A7E20099AB7C /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		EA7C5D4B2C69A7E20099AB7C /* FAPaginationLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAPaginationLayout.swift; sourceTree = "<group>"; };
 		EA7C5D4D2C69A7E20099AB7C /* Geotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geotification.swift; sourceTree = "<group>"; };
-		EA7C5D872C69A7E20099AB7C /* CKRecordConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKRecordConvertible.swift; sourceTree = "<group>"; };
-		EA7C5D882C69A7E20099AB7C /* CKRecordRecoverable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CKRecordRecoverable.swift; sourceTree = "<group>"; };
-		EA7C5D892C69A7E20099AB7C /* CreamAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreamAsset.swift; sourceTree = "<group>"; };
-		EA7C5D8A2C69A7E20099AB7C /* DatabaseManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManagerProtocol.swift; sourceTree = "<group>"; };
-		EA7C5D8B2C69A7E20099AB7C /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
-		EA7C5D8C2C69A7E20099AB7C /* Manifest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manifest.swift; sourceTree = "<group>"; };
-		EA7C5D8D2C69A7E20099AB7C /* Notification+Name.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
-		EA7C5D8E2C69A7E20099AB7C /* PrivateDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateDatabaseManager.swift; sourceTree = "<group>"; };
-		EA7C5D8F2C69A7E20099AB7C /* PublicDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicDatabaseManager.swift; sourceTree = "<group>"; };
-		EA7C5D902C69A7E20099AB7C /* Syncable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Syncable.swift; sourceTree = "<group>"; };
-		EA7C5D912C69A7E20099AB7C /* SyncEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncEngine.swift; sourceTree = "<group>"; };
-		EA7C5D922C69A7E20099AB7C /* SyncObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncObject.swift; sourceTree = "<group>"; };
 		EA7C5D942C69A7E20099AB7C /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadokaTextField.swift; sourceTree = "<group>"; };
 		EA7C5D952C69A7E20099AB7C /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
 		EA7C5D962C69A7E20099AB7C /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
@@ -225,6 +208,13 @@
 		EA8BB7052C6B27D200779FF9 /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
 		EABB9C672C6C34F200775657 /* GroupColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		EABB9C682C6C34F200775657 /* GroupColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupColorCollectionViewCell.xib; sourceTree = "<group>"; };
+		EABB9C6B2C6C37BC00775657 /* WriteTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteTodoViewController.swift; sourceTree = "<group>"; };
+		EABB9C6E2C6C3E2900775657 /* GroupPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPicker.swift; sourceTree = "<group>"; };
+		EABB9C702C6C404F00775657 /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
+		EABB9C722C6C410900775657 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		EABB9C742C6C416400775657 /* DayPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPicker.swift; sourceTree = "<group>"; };
+		EABB9C762C6C424200775657 /* WeekPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPicker.swift; sourceTree = "<group>"; };
+		EABB9C792C6C54CA00775657 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		EAC6829A2C690C040010ECCC /* Todorim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todorim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAC6829F2C690C040010ECCC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EAC682A62C690C050010ECCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -312,13 +302,15 @@
 		EA6B4FBA2C69B7F100DC3254 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EABB9C782C6C54BF00775657 /* Button */,
+				EABB9C6D2C6C3BB600775657 /* PickerView */,
 				EA8BB6ED2C6AE3E500779FF9 /* TableViewCell */,
 				EA6B4FEC2C69FC2100DC3254 /* CollectionViewCell */,
 				EA7C5D352C69A7DE0099AB7C /* LaunchScreen.storyboard */,
 				EA6B4FC32C69B96A00DC3254 /* Intro.storyboard */,
 				EA7C5D372C69A7DE0099AB7C /* Main.storyboard */,
 				EA7C5D322C69A7DE0099AB7C /* Group.storyboard */,
-				EA7C5D382C69A7DE0099AB7C /* Task.storyboard */,
+				EA7C5D382C69A7DE0099AB7C /* Todo.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -330,6 +322,7 @@
 				EA6B4FE62C69F1DF00DC3254 /* HomeViewController.swift */,
 				EA8BB6FA2C6AF19400779FF9 /* WriteGroupViewController.swift */,
 				EA8BB6FF2C6B04BE00779FF9 /* GroupDetailViewController.swift */,
+				EABB9C6B2C6C37BC00775657 /* WriteTodoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -502,25 +495,6 @@
 			path = Geotify;
 			sourceTree = "<group>";
 		};
-		EA7C5D932C69A7E20099AB7C /* IceCream */ = {
-			isa = PBXGroup;
-			children = (
-				EA7C5D872C69A7E20099AB7C /* CKRecordConvertible.swift */,
-				EA7C5D882C69A7E20099AB7C /* CKRecordRecoverable.swift */,
-				EA7C5D892C69A7E20099AB7C /* CreamAsset.swift */,
-				EA7C5D8A2C69A7E20099AB7C /* DatabaseManagerProtocol.swift */,
-				EA7C5D8B2C69A7E20099AB7C /* ErrorHandler.swift */,
-				EA7C5D8C2C69A7E20099AB7C /* Manifest.swift */,
-				EA7C5D8D2C69A7E20099AB7C /* Notification+Name.swift */,
-				EA7C5D8E2C69A7E20099AB7C /* PrivateDatabaseManager.swift */,
-				EA7C5D8F2C69A7E20099AB7C /* PublicDatabaseManager.swift */,
-				EA7C5D902C69A7E20099AB7C /* Syncable.swift */,
-				EA7C5D912C69A7E20099AB7C /* SyncEngine.swift */,
-				EA7C5D922C69A7E20099AB7C /* SyncObject.swift */,
-			);
-			path = IceCream;
-			sourceTree = "<group>";
-		};
 		EA7C5D972C69A7E20099AB7C /* TextFieldEffects */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,8 +511,6 @@
 				EA7C5D402C69A7E20099AB7C /* CustomTabShapeTest */,
 				EA7C5D432C69A7E20099AB7C /* DateHelper */,
 				EA7C5D4E2C69A7E20099AB7C /* Geotify */,
-				EA7C5D932C69A7E20099AB7C /* IceCream */,
-				EA7C5D972C69A7E20099AB7C /* TextFieldEffects */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -557,9 +529,30 @@
 		EA8BB6FE2C6AFEEA00779FF9 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				EA7C5D972C69A7E20099AB7C /* TextFieldEffects */,
 				EA7C5D4C2C69A7E20099AB7C /* FAPaginationLayout */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		EABB9C6D2C6C3BB600775657 /* PickerView */ = {
+			isa = PBXGroup;
+			children = (
+				EABB9C6E2C6C3E2900775657 /* GroupPicker.swift */,
+				EABB9C702C6C404F00775657 /* TimePicker.swift */,
+				EABB9C722C6C410900775657 /* DatePicker.swift */,
+				EABB9C742C6C416400775657 /* DayPicker.swift */,
+				EABB9C762C6C424200775657 /* WeekPicker.swift */,
+			);
+			path = PickerView;
+			sourceTree = "<group>";
+		};
+		EABB9C782C6C54BF00775657 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				EABB9C792C6C54CA00775657 /* TabButton.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		EAC682912C690C030010ECCC = {
@@ -748,7 +741,7 @@
 				EA7C5D2B2C69A7D80099AB7C /* TaskOneNotiCell.xib in Resources */,
 				EA8BB6F92C6AEF8600779FF9 /* AddGroupCollectionViewCell.xib in Resources */,
 				EA7C5D3D2C69A7DE0099AB7C /* Main.storyboard in Resources */,
-				EA7C5D3E2C69A7DE0099AB7C /* Task.storyboard in Resources */,
+				EA7C5D3E2C69A7DE0099AB7C /* Todo.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -821,13 +814,14 @@
 				EABB9C692C6C34F200775657 /* GroupColorCollectionViewCell.swift in Sources */,
 				EA7C5DA22C69A7E20099AB7C /* Geotification.swift in Sources */,
 				EA7C5D2E2C69A7D80099AB7C /* AddTaskVC.swift in Sources */,
+				EABB9C732C6C410900775657 /* DatePicker.swift in Sources */,
 				EA8BB7062C6B27D200779FF9 /* TodoTableViewCell.swift in Sources */,
 				EA6B4FEF2C69FC5400DC3254 /* GroupCollectionViewCell.swift in Sources */,
 				EA7C5CED2C69A7D40099AB7C /* CustomDatePicker.swift in Sources */,
-				EA7C5DD52C69A7E20099AB7C /* DatabaseManagerProtocol.swift in Sources */,
 				EA8BB6F52C6AEED400779FF9 /* UIView+Extension.swift in Sources */,
-				EA7C5DD82C69A7E20099AB7C /* Notification+Name.swift in Sources */,
+				EABB9C6C2C6C37BC00775657 /* WriteTodoViewController.swift in Sources */,
 				EA6B4FE72C69F1E000DC3254 /* HomeViewController.swift in Sources */,
+				EABB9C712C6C404F00775657 /* TimePicker.swift in Sources */,
 				EA7C5DA12C69A7E20099AB7C /* FAPaginationLayout.swift in Sources */,
 				EA6B4FDC2C69D5D400DC3254 /* UIColor+Extension.swift in Sources */,
 				EA6B4FD12C69D0B300DC3254 /* Todo.swift in Sources */,
@@ -839,30 +833,27 @@
 				EA7C5D2F2C69A7D80099AB7C /* SearchLocationMapVC.swift in Sources */,
 				EA7C5CFA2C69A7D40099AB7C /* CommonSetting.swift in Sources */,
 				EA7C5CF92C69A7D40099AB7C /* CommonRealmDB.swift in Sources */,
-				EA7C5DD22C69A7E20099AB7C /* CKRecordConvertible.swift in Sources */,
 				EA6B4FCF2C69D03D00DC3254 /* Group.swift in Sources */,
-				EA7C5DD42C69A7E20099AB7C /* CreamAsset.swift in Sources */,
 				EA6B4FDA2C69D34000DC3254 /* NotificationType.swift in Sources */,
 				EA7C5CF42C69A7D40099AB7C /* CustomWeekPicker.swift in Sources */,
-				EA7C5DD62C69A7E20099AB7C /* ErrorHandler.swift in Sources */,
 				EA6B4FDE2C69EA9F00DC3254 /* GroupColor.swift in Sources */,
 				EA7C5CD92C69A7CC0099AB7C /* DataGroup.swift in Sources */,
 				EA6B4FC72C69CB1700DC3254 /* RealmManager.swift in Sources */,
 				EA7C5D2A2C69A7D80099AB7C /* TaskOneNotiCell.swift in Sources */,
-				EA7C5DDC2C69A7E20099AB7C /* SyncEngine.swift in Sources */,
 				EA7C5D9E2C69A7E20099AB7C /* String+Extension.swift in Sources */,
 				EA7C5CF52C69A7D40099AB7C /* AppDelegate.swift in Sources */,
 				EA7C5CEF2C69A7D40099AB7C /* CustomGroupPicker.swift in Sources */,
 				EA7C5CF82C69A7D40099AB7C /* CommonNoti.swift in Sources */,
+				EABB9C752C6C416400775657 /* DayPicker.swift in Sources */,
 				EA6B4FCD2C69D01200DC3254 /* TodoStorage.swift in Sources */,
 				EA7C5CF12C69A7D40099AB7C /* CustomTextField.swift in Sources */,
 				EA7C5CDB2C69A7CC0099AB7C /* DataTaskv2.swift in Sources */,
-				EA7C5DD92C69A7E20099AB7C /* PrivateDatabaseManager.swift in Sources */,
 				EA6B4FCB2C69CF9000DC3254 /* GroupStorage.swift in Sources */,
+				EABB9C6F2C6C3E2900775657 /* GroupPicker.swift in Sources */,
 				EA7C5D9A2C69A7E20099AB7C /* DateHelper.swift in Sources */,
+				EABB9C772C6C424200775657 /* WeekPicker.swift in Sources */,
 				EA7C5CEE2C69A7D40099AB7C /* CustomDayPicker.swift in Sources */,
 				EA7C5DDE2C69A7E20099AB7C /* MadokaTextField.swift in Sources */,
-				EA7C5DD32C69A7E20099AB7C /* CKRecordRecoverable.swift in Sources */,
 				EA6B4FE12C69EB9700DC3254 /* Strings+Generated.swift in Sources */,
 				EA8BB6FD2C6AF95B00779FF9 /* AppHero.swift in Sources */,
 				EA8BB6F82C6AEF8600779FF9 /* AddGroupCollectionViewCell.swift in Sources */,
@@ -873,16 +864,13 @@
 				EA7C5CF32C69A7D40099AB7C /* CustomTimePicker.swift in Sources */,
 				EA7C5D302C69A7D80099AB7C /* SearchLocationTVC.swift in Sources */,
 				EA6B4FEB2C69F54B00DC3254 /* Utils.swift in Sources */,
-				EA7C5DD72C69A7E20099AB7C /* Manifest.swift in Sources */,
 				EA8BB6F02C6AE40800779FF9 /* HomeTodoTableViewCell.swift in Sources */,
-				EA7C5DDB2C69A7E20099AB7C /* Syncable.swift in Sources */,
-				EA7C5DDA2C69A7E20099AB7C /* PublicDatabaseManager.swift in Sources */,
 				EA7C5D992C69A7E20099AB7C /* CustomizedTabBar.swift in Sources */,
 				EA7C5D282C69A7D80099AB7C /* TaskCell.swift in Sources */,
 				EA6B4FBE2C69B8BA00DC3254 /* IntroViewController.swift in Sources */,
 				EA7C5D312C69A7D80099AB7C /* SearchLocationVC.swift in Sources */,
+				EABB9C7A2C6C54CA00775657 /* TabButton.swift in Sources */,
 				EA7C5CF62C69A7D40099AB7C /* CommonGroup.swift in Sources */,
-				EA7C5DDD2C69A7E20099AB7C /* SyncObject.swift in Sources */,
 				EA6B4FE22C69EB9700DC3254 /* XCAssets+Generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -37,7 +37,18 @@ class GroupDetailViewController: UIViewController {
     }
     
     @IBAction func tappedAddTodoButton(_ sender: UIButton) {
-//        CommonNav.shared.moveAddTask(groupIndex, self)
+        guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "WriteTodoViewController") as? WriteTodoViewController else { return }
+        
+        viewController.todoStorage = todoStorage
+        viewController.group = group
+        viewController.groups = groupStorage?.getGroups() ?? []
+        
+        navigationController?.hero.isEnabled = true
+        navigationController?.hero.navigationAnimationType = .cover(direction: .up)
+        
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     
     override func viewDidLoad() {

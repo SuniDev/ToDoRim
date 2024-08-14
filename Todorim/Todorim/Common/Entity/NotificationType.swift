@@ -31,7 +31,8 @@ enum RepeatNotificationType: String {
 }
 
 // MARK: - 요일 타입
-enum WeekType: Int {
+enum WeekType: Int, CaseIterable {
+    case none = 0
     case sunday = 1
     case monday = 2
     case tuesday = 3
@@ -42,6 +43,7 @@ enum WeekType: Int {
     
     var title: String {
         switch self {
+        case .none: return ""
         case .sunday: return "일요일"
         case .monday: return "월요일"
         case .tuesday: return "화요일"

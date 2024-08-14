@@ -19,16 +19,16 @@ class Todo: Object {
     // MARK: 날짜 알림
     @objc dynamic var isDateNoti: Bool = false  // 날짜 알림 여부
     @objc dynamic var date: Date = Date()       // 날짜
-    @objc private dynamic var week: Int = 1             // 1: 일요일 ~ 7: 토요일
+    @objc private dynamic var week: Int = 0             // 1: 일요일 ~ 7: 토요일
     var weekType: WeekType {
         get {
-            return WeekType(rawValue: week) ?? .monday
+            return WeekType(rawValue: week) ?? .none
         }
         set {
             week = newValue.rawValue
         }
     }
-    @objc dynamic var day: Int = 1              // 1 ~ 31일
+    @objc dynamic var day: Int = 0              // 1 ~ 31일
     
     @objc private dynamic var repeatType: String = RepeatNotificationType.none.rawValue  // 반복 알림 타입
     var repeatNotiType: RepeatNotificationType {
@@ -45,7 +45,7 @@ class Todo: Object {
     @objc dynamic var locationName: String = ""     // 위치 이름
     
     // 위치 알림 타입
-    @objc private dynamic var locationType: String = LocationConfig.entry.rawValue
+    @objc private dynamic var locationType: String = LocationNotificationType.none.rawValue
     var locationNotiType: LocationNotificationType {
         get {
             return LocationNotificationType(rawValue: locationType) ?? .none
