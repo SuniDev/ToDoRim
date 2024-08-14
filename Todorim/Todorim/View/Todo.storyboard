@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -55,7 +56,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9o-bA-NgV">
-                                <rect key="frame" x="0.0" y="117" width="390" height="643"/>
+                                <rect key="frame" x="0.0" y="117" width="390" height="623"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="daf-FG-uDM">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="745.66666666666663"/>
@@ -186,10 +187,10 @@
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbA-eq-PUd" userLabel="Date Noti None Button">
                                                                         <rect key="frame" x="0.6666666666666643" y="0.66666666666662877" width="88.666666666666686" height="49"/>
-                                                                        <color key="backgroundColor" red="0.2784313725" green="0.72156862749999995" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                                         <state key="normal" title="반복안함">
-                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
                                                                             <action selector="tappedDateNotiNoneButton:" destination="NHm-3I-R16" eventType="touchUpInside" id="ujx-Vj-cQ7"/>
@@ -514,12 +515,22 @@
                                     <constraint firstItem="daf-FG-uDM" firstAttribute="height" secondItem="N9o-bA-NgV" secondAttribute="height" priority="250" id="gXI-a3-Gmu"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mlk-cO-XWg">
-                                <rect key="frame" x="16" y="760" width="358" height="50"/>
-                                <color key="backgroundColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TPH-Df-uLZ">
+                                <rect key="frame" x="16" y="740" width="358" height="70"/>
+                                <color key="backgroundColor" name="Default"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="7lt-Af-4YL"/>
+                                    <constraint firstAttribute="height" constant="70" id="qUS-Sy-Nna"/>
                                 </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추가" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFw-X8-qIk">
+                                <rect key="frame" x="16" y="740" width="358" height="70"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mlk-cO-XWg">
+                                <rect key="frame" x="16" y="740" width="358" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -527,37 +538,33 @@
                                     <action selector="tappedCompleteButton:" destination="NHm-3I-R16" eventType="touchUpInside" id="zQ1-Gr-PtM"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추가" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFw-X8-qIk">
-                                <rect key="frame" x="16" y="760" width="358" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Icr-Ie-SfM"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="r2C-gK-HB8"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cRR-R2-z93" firstAttribute="leading" secondItem="r2C-gK-HB8" secondAttribute="leading" id="6p7-Vg-rGm"/>
                             <constraint firstItem="N9o-bA-NgV" firstAttribute="leading" secondItem="r2C-gK-HB8" secondAttribute="leading" id="AjM-ga-V7E"/>
-                            <constraint firstItem="Mlk-cO-XWg" firstAttribute="leading" secondItem="r2C-gK-HB8" secondAttribute="leading" constant="16" id="Gkf-dJ-PHR"/>
-                            <constraint firstItem="HFw-X8-qIk" firstAttribute="trailing" secondItem="r2C-gK-HB8" secondAttribute="trailing" constant="-16" id="HCW-gC-PvJ"/>
-                            <constraint firstItem="HFw-X8-qIk" firstAttribute="leading" secondItem="r2C-gK-HB8" secondAttribute="leading" constant="16" id="K9X-9h-0eC"/>
-                            <constraint firstItem="r2C-gK-HB8" firstAttribute="bottom" secondItem="N9o-bA-NgV" secondAttribute="bottom" constant="50" id="NFs-VK-DfQ"/>
+                            <constraint firstItem="HFw-X8-qIk" firstAttribute="top" secondItem="TPH-Df-uLZ" secondAttribute="top" id="AlU-wm-Bry"/>
+                            <constraint firstItem="r2C-gK-HB8" firstAttribute="bottom" secondItem="TPH-Df-uLZ" secondAttribute="bottom" id="Lgd-7H-OWT"/>
+                            <constraint firstItem="r2C-gK-HB8" firstAttribute="bottom" secondItem="N9o-bA-NgV" secondAttribute="bottom" constant="70" id="NFs-VK-DfQ"/>
                             <constraint firstItem="N9o-bA-NgV" firstAttribute="top" secondItem="cRR-R2-z93" secondAttribute="bottom" id="Nxg-Mm-d98"/>
-                            <constraint firstItem="HFw-X8-qIk" firstAttribute="bottom" secondItem="Mlk-cO-XWg" secondAttribute="bottom" id="Sfv-UB-mQ8"/>
+                            <constraint firstItem="TPH-Df-uLZ" firstAttribute="bottom" secondItem="Mlk-cO-XWg" secondAttribute="bottom" id="OH6-cK-PuO"/>
+                            <constraint firstItem="TPH-Df-uLZ" firstAttribute="trailing" secondItem="Mlk-cO-XWg" secondAttribute="trailing" id="Uc3-lM-5AJ"/>
                             <constraint firstItem="cRR-R2-z93" firstAttribute="top" secondItem="r2C-gK-HB8" secondAttribute="top" id="XlR-8i-zJl"/>
                             <constraint firstItem="N9o-bA-NgV" firstAttribute="trailing" secondItem="r2C-gK-HB8" secondAttribute="trailing" id="YMj-pW-fR3"/>
-                            <constraint firstItem="Mlk-cO-XWg" firstAttribute="trailing" secondItem="r2C-gK-HB8" secondAttribute="trailing" constant="-16" id="Zdn-Zh-7qS"/>
+                            <constraint firstItem="TPH-Df-uLZ" firstAttribute="leading" secondItem="r2C-gK-HB8" secondAttribute="leading" constant="16" id="ZfU-yK-uwX"/>
+                            <constraint firstItem="Mlk-cO-XWg" firstAttribute="top" secondItem="TPH-Df-uLZ" secondAttribute="top" id="Zsh-Qj-8Na"/>
                             <constraint firstItem="cRR-R2-z93" firstAttribute="trailing" secondItem="r2C-gK-HB8" secondAttribute="trailing" id="aaF-HA-vyu"/>
-                            <constraint firstItem="r2C-gK-HB8" firstAttribute="bottom" secondItem="HFw-X8-qIk" secondAttribute="bottom" id="fTN-bU-rQJ"/>
+                            <constraint firstItem="TPH-Df-uLZ" firstAttribute="trailing" secondItem="HFw-X8-qIk" secondAttribute="trailing" id="c3K-dv-El9"/>
+                            <constraint firstItem="HFw-X8-qIk" firstAttribute="leading" secondItem="TPH-Df-uLZ" secondAttribute="leading" id="hLI-Em-MqF"/>
+                            <constraint firstItem="TPH-Df-uLZ" firstAttribute="bottom" secondItem="HFw-X8-qIk" secondAttribute="bottom" id="otw-oN-2z6"/>
+                            <constraint firstItem="Mlk-cO-XWg" firstAttribute="leading" secondItem="TPH-Df-uLZ" secondAttribute="leading" id="vbF-Pa-KFN"/>
+                            <constraint firstItem="r2C-gK-HB8" firstAttribute="trailing" secondItem="TPH-Df-uLZ" secondAttribute="trailing" constant="16" id="wiU-d1-xFz"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="completeButton" destination="Mlk-cO-XWg" id="LN1-Qu-lor"/>
                         <outlet property="completeButtonLabel" destination="HFw-X8-qIk" id="Fj9-PC-w33"/>
+                        <outlet property="completeButtonView" destination="TPH-Df-uLZ" id="v0C-Ew-KcD"/>
                         <outlet property="dailyTextField" destination="GNh-va-pxN" id="NNx-Qp-YLA"/>
                         <outlet property="dateNotiDailyButton" destination="ecX-0G-9mf" id="tga-9M-VYI"/>
                         <outlet property="dateNotiMonthlyButton" destination="b1k-mX-aNH" id="aF5-4E-UBn"/>
@@ -946,5 +953,8 @@
         <image name="back_defualt" width="50" height="50"/>
         <image name="delete_default" width="50" height="50"/>
         <image name="location_default" width="50" height="50"/>
+        <namedColor name="Default">
+            <color red="0.22352941176470589" green="0.22352941176470589" blue="0.24313725490196078" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

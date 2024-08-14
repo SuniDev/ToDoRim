@@ -82,7 +82,10 @@ class GroupDetailViewController: UIViewController {
             progress.progressImage = progressLayer.createGradientImage()
             
             let buttonLayer = Utils.getVerticalLayer(frame: CGRect(x: 0, y: 0, width: 70, height: 70), colors: colors)
-            addButtonView.layer.addSublayer(buttonLayer)
+            if let firstLayer = addButtonView.layer.sublayers?.first as? CAGradientLayer  {
+                firstLayer.removeFromSuperlayer()  // 기존 레이어 제거
+            }
+            addButtonView.layer.insertSublayer(buttonLayer, at: 0)
         }
     }
     

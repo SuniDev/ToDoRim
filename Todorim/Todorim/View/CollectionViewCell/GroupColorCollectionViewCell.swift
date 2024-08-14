@@ -25,7 +25,7 @@ class GroupColorCollectionViewCell: UICollectionViewCell {
         // 배경 색상
         let gradientLayer = Utils.getVerticalLayer(frame: CGRect(x: 0, y: 0, width: 50, height: 50), colors: colors)
         colorView.layer.addSublayer(gradientLayer)
-        borderView.isHidden = isSelected
+        borderView.isHidden = !isSelected
     }
     
     func setSelect() {

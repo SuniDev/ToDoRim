@@ -11,6 +11,7 @@ import Hero
 
 class AddGroupCollectionViewCell: UICollectionViewCell {
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -18,6 +19,6 @@ class AddGroupCollectionViewCell: UICollectionViewCell {
     }
     
     func configure() {
-        self.contentView.hero.id = AppHeroId.viewGroup.getId()
+        contentView.hero.id = AppHeroId.viewGroup.getId()
     }
 }

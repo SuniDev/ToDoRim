@@ -29,7 +29,7 @@ class DayPicker: UIPickerView {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: width, height: 40))
         toolbar.barStyle = .default
         toolbar.isTranslucent = true
-//        toolbar.tintColor = UIColor(red: 84/255, green: 156/255, blue: 245/255, alpha: 1)
+        toolbar.tintColor = Asset.Color.blue.color
         toolbar.sizeToFit()
 
         let flexButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)

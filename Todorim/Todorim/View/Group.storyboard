@@ -133,10 +133,10 @@
                                 </constraints>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v01-vy-RTF" userLabel="Add Button View">
-                                <rect key="frame" x="16" y="728" width="343" height="50"/>
+                                <rect key="frame" x="16" y="708" width="343" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Coq-eU-GmM">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="70"/>
                                         <color key="backgroundColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <state key="normal" title="추가">
@@ -153,14 +153,14 @@
                                     <constraint firstAttribute="bottom" secondItem="Coq-eU-GmM" secondAttribute="bottom" id="T6d-gS-ysd"/>
                                     <constraint firstItem="Coq-eU-GmM" firstAttribute="top" secondItem="v01-vy-RTF" secondAttribute="top" id="Ung-DS-dNy"/>
                                     <constraint firstAttribute="trailing" secondItem="Coq-eU-GmM" secondAttribute="trailing" id="Wlx-rR-u7O"/>
-                                    <constraint firstAttribute="height" constant="50" id="YvY-E3-4yE"/>
+                                    <constraint firstAttribute="height" constant="70" id="YvY-E3-4yE"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="379-qR-KAh" userLabel="Edit Button View">
-                                <rect key="frame" x="16" y="728" width="343" height="50"/>
+                                <rect key="frame" x="16" y="708" width="343" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8V-5A-1vX">
-                                        <rect key="frame" x="174" y="0.0" width="169" height="50"/>
+                                        <rect key="frame" x="174" y="0.0" width="169" height="70"/>
                                         <color key="backgroundColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <state key="normal" title="수정">
@@ -171,7 +171,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WoX-5V-xmG">
-                                        <rect key="frame" x="0.0" y="0.0" width="169" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="169" height="70"/>
                                         <color key="backgroundColor" name="Red"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <state key="normal" title="그룹 삭제">
@@ -192,7 +192,7 @@
                                     <constraint firstItem="f8V-5A-1vX" firstAttribute="leading" secondItem="WoX-5V-xmG" secondAttribute="trailing" constant="5" id="lLT-yF-gK3"/>
                                     <constraint firstAttribute="bottom" secondItem="WoX-5V-xmG" secondAttribute="bottom" id="pBW-BC-TIm"/>
                                     <constraint firstItem="f8V-5A-1vX" firstAttribute="top" secondItem="379-qR-KAh" secondAttribute="top" id="s1B-8Y-hhM"/>
-                                    <constraint firstAttribute="height" constant="50" id="tE5-FE-8VF"/>
+                                    <constraint firstAttribute="height" constant="70" id="tE5-FE-8VF"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -215,6 +215,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="Coq-eU-GmM" id="agk-up-PbJ"/>
                         <outlet property="addButtonView" destination="v01-vy-RTF" id="dXz-jb-Tle"/>
                         <outlet property="backgroundView" destination="n5T-LO-aH7" id="1tE-HH-GJW"/>
                         <outlet property="collectionView" destination="GBr-bP-Nmt" id="dcM-jh-alP"/>

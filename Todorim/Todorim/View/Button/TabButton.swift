@@ -27,6 +27,10 @@ class TabButton {
         for (index, button) in buttons.enumerated() {
             addTargetButton(button: button, tag: index)
         }
+        
+        if let button = buttons.first {
+            tappedButton(sender: button)
+        }
     }
     
     func addTargetButton(button: UIButton, tag: Int) {
@@ -34,7 +38,8 @@ class TabButton {
         button.addTarget(self, action:#selector(tappedButton(sender:)), for: .touchUpInside)
     }
     
-    @objc func tappedButton(sender: UIButton) {
+    @objc 
+    func tappedButton(sender: UIButton) {
         let tag = sender.tag
         unselectButton(sender: buttons[selectedButton])
         selectButton(sender: buttons[tag])

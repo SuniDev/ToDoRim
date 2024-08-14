@@ -56,7 +56,7 @@ class WriteTodoViewController: UIViewController {
     @IBOutlet weak var locationNameLabel: UILabel!
     
     @IBOutlet weak var completeButtonLabel: UILabel!
-    @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var completeButtonView: UIView!
     
     // MARK: - Action
     @IBAction func changedTitleTextField(_ sender: MadokaTextField) {
@@ -209,16 +209,18 @@ class WriteTodoViewController: UIViewController {
     }
     
     func configureUIWithColor() {
-        let colors = GroupColor.getColors(index: group?.appColorIndex ?? 0)
-        let frame = completeButton.frame
-        let gradientLayer = Utils.getHorizontalLayer(frame: frame, colors: colors)
-        completeButton.layer.addSublayer(gradientLayer)
+        completeButtonView.layer.cornerRadius = 10
+        completeButtonView.layer.masksToBounds = true
         
-        dateNotiSwitch.onTintColor = colors[0]
-        locationNotiSwitch.onTintColor = colors[0]
+        let colors = GroupColor.getColors(index: group?.appColorIndex ?? 0)
+        let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 70), colors: colors)
+        completeButtonView.layer.addSublayer(gradientLayer)
+        
+        dateNotiSwitch.onTintColor = colors[1]
+        locationNotiSwitch.onTintColor = colors[1]
         
         // repeat button 세팅
-        dateTabButton.initButton(type: .dateRepeat, color: colors[0], buttons: [dateNotiNoneButton, dateNotiDailyButton, dateNotiWeeklyButton, dateNotiMonthlyButton])
+        dateTabButton.initButton(type: .dateRepeat, color: colors[1], buttons: [dateNotiNoneButton, dateNotiDailyButton, dateNotiWeeklyButton, dateNotiMonthlyButton])
     }
     
     func configureUIWithData() {
@@ -290,7 +292,7 @@ class WriteTodoViewController: UIViewController {
     }
     
     func configureHeroID() {
-        completeButton.hero.id = AppHeroId.button.getId(id: group?.groupId ?? 0)
+        completeButtonView.hero.id = AppHeroId.button.getId(id: group?.groupId ?? 0)
     }
     
     // 키보드 기본 처리
@@ -314,13 +316,12 @@ class WriteTodoViewController: UIViewController {
     // 키보드 팝업 처리
     @objc
     func keyboardWillShow(_ sender: Notification) {
-        let userInfo:NSDictionary = sender.userInfo! as NSDictionary
-        let keyboardFrame:NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue
-        let keyboardRectangle = keyboardFrame.cgRectValue
-        let keyboardHeight = keyboardRectangle.height
-        
-        scrollViewBottomMargin.constant = keyboardHeight
-        view.layoutIfNeeded()
+        if let keyboardFrame = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+            let keyboardHeight = keyboardFrame.height
+            
+            scrollViewBottomMargin.constant = keyboardHeight
+            view.layoutIfNeeded()
+        }
     }
     
     // 키보드 숨김 처리

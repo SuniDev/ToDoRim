@@ -19,6 +19,7 @@ class WriteGroupViewController: UIViewController {
     weak var delegate: WriteGroupViewControllerDelegate?
     var groupStorage: GroupStorage?
     var group: Group?
+    var writeGroup: Group = Group()
     var selectedColorIndex: Int = 0
     
     // MARK: - Outlet
@@ -29,6 +30,7 @@ class WriteGroupViewController: UIViewController {
     @IBOutlet weak var textfield: MadokaTextField!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var addButtonView: UIView!
     @IBOutlet weak var editButtonView: UIView!
     
@@ -43,11 +45,11 @@ class WriteGroupViewController: UIViewController {
     }
     
     @IBAction func tappedAddButton(_ sender: UIButton) {
-        if isValidData(), let group {
-            group.title = textfield?.text ?? ""
+        if isValidData() {
+            writeGroup.title = textfield?.text ?? ""
             
-            groupStorage?.add(group)
-            delegate?.completeWriteGroup(group: group)
+            groupStorage?.add(writeGroup)
+            delegate?.completeWriteGroup(group: writeGroup)
         } else {
             let alert = UIAlertController(title: "그룹 이름을 입력하세요.", message: "", preferredStyle: UIAlertController.Style.alert)
             let defaultAction = UIAlertAction(title: "확인", style: .default)
@@ -60,10 +62,7 @@ class WriteGroupViewController: UIViewController {
         if isValidData(), let group {
             groupStorage?.update(
                 with: group,
-                title: textfield?.text ?? "",
-                startColor: GroupColor.getStart(index: selectedColorIndex),
-                endColor: GroupColor.getEnd(index: selectedColorIndex),
-                appColorIndex: selectedColorIndex,
+                writeGroup: writeGroup,
                 completion: { [weak self] isSuccess, group in
                     if isSuccess {
                         self?.delegate?.completeWriteGroup(group: group)
@@ -87,37 +86,40 @@ class WriteGroupViewController: UIViewController {
         super.viewDidLoad()
         scrollView.contentInsetAdjustmentBehavior = .never
         createKeyboardEvent()
+        configureData()
+        configureCollectionView()
         
-        collectionView.register(UINib(nibName: "GroupColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GroupColorCollectionViewCell")
+        collectionView.reloadData()
+        updateGroupColor()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    func configureData() {
         if let group {
             addButtonView.isHidden = true
             editButtonView.isHidden = false
             titleLabel.text = "그룹 수정"
             
-            textfield.text = group.title
-            selectedColorIndex = group.appColorIndex
+            writeGroup.title = group.title
+            writeGroup.appColorIndex = group.appColorIndex
         } else {
             addButtonView.isHidden = false
             editButtonView.isHidden = true
             titleLabel.text = "그룹 추가"
             
-            group = Group()
-            group?.groupId = groupStorage?.getNextId() ?? 0
-            group?.order = groupStorage?.getNextOrder() ?? 0
-            group?.startColor = GroupColor.getStart(index: 0)
-            group?.endColor = GroupColor.getEnd(index: 0)
-            group?.appColorIndex = 0
+            writeGroup.groupId = groupStorage?.getNextId() ?? 0
+            writeGroup.order = groupStorage?.getNextOrder() ?? 0
+            writeGroup.startColor = GroupColor.getStart(index: 0)
+            writeGroup.endColor = GroupColor.getEnd(index: 0)
+            writeGroup.appColorIndex = 0
         }
         
-        collectionView.reloadData()
+        textfield.text = writeGroup.title
+        selectedColorIndex = writeGroup.appColorIndex
     }
     
-    
+    func configureCollectionView() {
+        collectionView.register(UINib(nibName: "GroupColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GroupColorCollectionViewCell")
+    }
     // 키보드 기본 처리
     func createKeyboardEvent() {
         // 화면 터치 시 키보드 숨김
@@ -136,6 +138,23 @@ class WriteGroupViewController: UIViewController {
             return true
         } else {
             return false
+        }
+    }
+    
+    func updateGroupColor() {
+        let colors = GroupColor.getColors(index: selectedColorIndex)
+        if let group {
+//            let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: (UIScreen.main.bounds.width - 32) / 2, height: 70), colors: colors)
+//            if let firstLayer = editButtonView.layer.sublayers?.first as? CAGradientLayer  {
+//                firstLayer.removeFromSuperlayer()  // 기존 레이어 제거
+//            }
+//            editButtonView.layer.addSublayer(gradientLayer)
+        } else {
+            let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 70), colors: colors)
+            if let firstLayer = addButton.layer.sublayers?.first as? CAGradientLayer  {
+                firstLayer.removeFromSuperlayer()  // 기존 레이어 제거
+            }
+            addButton.layer.insertSublayer(gradientLayer, at: 0)
         }
     }
 }
@@ -173,6 +192,7 @@ extension WriteGroupViewController: UICollectionViewDelegate, UICollectionViewDa
         }
         
         selectedColorIndex = indexPath.row
+        updateGroupColor()
     }
 }
 

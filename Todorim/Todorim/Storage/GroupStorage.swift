@@ -52,12 +52,12 @@ class GroupStorage {
         realmManager.add(group)
     }
     
-    func update(with group: Group, title: String, startColor: UIColor, endColor: UIColor, appColorIndex: Int, completion: @escaping (_ isSuccess: Bool, _ group: Group) -> ()) {
+    func update(with group: Group, writeGroup: Group, completion: @escaping (_ isSuccess: Bool, _ group: Group) -> ()) {
         realmManager.update(block: {
-            group.title = title
-            group.startColor = startColor
-            group.endColor = endColor
-            group.appColorIndex = appColorIndex
+            group.title = writeGroup.title
+            group.startColor = writeGroup.startColor
+            group.endColor = writeGroup.endColor
+            group.appColorIndex = writeGroup.appColorIndex
         }, completion: { isSuccess, error in
             completion(isSuccess, group)
         })
