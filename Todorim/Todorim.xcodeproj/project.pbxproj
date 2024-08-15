@@ -82,6 +82,9 @@
 		EA8BB7032C6B23EE00779FF9 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = EA8BB7022C6B23EE00779FF9 /* Hero */; };
 		EA8BB7062C6B27D200779FF9 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB7042C6B27D200779FF9 /* TodoTableViewCell.swift */; };
 		EA8BB7072C6B27D200779FF9 /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA8BB7052C6B27D200779FF9 /* TodoTableViewCell.xib */; };
+		EAA8647C2C6E484300A8CBCD /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */; };
+		EAA8647F2C6E486100A8CBCD /* SearchLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */; };
+		EAA864812C6E487900A8CBCD /* SearchLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA864802C6E487900A8CBCD /* SearchLocationMapViewController.swift */; };
 		EABB9C692C6C34F200775657 /* GroupColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABB9C672C6C34F200775657 /* GroupColorCollectionViewCell.swift */; };
 		EABB9C6A2C6C34F200775657 /* GroupColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EABB9C682C6C34F200775657 /* GroupColorCollectionViewCell.xib */; };
 		EABB9C6C2C6C37BC00775657 /* WriteTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABB9C6B2C6C37BC00775657 /* WriteTodoViewController.swift */; };
@@ -204,6 +207,9 @@
 		EA8BB6FF2C6B04BE00779FF9 /* GroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
 		EA8BB7042C6B27D200779FF9 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 		EA8BB7052C6B27D200779FF9 /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
+		EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
+		EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewController.swift; sourceTree = "<group>"; };
+		EAA864802C6E487900A8CBCD /* SearchLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationMapViewController.swift; sourceTree = "<group>"; };
 		EABB9C672C6C34F200775657 /* GroupColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		EABB9C682C6C34F200775657 /* GroupColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		EABB9C6B2C6C37BC00775657 /* WriteTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteTodoViewController.swift; sourceTree = "<group>"; };
@@ -316,6 +322,7 @@
 		EA6B4FBB2C69B7FB00DC3254 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EAA8647D2C6E484600A8CBCD /* SearchLocation */,
 				EA6B4FBD2C69B8BA00DC3254 /* IntroViewController.swift */,
 				EA6B4FE62C69F1DF00DC3254 /* HomeViewController.swift */,
 				EA8BB6FA2C6AF19400779FF9 /* WriteGroupViewController.swift */,
@@ -530,6 +537,16 @@
 				EA7C5D4C2C69A7E20099AB7C /* FAPaginationLayout */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		EAA8647D2C6E484600A8CBCD /* SearchLocation */ = {
+			isa = PBXGroup;
+			children = (
+				EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */,
+				EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */,
+				EAA864802C6E487900A8CBCD /* SearchLocationMapViewController.swift */,
+			);
+			path = SearchLocation;
 			sourceTree = "<group>";
 		};
 		EABB9C6D2C6C3BB600775657 /* PickerView */ = {
@@ -807,11 +824,13 @@
 				EA6B4FE92C69F52200DC3254 /* Date+Extension.swift in Sources */,
 				EA8BB7002C6B04BE00779FF9 /* GroupDetailViewController.swift in Sources */,
 				EA6B4FD82C69D29F00DC3254 /* LocationSearch.swift in Sources */,
+				EAA864812C6E487900A8CBCD /* SearchLocationMapViewController.swift in Sources */,
 				EA7C5D2C2C69A7D80099AB7C /* TaskTwoNotiCell.swift in Sources */,
 				EABB9C692C6C34F200775657 /* GroupColorCollectionViewCell.swift in Sources */,
 				EA7C5DA22C69A7E20099AB7C /* Geotification.swift in Sources */,
 				EABB9C732C6C410900775657 /* DatePicker.swift in Sources */,
 				EA8BB7062C6B27D200779FF9 /* TodoTableViewCell.swift in Sources */,
+				EAA8647C2C6E484300A8CBCD /* SearchLocationViewController.swift in Sources */,
 				EA6B4FEF2C69FC5400DC3254 /* GroupCollectionViewCell.swift in Sources */,
 				EA7C5CED2C69A7D40099AB7C /* CustomDatePicker.swift in Sources */,
 				EA8BB6F52C6AEED400779FF9 /* UIView+Extension.swift in Sources */,
@@ -825,6 +844,7 @@
 				EA7C5CDA2C69A7CC0099AB7C /* DataTask.swift in Sources */,
 				EA7C5CDC2C69A7CC0099AB7C /* NotiConfig.swift in Sources */,
 				EA7C5DDF2C69A7E20099AB7C /* TextFieldEffects.swift in Sources */,
+				EAA8647F2C6E486100A8CBCD /* SearchLocationTableViewController.swift in Sources */,
 				EA8BB6FB2C6AF19400779FF9 /* WriteGroupViewController.swift in Sources */,
 				EA7C5D2F2C69A7D80099AB7C /* SearchLocationMapVC.swift in Sources */,
 				EA7C5CFA2C69A7D40099AB7C /* CommonSetting.swift in Sources */,
