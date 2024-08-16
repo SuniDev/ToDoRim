@@ -476,7 +476,11 @@ extension WriteTodoViewController {
     
     @objc
     func tappedLocationSearch() {
-        // TODO: 위치 검색 이동
+        guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "SearchLocationViewController") as? SearchLocationViewController else { return }
+        navigationController?.hero.isEnabled = false
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
 
