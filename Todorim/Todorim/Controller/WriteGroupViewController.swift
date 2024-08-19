@@ -49,6 +49,7 @@ class WriteGroupViewController: UIViewController {
     @IBAction func tappedAddButton(_ sender: UIButton) {
         if isValidData() {
             writeGroup.title = textfield?.text ?? ""
+            writeGroup.appColorIndex = selectedColorIndex
             
             groupStorage?.add(writeGroup)
             delegate?.completeWriteGroup(group: writeGroup)
@@ -62,10 +63,13 @@ class WriteGroupViewController: UIViewController {
     
     @IBAction func tappedEditButton(_ sender: UIButton) {
         if isValidData(), let group {
+            writeGroup.title = textfield?.text ?? ""
+            writeGroup.appColorIndex = selectedColorIndex
+            
             groupStorage?.update(
                 with: group,
                 writeGroup: writeGroup,
-                completion: { [weak self] isSuccess, group in
+                completion: { [weak self] isSuccess, updateGroup in
                     if isSuccess {
                         self?.delegate?.completeWriteGroup(group: group)
                     } else {
@@ -92,7 +96,7 @@ class WriteGroupViewController: UIViewController {
         configureCollectionView()
         
         collectionView.reloadData()
-        updateGroupColor()
+        configureButtonColor()
     }
     
     func configureData() {
@@ -143,7 +147,7 @@ class WriteGroupViewController: UIViewController {
         }
     }
     
-    func updateGroupColor() {
+    func configureButtonColor() {
         
         let colors = GroupColor.getColors(index: selectedColorIndex)
         if let group {
@@ -201,7 +205,7 @@ extension WriteGroupViewController: UICollectionViewDelegate, UICollectionViewDa
         }
         
         selectedColorIndex = indexPath.row
-        updateGroupColor()
+        configureButtonColor()
     }
 }
 

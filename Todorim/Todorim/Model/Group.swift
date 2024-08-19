@@ -36,7 +36,12 @@ class Group: Object {
         }
     }
     
-    @objc dynamic var appColorIndex: Int = 0
+    @objc dynamic var appColorIndex: Int = 0 {
+        didSet {
+            startColor = GroupColor.getStart(index: appColorIndex)
+            endColor = GroupColor.getEnd(index: appColorIndex)
+        }
+    }
     
     override static func primaryKey() -> String? {
         return "groupId"

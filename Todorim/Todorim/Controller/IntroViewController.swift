@@ -47,8 +47,7 @@ class IntroViewController: UIViewController {
     func getInitGroup() -> Group {
         let group = Group()
         group.title = "그룹을 커스텀해보세요!"
-        group.startColor = GroupColor.getStart(index: 1)
-        group.endColor = GroupColor.getEnd(index: 1)
+        group.appColorIndex = 1
         return group
     }
     
