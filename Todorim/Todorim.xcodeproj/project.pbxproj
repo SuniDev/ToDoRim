@@ -58,6 +58,7 @@
 		EA8BB7032C6B23EE00779FF9 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = EA8BB7022C6B23EE00779FF9 /* Hero */; };
 		EA8BB7062C6B27D200779FF9 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB7042C6B27D200779FF9 /* TodoTableViewCell.swift */; };
 		EA8BB7072C6B27D200779FF9 /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA8BB7052C6B27D200779FF9 /* TodoTableViewCell.xib */; };
+		EAA163D72C734398007417B9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA163D62C734398007417B9 /* NotificationManager.swift */; };
 		EAA8647C2C6E484300A8CBCD /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */; };
 		EAA8647F2C6E486100A8CBCD /* SearchLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */; };
 		EAA864812C6E487900A8CBCD /* SearchLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA864802C6E487900A8CBCD /* SearchLocationMapViewController.swift */; };
@@ -159,6 +160,7 @@
 		EA8BB6FF2C6B04BE00779FF9 /* GroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
 		EA8BB7042C6B27D200779FF9 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 		EA8BB7052C6B27D200779FF9 /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
+		EAA163D62C734398007417B9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
 		EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewController.swift; sourceTree = "<group>"; };
 		EAA864802C6E487900A8CBCD /* SearchLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationMapViewController.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				EA6B4FC62C69CB1700DC3254 /* RealmManager.swift */,
 				EA6B4FCA2C69CF9000DC3254 /* GroupStorage.swift */,
 				EA6B4FCC2C69D01200DC3254 /* TodoStorage.swift */,
+				EAA163D62C734398007417B9 /* NotificationManager.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				EAA864812C6E487900A8CBCD /* SearchLocationMapViewController.swift in Sources */,
 				EABB9C692C6C34F200775657 /* GroupColorCollectionViewCell.swift in Sources */,
 				EA7C5DA22C69A7E20099AB7C /* Geotification.swift in Sources */,
+				EAA163D72C734398007417B9 /* NotificationManager.swift in Sources */,
 				EABB9C732C6C410900775657 /* DatePicker.swift in Sources */,
 				EA8BB7062C6B27D200779FF9 /* TodoTableViewCell.swift in Sources */,
 				EAA8647C2C6E484300A8CBCD /* SearchLocationViewController.swift in Sources */,

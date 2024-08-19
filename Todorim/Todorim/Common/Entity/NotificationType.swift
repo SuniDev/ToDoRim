@@ -53,4 +53,8 @@ enum WeekType: Int, CaseIterable {
         case .saturday: return "토요일"
         }
     }
+    
+    var weekday: Int {
+        return self.rawValue
+    }
 }
