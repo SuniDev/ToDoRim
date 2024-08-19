@@ -18,8 +18,11 @@ class SearchLocationTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.contentInsetAdjustmentBehavior = .never
+        
         mapView =  MKMapView(frame: self.view.bounds)
     }
+
 }
 
 // MARK: - Table view data source & delegate
@@ -36,7 +39,7 @@ extension SearchLocationTableViewController {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "SearchLocationCell") {
             let selectedItem = matchingItems[indexPath.row].placemark
             cell.textLabel?.text = selectedItem.name
-            cell.detailTextLabel? .text = parseAddress(selectedItem: selectedItem)
+            cell.detailTextLabel?.text = parseAddress(selectedItem: selectedItem)
             
             return cell
         }
@@ -77,11 +80,12 @@ extension SearchLocationTableViewController {
 extension SearchLocationTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let mapView = mapView,
-            let searchBarText = searchController.searchBar.text else { return }
+            let searchBarText = searchController.searchBar.text, !searchBarText.isEmpty else { return }
         // 검색 요청은 검색 문자열과 위치 컨텍스트를 제공하는 맵 영역으로 구성됩니다. 검색 문자열은 검색 창 텍스트에서 가져오고 맵 영역은 mapView에서 가져옵니다.
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchBarText
-        request.region = mapView.region
+        let searchRegion = MKCoordinateRegion(center: mapView.centerCoordinate, latitudinalMeters: 5000, longitudinalMeters: 5000)
+        request.region = searchRegion
         // 요청 오브젝트에서 실제 검색을 수행합니다. startWithCompletionHandler ()는  검색 질의를 실행하고 리턴, MKLocalSearchResponse의  배열이 포함 객체 mapItems를 . 당신은 내부에 이러한 mapItems을 숨기고  matchingItems 다음 테이블을 다시로드 .
         let search = MKLocalSearch(request: request)
         search.start { response, _ in

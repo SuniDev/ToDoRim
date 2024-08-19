@@ -15,8 +15,8 @@ class SearchLocationViewController: UIViewController {
     let locationManager = CLLocationManager()
     
     // MARK: - Outlet
-    @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var topViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var searchView: UIView!
     var resultSearchController: UISearchController?
     
     // MARK: - Action
@@ -35,6 +35,30 @@ class SearchLocationViewController: UIViewController {
         super.viewDidLoad()
 
         configureLocationManager()
+        configureSearchView()
+    }
+    
+    func configureSearchView() {
+        if let searchTableViewController = storyboard?.instantiateViewController(withIdentifier: "SearchLocationTableViewController") as? SearchLocationTableViewController {
+            resultSearchController = UISearchController(searchResultsController: searchTableViewController)
+            resultSearchController?.searchResultsUpdater = searchTableViewController
+        }
+        
+        if let searchBar = resultSearchController?.searchBar {
+            resultSearchController?.obscuresBackgroundDuringPresentation = false
+            resultSearchController?.hidesNavigationBarDuringPresentation = false
+            searchBar.delegate = self
+            
+            searchBar.barStyle = .default
+            searchBar.placeholder = "장소를 검색하세요."
+            
+            searchBar.translatesAutoresizingMaskIntoConstraints = true
+            searchBar.frame = searchView.bounds
+            searchBar.autoresizingMask = [.flexibleWidth]
+            
+            searchView.addSubview(searchBar)
+            definesPresentationContext = true
+        }
     }
     
     func configureLocationManager() {
@@ -49,21 +73,6 @@ class SearchLocationViewController: UIViewController {
             alert.addAction(defaultAction)
             self.present(alert, animated: false, completion: nil)
         }
-        
-        if let searchTableViewController = storyboard!.instantiateViewController(withIdentifier: "SearchLocationTableViewController") as? SearchLocationTableViewController {
-            resultSearchController = UISearchController(searchResultsController: searchTableViewController)
-            resultSearchController?.searchResultsUpdater = searchTableViewController
-        }
-        
-        if let searchBar = resultSearchController?.searchBar {
-            searchBar.sizeToFit()
-            searchBar.placeholder = "장소를 검색하세요."
-            searchBar.delegate = self
-            searchView.addSubview(searchBar)
-        }
-        
-        resultSearchController?.hidesNavigationBarDuringPresentation = false
-        definesPresentationContext = true
     }
 }
 // MARK: - CLLocationManagerDelegate
@@ -84,25 +93,28 @@ extension SearchLocationViewController: CLLocationManagerDelegate {
 extension SearchLocationViewController: UISearchBarDelegate {
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        self.view.layoutIfNeeded()
-        
-        topViewHeight.constant = 0.0
-        
-        UIView.animate(withDuration: 0.2) {
-            self.view.layoutIfNeeded()
-        }
+        // 높이를 먼저 줄이도록 애니메이션 설정
+        self.view.layoutIfNeeded() // 현재 상태를 먼저 렌더링
+
+        // alpha와 constant를 동시에 애니메이션
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
+            self.topViewHeight.constant = 0.0
+            self.view.layoutIfNeeded() // 변경된 레이아웃을 즉시 반영
+        }, completion: nil)
         
         return true
     }
-    
+
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        self.view.layoutIfNeeded()
+        self.view.layoutIfNeeded() // 현재 상태를 먼저 렌더링
+
+        // alpha와 constant를 동시에 애니메이션
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
+            self.topViewHeight.constant = 70.0
+            self.view.layoutIfNeeded() // 변경된 레이아웃을 즉시 반영
+        }, completion: nil)
         
-        topViewHeight.constant = 70.0
-        
-        UIView.animate(withDuration: 0.2) {
-            self.view.layoutIfNeeded()
-        }
         return true
     }
+
 }

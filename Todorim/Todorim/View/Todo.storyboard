@@ -602,7 +602,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qH2-6u-4Kt">
-                                <rect key="frame" x="0.0" y="47" width="390" height="120"/>
+                                <rect key="frame" x="0.0" y="47" width="390" height="140"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RaW-Z8-U2W">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="70"/>
@@ -662,10 +662,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gS-cm-O5e">
-                                        <rect key="frame" x="0.0" y="70" width="390" height="50"/>
+                                        <rect key="frame" x="0.0" y="70" width="390" height="70"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="d0j-Hr-r7V"/>
+                                            <constraint firstAttribute="height" constant="70" id="d0j-Hr-r7V"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -691,7 +691,7 @@
                     </view>
                     <connections>
                         <outlet property="searchView" destination="0gS-cm-O5e" id="zba-om-MVc"/>
-                        <outlet property="topViewHeight" destination="ey1-6l-JY5" id="69c-dJ-3zN"/>
+                        <outlet property="topViewHeight" destination="ey1-6l-JY5" id="wRS-Dj-i2V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QKj-uq-Rvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -887,7 +887,7 @@
         <scene sceneID="hW7-SA-f0a">
             <objects>
                 <tableViewController storyboardIdentifier="SearchLocationTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hNN-D0-x9l" customClass="SearchLocationTableViewController" customModule="Todorim" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" id="Rr1-NV-Kw8">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" contentViewInsetsToSafeArea="NO" id="Rr1-NV-Kw8">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -915,6 +915,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -930,7 +931,7 @@
     </scenes>
     <designables>
         <designable name="1ah-7z-LpV">
-            <size key="intrinsicContentSize" width="160" height="22.333333333333332"/>
+            <size key="intrinsicContentSize" width="172" height="47"/>
         </designable>
     </designables>
     <resources>
