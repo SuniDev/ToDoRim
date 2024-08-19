@@ -32,6 +32,8 @@ class WriteTodoViewController: UIViewController {
     let groupPickerView = UIPickerView()
     let weekPickerView = UIPickerView()
     let dayPickerView = UIPickerView()
+    
+    weak var delegate: WriteTodoViewControllerDelegate?
         
     // MARK: - Outlet
     @IBOutlet weak var scrollView: UIScrollView!
@@ -145,8 +147,24 @@ class WriteTodoViewController: UIViewController {
         if checkValidData() {
             if let todo {
                 // Update todo
+                todoStorage?.update(with: todo, writeTodo: writeTodo, completion: { [weak self] isSuccess, todo in
+                    guard let self else { return }
+                    if isSuccess {
+                        self.delegate?.completeWriteTodo(todo: todo)
+                        self.navigationController?.hero.isEnabled = true
+                        self.navigationController?.hero.navigationAnimationType = .uncover(direction: .down)
+                        self.navigationController?.popViewController(animated: true)
+                    } else {
+                        // TODO: 오류 메시지
+                    }
+                })
             } else {
                 // New Todo
+                todoStorage?.add(writeTodo)
+                delegate?.completeWriteTodo(todo: writeTodo)
+                self.navigationController?.hero.isEnabled = true
+                self.navigationController?.hero.navigationAnimationType = .uncover(direction: .down)
+                self.navigationController?.popViewController(animated: true)
             }
         }
     }

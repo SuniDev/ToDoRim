@@ -63,27 +63,23 @@ class TodoStorage {
         realmManager.add(todo)
     }
     
-    func update(with todo: Todo, completion: @escaping (Bool) -> ()) {
-        if let updateTodo = getTodo(id: todo.todoId) {
-            realmManager.update(block: {
-                updateTodo.title = todo.title
-                updateTodo.isDateNoti = todo.isDateNoti
-                updateTodo.date = todo.date
-                updateTodo.weekType = todo.weekType
-                updateTodo.day = todo.day
-                updateTodo.repeatNotiType = todo.repeatNotiType
-                updateTodo.isLocationNoti = todo.isLocationNoti
-                updateTodo.locationName = todo.locationName
-                updateTodo.locationNotiType = todo.locationNotiType
-                updateTodo.latitude = todo.latitude
-                updateTodo.longitude = todo.longitude
-                updateTodo.radius = todo.radius
-            }, completion: { isSuccess, error in
-                completion(isSuccess)
-            })
-        } else {
-            completion(false)
-        }
+    func update(with todo: Todo, writeTodo: Todo, completion: @escaping (_ isSuccess: Bool, _ updateTodo: Todo) -> ()) {
+        realmManager.update(block: {
+            todo.title = writeTodo.title
+            todo.isDateNoti = writeTodo.isDateNoti
+            todo.date = writeTodo.date
+            todo.weekType = writeTodo.weekType
+            todo.day = writeTodo.day
+            todo.repeatNotiType = writeTodo.repeatNotiType
+            todo.isLocationNoti = writeTodo.isLocationNoti
+            todo.locationName = writeTodo.locationName
+            todo.locationNotiType = writeTodo.locationNotiType
+            todo.latitude = writeTodo.latitude
+            todo.longitude = writeTodo.longitude
+            todo.radius = writeTodo.radius
+        }, completion: { isSuccess, error in
+            completion(isSuccess, todo)
+        })
     }
     
     func updateComplete(with todo: Todo, isComplete: Bool, completion: @escaping (Bool) -> ()) {

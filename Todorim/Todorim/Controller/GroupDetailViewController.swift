@@ -42,6 +42,7 @@ class GroupDetailViewController: UIViewController {
         viewController.todoStorage = todoStorage
         viewController.group = group
         viewController.groups = groupStorage?.getGroups() ?? []
+        viewController.delegate = self
         
         navigationController?.hero.isEnabled = true
         navigationController?.hero.navigationAnimationType = .cover(direction: .up)
@@ -122,7 +123,7 @@ class GroupDetailViewController: UIViewController {
         }
     }
     
-    func fetchTodo() {
+    func fetchTodos() {
         guard let group else { return }
         todos = todoStorage?.getTodos(groupId: group.groupId) ?? []
     }
@@ -174,7 +175,7 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
         todoStorage?.updateComplete(with: todo, isComplete: isComplete, completion: { [weak self] isSuccess in
             guard let self else { return }
             if isSuccess {
-                self.fetchTodo()
+                self.fetchTodos()
                 self.tableView.reloadRows(at: [indexPath], with: .none)
                 self.updateProgress()
             } else {
@@ -202,6 +203,7 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
             viewController.todo = todo
             viewController.group = self.group
             viewController.groups = self.groupStorage?.getGroups() ?? []
+            viewController.delegate = self
             
             navigationController?.hero.isEnabled = true
             navigationController?.hero.navigationAnimationType = .cover(direction: .up)
@@ -227,7 +229,7 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
             let todo = todos[indexPath.row]
             self.todoStorage?.deleteTodo(with: todo, completion: { [weak self] isSuccess in
                 if isSuccess {
-                    self?.fetchTodo()
+                    self?.fetchTodos()
                     self?.tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
                     self?.updateProgress()
                     completion(true)
@@ -253,5 +255,13 @@ extension GroupDetailViewController: WriteGroupViewControllerDelegate {
             self.titleLabel.text = group.title
             self.updateGroupColor()
         }
+    }
+}
+
+extension GroupDetailViewController: WriteTodoViewControllerDelegate {
+    func completeWriteTodo(todo: Todo) {        
+        self.fetchTodos()
+        self.tableView.reloadData()
+        self.updateProgress()
     }
 }
