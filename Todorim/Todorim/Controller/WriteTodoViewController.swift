@@ -7,7 +7,11 @@
 
 import UIKit
 import CoreLocation
+import Hero
 
+protocol WriteTodoViewControllerDelegate: AnyObject {
+    func completeWriteTodo(todo: Todo)
+}
 class WriteTodoViewController: UIViewController {
     
     // MARK: - Data
@@ -35,12 +39,12 @@ class WriteTodoViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var titleTextField: MadokaTextField!
-    @IBOutlet weak var groupTitleTextField: UITextField!
-    @IBOutlet weak var timeTextField: UITextField!
-    @IBOutlet weak var dateTextField: UITextField!
-    @IBOutlet weak var weekTextField: UITextField!
-    @IBOutlet weak var dayTextField: UITextField!
-    @IBOutlet weak var dailyTextField: UITextField!
+    @IBOutlet weak var groupTitleTextField: PickerTextField!
+    @IBOutlet weak var timeTextField: PickerTextField!
+    @IBOutlet weak var dateTextField: PickerTextField!
+    @IBOutlet weak var weekTextField: PickerTextField!
+    @IBOutlet weak var dayTextField: PickerTextField!
+    @IBOutlet weak var dailyTextField: PickerTextField!
     
     @IBOutlet weak var dateNotiSwitch: UISwitch!
     @IBOutlet weak var dateSelectView: UIView!
@@ -149,6 +153,7 @@ class WriteTodoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureHeroID()
         
         createKeyboardEvent()
         
@@ -158,7 +163,6 @@ class WriteTodoViewController: UIViewController {
                 
         configureUIWithColor()
         configureUIWithData()
-        configureHeroID()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -348,7 +352,9 @@ class WriteTodoViewController: UIViewController {
         completeButtonLabel.text = isNew ? "추가" : "수정"
         
         // Todo 타이틀 세팅
-        titleTextField.text = writeTodo.title
+        DispatchQueue.main.async {
+            self.titleTextField.text = self.writeTodo.title
+        }
         
         // 그룹 세팅
         if let groupIndex = groups.firstIndex(where: { $0.groupId == writeTodo.groupId }) {

@@ -184,15 +184,31 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let editTodo = editTodoAction(at: indexPath)
         let deleteTodo = deleteTodoAction(at: indexPath)
-        return UISwipeActionsConfiguration(actions: [editTodo, deleteTodo])
+        let editTodo = editTodoAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [deleteTodo, editTodo])
     }
     
     func editTodoAction(at indexPath: IndexPath) -> UIContextualAction {
-        let todoCount = todos.count
-        let action = UIContextualAction(style: .destructive, title: "") { (action, view, completion) in
-            // TODO: edit Todo
+        let todo = todos[indexPath.row]
+        let action = UIContextualAction(style: .destructive, title: "") { [weak self] (action, view, completion) in
+            guard let self,
+                  let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "WriteTodoViewController") as? WriteTodoViewController else {
+                completion(false)
+                return
+            }
+            
+            viewController.todoStorage = self.todoStorage
+            viewController.todo = todo
+            viewController.group = self.group
+            viewController.groups = self.groupStorage?.getGroups() ?? []
+            
+            navigationController?.hero.isEnabled = true
+            navigationController?.hero.navigationAnimationType = .cover(direction: .up)
+            
+            DispatchQueue.main.async {
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
             completion(true)
         }
         action.image = Asset.Assets.editWhite.image
