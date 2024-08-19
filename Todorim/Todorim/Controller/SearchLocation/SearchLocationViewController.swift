@@ -29,7 +29,7 @@ class SearchLocationViewController: UIViewController {
     @IBAction func tappedSearchPosition(_ sender: UIButton) {
         guard let coordinate = locationManager.location?.coordinate else { return }
         let pin = MKPlacemark(coordinate: coordinate)
-//        CommonNav.shared.moveSearchMap(superVC: superVC, searchVC: self, pin: pin)
+        moveMap(selectedPin: pin)
     }
         
     override func viewDidLoad() {
@@ -118,16 +118,20 @@ extension SearchLocationViewController: UISearchBarDelegate {
         
         return true
     }
+    
+    func moveMap(selectedPin: MKPlacemark) {
+        guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "SearchLocationMapViewController") as? SearchLocationMapViewController else { return }
+        viewController.selectedPin = selectedPin
+        viewController.delegate = delegate
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
 }
 
 // MARK: - SearchLocationTableViewDelegate
 extension SearchLocationViewController: SearchLocationTableViewDelegate {
     func didSelectLocation(_ tableView: UITableView, selectedItem: MKPlacemark) {        
-        guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "SearchLocationMapViewController") as? SearchLocationMapViewController else { return }
-        viewController.selectedPin = selectedItem
-        viewController.delegate = delegate
-        DispatchQueue.main.async {
-            self.navigationController?.pushViewController(viewController, animated: true)
-        }
+        moveMap(selectedPin: selectedItem)
     }
 }

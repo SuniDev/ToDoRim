@@ -259,7 +259,7 @@ extension GroupDetailViewController: WriteGroupViewControllerDelegate {
 }
 
 extension GroupDetailViewController: WriteTodoViewControllerDelegate {
-    func completeWriteTodo(todo: Todo) {        
+    func completeWriteTodo(todo: Todo) {
         self.fetchTodos()
         self.tableView.reloadData()
         self.updateProgress()
