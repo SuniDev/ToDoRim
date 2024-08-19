@@ -219,6 +219,8 @@
                         <outlet property="addButtonView" destination="v01-vy-RTF" id="dXz-jb-Tle"/>
                         <outlet property="backgroundView" destination="n5T-LO-aH7" id="1tE-HH-GJW"/>
                         <outlet property="collectionView" destination="GBr-bP-Nmt" id="dcM-jh-alP"/>
+                        <outlet property="deleteButton" destination="WoX-5V-xmG" id="1KP-O3-9us"/>
+                        <outlet property="editButton" destination="f8V-5A-1vX" id="OfG-r3-5B3"/>
                         <outlet property="editButtonView" destination="379-qR-KAh" id="Ryz-zj-mLg"/>
                         <outlet property="scrollView" destination="uut-6N-EtJ" id="5gr-lN-f4n"/>
                         <outlet property="textfield" destination="pkT-7v-ZHH" id="CeL-fZ-uO8"/>

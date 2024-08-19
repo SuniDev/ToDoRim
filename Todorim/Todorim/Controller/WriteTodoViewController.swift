@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class WriteTodoViewController: UIViewController {
     
@@ -70,8 +71,8 @@ class WriteTodoViewController: UIViewController {
     }
     
     @IBAction func changedDateNotiSwitch(_ sender: UISwitch) {
-        writeTodo.isDateNoti = sender.isOn
         if sender.isOn{
+            writeTodo.isDateNoti = true
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound], completionHandler: {didAllow,Error in
                 if !didAllow {
                     DispatchQueue.main.async {
@@ -83,14 +84,21 @@ class WriteTodoViewController: UIViewController {
                     }
                 }
             })
+        } else {
+            // Init
+            writeTodo.isDateNoti = false
+            writeTodo.date = nil
+            writeTodo.weekType = .none
+            writeTodo.day = 0
+            writeTodo.repeatNotiType = .none
         }
-        setDateNotiUI()
+        configureDateNotiUI()
     }
     
     @IBAction func changedLocationNotiSwitch(_ sender: UISwitch) {
-        writeTodo.isLocationNoti = sender.isOn
         if sender.isOn {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound], completionHandler: {didAllow,Error in
+            writeTodo.isLocationNoti = true
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound], completionHandler: { didAllow, Error in
                 if !didAllow {
                     DispatchQueue.main.async {
                     self.dismissKeyboard()
@@ -101,8 +109,16 @@ class WriteTodoViewController: UIViewController {
                     }
                 }
             })
+        } else {
+            // Init
+            writeTodo.isLocationNoti = false
+            writeTodo.longitude = 0
+            writeTodo.latitude = 0
+            writeTodo.radius = 100.0
+            writeTodo.locationName = ""
+            writeTodo.locationNotiType = .none
         }
-        setLocationNotiUI()
+        configureLocationNotiUI()
     }
     
     @IBAction func tappedDateNotiNoneButton(_ sender: UIButton) {
@@ -143,9 +159,6 @@ class WriteTodoViewController: UIViewController {
         configureUIWithColor()
         configureUIWithData()
         configureHeroID()
-        
-        setDateNotiUI()
-        setLocationNotiUI()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
@@ -209,7 +222,7 @@ class WriteTodoViewController: UIViewController {
     }
     
     func configureUIWithColor() {
-        completeButtonView.layer.cornerRadius = 10
+        completeButtonView.layer.cornerRadius = 15
         completeButtonView.layer.masksToBounds = true
         
         let colors = GroupColor.getColors(index: group?.appColorIndex ?? 0)
@@ -221,6 +234,107 @@ class WriteTodoViewController: UIViewController {
         
         // repeat button 세팅
         dateTabButton.initButton(type: .dateRepeat, color: colors[1], buttons: [dateNotiNoneButton, dateNotiDailyButton, dateNotiWeeklyButton, dateNotiMonthlyButton])
+    }
+    
+    func configureDateNotiUI() {
+        // 시각 알림 세팅
+        let repeatNotiType = writeTodo.repeatNotiType
+        selectRepeat(type: repeatNotiType)
+        
+        
+        if let date = writeTodo.date {
+            let timeFormatter = DateFormatter()
+            timeFormatter.locale = Locale(identifier: "ko_KR")
+            timeFormatter.timeStyle = .short
+            timeFormatter.dateFormat =  "a hh:mm"
+            timeTextField.text = timeFormatter.string(from: date)
+            timePicker?.selectedDate = date
+        } else {
+            timeTextField.text = ""
+            timePicker?.selectedDate = nil
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat =  "yy년 M월 d일 (EEEE)"
+        
+        if writeTodo.isDateNoti {
+            dateNotiSwitch.isOn = true
+
+            switch repeatNotiType {
+            case .none:
+                dateTabButton.tappedButton(sender: dateNotiNoneButton)
+                if let date = writeTodo.date {
+                    dateTextField.text = dateFormatter.string(from: date)
+                    datePicker?.selectedDate = date
+                } else {
+                    dateTextField.text = ""
+                    timePicker?.selectedDate = nil
+                }
+            case .daily:
+                dateTabButton.tappedButton(sender: dateNotiDailyButton)
+            case .weekly:
+                dateTabButton.tappedButton(sender: dateNotiWeeklyButton)
+                
+                let row = writeTodo.weekType.rawValue - 1
+                weekTextField.text = weekPicker?.array[row].title
+                weekPicker?.selectedWeek = writeTodo.weekType
+            case .monthly:
+                dateTabButton.tappedButton(sender: dateNotiMonthlyButton)
+                
+                let row = writeTodo.day - 1
+                dayTextField.text = dayPicker?.array[row]
+                dayPicker?.selectedDay = writeTodo.day
+            }
+        } else {
+            dateNotiSwitch.isOn = false
+            
+            dateTabButton.tappedButton(sender: dateNotiNoneButton)
+            dateTextField.text = ""
+        }
+        
+        self.view.layoutIfNeeded()
+        
+        dateSelectView.isHidden = !writeTodo.isDateNoti
+        
+        if writeTodo.isDateNoti {
+            dateNotiViewHeight.constant = 210
+        } else {
+            dateNotiViewHeight.constant = 0
+        }
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    func configureLocationNotiUI() {
+        if writeTodo.locationName.isEmpty || writeTodo.locationNotiType == .none {
+            locationNameLabel.text = "위치 선택"
+            locationNameLabel.textColor = .lightGray
+        } else {
+            locationNameLabel.text = "\(writeTodo.locationName) \(writeTodo.locationNotiType.title)"
+            locationNameLabel.textColor = Asset.Color.default.color
+        }
+        
+        if writeTodo.isLocationNoti {
+            locationNotiSwitch.isOn = true
+        } else {
+            locationNotiSwitch.isOn = false
+        }
+        self.view.layoutIfNeeded()
+        
+        locationSearchView.isHidden = !writeTodo.isLocationNoti
+        
+        if writeTodo.isLocationNoti {
+            locationSelectViewHeight.constant = 170
+        } else {
+            locationSelectViewHeight.constant = 0
+        }
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            self.view.layoutIfNeeded()
+        })
     }
     
     func configureUIWithData() {
@@ -241,54 +355,8 @@ class WriteTodoViewController: UIViewController {
             groupPickerView.selectRow(groupIndex, inComponent: 0, animated: false)
         }
         
-        // 시각 알림 세팅
-        let repeatNotiType = writeTodo.repeatNotiType
-        selectRepeat(type: repeatNotiType)
-        
-        if writeTodo.isDateNoti {
-            dateNotiSwitch.isOn = true
-            
-            let timeFormatter = DateFormatter()
-            timeFormatter.locale = Locale(identifier: "ko_KR")
-            timeFormatter.timeStyle = .short
-            timeFormatter.dateFormat =  "a hh:mm"
-            timeTextField.text = timeFormatter.string(from: writeTodo.date)
-            timePicker?.selectedDate = writeTodo.date
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = Locale(identifier: "ko_KR")
-            dateFormatter.dateFormat =  "yy년 M월 d일 (EEEE)"
-            switch repeatNotiType {
-            case .none:
-                dateTabButton.selectButton(sender: dateNotiNoneButton)
-                dateTextField.text = dateFormatter.string(from: writeTodo.date)
-                datePicker?.selectedDate = writeTodo.date
-            case .daily:
-                dateTabButton.selectButton(sender: dateNotiDailyButton)
-            case .weekly:
-                dateTabButton.selectButton(sender: dateNotiWeeklyButton)
-                
-                let row = writeTodo.weekType.rawValue - 1
-                weekTextField.text = weekPicker?.array[row].title
-                weekPicker?.selectedWeek = writeTodo.weekType
-            case .monthly:
-                dateTabButton.selectButton(sender: dateNotiMonthlyButton)
-                
-                let row = writeTodo.day - 1
-                dayTextField.text = dayPicker?.array[row]
-                dayPicker?.selectedDay = writeTodo.day
-            }
-        } else {
-            dateNotiSwitch.isOn = false
-        }
-        
-        if writeTodo.isLocationNoti {
-            locationNotiSwitch.isOn = true
-            locationNameLabel.text = "\(writeTodo.locationName) \(writeTodo.locationNotiType.title)"
-            locationNameLabel.textColor = Asset.Color.default.color
-        } else {
-            locationNotiSwitch.isOn = false
-        }
+        configureDateNotiUI()
+        configureLocationNotiUI()
     }
     
     func configureHeroID() {
@@ -333,39 +401,6 @@ class WriteTodoViewController: UIViewController {
 
 }
 extension WriteTodoViewController {
-    
-    func setDateNotiUI() {
-        self.view.layoutIfNeeded()
-        
-        dateSelectView.isHidden = !writeTodo.isDateNoti
-        
-        if writeTodo.isDateNoti {
-            dateNotiViewHeight.constant = 210
-        } else {
-            dateNotiViewHeight.constant = 0
-        }
-        
-        UIView.animate(withDuration: 0.2, animations: {
-            self.view.layoutIfNeeded()
-        })
-    }
-    
-    func setLocationNotiUI() {
-        self.view.layoutIfNeeded()
-        
-        locationSearchView.isHidden = !writeTodo.isLocationNoti
-        
-        if writeTodo.isLocationNoti {
-            locationSelectViewHeight.constant = 170
-        } else {
-            locationSelectViewHeight.constant = 0
-        }
-        
-        UIView.animate(withDuration: 0.2, animations: {
-            self.view.layoutIfNeeded()
-        })
-    }
-    
     func selectRepeat(type: RepeatNotificationType) {
         writeTodo.repeatNotiType = type
         dateTextField.isHidden = type != .none
@@ -448,13 +483,16 @@ extension WriteTodoViewController {
     }
     
     func saveDate() {
+        guard let date = timePicker?.selectedDate else {
+            writeTodo.date = nil
+            return
+        }
         let type = writeTodo.repeatNotiType
         var dateComponents = DateComponents()
-        let time = timePicker?.selectedDate ?? Date()
+        let time = date
         
         switch type {
         case .none:
-            let date = datePicker?.selectedDate ?? Date()
             let dc = Calendar.current.dateComponents([.year,.month,.day], from: date)
             dateComponents.year = dc.year
             dateComponents.month = dc.month
@@ -477,6 +515,8 @@ extension WriteTodoViewController {
     @objc
     func tappedLocationSearch() {
         guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "SearchLocationViewController") as? SearchLocationViewController else { return }
+        
+        viewController.delegate = self
         navigationController?.hero.isEnabled = false
         DispatchQueue.main.async {
             self.navigationController?.pushViewController(viewController, animated: true)
@@ -489,5 +529,19 @@ extension WriteTodoViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         return true
+    }
+}
+
+extension WriteTodoViewController: SelectLocationMapViewDelegate {
+    func searchLocationMapView(didAddCoordinate coordinate: CLLocationCoordinate2D, radius: Double, locationType: LocationNotificationType, name: String) {
+        navigationController?.popToViewController(self, animated: true)
+        
+        writeTodo.longitude = coordinate.longitude
+        writeTodo.latitude = coordinate.latitude
+        writeTodo.radius = radius
+        writeTodo.locationNotiType = locationType
+        writeTodo.locationName = name
+        
+        configureLocationNotiUI()
     }
 }

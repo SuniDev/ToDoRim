@@ -9,7 +9,7 @@ import UIKit
 
 class DatePicker: UIDatePicker {
     var textField: UITextField?
-    var selectedDate: Date = Date()
+    var selectedDate: Date?
     
     convenience init(textField: UITextField) {
         self.init(frame: CGRect.zero)

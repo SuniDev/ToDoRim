@@ -76,6 +76,8 @@ class TodoTableViewCell: UITableViewCell {
     }
     
     private func getDateNotiTitle(with todo: Todo) -> String {
+        guard let date = todo.date else { return "" }
+        
         let timeFormatter = DateFormatter()
         timeFormatter.locale = Locale(identifier: "ko_KR")
         timeFormatter.timeStyle = .short
@@ -88,15 +90,15 @@ class TodoTableViewCell: UITableViewCell {
         switch todo.repeatNotiType {
         case .none:
             dateFormatter.dateFormat =  "M월 d일(EEEE) a hh:mm"
-            return "\(dateFormatter.string(from: todo.date))"
+            return "\(dateFormatter.string(from: date))"
         case .daily:
             dateFormatter.timeStyle = .short
             dateFormatter.dateFormat =  "a hh:mm"
-            return "\(todo.repeatNotiType.title) \(dateFormatter.string(from: todo.date))"
+            return "\(todo.repeatNotiType.title) \(dateFormatter.string(from: date))"
         case .weekly:
-            return "\(todo.repeatNotiType.title) \(todo.weekType.title) \(timeFormatter.string(from: todo.date))"
+            return "\(todo.repeatNotiType.title) \(todo.weekType.title) \(timeFormatter.string(from: date))"
         case .monthly:
-            return "\(todo.repeatNotiType.title) \(todo.day)일 \(timeFormatter.string(from: todo.date))"
+            return "\(todo.repeatNotiType.title) \(todo.day)일 \(timeFormatter.string(from: date))"
         }
     }
 }

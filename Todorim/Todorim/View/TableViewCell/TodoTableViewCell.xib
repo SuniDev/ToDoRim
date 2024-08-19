@@ -41,7 +41,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2XG-6g-Kxn">
-                                <rect key="frame" x="55" y="20" width="333" height="28"/>
+                                <rect key="frame" x="45" y="20" width="343" height="28"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="할일" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1OC-ir-K0p">
                                         <rect key="frame" x="0.0" y="0.0" width="26" height="28"/>
@@ -59,10 +59,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kb-0i-nXf">
-                                <rect key="frame" x="55" y="53" width="333" height="20"/>
+                                <rect key="frame" x="45" y="53" width="343" height="20"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dQh-3P-sS3">
-                                        <rect key="frame" x="0.0" y="1.6666666666666643" width="15" height="11.999999999999993"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="fJy-Ii-nCb"/>
                                             <constraint firstAttribute="height" constant="15" id="ndH-5l-tgS"/>
@@ -85,7 +85,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JIQ-yJ-6kW">
-                                <rect key="frame" x="55" y="73" width="333" height="20"/>
+                                <rect key="frame" x="45" y="73" width="343" height="20"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IBm-gg-Orc">
                                         <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
@@ -132,7 +132,7 @@
                             <constraint firstItem="4kb-0i-nXf" firstAttribute="top" secondItem="2XG-6g-Kxn" secondAttribute="bottom" constant="5" id="cSk-1D-JAh"/>
                             <constraint firstItem="JIQ-yJ-6kW" firstAttribute="trailing" secondItem="4kb-0i-nXf" secondAttribute="trailing" id="idK-vf-dkA"/>
                             <constraint firstAttribute="trailing" secondItem="Jyp-6W-AyL" secondAttribute="trailing" constant="10" id="qk4-da-HXZ"/>
-                            <constraint firstItem="2XG-6g-Kxn" firstAttribute="leading" secondItem="wiD-Ik-ev1" secondAttribute="trailing" constant="20" id="rFx-zM-y94"/>
+                            <constraint firstItem="2XG-6g-Kxn" firstAttribute="leading" secondItem="wiD-Ik-ev1" secondAttribute="trailing" constant="10" id="rFx-zM-y94"/>
                             <constraint firstItem="2XG-6g-Kxn" firstAttribute="top" secondItem="fGd-fV-3J8" secondAttribute="top" constant="20" id="sFA-Wc-d3S"/>
                             <constraint firstItem="wiD-Ik-ev1" firstAttribute="leading" secondItem="fGd-fV-3J8" secondAttribute="leading" constant="10" id="v4w-ag-JbD"/>
                         </constraints>

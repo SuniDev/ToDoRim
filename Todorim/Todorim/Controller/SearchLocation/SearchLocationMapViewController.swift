@@ -30,6 +30,7 @@ class SearchLocationMapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var entryButton: UIButton!
     @IBOutlet weak var exitButton: UIButton!
+    @IBOutlet weak var completeButton: UIButton!
     
     // MARK: - Action
     @IBAction func changedTextRadius(_ sender: UITextField) {
@@ -71,9 +72,12 @@ class SearchLocationMapViewController: UIViewController {
                 
         createKeyboardEvent()
         
+        completeButton.layer.cornerRadius = 15
+        completeButton.layer.masksToBounds = true
+        
         selectLocationType = .entry
         
-        tabButton.initButton(type: .locationType, color: Asset.Color.default.color, buttons: [exitButton, entryButton])
+        tabButton.initButton(type: .locationType, color: Asset.Color.default.color, buttons: [entryButton, exitButton])
         tabButton.selectButton(sender: entryButton)
         
         coordinate = selectedPin?.coordinate

@@ -32,6 +32,8 @@ class WriteGroupViewController: UIViewController {
     
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var addButtonView: UIView!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var editButtonView: UIView!
     
     
@@ -142,14 +144,21 @@ class WriteGroupViewController: UIViewController {
     }
     
     func updateGroupColor() {
+        
         let colors = GroupColor.getColors(index: selectedColorIndex)
         if let group {
-//            let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: (UIScreen.main.bounds.width - 32) / 2, height: 70), colors: colors)
-//            if let firstLayer = editButtonView.layer.sublayers?.first as? CAGradientLayer  {
-//                firstLayer.removeFromSuperlayer()  // 기존 레이어 제거
-//            }
-//            editButtonView.layer.addSublayer(gradientLayer)
+            deleteButton.layer.cornerRadius = 15
+            deleteButton.layer.masksToBounds = true
+            editButton.layer.cornerRadius = 15
+            editButton.layer.masksToBounds = true
+            let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: (UIScreen.main.bounds.width - 32) / 2, height: 70), colors: colors)
+            if let firstLayer = editButton.layer.sublayers?.first as? CAGradientLayer  {
+                firstLayer.removeFromSuperlayer()  // 기존 레이어 제거
+            }
+            editButton.layer.insertSublayer(gradientLayer, at: 0)
         } else {
+            addButton.layer.cornerRadius = 15
+            addButton.layer.masksToBounds = true
             let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 70), colors: colors)
             if let firstLayer = addButton.layer.sublayers?.first as? CAGradientLayer  {
                 firstLayer.removeFromSuperlayer()  // 기존 레이어 제거

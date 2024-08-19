@@ -18,7 +18,7 @@ class Todo: Object {
     
     // MARK: 날짜 알림
     @objc dynamic var isDateNoti: Bool = false  // 날짜 알림 여부
-    @objc dynamic var date: Date = Date()       // 날짜
+    @objc dynamic var date: Date? // 날짜
     @objc private dynamic var week: Int = 0             // 1: 일요일 ~ 7: 토요일
     var weekType: WeekType {
         get {

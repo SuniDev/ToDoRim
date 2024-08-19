@@ -711,10 +711,10 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hFc-gA-Win">
                                         <rect key="frame" x="0.6666666666666714" y="0.6666666666666714" width="194" height="49"/>
-                                        <color key="backgroundColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                         <state key="normal" title="도착할 때">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="tapEntry:" destination="KqZ-k2-IFh" eventType="touchUpInside" id="hAs-p9-EcB"/>
@@ -758,7 +758,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhD-Y8-H7V">
                                         <rect key="frame" x="10" y="15" width="40" height="40"/>
                                         <connections>
-                                            <action selector="back:" destination="KqZ-k2-IFh" eventType="touchUpInside" id="nU0-Nr-qP5"/>
+                                            <action selector="tappedBackButton:" destination="KqZ-k2-IFh" eventType="touchUpInside" id="Omb-ju-s8v"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="위치 선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZW-QO-9LA">
@@ -809,7 +809,7 @@
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                                 <connections>
-                                                    <action selector="textRadiusChanged:" destination="KqZ-k2-IFh" eventType="editingChanged" id="GpU-mV-TCW"/>
+                                                    <action selector="changedTextRadius:" destination="KqZ-k2-IFh" eventType="editingDidEnd" id="CMP-dN-cj8"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
@@ -837,17 +837,17 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj6-lZ-6zn">
-                                <rect key="frame" x="16" y="760" width="358" height="50"/>
+                                <rect key="frame" x="16" y="740" width="358" height="70"/>
                                 <color key="backgroundColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="TlH-vI-6WX"/>
+                                    <constraint firstAttribute="height" constant="70" id="TlH-vI-6WX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                 <state key="normal" title="완료">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="completeLocation:" destination="KqZ-k2-IFh" eventType="touchUpInside" id="N54-gE-gOm"/>
+                                    <action selector="tappedCompleteButton:" destination="KqZ-k2-IFh" eventType="touchUpInside" id="TV0-zP-cMz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -873,10 +873,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnEntry" destination="hFc-gA-Win" id="DPa-Gd-hrg"/>
-                        <outlet property="btnExit" destination="9FF-Es-hU4" id="AVS-vg-Kay"/>
+                        <outlet property="completeButton" destination="jj6-lZ-6zn" id="c79-17-x5c"/>
+                        <outlet property="entryButton" destination="hFc-gA-Win" id="sb4-MM-tpE"/>
+                        <outlet property="exitButton" destination="9FF-Es-hU4" id="G4j-bc-RkK"/>
                         <outlet property="mapView" destination="Shb-ye-F3X" id="j3L-o9-XM8"/>
-                        <outlet property="textRadius" destination="NK7-7L-LPb" id="pK8-8c-47n"/>
+                        <outlet property="radiusTextField" destination="NK7-7L-LPb" id="4fO-bo-8J0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kca-6A-ZXp" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -13,6 +13,7 @@ class SearchLocationViewController: UIViewController {
     
     // MARK: - Data
     let locationManager = CLLocationManager()
+    weak var delegate: SelectLocationMapViewDelegate?
     
     // MARK: - Outlet
     @IBOutlet weak var topViewHeight: NSLayoutConstraint!
@@ -40,6 +41,7 @@ class SearchLocationViewController: UIViewController {
     
     func configureSearchView() {
         if let searchTableViewController = storyboard?.instantiateViewController(withIdentifier: "SearchLocationTableViewController") as? SearchLocationTableViewController {
+            searchTableViewController.delegate = self
             resultSearchController = UISearchController(searchResultsController: searchTableViewController)
             resultSearchController?.searchResultsUpdater = searchTableViewController
         }
@@ -116,5 +118,16 @@ extension SearchLocationViewController: UISearchBarDelegate {
         
         return true
     }
+}
 
+// MARK: - SearchLocationTableViewDelegate
+extension SearchLocationViewController: SearchLocationTableViewDelegate {
+    func didSelectLocation(_ tableView: UITableView, selectedItem: MKPlacemark) {        
+        guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "SearchLocationMapViewController") as? SearchLocationMapViewController else { return }
+        viewController.selectedPin = selectedItem
+        viewController.delegate = delegate
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
 }

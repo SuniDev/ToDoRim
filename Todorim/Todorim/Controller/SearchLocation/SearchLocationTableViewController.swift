@@ -8,12 +8,17 @@
 import UIKit
 import MapKit
 
+protocol SearchLocationTableViewDelegate: AnyObject {
+    func didSelectLocation(_ tableView: UITableView, selectedItem: MKPlacemark)
+}
+
 class SearchLocationTableViewController: UITableViewController {
     
     // 나중에 쉽게 액세스 할 수 있도록 검색 결과를 숨기려고 사용합니다.
     var matchingItems: [MKMapItem] = []
     // 검색 쿼리는 지도 영역을 사용하여 로컬 결과의 우선 순위를 지정합니다.
     var mapView: MKMapView?
+    weak var delegate: SearchLocationTableViewDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +52,10 @@ extension SearchLocationTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row < matchingItems.count else { return }
+        
         let selectedItem = matchingItems[indexPath.row].placemark
-//        CommonNav.shared.moveSearchMap(superVC: superVC, searchVC: searchVC, pin: selectedItem)
+        delegate?.didSelectLocation(tableView, selectedItem: selectedItem)
     }
     
     func parseAddress(selectedItem:MKPlacemark) -> String {
