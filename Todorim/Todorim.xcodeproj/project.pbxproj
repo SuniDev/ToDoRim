@@ -38,8 +38,6 @@
 		EA7C5D3C2C69A7DE0099AB7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5D352C69A7DE0099AB7C /* LaunchScreen.storyboard */; };
 		EA7C5D3D2C69A7DE0099AB7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5D372C69A7DE0099AB7C /* Main.storyboard */; };
 		EA7C5D3E2C69A7DE0099AB7C /* Todo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5D382C69A7DE0099AB7C /* Todo.storyboard */; };
-		EA7C5D992C69A7E20099AB7C /* CustomizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D3F2C69A7E20099AB7C /* CustomizedTabBar.swift */; };
-		EA7C5D9A2C69A7E20099AB7C /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D422C69A7E20099AB7C /* DateHelper.swift */; };
 		EA7C5D9B2C69A7E20099AB7C /* CAGradientLayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D442C69A7E20099AB7C /* CAGradientLayer+Extension.swift */; };
 		EA7C5D9E2C69A7E20099AB7C /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D472C69A7E20099AB7C /* String+Extension.swift */; };
 		EA7C5DA02C69A7E20099AB7C /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D492C69A7E20099AB7C /* UITextField+Extension.swift */; };
@@ -139,9 +137,6 @@
 		EA7C5D342C69A7DE0099AB7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA7C5D362C69A7DE0099AB7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA7C5D382C69A7DE0099AB7C /* Todo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Todo.storyboard; sourceTree = "<group>"; };
-		EA7C5D3F2C69A7E20099AB7C /* CustomizedTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizedTabBar.swift; sourceTree = "<group>"; };
-		EA7C5D412C69A7E20099AB7C /* DateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateHelper.h; sourceTree = "<group>"; };
-		EA7C5D422C69A7E20099AB7C /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		EA7C5D442C69A7E20099AB7C /* CAGradientLayer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+Extension.swift"; sourceTree = "<group>"; };
 		EA7C5D472C69A7E20099AB7C /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		EA7C5D492C69A7E20099AB7C /* UITextField+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
@@ -211,14 +206,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EA6B4FA62C69A9AF00DC3254 /* V1 */ = {
-			isa = PBXGroup;
-			children = (
-				EA7C5D982C69A7E20099AB7C /* Utils */,
-			);
-			path = V1;
-			sourceTree = "<group>";
-		};
 		EA6B4FB72C69B7D100DC3254 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,31 +320,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		EA7C5CD22C69A7C00099AB7C /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				EA6B4FA62C69A9AF00DC3254 /* V1 */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		EA7C5D402C69A7E20099AB7C /* CustomTabShapeTest */ = {
-			isa = PBXGroup;
-			children = (
-				EA7C5D3F2C69A7E20099AB7C /* CustomizedTabBar.swift */,
-			);
-			path = CustomTabShapeTest;
-			sourceTree = "<group>";
-		};
-		EA7C5D432C69A7E20099AB7C /* DateHelper */ = {
-			isa = PBXGroup;
-			children = (
-				EA7C5D412C69A7E20099AB7C /* DateHelper.h */,
-				EA7C5D422C69A7E20099AB7C /* DateHelper.swift */,
-			);
-			path = DateHelper;
-			sourceTree = "<group>";
-		};
 		EA7C5D4C2C69A7E20099AB7C /* FAPaginationLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,16 +346,6 @@
 			path = TextFieldEffects;
 			sourceTree = "<group>";
 		};
-		EA7C5D982C69A7E20099AB7C /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				EA7C5D402C69A7E20099AB7C /* CustomTabShapeTest */,
-				EA7C5D432C69A7E20099AB7C /* DateHelper */,
-				EA7C5D4E2C69A7E20099AB7C /* Geotify */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		EA8BB6ED2C6AE3E500779FF9 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +360,7 @@
 		EA8BB6FE2C6AFEEA00779FF9 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				EA7C5D4E2C69A7E20099AB7C /* Geotify */,
 				EA7C5D972C69A7E20099AB7C /* TextFieldEffects */,
 				EA7C5D4C2C69A7E20099AB7C /* FAPaginationLayout */,
 			);
@@ -483,7 +436,6 @@
 				EA6B4FBA2C69B7F100DC3254 /* View */,
 				EA6B4FBB2C69B7FB00DC3254 /* Controller */,
 				EA7C5CC22C699B400099AB7C /* Resources */,
-				EA7C5CD22C69A7C00099AB7C /* Sources */,
 			);
 			path = Todorim;
 			sourceTree = "<group>";
@@ -732,7 +684,6 @@
 				EA7C5CF12C69A7D40099AB7C /* PickerTextField.swift in Sources */,
 				EA6B4FCB2C69CF9000DC3254 /* GroupStorage.swift in Sources */,
 				EABB9C6F2C6C3E2900775657 /* GroupPicker.swift in Sources */,
-				EA7C5D9A2C69A7E20099AB7C /* DateHelper.swift in Sources */,
 				EABB9C772C6C424200775657 /* WeekPicker.swift in Sources */,
 				EA7C5DDE2C69A7E20099AB7C /* MadokaTextField.swift in Sources */,
 				EA6B4FE12C69EB9700DC3254 /* Strings+Generated.swift in Sources */,
@@ -744,7 +695,6 @@
 				EA7C5DA02C69A7E20099AB7C /* UITextField+Extension.swift in Sources */,
 				EA6B4FEB2C69F54B00DC3254 /* Utils.swift in Sources */,
 				EA8BB6F02C6AE40800779FF9 /* HomeTodoTableViewCell.swift in Sources */,
-				EA7C5D992C69A7E20099AB7C /* CustomizedTabBar.swift in Sources */,
 				EA6B4FBE2C69B8BA00DC3254 /* IntroViewController.swift in Sources */,
 				EABB9C7A2C6C54CA00775657 /* TabButton.swift in Sources */,
 				EA6B4FE22C69EB9700DC3254 /* XCAssets+Generated.swift in Sources */,
