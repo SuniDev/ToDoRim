@@ -13,7 +13,6 @@ class GroupDetailViewController: UIViewController {
     // MARK: - Dependencies
     private var groupDetailService: GroupDetailService?
     
-    
     // MARK: - Data
     weak var writeGroupDelegate: WriteGroupViewControllerDelegate?
     var group: Group?
@@ -79,7 +78,6 @@ class GroupDetailViewController: UIViewController {
         addButtonView.layer.masksToBounds = true
     }
     
-    
     func updateGroupColor() {
         guard let group else { return }
         titleLabel.text = group.title
@@ -122,12 +120,14 @@ class GroupDetailViewController: UIViewController {
 // MARK: - Navigation
 extension GroupDetailViewController {
     private func moveToWriteTodo() {
+        guard let groupStorage = groupDetailService?.groupStorage, let todoStoreage = groupDetailService?.todoStorage else { return }
+        let service = WriteTodoService(groupStoreage: groupStorage, todoStorage: todoStoreage)
+        
         guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "WriteTodoViewController") as? WriteTodoViewController else { return }
         
-        viewController.todoStorage = groupDetailService?.todoStorage
-        viewController.group = group
-        viewController.groups = groupDetailService?.groupStorage.getGroups() ?? []
+        viewController.inject(service: service)
         viewController.delegate = self
+        viewController.group = group
         
         navigationController?.hero.isEnabled = true
         navigationController?.hero.navigationAnimationType = .cover(direction: .up)
@@ -159,12 +159,15 @@ extension GroupDetailViewController {
     }
     
     private func moveToEditTodo(todo: Todo) {
+        guard let groupStorage = groupDetailService?.groupStorage, let todoStoreage = groupDetailService?.todoStorage else { return }
+        let service = WriteTodoService(groupStoreage: groupStorage, todoStorage: todoStoreage)
+        
         guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "WriteTodoViewController") as? WriteTodoViewController else { return }
         
-        viewController.todo = todo
-        viewController.group = group
-        viewController.groups = groupDetailService?.groupStorage.getGroups() ?? []
+        viewController.inject(service: service)
         viewController.delegate = self
+        viewController.group = group
+        viewController.todo = todo
         
         navigationController?.hero.isEnabled = true
         navigationController?.hero.navigationAnimationType = .cover(direction: .up)

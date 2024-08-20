@@ -59,6 +59,8 @@
 		EA9156442C7484FD00F3426A /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156432C7484FD00F3426A /* HomeService.swift */; };
 		EA9156462C74897500F3426A /* WriteGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156452C74897500F3426A /* WriteGroupService.swift */; };
 		EA9156482C748F3A00F3426A /* GroupDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156472C748F3A00F3426A /* GroupDetailService.swift */; };
+		EA91564A2C74939B00F3426A /* WriteTodoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156492C74939B00F3426A /* WriteTodoService.swift */; };
+		EA91564C2C74990C00F3426A /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91564B2C74990C00F3426A /* Async.swift */; };
 		EAA163D72C734398007417B9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA163D62C734398007417B9 /* NotificationManager.swift */; };
 		EAA8647C2C6E484300A8CBCD /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */; };
 		EAA8647F2C6E486100A8CBCD /* SearchLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */; };
@@ -161,6 +163,8 @@
 		EA9156432C7484FD00F3426A /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		EA9156452C74897500F3426A /* WriteGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteGroupService.swift; sourceTree = "<group>"; };
 		EA9156472C748F3A00F3426A /* GroupDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailService.swift; sourceTree = "<group>"; };
+		EA9156492C74939B00F3426A /* WriteTodoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteTodoService.swift; sourceTree = "<group>"; };
+		EA91564B2C74990C00F3426A /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		EAA163D62C734398007417B9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
 		EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +223,7 @@
 				EAC6829F2C690C040010ECCC /* SceneDelegate.swift */,
 				EA6B4FEA2C69F54B00DC3254 /* Utils.swift */,
 				EA6B4FB82C69B7DE00DC3254 /* Extension */,
+				EA91564B2C74990C00F3426A /* Async.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -389,6 +394,7 @@
 				EA9156432C7484FD00F3426A /* HomeService.swift */,
 				EA9156452C74897500F3426A /* WriteGroupService.swift */,
 				EA9156472C748F3A00F3426A /* GroupDetailService.swift */,
+				EA9156492C74939B00F3426A /* WriteTodoService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -708,11 +714,13 @@
 				EA7C5CF52C69A7D40099AB7C /* AppDelegate.swift in Sources */,
 				EABB9C752C6C416400775657 /* DayPicker.swift in Sources */,
 				EA6B4FCD2C69D01200DC3254 /* TodoStorage.swift in Sources */,
+				EA91564A2C74939B00F3426A /* WriteTodoService.swift in Sources */,
 				EA7C5CF12C69A7D40099AB7C /* PickerTextField.swift in Sources */,
 				EA6B4FCB2C69CF9000DC3254 /* GroupStorage.swift in Sources */,
 				EABB9C6F2C6C3E2900775657 /* GroupPicker.swift in Sources */,
 				EABB9C772C6C424200775657 /* WeekPicker.swift in Sources */,
 				EA7C5DDE2C69A7E20099AB7C /* MadokaTextField.swift in Sources */,
+				EA91564C2C74990C00F3426A /* Async.swift in Sources */,
 				EA9156482C748F3A00F3426A /* GroupDetailService.swift in Sources */,
 				EA6B4FE12C69EB9700DC3254 /* Strings+Generated.swift in Sources */,
 				EA8BB6FD2C6AF95B00779FF9 /* AppHero.swift in Sources */,
