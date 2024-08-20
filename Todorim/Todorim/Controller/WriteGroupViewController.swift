@@ -11,6 +11,8 @@ import Hero
 
 protocol WriteGroupViewControllerDelegate: AnyObject {
     func completeWriteGroup(group: Group)
+    func completeEditGroup(group: Group)
+    func deleteGroup(groupId: Int)
 }
 
 class WriteGroupViewController: UIViewController {
@@ -71,7 +73,7 @@ class WriteGroupViewController: UIViewController {
                 writeGroup: writeGroup,
                 completion: { [weak self] isSuccess, updateGroup in
                     if isSuccess {
-                        self?.delegate?.completeWriteGroup(group: group)
+                        self?.delegate?.completeEditGroup(group: group)
                     } else {
                         // TODO: 오류 메시지
                     }
@@ -86,6 +88,24 @@ class WriteGroupViewController: UIViewController {
     
     @IBAction func tappedDeleteButton(_ sender: UIButton) {
         
+        let alert = UIAlertController(title: "그룹을 삭제하시겠습니까?", message: "그룹내 할일이 모두 삭제됩니다.", preferredStyle: UIAlertController.Style.alert)
+        let deleteAction = UIAlertAction(title: "삭제", style: .destructive) {  [weak self] _ in
+            guard let self, let group else { return }
+            let id = group.groupId
+            self.groupStorage?.delete(with: group, completion: { [weak self] isSuccess in
+                if isSuccess {
+                    self?.delegate?.deleteGroup(groupId: id)
+                } else {
+                    // TODO: 오류 메시지
+                }
+            })
+            
+        }
+        let cancleAction = UIAlertAction(title: "취소", style: .default)
+        alert.addAction(cancleAction)
+        alert.addAction(deleteAction)
+        self.present(alert, animated: false, completion: nil)
+
     }
     
     override func viewDidLoad() {

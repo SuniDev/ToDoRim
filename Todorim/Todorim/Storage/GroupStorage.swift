@@ -63,13 +63,9 @@ class GroupStorage {
         })
     }
     
-    func delete(id: Int, completion: @escaping (Bool) -> ()) {
-        if let group = getGroup(id: id) {
-            realmManager.delete(object: group) { isSuccess, error in
-                completion(isSuccess)
-            }
-        } else {
-            completion(false)
+    func delete(with group: Group, completion: @escaping (Bool) -> ()) {
+        realmManager.delete(object: group) { isSuccess, error in
+            completion(isSuccess)
         }
     }
 }

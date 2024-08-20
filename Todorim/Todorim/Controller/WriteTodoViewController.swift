@@ -192,8 +192,8 @@ class WriteTodoViewController: UIViewController {
     func configureData() {
         guard let todoStorage, let group else { return }
                 
-        writeTodo.groupId = group.groupId
         if let todo {
+            writeTodo.groupId = todo.groupId
             writeTodo.todoId = todo.todoId
             writeTodo.order = todo.order
             writeTodo.title = todo.title
@@ -209,6 +209,7 @@ class WriteTodoViewController: UIViewController {
             writeTodo.latitude = todo.latitude
             writeTodo.radius = todo.radius
         } else {
+            writeTodo.groupId = group.groupId
             writeTodo.todoId = todoStorage.getNextId()
             writeTodo.order = todoStorage.getNextOrder()
         }
@@ -501,6 +502,10 @@ extension WriteTodoViewController {
                 self.present(alert, animated: false, completion: nil)
                 return false
             }
+        }
+        
+        if let groupId = groupPicker?.selectedGroup?.groupId {
+            writeTodo.groupId =  groupId
         }
         
         return true

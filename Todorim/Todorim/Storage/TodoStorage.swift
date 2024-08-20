@@ -65,6 +65,7 @@ class TodoStorage {
     
     func update(with todo: Todo, writeTodo: Todo, completion: @escaping (_ isSuccess: Bool, _ updateTodo: Todo) -> ()) {
         realmManager.update(block: {
+            todo.groupId = writeTodo.groupId
             todo.title = writeTodo.title
             todo.isDateNoti = writeTodo.isDateNoti
             todo.date = writeTodo.date
@@ -95,13 +96,9 @@ class TodoStorage {
     }
     
     func deleteTodo(with todo: Todo, completion: @escaping (Bool) -> ()) {
-//        if let todo = getTodo(id: todo.todoId) {
-            realmManager.delete(object: todo) { isSuccess, error in
-                completion(isSuccess)
-            }
-//        } else {
-//            completion(false)
-//        }
+        realmManager.delete(object: todo) { isSuccess, error in
+            completion(isSuccess)
+        }
     }
     
     func deleteTodos(groupId: Int, completion: @escaping (Bool) -> ()) {

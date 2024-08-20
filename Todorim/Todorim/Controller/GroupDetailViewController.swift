@@ -12,6 +12,7 @@ import Hero
 class GroupDetailViewController: UIViewController {
     
     // MARK: - Data
+    weak var writeGroupDelegate: WriteGroupViewControllerDelegate?
     var groupStorage: GroupStorage?
     var todoStorage: TodoStorage?
     
@@ -262,11 +263,23 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
 // MARK: - WriteGroupViewControllerDelegate
 extension GroupDetailViewController: WriteGroupViewControllerDelegate {
     func completeWriteGroup(group: Group) {
+        
+    }
+    
+    func completeEditGroup(group: Group) {
         dismiss(animated: true) {
             self.group = group
             
             self.titleLabel.text = group.title
             self.updateGroupColor()
+            
+            self.writeGroupDelegate?.completeEditGroup(group: group)
+        }
+    }
+    
+    func deleteGroup(groupId: Int) {
+        self.dismiss(animated: true) {
+            self.writeGroupDelegate?.deleteGroup(groupId: groupId)
         }
     }
 }
