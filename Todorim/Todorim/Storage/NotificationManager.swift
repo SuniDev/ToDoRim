@@ -24,18 +24,18 @@ class NotificationManager {
         var isRepeat = false
         switch todo.repeatNotiType {
         case .none:
-            triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute], from: date)
+            triggerDate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
             isRepeat = false
         case .daily:
-            triggerDate = Calendar.current.dateComponents([.hour,.minute], from: date)
+            triggerDate = Calendar.current.dateComponents([.hour, .minute], from: date)
             isRepeat = true
         case .weekly:
-            let dc = Calendar.current.dateComponents([.hour,.minute], from: date)
-            triggerDate = DateComponents(hour: dc.hour, minute: dc.minute, weekday: todo.weekType.weekday)
+            let dateComponent = Calendar.current.dateComponents([.hour, .minute], from: date)
+            triggerDate = DateComponents(hour: dateComponent.hour, minute: dateComponent.minute, weekday: todo.weekType.weekday)
             isRepeat = true
         case .monthly:
-            let dc = Calendar.current.dateComponents([.hour,.minute], from: date)
-            triggerDate = DateComponents(day: todo.day, hour: dc.hour, minute: dc.minute)
+            let dateComponent = Calendar.current.dateComponents([.hour, .minute], from: date)
+            triggerDate = DateComponents(day: todo.day, hour: dateComponent.hour, minute: dateComponent.minute)
             isRepeat = true
         }
         
@@ -50,7 +50,7 @@ class NotificationManager {
                                             content: content, trigger: trigger)
         
         print(request)
-        self.center.add(request, withCompletionHandler: { (error) in
+        self.center.add(request, withCompletionHandler: { error in
             if let error {
                 print("Notification Add ERROR : \(error)")
             }
@@ -87,7 +87,7 @@ class NotificationManager {
                                             content: content, trigger: trigger)
         
         print(request)
-        self.center.add(request, withCompletionHandler: { (error) in
+        self.center.add(request, withCompletionHandler: { error in
             if let error {
                 print("Notification Add ERROR : \(error)")
             }

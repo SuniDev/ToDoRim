@@ -33,16 +33,16 @@ class SearchLocationMapViewController: UIViewController {
     @IBOutlet weak var completeButton: UIButton!
     
     // MARK: - Action
-    @IBAction func changedTextRadius(_ sender: UITextField) {
+    @IBAction private func changedTextRadius(_ sender: UITextField) {
         sender.setMaxLength(max: 5)
     }
     
-    @IBAction func tappedBackButton(_ sender: UIButton) {
+    @IBAction private func tappedBackButton(_ sender: UIButton) {
         self.navigationController?.hero.isEnabled = false
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func tappedCompleteButton(_ sender: UIButton) {
+    @IBAction private func tappedCompleteButton(_ sender: UIButton) {
         if let coordinate,
            let radius = geotification?.radius,
            let selectLocationType,
@@ -51,17 +51,15 @@ class SearchLocationMapViewController: UIViewController {
         }
     }
     
-    
-    @IBAction func tapEntry(_ sender: UIButton) {
+    @IBAction private func tapEntry(_ sender: UIButton) {
         selectLocationType = .entry
         addRadiusOverlay(forGeotification: geotification)
     }
     
-    @IBAction func tapExit(_ sender: UIButton) {
+    @IBAction private func tapExit(_ sender: UIButton) {
         selectLocationType = .exit
         addRadiusOverlay(forGeotification: geotification)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +89,7 @@ class SearchLocationMapViewController: UIViewController {
         dropPinZoomIn()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
@@ -123,7 +121,6 @@ extension SearchLocationMapViewController {
             }
             mapView.addAnnotation(annotation)
             
-            
             if let text = radiusTextField.text {
                 let radius = Double(text) ?? 0
                 if radius >= 100.0 {
@@ -154,8 +151,8 @@ extension SearchLocationMapViewController {
     
     func addRadiusOverlay(forGeotification geotification: Geotification?) {
         guard let geotification else { return }
-        for i in 0..<mapView.overlays.count {
-            mapView.removeOverlay(mapView.overlays[i])
+        for index in 0..<mapView.overlays.count {
+            mapView.removeOverlay(mapView.overlays[index])
         }
         mapView.addOverlay(MKCircle(center: geotification.coordinate, radius: geotification.radius))
     }

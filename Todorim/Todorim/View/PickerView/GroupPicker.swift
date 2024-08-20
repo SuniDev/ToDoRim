@@ -30,7 +30,7 @@ class GroupPicker: UIPickerView {
 
         let flexButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(donePressed))
-        toolbar.setItems([flexButton,doneButton], animated: false)
+        toolbar.setItems([flexButton, doneButton], animated: false)
         
         return toolbar
     }

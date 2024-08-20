@@ -41,7 +41,7 @@ class DatePicker: UIDatePicker {
 
         let flexButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(donePressed))
-        toolbar.setItems([flexButton,doneButton], animated: false)
+        toolbar.setItems([flexButton, doneButton], animated: false)
         
         return toolbar
     }
@@ -50,7 +50,7 @@ class DatePicker: UIDatePicker {
     func dateChanged(datePicker: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_KR")
-        dateFormatter.dateFormat =  "yy년 M월 d일 (EEEE)"
+        dateFormatter.dateFormat = "yy년 M월 d일 (EEEE)"
         textField?.text = dateFormatter.string(from: datePicker.date)
         selectedDate = datePicker.date
     }
@@ -60,4 +60,3 @@ class DatePicker: UIDatePicker {
         textField?.resignFirstResponder()
     }
 }
-

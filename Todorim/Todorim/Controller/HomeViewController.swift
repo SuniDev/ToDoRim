@@ -34,6 +34,7 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         fetchGroup()
         fetchTodo()
         collectionView.reloadData()
@@ -50,8 +51,6 @@ class HomeViewController: UIViewController {
         } else {
             configureBackground(colors: GroupColor.getColors(index: 0))
         }
-        
-        collectionView.reloadData()
     }
     
     func configureDate() {
@@ -70,7 +69,7 @@ class HomeViewController: UIViewController {
     func configureCollectionView() {
         collectionView.register(UINib(nibName: "GroupCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GroupCollectionViewCell")
         collectionView.register(UINib(nibName: "AddGroupCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddGroupCollectionViewCell")
-        collectionView.contentInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 20)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
     }
     
@@ -125,7 +124,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if indexPath.row < groups.count {
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupCollectionViewCell", for: indexPath) as? GroupCollectionViewCell {
                 let group = groups[indexPath.row]
-                let todos = todos.filter{ $0.groupId == group.groupId }
+                let todos = todos.filter { $0.groupId == group.groupId }
                 cell.configure(with: group, todos: todos, delegate: self)
                 return cell
             }

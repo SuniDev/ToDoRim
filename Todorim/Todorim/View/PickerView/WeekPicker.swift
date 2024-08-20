@@ -21,7 +21,7 @@ class WeekPicker: UIPickerView {
     }
     
     func makeDone() -> UIToolbar {
-        let width =  UIScreen.main.bounds.width
+        let width = UIScreen.main.bounds.width
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: width, height: 40))
         toolbar.barStyle = .default
         toolbar.isTranslucent = true
@@ -30,7 +30,7 @@ class WeekPicker: UIPickerView {
 
         let flexButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(donePressed))
-        toolbar.setItems([flexButton,doneButton], animated: false)
+        toolbar.setItems([flexButton, doneButton], animated: false)
         
         return toolbar
     }
@@ -60,4 +60,3 @@ extension WeekPicker: UIPickerViewDataSource, UIPickerViewDelegate {
         selectedWeek = array[row]
     }
 }
-

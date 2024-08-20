@@ -11,7 +11,6 @@ import Hero
 
 class AddGroupCollectionViewCell: UICollectionViewCell {
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

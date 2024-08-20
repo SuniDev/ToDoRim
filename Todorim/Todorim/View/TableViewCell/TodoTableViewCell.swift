@@ -23,14 +23,8 @@ class TodoTableViewCell: UITableViewCell {
     @IBOutlet weak var locationNotiLabel: UILabel!
     @IBOutlet weak var locationNotiViewHeight: NSLayoutConstraint!
     
-    
     // MARK: - Data
     var todo: Todo?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     
     func configure(with todo: Todo) {
         let isComplete = todo.isComplete
@@ -81,19 +75,19 @@ class TodoTableViewCell: UITableViewCell {
         let timeFormatter = DateFormatter()
         timeFormatter.locale = Locale(identifier: "ko_KR")
         timeFormatter.timeStyle = .short
-        timeFormatter.dateFormat =  "a hh:mm"
+        timeFormatter.dateFormat = "a hh:mm"
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_KR")
-        dateFormatter.dateFormat =  "M월 d일(EEEE) a hh:mm"
+        dateFormatter.dateFormat = "M월 d일(EEEE) a hh:mm"
                
         switch todo.repeatNotiType {
         case .none:
-            dateFormatter.dateFormat =  "M월 d일(EEEE) a hh:mm"
+            dateFormatter.dateFormat = "M월 d일(EEEE) a hh:mm"
             return "\(dateFormatter.string(from: date))"
         case .daily:
             dateFormatter.timeStyle = .short
-            dateFormatter.dateFormat =  "a hh:mm"
+            dateFormatter.dateFormat = "a hh:mm"
             return "\(todo.repeatNotiType.title) \(dateFormatter.string(from: date))"
         case .weekly:
             return "\(todo.repeatNotiType.title) \(todo.weekType.title) \(timeFormatter.string(from: date))"

@@ -24,8 +24,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigation?.isNavigationBarHidden = true
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Intro", bundle: nil)
-        let introViewController = storyBoard.instantiateViewController(withIdentifier: "IntroViewController") as! IntroViewController
-        navigation?.setViewControllers([introViewController], animated: false)
+        if let introViewController = storyBoard.instantiateViewController(withIdentifier: "IntroViewController") as? IntroViewController {
+            navigation?.setViewControllers([introViewController], animated: false)
+        }
         
         window?.windowScene = windowScene
         window?.rootViewController = navigation

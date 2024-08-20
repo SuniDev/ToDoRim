@@ -12,6 +12,7 @@ import Hero
 protocol WriteTodoViewControllerDelegate: AnyObject {
     func completeWriteTodo(todo: Todo)
 }
+
 class WriteTodoViewController: UIViewController {
     
     // MARK: - Data
@@ -34,7 +35,7 @@ class WriteTodoViewController: UIViewController {
     let dayPickerView = UIPickerView()
     
     weak var delegate: WriteTodoViewControllerDelegate?
-        
+    
     // MARK: - Outlet
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollViewBottomMargin: NSLayoutConstraint!
@@ -55,7 +56,7 @@ class WriteTodoViewController: UIViewController {
     @IBOutlet weak var dateNotiDailyButton: UIButton!
     @IBOutlet weak var dateNotiWeeklyButton: UIButton!
     @IBOutlet weak var dateNotiMonthlyButton: UIButton!
-        
+    
     @IBOutlet weak var locationNotiSwitch: UISwitch!
     @IBOutlet weak var locationSelectView: UIView!
     @IBOutlet weak var locationSearchView: UIView!
@@ -65,128 +66,96 @@ class WriteTodoViewController: UIViewController {
     @IBOutlet weak var completeButtonLabel: UILabel!
     @IBOutlet weak var completeButtonView: UIView!
     
-    // MARK: - Action
-    @IBAction func changedTitleTextField(_ sender: MadokaTextField) {
+    // MARK: - Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureHeroID()
+        createKeyboardEvent()
+        configureData()
+        configurePickers()
+        configureTextFields()
+        configureUIWithColor()
+        configureUIWithData()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    @IBAction private func changedTitleTextField(_ sender: MadokaTextField) {
         sender.setMaxLength(max: 30)
     }
     
-    @IBAction func tappedCloseButton(_ sender: UIButton) {
+    @IBAction private func tappedCloseButton(_ sender: UIButton) {
         self.navigationController?.hero.isEnabled = true
         self.navigationController?.hero.navigationAnimationType = .uncover(direction: .down)
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func changedDateNotiSwitch(_ sender: UISwitch) {
-        if sender.isOn{
-            writeTodo.isDateNoti = true
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound], completionHandler: {didAllow,Error in
-                if !didAllow {
-                    DispatchQueue.main.async {
-                    self.dismissKeyboard()
-                    let alert = UIAlertController(title: "알림 서비스를 이용할 수 없습니다.", message: "기기의 '설정 > ToDoRim' 에서 알림을 허용해 주세요.", preferredStyle: UIAlertController.Style.alert)
-                    let defaultAction = UIAlertAction(title: "확인", style: .default)
-                    alert.addAction(defaultAction)
-                    self.present(alert, animated: false, completion: nil)
-                    }
-                }
-            })
-        } else {
-            // Init
-            writeTodo.isDateNoti = false
-            writeTodo.date = nil
-            writeTodo.weekType = .none
-            writeTodo.day = 0
-            writeTodo.repeatNotiType = .none
-        }
-        configureDateNotiUI()
+    @IBAction private func changedDateNotiSwitch(_ sender: UISwitch) {
+        handleDateNotificationChange(sender.isOn)
     }
     
-    @IBAction func changedLocationNotiSwitch(_ sender: UISwitch) {
-        if sender.isOn {
-            writeTodo.isLocationNoti = true
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound], completionHandler: { didAllow, Error in
-                if !didAllow {
-                    DispatchQueue.main.async {
-                    self.dismissKeyboard()
-                    let alert = UIAlertController(title: "알림 서비스를 이용할 수 없습니다.", message: "기기의 '설정 > ToDoRim' 에서 알림을 허용해 주세요.", preferredStyle: UIAlertController.Style.alert)
-                    let defaultAction = UIAlertAction(title: "확인", style: .default)
-                    alert.addAction(defaultAction)
-                    self.present(alert, animated: false, completion: nil)
-                    }
-                }
-            })
-        } else {
-            // Init
-            writeTodo.isLocationNoti = false
-            writeTodo.longitude = 0
-            writeTodo.latitude = 0
-            writeTodo.radius = 100.0
-            writeTodo.locationName = ""
-            writeTodo.locationNotiType = .none
-        }
-        configureLocationNotiUI()
+    @IBAction private func changedLocationNotiSwitch(_ sender: UISwitch) {
+        handleLocationNotificationChange(sender.isOn)
     }
     
-    @IBAction func tappedDateNotiNoneButton(_ sender: UIButton) {
+    @IBAction private func tappedDateNotiNoneButton(_ sender: UIButton) {
         selectRepeat(type: .none)
     }
     
-    @IBAction func tappedDateNotiDailyButton(_ sender: UIButton) {
+    @IBAction private func tappedDateNotiDailyButton(_ sender: UIButton) {
         selectRepeat(type: .daily)
     }
     
-    @IBAction func tappepDateNotiWeeklyButton(_ sender: UIButton) {
+    @IBAction private func tappepDateNotiWeeklyButton(_ sender: UIButton) {
         selectRepeat(type: .weekly)
     }
     
-    @IBAction func tappepDateNotiMonthlyButton(_ sender: UIButton) {
+    @IBAction private func tappepDateNotiMonthlyButton(_ sender: UIButton) {
         selectRepeat(type: .monthly)
     }
     
-    @IBAction func tappedCompleteButton(_ sender: UIButton) {
-        if checkValidData() {
-            if let todo {
-                // Update todo
-                todoStorage?.update(with: todo, writeTodo: writeTodo, completion: { [weak self] isSuccess, todo in
-                    guard let self else { return }
-                    if isSuccess {
-                        NotificationManager.shared.update(with: todo)
-                        self.delegate?.completeWriteTodo(todo: todo)
-                        self.navigationController?.hero.isEnabled = true
-                        self.navigationController?.hero.navigationAnimationType = .uncover(direction: .down)
-                        self.navigationController?.popViewController(animated: true)
-                    } else {
-                        // TODO: 오류 메시지
-                    }
-                })
-            } else {
-                // New Todo
-                todoStorage?.add(writeTodo)
-                NotificationManager.shared.update(with: writeTodo)
-                delegate?.completeWriteTodo(todo: writeTodo)
-                self.navigationController?.hero.isEnabled = true
-                self.navigationController?.hero.navigationAnimationType = .uncover(direction: .down)
-                self.navigationController?.popViewController(animated: true)
-            }
+    @IBAction private func tappedCompleteButton(_ sender: UIButton) {
+        handleCompleteAction()
+    }
+    
+}
+
+// MARK: - UI 관련 설정 (Extensions 활용)
+extension WriteTodoViewController {
+    
+    func configureUIWithColor() {
+        completeButtonView.layer.cornerRadius = 15
+        completeButtonView.layer.masksToBounds = true
+        
+        let colors = GroupColor.getColors(index: group?.appColorIndex ?? 0)
+        let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 70), colors: colors)
+        completeButtonView.layer.addSublayer(gradientLayer)
+        
+        dateNotiSwitch.onTintColor = colors[1]
+        locationNotiSwitch.onTintColor = colors[1]
+        
+        dateTabButton.initButton(type: .dateRepeat, color: colors[1], buttons: [dateNotiNoneButton, dateNotiDailyButton, dateNotiWeeklyButton, dateNotiMonthlyButton])
+    }
+    
+    func configureUIWithData() {
+        let tapSearchLocation = UITapGestureRecognizer(target: self, action: #selector(tappedLocationSearch))
+        locationSearchView.addGestureRecognizer(tapSearchLocation)
+        
+        titleLabel.text = todo == nil ? "할일 추가" : "할일 수정"
+        completeButtonLabel.text = todo == nil ? "추가" : "수정"
+        
+        DispatchQueue.main.async {
+            self.titleTextField.text = self.writeTodo.title
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureHeroID()
-        
-        createKeyboardEvent()
-        
-        configureData()
-        configurePicker()
-        configureTextField()
-                
-        configureUIWithColor()
-        configureUIWithData()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        view.endEditing(true)
+
+        if let groupIndex = groups.firstIndex(where: { $0.groupId == writeTodo.groupId }) {
+            groupPickerView.selectRow(groupIndex, inComponent: 0, animated: false)
+        }
+
+        configureDateNotiUI()
+        configureLocationNotiUI()
     }
     
     func configureData() {
@@ -215,7 +184,7 @@ class WriteTodoViewController: UIViewController {
         }
     }
     
-    func configurePicker() {
+    func configurePickers() {
         
         // group picker 세팅
         groupPicker = GroupPicker(textField: groupTitleTextField, groups: groups, selectedGroup: group)
@@ -236,7 +205,7 @@ class WriteTodoViewController: UIViewController {
         dayPickerView.dataSource = dayPicker
     }
     
-    func configureTextField() {
+    func configureTextFields() {
         titleTextField.delegate = self
         groupTitleTextField.inputView = groupPickerView
         groupTitleTextField.inputAccessoryView = groupPicker?.makeDone()
@@ -246,87 +215,79 @@ class WriteTodoViewController: UIViewController {
         dayTextField.inputAccessoryView = dayPicker?.makeDone()
     }
     
-    func configureUIWithColor() {
-        completeButtonView.layer.cornerRadius = 15
-        completeButtonView.layer.masksToBounds = true
-        
-        let colors = GroupColor.getColors(index: group?.appColorIndex ?? 0)
-        let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 70), colors: colors)
-        completeButtonView.layer.addSublayer(gradientLayer)
-        
-        dateNotiSwitch.onTintColor = colors[1]
-        locationNotiSwitch.onTintColor = colors[1]
-        
-        // repeat button 세팅
-        dateTabButton.initButton(type: .dateRepeat, color: colors[1], buttons: [dateNotiNoneButton, dateNotiDailyButton, dateNotiWeeklyButton, dateNotiMonthlyButton])
-    }
-    
     func configureDateNotiUI() {
         // 시각 알림 세팅
         let repeatNotiType = writeTodo.repeatNotiType
         selectRepeat(type: repeatNotiType)
         
+        configureTimeTextField()
         
+        if writeTodo.isDateNoti {
+            dateNotiSwitch.isOn = true
+            configureRepeatTypeUI(repeatNotiType: repeatNotiType)
+        } else {
+            dateNotiSwitch.isOn = false
+            resetDateFields()
+        }
+        
+        updateDateSelectView()
+    }
+
+    private func configureTimeTextField() {
         if let date = writeTodo.date {
             let timeFormatter = DateFormatter()
             timeFormatter.locale = Locale(identifier: "ko_KR")
             timeFormatter.timeStyle = .short
-            timeFormatter.dateFormat =  "a hh:mm"
+            timeFormatter.dateFormat = "a hh:mm"
             timeTextField.text = timeFormatter.string(from: date)
             timePicker?.selectedDate = date
         } else {
             timeTextField.text = ""
             timePicker?.selectedDate = nil
         }
-        
+    }
+
+    private func configureRepeatTypeUI(repeatNotiType: RepeatNotificationType) {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_KR")
-        dateFormatter.dateFormat =  "yy년 M월 d일 (EEEE)"
+        dateFormatter.dateFormat = "yy년 M월 d일 (EEEE)"
         
-        if writeTodo.isDateNoti {
-            dateNotiSwitch.isOn = true
-
-            switch repeatNotiType {
-            case .none:
-                dateTabButton.tappedButton(sender: dateNotiNoneButton)
-                if let date = writeTodo.date {
-                    dateTextField.text = dateFormatter.string(from: date)
-                    datePicker?.selectedDate = date
-                } else {
-                    dateTextField.text = dateFormatter.string(from: Date())
-                    timePicker?.selectedDate = Date()
-                }
-            case .daily:
-                dateTabButton.tappedButton(sender: dateNotiDailyButton)
-            case .weekly:
-                dateTabButton.tappedButton(sender: dateNotiWeeklyButton)
-                
-                let row = writeTodo.weekType.rawValue - 1
-                weekTextField.text = weekPicker?.array[row].title
-                weekPicker?.selectedWeek = writeTodo.weekType
-            case .monthly:
-                dateTabButton.tappedButton(sender: dateNotiMonthlyButton)
-                
-                let row = writeTodo.day - 1
-                dayTextField.text = dayPicker?.array[row]
-                dayPicker?.selectedDay = writeTodo.day
-            }
-        } else {
-            dateNotiSwitch.isOn = false
-            
+        switch repeatNotiType {
+        case .none:
             dateTabButton.tappedButton(sender: dateNotiNoneButton)
-            dateTextField.text = ""
+            if let date = writeTodo.date {
+                dateTextField.text = dateFormatter.string(from: date)
+                datePicker?.selectedDate = date
+            } else {
+                dateTextField.text = dateFormatter.string(from: Date())
+                timePicker?.selectedDate = Date()
+            }
+        case .daily:
+            dateTabButton.tappedButton(sender: dateNotiDailyButton)
+        case .weekly:
+            dateTabButton.tappedButton(sender: dateNotiWeeklyButton)
+            let row = writeTodo.weekType.rawValue - 1
+            weekTextField.text = weekPicker?.array[row].title
+            weekPicker?.selectedWeek = writeTodo.weekType
+        case .monthly:
+            dateTabButton.tappedButton(sender: dateNotiMonthlyButton)
+            let row = writeTodo.day - 1
+            dayTextField.text = dayPicker?.array[row]
+            dayPicker?.selectedDay = writeTodo.day
         }
-        
+    }
+
+    private func resetDateFields() {
+        dateTabButton.tappedButton(sender: dateNotiNoneButton)
+        dateTextField.text = ""
+    }
+
+    private func updateDateSelectView() {
         self.view.layoutIfNeeded()
         
         dateSelectView.isHidden = !writeTodo.isDateNoti
         
-        if writeTodo.isDateNoti {
-            dateNotiViewHeight.constant = 210
-        } else {
-            dateNotiViewHeight.constant = 0
-        }
+        dateNotiViewHeight.constant = writeTodo.isDateNoti ? 210 : 0
         
         UIView.animate(withDuration: 0.2, animations: {
             self.view.layoutIfNeeded()
@@ -360,30 +321,6 @@ class WriteTodoViewController: UIViewController {
         UIView.animate(withDuration: 0.2, animations: {
             self.view.layoutIfNeeded()
         })
-    }
-    
-    func configureUIWithData() {
-        // location Select 세팅
-        let tapSearchLocation = UITapGestureRecognizer(target: self, action: #selector(tappedLocationSearch))
-        locationSearchView.addGestureRecognizer(tapSearchLocation)
-        
-        // 수정/삭제 세팅
-        let isNew = todo == nil
-        titleLabel.text = isNew ? "할일 추가" : "할일 수정"
-        completeButtonLabel.text = isNew ? "추가" : "수정"
-        
-        // Todo 타이틀 세팅
-        DispatchQueue.main.async {
-            self.titleTextField.text = self.writeTodo.title
-        }
-        
-        // 그룹 세팅
-        if let groupIndex = groups.firstIndex(where: { $0.groupId == writeTodo.groupId }) {
-            groupPickerView.selectRow(groupIndex, inComponent: 0, animated: false)
-        }
-        
-        configureDateNotiUI()
-        configureLocationNotiUI()
     }
     
     func configureHeroID() {
@@ -425,8 +362,96 @@ class WriteTodoViewController: UIViewController {
         scrollViewBottomMargin.constant = 50
         view.layoutIfNeeded()
     }
-
 }
+
+// MARK: - Notification 관련 로직 (Extensions 활용)
+extension WriteTodoViewController {
+    
+    func handleDateNotificationChange(_ isOn: Bool) {
+        if isOn {
+            writeTodo.isDateNoti = true
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { didAllow, _ in
+                if !didAllow {
+                    self.showAlert(message: "기기의 '설정 > ToDoRim' 에서 알림을 허용해 주세요.")
+                    self.writeTodo.isDateNoti = false
+                }
+            }
+        } else {
+            resetDateNotificationSettings()
+        }
+        configureDateNotiUI()
+    }
+    
+    func handleLocationNotificationChange(_ isOn: Bool) {
+        if isOn {
+            writeTodo.isLocationNoti = true
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { didAllow, _ in
+                if !didAllow {
+                    self.showAlert(message: "기기의 '설정 > ToDoRim' 에서 알림을 허용해 주세요.")
+                    self.writeTodo.isLocationNoti = false
+                }
+            }
+        } else {
+            resetLocationNotificationSettings()
+        }
+        configureLocationNotiUI()
+    }
+    
+    func showAlert(message: String) {
+        DispatchQueue.main.async {
+            self.dismissKeyboard()
+            let alert = UIAlertController(title: "알림 서비스를 이용할 수 없습니다.", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default))
+            self.present(alert, animated: false)
+        }
+    }
+    
+    func resetDateNotificationSettings() {
+        writeTodo.isDateNoti = false
+        writeTodo.date = nil
+        writeTodo.weekType = .none
+        writeTodo.day = 0
+        writeTodo.repeatNotiType = .none
+    }
+    
+    func resetLocationNotificationSettings() {
+        writeTodo.isLocationNoti = false
+        writeTodo.longitude = 0
+        writeTodo.latitude = 0
+        writeTodo.radius = 100.0
+        writeTodo.locationName = ""
+        writeTodo.locationNotiType = .none
+    }
+    
+    func handleCompleteAction() {
+        if checkValidData() {
+            if let todo = self.todo {
+                todoStorage?.update(with: todo, writeTodo: writeTodo) { [weak self] isSuccess, todo in
+                    guard let self = self else { return }
+                    if isSuccess {
+                        NotificationManager.shared.update(with: todo)
+                        self.delegate?.completeWriteTodo(todo: todo)
+                        self.popViewControllerWithAnimation()
+                    } else {
+                        self.showAlert(message: "할 일을 업데이트하는 데 실패했습니다.")
+                    }
+                }
+            } else {
+                todoStorage?.add(writeTodo)
+                NotificationManager.shared.update(with: writeTodo)
+                delegate?.completeWriteTodo(todo: writeTodo)
+                popViewControllerWithAnimation()
+            }
+        }
+    }
+    
+    func popViewControllerWithAnimation() {
+        navigationController?.hero.isEnabled = true
+        navigationController?.hero.navigationAnimationType = .uncover(direction: .down)
+        navigationController?.popViewController(animated: true)
+    }
+}
+
 extension WriteTodoViewController {
     func selectRepeat(type: RepeatNotificationType) {
         writeTodo.repeatNotiType = type
@@ -437,75 +462,72 @@ extension WriteTodoViewController {
     }
     
     func checkValidData() -> Bool {
+        guard checkTitle() else { return false }
+        guard checkDateNotification() else { return false }
+        guard checkLocationNotification() else { return false }
+        
+        if let groupId = groupPicker?.selectedGroup?.groupId {
+            writeTodo.groupId = groupId
+        }
+        
+        return true
+    }
+
+    private func checkTitle() -> Bool {
         if let title = titleTextField.text, title.isNotEmpty {
             writeTodo.title = title
+            return true
         } else {
             dismissKeyboard()
-            let alert = UIAlertController(title: "할일 이름을 입력하세요.", message: "", preferredStyle: UIAlertController.Style.alert)
-            let defaultAction = UIAlertAction(title: "확인", style: .default)
-            alert.addAction(defaultAction)
-            self.present(alert, animated: false, completion: nil)
+            showAlert(message: "할일 이름을 입력하세요.")
+            return false
+        }
+    }
+
+    private func checkDateNotification() -> Bool {
+        if !writeTodo.isDateNoti { return true }
+        
+        switch writeTodo.repeatNotiType {
+        case .none:
+            if dateTextField.text?.isEmpty ?? true {
+                dismissKeyboard()
+                showAlert(message: "알림 날짜를 선택하세요.")
+                return false
+            }
+        case .daily:
+            break
+        case .weekly:
+            if weekTextField.text?.isEmpty ?? true {
+                dismissKeyboard()
+                showAlert(message: "알림 요일을 선택하세요.")
+                return false
+            }
+        case .monthly:
+            if dayTextField.text?.isEmpty ?? true {
+                dismissKeyboard()
+                showAlert(message: "알림 월을 선택하세요.")
+                return false
+            }
+        }
+        
+        if let date = timeTextField.text, date.isNotEmpty {
+            saveDate()
+        } else {
+            dismissKeyboard()
+            showAlert(message: "알림 시간을 선택하세요.")
             return false
         }
         
-        if writeTodo.isDateNoti {
-            switch writeTodo.repeatNotiType {
-            case .none:
-                if dateTextField.text?.isEmpty ?? true {
-                    dismissKeyboard()
-                    let alert = UIAlertController(title: "알림 날짜를 선택하세요.", message: "", preferredStyle: UIAlertController.Style.alert)
-                    let defaultAction = UIAlertAction(title: "확인", style: .default)
-                    alert.addAction(defaultAction)
-                    self.present(alert, animated: false, completion: nil)
-                    return false
-                }
-            case .daily:
-                break
-            case .weekly:
-                if weekTextField.text?.isEmpty ?? true {
-                    dismissKeyboard()
-                    let alert = UIAlertController(title: "알림 요일을 선택하세요.", message: "", preferredStyle: UIAlertController.Style.alert)
-                    let defaultAction = UIAlertAction(title: "확인", style: .default)
-                    alert.addAction(defaultAction)
-                    self.present(alert, animated: false, completion: nil)
-                    return false
-                }
-            case .monthly:
-                if dayTextField.text?.isEmpty ?? true {
-                    dismissKeyboard()
-                    let alert = UIAlertController(title: "알림 월을 선택하세요.", message: "", preferredStyle: UIAlertController.Style.alert)
-                    let defaultAction = UIAlertAction(title: "확인", style: .default)
-                    alert.addAction(defaultAction)
-                    self.present(alert, animated: false, completion: nil)
-                    return false
-                }
-            }
-            
-            if let date = timeTextField.text, date.isNotEmpty {
-                saveDate()
-            } else {
-                dismissKeyboard()
-                let alert = UIAlertController(title: "알림 시간을 선택하세요.", message: "", preferredStyle: UIAlertController.Style.alert)
-                let defaultAction = UIAlertAction(title: "확인", style: .default)
-                alert.addAction(defaultAction)
-                self.present(alert, animated: false, completion: nil)
-                return false
-            }
-        }
+        return true
+    }
+
+    private func checkLocationNotification() -> Bool {
+        if !writeTodo.isLocationNoti { return true }
         
-        if writeTodo.isLocationNoti {
-            if locationNameLabel.text == "위치 선택" {
-                dismissKeyboard()
-                let alert = UIAlertController(title: "알림 위치를 선택하세요.", message: "", preferredStyle: UIAlertController.Style.alert)
-                let defaultAction = UIAlertAction(title: "확인", style: .default)
-                alert.addAction(defaultAction)
-                self.present(alert, animated: false, completion: nil)
-                return false
-            }
-        }
-        
-        if let groupId = groupPicker?.selectedGroup?.groupId {
-            writeTodo.groupId =  groupId
+        if locationNameLabel.text == "위치 선택" {
+            dismissKeyboard()
+            showAlert(message: "알림 위치를 선택하세요.")
+            return false
         }
         
         return true
@@ -522,10 +544,10 @@ extension WriteTodoViewController {
         
         switch type {
         case .none:
-            let dc = Calendar.current.dateComponents([.year,.month,.day], from: date)
-            dateComponents.year = dc.year
-            dateComponents.month = dc.month
-            dateComponents.day = dc.day
+            let noneDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: date)
+            dateComponents.year = noneDateComponents.year
+            dateComponents.month = noneDateComponents.month
+            dateComponents.day = noneDateComponents.day
         case .daily: break
         case .weekly:
             writeTodo.weekType = weekPicker?.selectedWeek ?? .none
@@ -533,10 +555,10 @@ extension WriteTodoViewController {
             writeTodo.day = dayPicker?.selectedDay ?? 0
         }
         
-        let tc = Calendar.current.dateComponents([.hour,.minute], from: time)
+        let timeComponents = Calendar.current.dateComponents([.hour, .minute], from: time)
         
-        dateComponents.hour = tc.hour
-        dateComponents.minute = tc.minute
+        dateComponents.hour = timeComponents.hour
+        dateComponents.minute = timeComponents.minute
         
         writeTodo.date = Calendar.current.date(from: dateComponents) ?? Date()
     }

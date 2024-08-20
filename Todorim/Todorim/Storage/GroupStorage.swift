@@ -52,19 +52,19 @@ class GroupStorage {
         realmManager.add(group)
     }
     
-    func update(with group: Group, writeGroup: Group, completion: @escaping (_ isSuccess: Bool, _ updateGroup: Group) -> ()) {
+    func update(with group: Group, writeGroup: Group, completion: @escaping (_ isSuccess: Bool, _ updateGroup: Group) -> Void) {
         realmManager.update(block: {
             group.title = writeGroup.title
             group.appColorIndex = writeGroup.appColorIndex
             group.startColor = writeGroup.startColor
             group.endColor = writeGroup.endColor
-        }, completion: { isSuccess, error in
+        }, completion: { isSuccess, _ in
             completion(isSuccess, group)
         })
     }
     
-    func delete(with group: Group, completion: @escaping (Bool) -> ()) {
-        realmManager.delete(object: group) { isSuccess, error in
+    func delete(with group: Group, completion: @escaping (Bool) -> Void) {
+        realmManager.delete(object: group) { isSuccess, _ in
             completion(isSuccess)
         }
     }

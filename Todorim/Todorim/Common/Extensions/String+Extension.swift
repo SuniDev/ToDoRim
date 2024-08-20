@@ -14,7 +14,7 @@ extension String {
     func isEmpty() -> Bool {
         
         let value = self.trimmingCharacters(in: .whitespaces)
-        if value.isEmpty || value == "" {
+        if value.isEmpty {
             return true
         }
         
@@ -24,7 +24,9 @@ extension String {
     // 정규식 함수
     func isStringCheck(regexStr: String) -> Bool {
         let regex = try? NSRegularExpression(pattern: regexStr, options: .anchorsMatchLines)
-        if (regex?.firstMatch(in: self, options: NSRegularExpression.MatchingOptions.reportCompletion, range: NSMakeRange(0, self.count))) != nil {
+        let range = NSRange(self.startIndex..<self.endIndex, in: self)
+        
+        if regex?.firstMatch(in: self, options: [], range: range) != nil {
             return false
         }
         return true
@@ -44,5 +46,4 @@ extension String {
         return false
             
     }
-    
 }

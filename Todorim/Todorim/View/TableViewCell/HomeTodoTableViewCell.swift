@@ -17,7 +17,7 @@ class HomeTodoTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     
     // MARK: - IBAction
-    @IBAction func tappedCompleteButton(_ sender: Any) {
+    @IBAction private func tappedCompleteButton(_ sender: Any) {
         let isComplete = !(todo?.isComplete ?? true)
         delegate?.completeTodo(with: todo, isComplete: isComplete)
     }
@@ -25,11 +25,6 @@ class HomeTodoTableViewCell: UITableViewCell {
     // MARK: - Data
     weak var delegate: HomeTodoTableViewCellDelegate?
     var todo: Todo?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     
     func configure(with todo: Todo, delegate: HomeTodoTableViewCellDelegate) {
         self.todo = todo

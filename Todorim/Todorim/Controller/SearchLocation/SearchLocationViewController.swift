@@ -21,12 +21,12 @@ class SearchLocationViewController: UIViewController {
     var resultSearchController: UISearchController?
     
     // MARK: - Action
-    @IBAction func tappedBackButton(_ sender: UIButton) {
+    @IBAction private func tappedBackButton(_ sender: UIButton) {
         self.navigationController?.hero.isEnabled = false
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func tappedSearchPosition(_ sender: UIButton) {
+    @IBAction private func tappedSearchPosition(_ sender: UIButton) {
         guard let coordinate = locationManager.location?.coordinate else { return }
         let pin = MKPlacemark(coordinate: coordinate)
         moveMap(selectedPin: pin)

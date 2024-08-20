@@ -11,7 +11,8 @@ import UIKit
 /**
  A MadokaTextField is a subclass of the TextFieldEffects object, is a control that displays an UITextField with a customizable visual effect around the edges of the control.
  */
-@IBDesignable open class MadokaTextField: TextFieldEffects {
+@IBDesignable
+open class MadokaTextField: TextFieldEffects {
     /**
      The color of the placeholder text.
      
@@ -87,9 +88,9 @@ import UIKit
             let scale = CGAffineTransform(scaleX: 0.9, y: 0.9)
             
             self.placeholderLabel.transform = translate.concatenating(scale)
-        }) { _ in
+        }, completion: { _ in
             self.animationCompletionHandler?(.textEntry)
-        }
+        })
     }
     
     override open func animateViewsForTextDisplay() {
@@ -99,9 +100,9 @@ import UIKit
             
             UIView.animate(withDuration: 0.2, animations: {
                 self.placeholderLabel.transform = .identity
-            }) { _ in
+            }, completion: { _ in
                 self.animationCompletionHandler?(.textDisplay)
-            }
+            })
         }
     }
     
@@ -159,15 +160,17 @@ import UIKit
         var originX = textRect.origin.x
         switch textAlignment {
         case .center:
-            originX += textRect.size.width/2 - placeholderLabel.bounds.width/2
+            originX += textRect.size.width / 2 - placeholderLabel.bounds.width / 2
         case .right:
             originX += textRect.size.width - placeholderLabel.bounds.width
         default:
             break
         }
         
-        placeholderLabel.frame = CGRect(x: originX, y: textRect.height - placeholderLabel.bounds.height - placeholderInsets.y,
-            width: placeholderLabel.bounds.width, height: placeholderLabel.bounds.height)
+        placeholderLabel.frame = CGRect(x: originX,
+                                        y: textRect.height - placeholderLabel.bounds.height - placeholderInsets.y,
+                                        width: placeholderLabel.bounds.width,
+                                        height: placeholderLabel.bounds.height)
     }
     
     // MARK: - Overrides

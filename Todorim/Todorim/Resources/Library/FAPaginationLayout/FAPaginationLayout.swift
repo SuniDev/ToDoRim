@@ -8,25 +8,18 @@
 
 import UIKit
 
-
 public class FAPaginationLayout: UICollectionViewFlowLayout {
-    
-    
     
     //  Class properties
     
     var insertingTopCells: Bool = false
     var sizeForTopInsertions: CGSize = CGSize.zero
-    
-    
-    
-    
+
     //  Preparing the layout
     
     override public func prepare() {
         
         super.prepare()
-        
 
         self.minimumLineSpacing = 30.0
         self.minimumInteritemSpacing = 30.0
@@ -38,20 +31,14 @@ public class FAPaginationLayout: UICollectionViewFlowLayout {
             let xOffset: CGFloat = collectionView!.contentOffset.x + (newSize.width - oldSize.width)
             let newOffset: CGPoint = CGPoint(x: xOffset, y: collectionView!.contentOffset.y)
             collectionView!.contentOffset = newOffset
-            
-        }
-        else {
+        } else {
             insertingTopCells = false
         }
 
         sizeForTopInsertions = collectionViewContentSize
     }
     
-    
-    
-    
     //  configuring the content offsets relative to the scroll velocity
-
     
     //  Solution provided by orlandoamorim
 
@@ -59,7 +46,7 @@ public class FAPaginationLayout: UICollectionViewFlowLayout {
     
     //  configuring the content offsets relative to the scroll velocity
     override public func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        var layoutAttributes: Array = layoutAttributesForElements(in: collectionView!.bounds)!
+        guard let layoutAttributes: Array = layoutAttributesForElements(in: collectionView?.bounds ?? .zero) else { return .zero }
         
         if layoutAttributes.count == 0 {
             return proposedContentOffset
@@ -68,13 +55,13 @@ public class FAPaginationLayout: UICollectionViewFlowLayout {
         
         // Skip to the next cell, if there is residual scrolling velocity left.
         // This helps to prevent glitches
-        let vX = velocity.x
+        let velocityX = velocity.x
         
-        if vX > 0 {
+        if velocityX > 0 {
             targetIndex += 1
-        } else if vX < 0.0 {
+        } else if velocityX < 0.0 {
             targetIndex -= 1
-        }else if vX == 0 {
+        } else if velocityX == 0 {
             return lastPoint
         }
         
@@ -91,7 +78,6 @@ public class FAPaginationLayout: UICollectionViewFlowLayout {
         lastPoint = CGPoint(x: targetAttribute.center.x - collectionView!.bounds.size.width * 0.5, y: proposedContentOffset.y)
         return lastPoint
     }
-    
     
 //    //  Solution provided by Evyasafmordechai
 //
@@ -123,7 +109,6 @@ public class FAPaginationLayout: UICollectionViewFlowLayout {
 //
 //    }
     
-    
     //  The below commented code contains a bug in scrolling and tapping while scrolling of cells
 
 //    override public func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
@@ -151,5 +136,4 @@ public class FAPaginationLayout: UICollectionViewFlowLayout {
 //        return CGPoint(x: firstAttribute.center.x - collectionView!.bounds.size.width * 0.5, y: proposedContentOffset.y)
 //    }
 
-    
 }

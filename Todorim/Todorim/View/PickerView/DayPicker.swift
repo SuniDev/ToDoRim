@@ -16,16 +16,15 @@ class DayPicker: UIPickerView {
         self.init(frame: CGRect.zero)
         self.textField = textField
         
-        
-        for i in 0..<31 {
-            array.append("\(i+1)일")
+        for day in 0..<31 {
+            array.append("\(day + 1)일")
         }
         
         textField.placeholder = "반복할 일을 선택하세요."
     }
     
     func makeDone() -> UIToolbar {
-        let width =  UIScreen.main.bounds.width
+        let width = UIScreen.main.bounds.width
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: width, height: 40))
         toolbar.barStyle = .default
         toolbar.isTranslucent = true
@@ -34,7 +33,7 @@ class DayPicker: UIPickerView {
 
         let flexButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(donePressed))
-        toolbar.setItems([flexButton,doneButton], animated: false)
+        toolbar.setItems([flexButton, doneButton], animated: false)
         
         return toolbar
     }

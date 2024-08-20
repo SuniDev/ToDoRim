@@ -18,7 +18,7 @@ class Utils {
     
     static func getCompleteAttributedText(with text: String) -> NSMutableAttributedString {
         let attribute = NSMutableAttributedString(string: text)
-        attribute.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attribute.length))
+        attribute.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: attribute.length))
         return attribute
     }
 }

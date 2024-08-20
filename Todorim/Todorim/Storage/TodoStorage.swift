@@ -63,7 +63,7 @@ class TodoStorage {
         realmManager.add(todo)
     }
     
-    func update(with todo: Todo, writeTodo: Todo, completion: @escaping (_ isSuccess: Bool, _ updateTodo: Todo) -> ()) {
+    func update(with todo: Todo, writeTodo: Todo, completion: @escaping (_ isSuccess: Bool, _ updateTodo: Todo) -> Void) {
         realmManager.update(block: {
             todo.groupId = writeTodo.groupId
             todo.title = writeTodo.title
@@ -78,16 +78,16 @@ class TodoStorage {
             todo.latitude = writeTodo.latitude
             todo.longitude = writeTodo.longitude
             todo.radius = writeTodo.radius
-        }, completion: { isSuccess, error in
+        }, completion: { isSuccess, _ in
             completion(isSuccess, todo)
         })
     }
     
-    func updateComplete(with todo: Todo, isComplete: Bool, completion: @escaping (Bool) -> ()) {
+    func updateComplete(with todo: Todo, isComplete: Bool, completion: @escaping (Bool) -> Void) {
         if let updateTodo = getTodo(id: todo.todoId) {
             realmManager.update(block: {
                 updateTodo.isComplete = isComplete
-            }, completion: { isSuccess, error in
+            }, completion: { isSuccess, _ in
                 completion(isSuccess)
             })
         } else {
@@ -95,15 +95,15 @@ class TodoStorage {
         }
     }
     
-    func deleteTodo(with todo: Todo, completion: @escaping (Bool) -> ()) {
-        realmManager.delete(object: todo) { isSuccess, error in
+    func deleteTodo(with todo: Todo, completion: @escaping (Bool) -> Void) {
+        realmManager.delete(object: todo) { isSuccess, _ in
             completion(isSuccess)
         }
     }
     
-    func deleteTodos(groupId: Int, completion: @escaping (Bool) -> ()) {
+    func deleteTodos(groupId: Int, completion: @escaping (Bool) -> Void) {
         if let todos = realmManager.fetch(Todo.self)?.filter("groupId == %@", groupId) {
-            realmManager.delete(object: todos) { isSuccess, error in
+            realmManager.delete(object: todos) { isSuccess, _ in
                 completion(isSuccess)
             }
         } else {

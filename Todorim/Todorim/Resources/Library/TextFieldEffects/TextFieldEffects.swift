@@ -20,7 +20,7 @@ extension String {
 /**
 A TextFieldEffects object is a control that displays editable text and contains the boilerplates to setup unique animations for text entry and display. You typically use this class the same way you use UITextField.
 */
-open class TextFieldEffects : UITextField {
+open class TextFieldEffects: UITextField {
     /**
      The type of animation a TextFieldEffect can perform.
      
@@ -35,7 +35,7 @@ open class TextFieldEffects : UITextField {
     /**
     Closure executed when an animation has been completed.
      */
-    public typealias AnimationCompletionHandler = (_ type: AnimationType)->()
+    public typealias AnimationCompletionHandler = (_ type: AnimationType) -> Void
     
     /**
     UILabel that holds all the placeholder information
@@ -107,28 +107,32 @@ open class TextFieldEffects : UITextField {
             NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidEndEditing), name: UITextField.textDidEndEditingNotification, object: self)
             
             NotificationCenter.default.addObserver(self, selector: #selector(textFieldDidBeginEditing), name: UITextField.textDidBeginEditingNotification, object: self)
-        } else {
-            NotificationCenter.default.removeObserver(self)
         }
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     /**
     The textfield has started an editing session.
     */
-    @objc open func textFieldDidBeginEditing() {
+    @objc 
+    open func textFieldDidBeginEditing() {
         animateViewsForTextEntry()
     }
     
     /**
     The textfield has ended an editing session.
     */
-    @objc open func textFieldDidEndEditing() {
+    @objc 
+    open func textFieldDidEndEditing() {
         animateViewsForTextDisplay()
     }
     
     // MARK: - Interface Builder
-    
     override open func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
         drawViewsForRect(frame)
     }
 }

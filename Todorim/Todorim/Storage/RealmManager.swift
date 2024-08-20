@@ -33,7 +33,7 @@ class RealmManager {
         }
     }
     
-    func delete<T: Object>(object: T, completion: @escaping (_ isSuccess: Bool, _ error: Error?) -> (Void)) {
+    func delete<T: Object>(object: T, completion: @escaping (_ isSuccess: Bool, _ error: Error?) -> Void) {
         do {
             try realm.write {
                 realm.delete(object)
@@ -45,7 +45,7 @@ class RealmManager {
         }
     }
     
-    func delete<T: Object>(object: Results<T>, completion: @escaping (_ isSuccess: Bool, _ error: Error?) -> (Void)) {
+    func delete<T: Object>(object: Results<T>, completion: @escaping (_ isSuccess: Bool, _ error: Error?) -> Void) {
         do {
             try realm.write {
                 realm.delete(object)
@@ -61,7 +61,7 @@ class RealmManager {
         return realm.objects(type)
     }
 
-    func update(block: () -> (Void), completion: @escaping (_ isSuccess: Bool, _ error: Error?) -> (Void)) {
+    func update(block: () -> Void, completion: @escaping (_ isSuccess: Bool, _ error: Error?) -> Void) {
         do {
             try realm.write {
                 block()

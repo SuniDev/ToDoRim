@@ -38,17 +38,16 @@ class WriteGroupViewController: UIViewController {
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var editButtonView: UIView!
     
-    
     // MARK: - Action
-    @IBAction func changedTextField(_ sender: MadokaTextField) {
+    @IBAction private func changedTextField(_ sender: MadokaTextField) {
         sender.setMaxLength(max: 20)
     }
     
-    @IBAction func tappedCloseButton(_ sender: UIButton) {
+    @IBAction private func tappedCloseButton(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func tappedAddButton(_ sender: UIButton) {
+    @IBAction private func tappedAddButton(_ sender: UIButton) {
         if isValidData() {
             writeGroup.title = textfield?.text ?? ""
             writeGroup.appColorIndex = selectedColorIndex
@@ -63,7 +62,7 @@ class WriteGroupViewController: UIViewController {
         }
     }
     
-    @IBAction func tappedEditButton(_ sender: UIButton) {
+    @IBAction private func tappedEditButton(_ sender: UIButton) {
         if isValidData(), let group {
             writeGroup.title = textfield?.text ?? ""
             writeGroup.appColorIndex = selectedColorIndex
@@ -73,7 +72,7 @@ class WriteGroupViewController: UIViewController {
                 writeGroup: writeGroup,
                 completion: { [weak self] isSuccess, updateGroup in
                     if isSuccess {
-                        self?.delegate?.completeEditGroup(group: group)
+                        self?.delegate?.completeEditGroup(group: updateGroup)
                     } else {
                         // TODO: 오류 메시지
                     }
@@ -86,7 +85,7 @@ class WriteGroupViewController: UIViewController {
         }
     }
     
-    @IBAction func tappedDeleteButton(_ sender: UIButton) {
+    @IBAction private func tappedDeleteButton(_ sender: UIButton) {
         
         let alert = UIAlertController(title: "그룹을 삭제하시겠습니까?", message: "그룹내 할일이 모두 삭제됩니다.", preferredStyle: UIAlertController.Style.alert)
         let deleteAction = UIAlertAction(title: "삭제", style: .destructive) {  [weak self] _ in
@@ -170,13 +169,13 @@ class WriteGroupViewController: UIViewController {
     func configureButtonColor() {
         
         let colors = GroupColor.getColors(index: selectedColorIndex)
-        if let group {
+        if group != nil {
             deleteButton.layer.cornerRadius = 15
             deleteButton.layer.masksToBounds = true
             editButton.layer.cornerRadius = 15
             editButton.layer.masksToBounds = true
             let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: (UIScreen.main.bounds.width - 32) / 2, height: 70), colors: colors)
-            if let firstLayer = editButton.layer.sublayers?.first as? CAGradientLayer  {
+            if let firstLayer = editButton.layer.sublayers?.first as? CAGradientLayer {
                 firstLayer.removeFromSuperlayer()  // 기존 레이어 제거
             }
             editButton.layer.insertSublayer(gradientLayer, at: 0)
@@ -184,7 +183,7 @@ class WriteGroupViewController: UIViewController {
             addButton.layer.cornerRadius = 15
             addButton.layer.masksToBounds = true
             let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 70), colors: colors)
-            if let firstLayer = addButton.layer.sublayers?.first as? CAGradientLayer  {
+            if let firstLayer = addButton.layer.sublayers?.first as? CAGradientLayer {
                 firstLayer.removeFromSuperlayer()  // 기존 레이어 제거
             }
             addButton.layer.insertSublayer(gradientLayer, at: 0)
@@ -199,7 +198,7 @@ extension WriteGroupViewController: UICollectionViewDelegate, UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupColorCollectionViewCell", for: indexPath) as! GroupColorCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GroupColorCollectionViewCell", for: indexPath) as? GroupColorCollectionViewCell else { return UICollectionViewCell() }
         
         // 배경 색상
         let colors = GroupColor.getColors(index: indexPath.row)

@@ -27,17 +27,17 @@ class GroupDetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Action
-    @IBAction func tappedCloseButton(_ sender: UIButton) {
+    @IBAction private func tappedCloseButton(_ sender: UIButton) {
         navigationController?.hero.isEnabled = true
         navigationController?.hero.navigationAnimationType = .none
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func tappedEditGroupButton(_ sender: UIButton) {
+    @IBAction private func tappedEditGroupButton(_ sender: UIButton) {
         moveEditGroup()
     }
     
-    @IBAction func tappedAddTodoButton(_ sender: UIButton) {
+    @IBAction private func tappedAddTodoButton(_ sender: UIButton) {
         guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "WriteTodoViewController") as? WriteTodoViewController else { return }
         
         viewController.todoStorage = todoStorage
@@ -80,17 +80,16 @@ class GroupDetailViewController: UIViewController {
             
             let colors = [group.startColor, group.endColor]
             
-            let progressLayer = Utils.getHorizontalLayer(frame:  CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 5.0), colors: colors)
+            let progressLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 5.0), colors: colors)
             progress.progressImage = progressLayer.createGradientImage()
             
             let buttonLayer = Utils.getVerticalLayer(frame: CGRect(x: 0, y: 0, width: 70, height: 70), colors: colors)
-            if let firstLayer = addButtonView.layer.sublayers?.first as? CAGradientLayer  {
+            if let firstLayer = addButtonView.layer.sublayers?.first as? CAGradientLayer {
                 firstLayer.removeFromSuperlayer()  // 기존 레이어 제거
             }
             addButtonView.layer.insertSublayer(buttonLayer, at: 0)
         }
     }
-    
     
     func configureHeroID() {
         let id = group?.groupId ?? 0
@@ -204,7 +203,7 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
     
     func editTodoAction(at indexPath: IndexPath) -> UIContextualAction {
         let todo = todos[indexPath.row]
-        let action = UIContextualAction(style: .destructive, title: "") { [weak self] (action, view, completion) in
+        let action = UIContextualAction(style: .destructive, title: "") { [weak self] _, _, completion in
             guard let self,
                   let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "WriteTodoViewController") as? WriteTodoViewController else {
                 completion(false)
@@ -232,7 +231,7 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func deleteTodoAction(at indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .destructive, title: "") { [weak self] action, view, completion in
+        let action = UIContextualAction(style: .destructive, title: "") { [weak self] _, _, completion in
             guard let self,
                   indexPath.row < self.todos.count else {
                 completion(false)

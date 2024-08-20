@@ -55,7 +55,7 @@ class GroupCollectionViewCell: UICollectionViewCell {
         
         configureHeroID()
         
-        let tappedView = UITapGestureRecognizer.init(target: self, action: #selector(tappedView))
+        let tappedView = UITapGestureRecognizer(target: self, action: #selector(tappedView))
         tableView.addGestureRecognizer(tappedView)
     }
     

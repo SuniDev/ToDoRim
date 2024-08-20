@@ -20,9 +20,8 @@ extension Date {
         case 5: week = "목요일"
         case 6: week = "금요일"
         case 7: week = "토요일"
-        default : week = ""
+        default: week = ""
         }
         return week
     }
 }
-

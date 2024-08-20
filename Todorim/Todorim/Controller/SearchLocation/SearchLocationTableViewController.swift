@@ -25,7 +25,7 @@ class SearchLocationTableViewController: UITableViewController {
         
         tableView.contentInsetAdjustmentBehavior = .never
         
-        mapView =  MKMapView(frame: self.view.bounds)
+        mapView = MKMapView(frame: self.view.bounds)
     }
 
 }
@@ -58,7 +58,7 @@ extension SearchLocationTableViewController {
         delegate?.didSelectLocation(tableView, selectedItem: selectedItem)
     }
     
-    func parseAddress(selectedItem:MKPlacemark) -> String {
+    func parseAddress(selectedItem: MKPlacemark) -> String {
         // put a space between "4" and "Melrose Place"
         let firstSpace = (selectedItem.subThoroughfare != nil && selectedItem.thoroughfare != nil) ? " " : ""
         // put a comma between street and city/state
@@ -66,7 +66,7 @@ extension SearchLocationTableViewController {
         // put a space between "Washington" and "DC"
         let secondSpace = (selectedItem.subAdministrativeArea != nil && selectedItem.administrativeArea != nil) ? " " : ""
         let addressLine = String(
-            format:"%@%@%@%@%@%@%@",
+            format: "%@%@%@%@%@%@%@",
             // street number
             selectedItem.subThoroughfare ?? "",
             firstSpace,
@@ -104,4 +104,3 @@ extension SearchLocationTableViewController: UISearchResultsUpdating {
         }
     }
 }
-

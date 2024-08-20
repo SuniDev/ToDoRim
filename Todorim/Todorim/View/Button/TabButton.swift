@@ -35,7 +35,7 @@ class TabButton {
     
     func addTargetButton(button: UIButton, tag: Int) {
         button.tag = tag
-        button.addTarget(self, action:#selector(tappedButton(sender:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tappedButton(sender:)), for: .touchUpInside)
     }
     
     @objc 

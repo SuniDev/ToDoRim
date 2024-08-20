@@ -37,7 +37,7 @@ class TimePicker: UIDatePicker {
 
         let flexButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(donePressed))
-        toolbar.setItems([flexButton,doneButton], animated: false)
+        toolbar.setItems([flexButton, doneButton], animated: false)
         
         return toolbar
     }
@@ -47,7 +47,7 @@ class TimePicker: UIDatePicker {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_KR")
         dateFormatter.timeStyle = .short
-        dateFormatter.dateFormat =  "a hh:mm"
+        dateFormatter.dateFormat = "a hh:mm"
         textField?.text = dateFormatter.string(from: datePicker.date)
         selectedDate = datePicker.date
     }

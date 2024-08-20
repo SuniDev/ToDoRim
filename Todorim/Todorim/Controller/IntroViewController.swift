@@ -22,7 +22,6 @@ class IntroViewController: UIViewController {
         moveHome()
     }
     
-    
     func initData() {
         let isInit = AppUserDefaults.getObject(forKey: .isInit) as? Bool ?? true
         

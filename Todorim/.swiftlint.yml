@@ -2,9 +2,10 @@
 # Reference : https://realm.github.io/SwiftLint/index.html
 # 린트 과정에서 무시할 파일 경로.
 excluded:
+  - Todorim/Resources/Strings+Generated.swift
+  - Todorim/Resources/XCAssets+Generated.swift
+included:
   - Todorim
-#included:
-#  - Todorim
 analyzer_rules:
   - unused_declaration
   - unused_import
@@ -78,6 +79,13 @@ nesting:
 identifier_name:
   excluded:
     - id
+    - r
+    - g
+    - b
+    - a
+type_body_length:
+  warning: 350
+  error: 500
 file_length:
   warning: 600  # 파일 길이에 대한 경고를 600줄로 설정
   error: 800    # 파일 길이에 대한 오류를 800줄로 설정
