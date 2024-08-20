@@ -103,7 +103,7 @@ class TodoStorage {
     
     func deleteTodos(groupId: Int, completion: @escaping (Bool) -> Void) {
         if let todos = realmManager.fetch(Todo.self)?.filter("groupId == %@", groupId) {
-            realmManager.delete(object: todos) { isSuccess, _ in
+            realmManager.delete(object: todos) { isSuccess, error in
                 completion(isSuccess)
             }
         } else {

@@ -92,7 +92,7 @@ class WriteGroupViewController: UIViewController {
         let alert = UIAlertController(title: L10n.Alert.DeleteGroup.title, message: L10n.Alert.DeleteGroup.message, preferredStyle: UIAlertController.Style.alert)
         let deleteAction = UIAlertAction(title: L10n.Alert.Button.delete, style: .destructive) {  [weak self] _ in
             guard let self, let group else { return }
-            let id = group.groupId
+            let id: Int = group.groupId
             self.groupStorage?.delete(with: group, completion: { [weak self] isSuccess in
                 if isSuccess {
                     self?.delegate?.deleteGroup(groupId: id)

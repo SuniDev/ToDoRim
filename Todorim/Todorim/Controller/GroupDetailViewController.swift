@@ -262,14 +262,14 @@ extension GroupDetailViewController: WriteGroupViewControllerDelegate {
     }
     
     func completeEditGroup(group: Group) {
-        dismiss(animated: true) {
-            self.group = group
-            
-            self.titleLabel.text = group.title
-            self.updateGroupColor()
-            
-            self.writeGroupDelegate?.completeEditGroup(group: group)
-        }
+        navigationController?.hero.isEnabled = true
+        navigationController?.hero.navigationAnimationType = .none
+        navigationController?.popToViewController(self, animated: true)
+        
+        self.group = group
+        self.titleLabel.text = group.title
+        self.updateGroupColor()
+        self.writeGroupDelegate?.completeEditGroup(group: group)
     }
     
     func deleteGroup(groupId: Int) {

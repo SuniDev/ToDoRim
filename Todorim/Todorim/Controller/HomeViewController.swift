@@ -229,23 +229,27 @@ extension HomeViewController: WriteGroupViewControllerDelegate {
         navigationController?.hero.isEnabled = true
         navigationController?.hero.navigationAnimationType = .none
         navigationController?.popToViewController(self, animated: true)
+        
         self.fetchGroup()
         self.collectionView.reloadData()
         
-        self.todoStorage?.deleteTodos(groupId: groupId, completion: { isSuccess in
-            if isSuccess {
-                self.removeNotifications(groupId: groupId)
-                self.fetchTodo()
-            } else {
-                // TODO: 오류메시지
-            }
-        })
+        DispatchQueue.main.async {
+            let todoIds: [Int] = self.todos.filter { $0.groupId == groupId }.map { $0.todoId }
+            
+            self.todoStorage?.deleteTodos(groupId: groupId, completion: { [weak self] isSuccess in
+                if isSuccess {
+                    self?.removeNotifications(todoIds: todoIds)
+                    self?.fetchTodo()
+                } else {
+                    // TODO: 오류메시지
+                }
+            })
+        }
     }
     
-    func removeNotifications(groupId: Int) {
-        let todos = todos.filter { $0.groupId == groupId }
-        for todo in todos {
-            NotificationManager.shared.remove(id: todo.todoId)
+    func removeNotifications(todoIds: [Int]) {
+        for id in todoIds {
+            NotificationManager.shared.remove(id: id)
         }
     }
     
@@ -255,9 +259,10 @@ extension HomeViewController: WriteGroupViewControllerDelegate {
     }
     
     func completeWriteGroup(group: Group) {
-        dismiss(animated: true) {
-            self.fetchGroup()
-            self.collectionView.reloadData()
-        }
+        navigationController?.hero.isEnabled = true
+        navigationController?.hero.navigationAnimationType = .none
+        navigationController?.popToViewController(self, animated: true)
+        self.fetchGroup()
+        self.collectionView.reloadData()
     }
 }
