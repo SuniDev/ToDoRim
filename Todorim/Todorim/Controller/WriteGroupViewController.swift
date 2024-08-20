@@ -44,7 +44,9 @@ class WriteGroupViewController: UIViewController {
     }
     
     @IBAction private func tappedCloseButton(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.hero.isEnabled = true
+        self.navigationController?.hero.navigationAnimationType = .uncover(direction: .down)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction private func tappedAddButton(_ sender: UIButton) {
@@ -111,11 +113,19 @@ class WriteGroupViewController: UIViewController {
         super.viewDidLoad()
         scrollView.contentInsetAdjustmentBehavior = .never
         createKeyboardEvent()
+        
+        configureHeroID()
         configureData()
         configureCollectionView()
         
         collectionView.reloadData()
         configureButtonColor()
+    }
+    
+    func configureHeroID() {
+        if let group {
+            editButton.hero.id = AppHeroId.button.getId(id: group.groupId)
+        }
     }
     
     func configureData() {

@@ -157,8 +157,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func moveAddGroup() {
         guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "WriteGroupViewController") as? WriteGroupViewController else { return }
-        viewController.hero.isEnabled = true
-        viewController.modalPresentationStyle = .fullScreen
         
         viewController.delegate = self
         viewController.groupStorage = groupStorage
@@ -168,7 +166,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         navigationController?.hero.modalAnimationType = .cover(direction: .up)
         
         DispatchQueue.main.async {
-            self.navigationController?.present(viewController, animated: true)
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
     
