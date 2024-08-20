@@ -80,7 +80,7 @@
                                     <constraint firstItem="dQh-3P-sS3" firstAttribute="top" secondItem="4kb-0i-nXf" secondAttribute="top" id="Gek-zI-cas"/>
                                     <constraint firstItem="mOE-lj-yZc" firstAttribute="centerY" secondItem="dQh-3P-sS3" secondAttribute="centerY" id="Gnl-lf-vWj"/>
                                     <constraint firstItem="dQh-3P-sS3" firstAttribute="leading" secondItem="4kb-0i-nXf" secondAttribute="leading" id="TFR-cC-o9S"/>
-                                    <constraint firstAttribute="height" constant="20" id="Xaz-7d-DZj"/>
+                                    <constraint firstAttribute="height" priority="999" constant="20" id="Xaz-7d-DZj"/>
                                     <constraint firstItem="mOE-lj-yZc" firstAttribute="leading" secondItem="dQh-3P-sS3" secondAttribute="trailing" constant="5" id="weX-U0-8KC"/>
                                 </constraints>
                             </view>
@@ -106,7 +106,7 @@
                                     <constraint firstItem="nrh-Lc-qIU" firstAttribute="centerY" secondItem="IBm-gg-Orc" secondAttribute="centerY" id="JRY-A9-Ujg"/>
                                     <constraint firstItem="IBm-gg-Orc" firstAttribute="leading" secondItem="JIQ-yJ-6kW" secondAttribute="leading" id="YpQ-P1-Dln"/>
                                     <constraint firstItem="nrh-Lc-qIU" firstAttribute="leading" secondItem="IBm-gg-Orc" secondAttribute="trailing" constant="5" id="emu-eu-cju"/>
-                                    <constraint firstAttribute="height" constant="20" id="m1Q-sa-BJa"/>
+                                    <constraint firstAttribute="height" priority="999" constant="20" id="m1Q-sa-BJa"/>
                                     <constraint firstItem="IBm-gg-Orc" firstAttribute="top" secondItem="JIQ-yJ-6kW" secondAttribute="top" id="pft-3r-oMb"/>
                                 </constraints>
                             </view>
