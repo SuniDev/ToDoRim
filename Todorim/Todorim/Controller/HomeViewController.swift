@@ -11,13 +11,12 @@ import Hero
 
 class HomeViewController: UIViewController {
     
+    // MARK: - Dependencies
+    private var homeService: HomeService?
+
     // MARK: - Data
-    var groupStorage: GroupStorage?
-    var todoStorage: TodoStorage?
-    
     var groups: [Group] = []
     var todos: [Todo] = []
-    
     var currentGroupIndex = 0
     var currentColors: [CGColor] = []
     var gradientLayer: CAGradientLayer = CAGradientLayer()
@@ -28,6 +27,10 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    func inject(service: HomeService) {
+        self.homeService = service
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -35,25 +38,30 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchGroup()
-        fetchTodo()
+        fetchGroupAndTodos()
         collectionView.reloadData()
         colorChange()
     }
     
-    func configureUI() {
+    // MARK: - 데이터 가져오기 및 UI 업데이트
+    private func fetchGroupAndTodos() {
+        guard let homeService = homeService else { return }
+        groups = homeService.fetchGroups()
+        todos = homeService.fetchTodos()
+    }
+    
+    private func configureUI() {
         configureDate()
         configureCollectionView()
         
-        if groups.count > 0 {
-            let group = groups[0]
-            configureBackground(colors: [group.startColor, group.endColor])
+        if let firstGroup = groups.first {
+            configureBackground(colors: [firstGroup.startColor, firstGroup.endColor])
         } else {
             configureBackground(colors: GroupColor.getColors(index: 0))
         }
     }
     
-    func configureDate() {
+    private func configureDate() {
         let now = Date()
         let weekFormatter = DateFormatter()
         weekFormatter.locale = Locale(identifier: "ko_KR")
@@ -66,19 +74,19 @@ class HomeViewController: UIViewController {
         dateLabel.text = dateFormatter.string(from: now)
     }
     
-    func configureCollectionView() {
+    private func configureCollectionView() {
         collectionView.register(UINib(nibName: "GroupCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GroupCollectionViewCell")
         collectionView.register(UINib(nibName: "AddGroupCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddGroupCollectionViewCell")
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
     }
     
-    func configureBackground(colors: [UIColor]) {
+    private func configureBackground(colors: [UIColor]) {
         gradientLayer = Utils.getVerticalLayer(frame: UIScreen.main.bounds, colors: colors)
         backgroundView.layer.addSublayer(gradientLayer)
     }
     
-    func colorChange() {
+    private func colorChange() {
         currentColors = []
         
         if currentGroupIndex < groups.count {
@@ -96,16 +104,45 @@ class HomeViewController: UIViewController {
         colorAnimation.delegate = self
         gradientLayer.add(colorAnimation, forKey: "colorChange")
     }
-    
-    func fetchGroup() {
-        groups = groupStorage?.getGroups() ?? []
-    }
-    
-    func fetchTodo() {
-        todos = todoStorage?.getTodos() ?? []
-    }
 }
 
+// MARK: - Navigation
+extension HomeViewController {
+    private func moveAddGroup() {
+        guard let groupStorage = homeService?.groupStorage, let todoStorage = homeService?.todoStorage else { return }
+        let service = WriteGroupService(groupStorage: groupStorage)
+        
+        guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "WriteGroupViewController") as? WriteGroupViewController else { return }
+        
+        viewController.inject(service: service)        
+        viewController.delegate = self
+        viewController.view.hero.id = AppHeroId.viewGroup.getId()
+        
+        navigationController?.hero.isEnabled = true
+        navigationController?.hero.navigationAnimationType = .none
+        
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    private func moveGroupDetail(with group: Group) {
+        guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "GroupDetailViewController") as? GroupDetailViewController else { return }
+        
+        viewController.todoStorage = homeService?.todoStorage // 주입된 서비스의 스토리지 사용
+        viewController.groupStorage = homeService?.groupStorage
+        viewController.group = group
+        viewController.todos = todos.filter { $0.groupId == group.groupId }
+        viewController.writeGroupDelegate = self
+        
+        navigationController?.hero.isEnabled = true
+        navigationController?.hero.navigationAnimationType = .none
+        
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+}
 // MARK: - CAAnimationDelegate
 extension HomeViewController: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
@@ -113,7 +150,6 @@ extension HomeViewController: CAAnimationDelegate {
     }
 }
 
-// MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -139,11 +175,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         var cellSize: CGSize = collectionView.bounds.size
         cellSize.width -= collectionView.contentInset.left * 2
         cellSize.width -= collectionView.contentInset.right * 2
-        
         return cellSize
     }
     
@@ -154,72 +188,27 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             moveAddGroup()
         }
     }
-    
-    func moveAddGroup() {
-        guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "WriteGroupViewController") as? WriteGroupViewController else { return }
-        
-        viewController.delegate = self
-        viewController.groupStorage = groupStorage
-        viewController.view.hero.id = AppHeroId.viewGroup.getId()
-        
-        navigationController?.hero.isEnabled = true
-        navigationController?.hero.modalAnimationType = .cover(direction: .up)
-        
-        DispatchQueue.main.async {
-            self.navigationController?.pushViewController(viewController, animated: true)
-        }
-    }
-    
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let margin = collectionView.contentInset.left + collectionView.contentInset.right
-        currentGroupIndex = Int(round(targetContentOffset.pointee.x / (collectionView.bounds.size.width - margin)))
-        colorChange()
-    }
 }
-
 // MARK: - GroupCollectionViewCellDelegate
 extension HomeViewController: GroupCollectionViewCellDelegate {
     func completeTodo(with todo: Todo?, isComplete: Bool) {
         guard let todo else { return }
         
-        todoStorage?.updateComplete(with: todo, isComplete: isComplete, completion: { [weak self] isSuccess in
-            guard let self else { return }
+        homeService?.completeTodo(todo: todo, isComplete: isComplete, completion: { [weak self] isSuccess in
+            guard let self = self else { return }
             if isSuccess {
-                self.updateNotification(with: todo, isComplete: isComplete)
-                self.fetchTodo()
+                self.fetchGroupAndTodos()
                 self.collectionView.reloadData()
             } else {
                 // TODO: - 오류 메시지
             }
         })
-    }
+    } 
     
-    func updateNotification(with todo: Todo, isComplete: Bool) {
-        if isComplete {
-            NotificationManager.shared.remove(id: todo.todoId)
-        } else {
-            if todo.isDateNoti || todo.isLocationNoti {
-                NotificationManager.shared.update(with: todo)
-            }
-        }
-    }
-    
-    func moveGroupDetail(with group: Group?) {
+    func tappedGroup(with group: Group?) {
         guard let group else { return }
-        guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "GroupDetailViewController") as? GroupDetailViewController else { return }
         
-        viewController.todoStorage = todoStorage
-        viewController.groupStorage = groupStorage
-        viewController.group = group
-        viewController.todos = todos.filter { $0.groupId == group.groupId }
-        viewController.writeGroupDelegate = self
-        
-        navigationController?.hero.isEnabled = true
-        navigationController?.hero.navigationAnimationType = .none
-        
-        DispatchQueue.main.async {
-            self.navigationController?.pushViewController(viewController, animated: true)
-        }
+        moveGroupDetail(with: group)
     }
 }
 
@@ -230,39 +219,26 @@ extension HomeViewController: WriteGroupViewControllerDelegate {
         navigationController?.hero.navigationAnimationType = .none
         navigationController?.popToViewController(self, animated: true)
         
-        self.fetchGroup()
-        self.collectionView.reloadData()
-        
-        DispatchQueue.main.async {
-            let todoIds: [Int] = self.todos.filter { $0.groupId == groupId }.map { $0.todoId }
-            
-            self.todoStorage?.deleteTodos(groupId: groupId, completion: { [weak self] isSuccess in
-                if isSuccess {
-                    self?.removeNotifications(todoIds: todoIds)
-                    self?.fetchTodo()
-                } else {
-                    // TODO: 오류메시지
-                }
-            })
-        }
-    }
-    
-    func removeNotifications(todoIds: [Int]) {
-        for id in todoIds {
-            NotificationManager.shared.remove(id: id)
-        }
+        homeService?.deleteGroup(groupId: groupId, completion: { [weak self] isSuccess in
+            if isSuccess {
+                self?.fetchGroupAndTodos()
+                self?.collectionView.reloadData()
+            } else {
+                // TODO: 오류 메시지
+            }
+        })
     }
     
     func completeEditGroup(group: Group) {
-        self.fetchGroup()
-        self.collectionView.reloadData()
+        fetchGroupAndTodos()
+        collectionView.reloadData()
     }
     
     func completeWriteGroup(group: Group) {
         navigationController?.hero.isEnabled = true
         navigationController?.hero.navigationAnimationType = .none
         navigationController?.popToViewController(self, animated: true)
-        self.fetchGroup()
-        self.collectionView.reloadData()
+        fetchGroupAndTodos()
+        collectionView.reloadData()
     }
 }

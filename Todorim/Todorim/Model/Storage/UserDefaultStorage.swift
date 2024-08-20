@@ -1,5 +1,5 @@
 //
-//  AppUserDefaults.swift
+//  UserDefaultStorage.swift
 //  Todorim
 //
 //  Created by suni on 8/12/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AppUserDefaults {
+class UserDefaultStorage {
     
     enum UserDefaultsKey: String {
         case isInit

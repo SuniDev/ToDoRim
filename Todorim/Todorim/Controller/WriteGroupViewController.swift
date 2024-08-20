@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 import Hero
 
 protocol WriteGroupViewControllerDelegate: AnyObject {
@@ -17,9 +16,11 @@ protocol WriteGroupViewControllerDelegate: AnyObject {
 
 class WriteGroupViewController: UIViewController {
     
+    // MARK: - Dependencies
+    private var writeGroupService: WriteGroupService?
+    
     // MARK: - Data
     weak var delegate: WriteGroupViewControllerDelegate?
-    var groupStorage: GroupStorage?
     var group: Group?
     var writeGroup: Group = Group()
     var selectedColorIndex: Int = 0
@@ -38,6 +39,11 @@ class WriteGroupViewController: UIViewController {
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var editButtonView: UIView!
     
+    // MARK: - 의존성 주입 메서드
+    func inject(service: WriteGroupService) {
+        self.writeGroupService = service
+    }
+    
     // MARK: - Action
     @IBAction private func changedTextField(_ sender: MadokaTextField) {
         sender.setMaxLength(max: 20)
@@ -45,7 +51,7 @@ class WriteGroupViewController: UIViewController {
     
     @IBAction private func tappedCloseButton(_ sender: UIButton) {
         self.navigationController?.hero.isEnabled = true
-        self.navigationController?.hero.navigationAnimationType = .uncover(direction: .down)
+        self.navigationController?.hero.navigationAnimationType = .none
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -54,13 +60,15 @@ class WriteGroupViewController: UIViewController {
             writeGroup.title = textfield?.text ?? ""
             writeGroup.appColorIndex = selectedColorIndex
             
-            groupStorage?.add(writeGroup)
-            delegate?.completeWriteGroup(group: writeGroup)
+            writeGroupService?.addGroup(writeGroup) { [weak self] isSuccess in
+                if isSuccess {
+                    self?.delegate?.completeWriteGroup(group: self?.writeGroup ?? Group())
+                } else {
+                    // TODO: - 오류 메시지 처리
+                }
+            }
         } else {
-            let alert = UIAlertController(title: L10n.Alert.WriteGroup.EmptyName.title, message: "", preferredStyle: UIAlertController.Style.alert)
-            let defaultAction = UIAlertAction(title: L10n.Alert.Button.done, style: .default)
-            alert.addAction(defaultAction)
-            self.present(alert, animated: false, completion: nil)
+            showAlert(title: L10n.Alert.WriteGroup.EmptyName.title)
         }
     }
     
@@ -69,59 +77,53 @@ class WriteGroupViewController: UIViewController {
             writeGroup.title = textfield?.text ?? ""
             writeGroup.appColorIndex = selectedColorIndex
             
-            groupStorage?.update(
-                with: group,
-                writeGroup: writeGroup,
-                completion: { [weak self] isSuccess, updateGroup in
-                    if isSuccess {
-                        self?.delegate?.completeEditGroup(group: updateGroup)
-                    } else {
-                        // TODO: 오류 메시지
-                    }
-                })
+            writeGroupService?.updateGroup(group, with: writeGroup) { [weak self] isSuccess, updatedGroup in
+                if isSuccess {
+                    self?.delegate?.completeEditGroup(group: updatedGroup)
+                } else {
+                    // TODO: 오류 메시지 처리
+                }
+            }
         } else {
-            let alert = UIAlertController(title: L10n.Alert.WriteGroup.EmptyName.title, message: "", preferredStyle: UIAlertController.Style.alert)
-            let defaultAction = UIAlertAction(title: L10n.Alert.Button.done, style: .default)
-            alert.addAction(defaultAction)
-            self.present(alert, animated: false, completion: nil)
+            showAlert(title: L10n.Alert.WriteGroup.EmptyName.title)
         }
     }
     
     @IBAction private func tappedDeleteButton(_ sender: UIButton) {
-        
-        let alert = UIAlertController(title: L10n.Alert.DeleteGroup.title, message: L10n.Alert.DeleteGroup.message, preferredStyle: UIAlertController.Style.alert)
-        let deleteAction = UIAlertAction(title: L10n.Alert.Button.delete, style: .destructive) {  [weak self] _ in
+        let alert = UIAlertController(
+            title: L10n.Alert.DeleteGroup.title,
+            message: L10n.Alert.DeleteGroup.message,
+            preferredStyle: .alert
+        )
+        let deleteAction = UIAlertAction(title: L10n.Alert.Button.delete, style: .destructive) { [weak self] _ in
             guard let self, let group else { return }
-            let id: Int = group.groupId
-            self.groupStorage?.delete(with: group, completion: { [weak self] isSuccess in
+            self.writeGroupService?.deleteGroup(group) { [weak self] isSuccess in
                 if isSuccess {
-                    self?.delegate?.deleteGroup(groupId: id)
+                    self?.delegate?.deleteGroup(groupId: group.groupId)
                 } else {
-                    // TODO: 오류 메시지
+                    // TODO: 오류 메시지 처리
                 }
-            })
-            
+            }
         }
-        let cancleAction = UIAlertAction(title: L10n.Alert.Button.cancel, style: .default)
-        alert.addAction(cancleAction)
+        let cancelAction = UIAlertAction(title: L10n.Alert.Button.cancel, style: .cancel)
+        
+        alert.addAction(cancelAction)
         alert.addAction(deleteAction)
-        self.present(alert, animated: false, completion: nil)
-
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.contentInsetAdjustmentBehavior = .never
         createKeyboardEvent()
-        
         configureHeroID()
         configureData()
         configureCollectionView()
-        
         collectionView.reloadData()
         configureButtonColor()
     }
     
+    // MARK: - 데이터 초기화
     func configureHeroID() {
         if let group {
             editButton.hero.id = AppHeroId.button.getId(id: group.groupId)
@@ -134,50 +136,29 @@ class WriteGroupViewController: UIViewController {
             editButtonView.isHidden = false
             titleLabel.text = L10n.Group.Edit.title
             
-            writeGroup.title = group.title
-            writeGroup.appColorIndex = group.appColorIndex
+            writeGroup = group
+            textfield.text = writeGroup.title
+            selectedColorIndex = writeGroup.appColorIndex
         } else {
             addButtonView.isHidden = false
             editButtonView.isHidden = true
             titleLabel.text = L10n.Group.Write.title
             
-            writeGroup.groupId = groupStorage?.getNextId() ?? 0
-            writeGroup.order = groupStorage?.getNextOrder() ?? 0
+            writeGroup.groupId = writeGroupService?.groupStorage.getNextId() ?? 0
+            writeGroup.order = writeGroupService?.groupStorage.getNextOrder() ?? 0
             writeGroup.startColor = GroupColor.getStart(index: 0)
             writeGroup.endColor = GroupColor.getEnd(index: 0)
             writeGroup.appColorIndex = 0
         }
         
         textfield.text = writeGroup.title
-        selectedColorIndex = writeGroup.appColorIndex
     }
     
     func configureCollectionView() {
         collectionView.register(UINib(nibName: "GroupColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GroupColorCollectionViewCell")
     }
-    // 키보드 기본 처리
-    func createKeyboardEvent() {
-        // 화면 터치 시 키보드 숨김
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
-
-    func isValidData() -> Bool {
-        if let text = textfield.text, text.isNotEmpty {
-            return true
-        } else {
-            return false
-        }
-    }
     
     func configureButtonColor() {
-        
         let colors = GroupColor.getColors(index: selectedColorIndex)
         if group != nil {
             deleteButton.layer.cornerRadius = 15
@@ -199,6 +180,36 @@ class WriteGroupViewController: UIViewController {
             addButton.layer.insertSublayer(gradientLayer, at: 0)
         }
     }
+    
+    // MARK: - Helper Methods
+    func showAlert(title: String) {
+        let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: L10n.Alert.Button.done, style: .default)
+        alert.addAction(defaultAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func isValidData() -> Bool {
+        if let text = textfield.text, text.isNotEmpty {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    // 키보드 기본 처리
+    func createKeyboardEvent() {
+        // 화면 터치 시 키보드 숨김
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout

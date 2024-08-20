@@ -21,7 +21,7 @@
 		EA6B4FDE2C69EA9F00DC3254 /* GroupColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FDD2C69EA9F00DC3254 /* GroupColor.swift */; };
 		EA6B4FE12C69EB9700DC3254 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FDF2C69EB9700DC3254 /* Strings+Generated.swift */; };
 		EA6B4FE22C69EB9700DC3254 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FE02C69EB9700DC3254 /* XCAssets+Generated.swift */; };
-		EA6B4FE52C69ED0400DC3254 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FE42C69ED0400DC3254 /* AppUserDefaults.swift */; };
+		EA6B4FE52C69ED0400DC3254 /* UserDefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FE42C69ED0400DC3254 /* UserDefaultStorage.swift */; };
 		EA6B4FE72C69F1E000DC3254 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FE62C69F1DF00DC3254 /* HomeViewController.swift */; };
 		EA6B4FE92C69F52200DC3254 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FE82C69F52200DC3254 /* Date+Extension.swift */; };
 		EA6B4FEB2C69F54B00DC3254 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FEA2C69F54B00DC3254 /* Utils.swift */; };
@@ -55,6 +55,9 @@
 		EA8BB7032C6B23EE00779FF9 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = EA8BB7022C6B23EE00779FF9 /* Hero */; };
 		EA8BB7062C6B27D200779FF9 /* TodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB7042C6B27D200779FF9 /* TodoTableViewCell.swift */; };
 		EA8BB7072C6B27D200779FF9 /* TodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA8BB7052C6B27D200779FF9 /* TodoTableViewCell.xib */; };
+		EA9156422C74845800F3426A /* InitializationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156412C74845800F3426A /* InitializationService.swift */; };
+		EA9156442C7484FD00F3426A /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156432C7484FD00F3426A /* HomeService.swift */; };
+		EA9156462C74897500F3426A /* WriteGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156452C74897500F3426A /* WriteGroupService.swift */; };
 		EAA163D72C734398007417B9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA163D62C734398007417B9 /* NotificationManager.swift */; };
 		EAA8647C2C6E484300A8CBCD /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */; };
 		EAA8647F2C6E486100A8CBCD /* SearchLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */; };
@@ -119,7 +122,7 @@
 		EA6B4FDD2C69EA9F00DC3254 /* GroupColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupColor.swift; sourceTree = "<group>"; };
 		EA6B4FDF2C69EB9700DC3254 /* Strings+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
 		EA6B4FE02C69EB9700DC3254 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
-		EA6B4FE42C69ED0400DC3254 /* AppUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
+		EA6B4FE42C69ED0400DC3254 /* UserDefaultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultStorage.swift; sourceTree = "<group>"; };
 		EA6B4FE62C69F1DF00DC3254 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EA6B4FE82C69F52200DC3254 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		EA6B4FEA2C69F54B00DC3254 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -153,6 +156,9 @@
 		EA8BB6FF2C6B04BE00779FF9 /* GroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
 		EA8BB7042C6B27D200779FF9 /* TodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTableViewCell.swift; sourceTree = "<group>"; };
 		EA8BB7052C6B27D200779FF9 /* TodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoTableViewCell.xib; sourceTree = "<group>"; };
+		EA9156412C74845800F3426A /* InitializationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializationService.swift; sourceTree = "<group>"; };
+		EA9156432C7484FD00F3426A /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		EA9156452C74897500F3426A /* WriteGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteGroupService.swift; sourceTree = "<group>"; };
 		EAA163D62C734398007417B9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
 		EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewController.swift; sourceTree = "<group>"; };
@@ -209,15 +215,13 @@
 			children = (
 				EA7C5CE62C69A7D40099AB7C /* AppDelegate.swift */,
 				EAC6829F2C690C040010ECCC /* SceneDelegate.swift */,
-				EA6B4FE42C69ED0400DC3254 /* AppUserDefaults.swift */,
 				EA6B4FEA2C69F54B00DC3254 /* Utils.swift */,
-				EA6B4FD22C69D24600DC3254 /* Entity */,
-				EA6B4FB82C69B7DE00DC3254 /* Extensions */,
+				EA6B4FB82C69B7DE00DC3254 /* Extension */,
 			);
 			path = Common;
 			sourceTree = "<group>";
 		};
-		EA6B4FB82C69B7DE00DC3254 /* Extensions */ = {
+		EA6B4FB82C69B7DE00DC3254 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				EA7C5D492C69A7E20099AB7C /* UITextField+Extension.swift */,
@@ -227,14 +231,16 @@
 				EA8BB6F42C6AEED400779FF9 /* UIView+Extension.swift */,
 				EA7C5D472C69A7E20099AB7C /* String+Extension.swift */,
 			);
-			path = Extensions;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		EA6B4FB92C69B7EB00DC3254 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EA6B4FCE2C69D03D00DC3254 /* Group.swift */,
-				EA6B4FD02C69D0B300DC3254 /* Todo.swift */,
+				EA91563F2C7481DD00F3426A /* Manager */,
+				EA6B4FC52C69CAE300DC3254 /* Storage */,
+				EA9156402C74823500F3426A /* Service */,
+				EA6B4FD22C69D24600DC3254 /* Entity */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,10 +278,9 @@
 		EA6B4FC52C69CAE300DC3254 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				EA6B4FC62C69CB1700DC3254 /* RealmManager.swift */,
+				EA6B4FE42C69ED0400DC3254 /* UserDefaultStorage.swift */,
 				EA6B4FCA2C69CF9000DC3254 /* GroupStorage.swift */,
 				EA6B4FCC2C69D01200DC3254 /* TodoStorage.swift */,
-				EAA163D62C734398007417B9 /* NotificationManager.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -283,6 +288,8 @@
 		EA6B4FD22C69D24600DC3254 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				EA6B4FCE2C69D03D00DC3254 /* Group.swift */,
+				EA6B4FD02C69D0B300DC3254 /* Todo.swift */,
 				EA6B4FD92C69D34000DC3254 /* NotificationType.swift */,
 				EA6B4FDD2C69EA9F00DC3254 /* GroupColor.swift */,
 				EA8BB6FC2C6AF95B00779FF9 /* AppHero.swift */,
@@ -364,6 +371,25 @@
 			path = Library;
 			sourceTree = "<group>";
 		};
+		EA91563F2C7481DD00F3426A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				EAA163D62C734398007417B9 /* NotificationManager.swift */,
+				EA6B4FC62C69CB1700DC3254 /* RealmManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		EA9156402C74823500F3426A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				EA9156412C74845800F3426A /* InitializationService.swift */,
+				EA9156432C7484FD00F3426A /* HomeService.swift */,
+				EA9156452C74897500F3426A /* WriteGroupService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		EAA163D52C732C77007417B9 /* TextField */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,7 +454,6 @@
 			isa = PBXGroup;
 			children = (
 				EA6B4FB72C69B7D100DC3254 /* Common */,
-				EA6B4FC52C69CAE300DC3254 /* Storage */,
 				EA6B4FB92C69B7EB00DC3254 /* Model */,
 				EA6B4FBA2C69B7F100DC3254 /* View */,
 				EA6B4FBB2C69B7FB00DC3254 /* Controller */,
@@ -660,10 +685,13 @@
 				EAA8647C2C6E484300A8CBCD /* SearchLocationViewController.swift in Sources */,
 				EA6B4FEF2C69FC5400DC3254 /* GroupCollectionViewCell.swift in Sources */,
 				EA8BB6F52C6AEED400779FF9 /* UIView+Extension.swift in Sources */,
+				EA9156462C74897500F3426A /* WriteGroupService.swift in Sources */,
+				EA9156422C74845800F3426A /* InitializationService.swift in Sources */,
 				EABB9C6C2C6C37BC00775657 /* WriteTodoViewController.swift in Sources */,
 				EA6B4FE72C69F1E000DC3254 /* HomeViewController.swift in Sources */,
 				EABB9C712C6C404F00775657 /* TimePicker.swift in Sources */,
 				EA7C5DA12C69A7E20099AB7C /* FAPaginationLayout.swift in Sources */,
+				EA9156442C7484FD00F3426A /* HomeService.swift in Sources */,
 				EA6B4FDC2C69D5D400DC3254 /* UIColor+Extension.swift in Sources */,
 				EA6B4FD12C69D0B300DC3254 /* Todo.swift in Sources */,
 				EA7C5DDF2C69A7E20099AB7C /* TextFieldEffects.swift in Sources */,
@@ -686,7 +714,7 @@
 				EA8BB6FD2C6AF95B00779FF9 /* AppHero.swift in Sources */,
 				EA8BB6F82C6AEF8600779FF9 /* AddGroupCollectionViewCell.swift in Sources */,
 				EAC682A02C690C040010ECCC /* SceneDelegate.swift in Sources */,
-				EA6B4FE52C69ED0400DC3254 /* AppUserDefaults.swift in Sources */,
+				EA6B4FE52C69ED0400DC3254 /* UserDefaultStorage.swift in Sources */,
 				EA7C5D9B2C69A7E20099AB7C /* CAGradientLayer+Extension.swift in Sources */,
 				EA7C5DA02C69A7E20099AB7C /* UITextField+Extension.swift in Sources */,
 				EA6B4FEB2C69F54B00DC3254 /* Utils.swift in Sources */,

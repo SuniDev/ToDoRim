@@ -10,27 +10,34 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var navigation: UINavigationController?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene)
+
+        // GroupStorage와 TodoStorage 생성
+        let groupStorage = GroupStorage()
+        let todoStorage = TodoStorage()
         
-        navigation = UINavigationController()
-        navigation?.isNavigationBarHidden = true
+        // InitializationService 생성
+        let initService = InitializationService(groupStorage: groupStorage, todoStorage: todoStorage)
         
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Intro", bundle: nil)
-        if let introViewController = storyBoard.instantiateViewController(withIdentifier: "IntroViewController") as? IntroViewController {
-            navigation?.setViewControllers([introViewController], animated: false)
+        // IntroViewController를 스토리보드에서 인스턴스화
+        let storyboard = UIStoryboard(name: "Intro", bundle: nil)
+        guard let introViewController = storyboard.instantiateViewController(withIdentifier: "IntroViewController") as? IntroViewController else {
+            return
         }
+
+        // IntroViewController에 InitializationService 주입
+        introViewController.inject(initService: initService)
         
-        window?.windowScene = windowScene
-        window?.rootViewController = navigation
-        window?.makeKeyAndVisible()
+        let navigation = UINavigationController(rootViewController: introViewController)
+        navigation.isNavigationBarHidden = true
+        
+        // UIWindow 초기화 및 설정
+        let window = UIWindow(windowScene: windowScene)
+        window.rootViewController = navigation
+        self.window = window
+        window.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

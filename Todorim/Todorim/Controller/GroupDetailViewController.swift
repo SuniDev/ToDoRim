@@ -130,19 +130,19 @@ class GroupDetailViewController: UIViewController {
     
     func moveEditGroup() {
         guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "WriteGroupViewController") as? WriteGroupViewController else { return }        
-        viewController.delegate = self
-        viewController.groupStorage = groupStorage
-        viewController.group = group
-        
-        let groupId = group?.groupId ?? 0
-        viewController.view.hero.id = AppHeroId.viewGroup.getId(id: groupId)
-        
-        navigationController?.hero.isEnabled = true
-        navigationController?.hero.modalAnimationType = .cover(direction: .up)
-        
-        DispatchQueue.main.async {
-            self.navigationController?.pushViewController(viewController, animated: true)
-        }
+//        viewController.delegate = self
+//        viewController.groupStorage = groupStorage
+//        viewController.group = group
+//        
+//        let groupId = group?.groupId ?? 0
+//        viewController.view.hero.id = AppHeroId.viewGroup.getId(id: groupId)
+//        
+//        navigationController?.hero.isEnabled = true
+//        navigationController?.hero.modalAnimationType = .cover(direction: .up)
+//        
+//        DispatchQueue.main.async {
+//            self.navigationController?.pushViewController(viewController, animated: true)
+//        }
     }
 }
 
