@@ -108,7 +108,7 @@ class HomeViewController: UIViewController {
 
 // MARK: - Navigation
 extension HomeViewController {
-    private func moveAddGroup() {
+    private func moveToAddGroup() {
         guard let groupStorage = homeService?.groupStorage else { return }
         let service = WriteGroupService(groupStorage: groupStorage)
         
@@ -126,7 +126,7 @@ extension HomeViewController {
         }
     }
     
-    private func moveGroupDetail(with group: Group) {
+    private func moveToGroupDetail(with group: Group) {
         guard let groupStorage = homeService?.groupStorage, let todoStorage = homeService?.todoStorage else { return }
         let service = GroupDetailService(groupStorage: groupStorage, todoStorage: todoStorage)
         
@@ -185,9 +185,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row < groups.count {
-            moveGroupDetail(with: groups[indexPath.row])
+            moveToGroupDetail(with: groups[indexPath.row])
         } else {
-            moveAddGroup()
+            moveToAddGroup()
         }
     }
 }
@@ -210,7 +210,7 @@ extension HomeViewController: GroupCollectionViewCellDelegate {
     func tappedGroup(with group: Group?) {
         guard let group else { return }
         
-        moveGroupDetail(with: group)
+        moveToGroupDetail(with: group)
     }
 }
 

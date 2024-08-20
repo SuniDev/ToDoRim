@@ -18,7 +18,7 @@ class IntroViewController: UIViewController {
         initService?.initializeData()
         
         // 홈 화면으로 이동
-        moveHome()
+        moveToHome()
     }
     
     // MARK: - 의존성 주입 메서드
@@ -26,7 +26,7 @@ class IntroViewController: UIViewController {
         self.initService = initService
     }
     
-    func moveHome() {
+    func moveToHome() {
         guard let groupStorage = initService?.groupStorage, let todoStorage = initService?.todoStorage else { return }
         let service = HomeService(groupStorage: groupStorage, todoStorage: todoStorage)
         

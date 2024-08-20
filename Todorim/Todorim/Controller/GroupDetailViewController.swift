@@ -39,7 +39,7 @@ class GroupDetailViewController: UIViewController {
     }
     
     @IBAction private func tappedEditGroupButton(_ sender: UIButton) {
-        moveEditGroup()
+        moveToEditGroup()
     }
     
     @IBAction private func tappedAddTodoButton(_ sender: UIButton) {
@@ -117,9 +117,11 @@ class GroupDetailViewController: UIViewController {
             self.progress.setProgress(percent, animated: true)
         }
     }
-        
-    // MARK: - Navigation
-    func moveToWriteTodo() {
+}
+
+// MARK: - Navigation
+extension GroupDetailViewController {
+    private func moveToWriteTodo() {
         guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "WriteTodoViewController") as? WriteTodoViewController else { return }
         
         viewController.todoStorage = groupDetailService?.todoStorage
@@ -135,7 +137,7 @@ class GroupDetailViewController: UIViewController {
         }
     }
     
-    func moveEditGroup() {
+    private func moveToEditGroup() {
         guard let groupStorage = groupDetailService?.groupStorage else { return }
         let service = WriteGroupService(groupStorage: groupStorage)
         
