@@ -13,12 +13,11 @@ class NotificationManager {
     static let shared = NotificationManager()
     private let center = UNUserNotificationCenter.current()
     
-    private func addDate(with todo: Todo, group: Group) {
+    private func addDate(with todo: Todo) {
         guard let date = todo.date else { return }
         
         let content = UNMutableNotificationContent()
         content.title = todo.title
-        content.body = group.title
         content.sound = .default
         
         var triggerDate = DateComponents()
@@ -42,7 +41,7 @@ class NotificationManager {
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate,
                                                     repeats: isRepeat)
-        let identifier = "dateNotification\(todo.groupId)_\(todo.todoId)"
+        let identifier = "dateNotification\(todo.todoId)"
         
         self.center.removePendingNotificationRequests(withIdentifiers: [identifier])
         self.center.removeDeliveredNotifications(withIdentifiers: [identifier])
@@ -58,15 +57,14 @@ class NotificationManager {
         })
     }
     
-    private func addLocation(with todo: Todo, group: Group) {
+    private func addLocation(with todo: Todo) {
         
         let content = UNMutableNotificationContent()
         content.title = todo.title
-        content.body = group.title
         content.sound = .default
         
         let coordinate = CLLocationCoordinate2D(latitude: todo.latitude, longitude: todo.longitude)
-        let identifier = "locationNotification\(todo.groupId)_\(todo.todoId)"
+        let identifier = "locationNotification\(todo.todoId)"
         let region = CLCircularRegion(center: coordinate, radius: todo.radius, identifier: identifier)
         
         switch todo.locationNotiType {
@@ -96,25 +94,35 @@ class NotificationManager {
         })
     }
     
-    func update(with todo: Todo, group: Group) {
+    func update(with todo: Todo) {
         if todo.isDateNoti {
-            addDate(with: todo, group: group)
+            addDate(with: todo)
         } else {
-            removeDate(with: todo, group: group)
+            removeDate(id: todo.todoId)
         }
         
         if todo.isLocationNoti {
-            addLocation(with: todo, group: group)
+            addLocation(with: todo)
         } else {
-            removeLocation(with: todo, group: group)
+            removeLocation(id: todo.todoId)
         }
     }
     
-    private func removeDate(with todo: Todo, group: Group) {
+    func remove(id: Int) {
+        removeDate(id: id)
+        removeLocation(id: id)
+    }
+    
+    private func removeDate(id: Int) {
+        let identifier = "dateNotification\(id)"
+        
+        self.center.removePendingNotificationRequests(withIdentifiers: [identifier])
         
     }
     
-    private func removeLocation(with todo: Todo, group: Group) {
+    private func removeLocation(id: Int) {
+        let identifier = "locationNotification\(id)"
         
+        self.center.removePendingNotificationRequests(withIdentifiers: [identifier])
     }
 }

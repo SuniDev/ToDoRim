@@ -1,6 +1,15 @@
 {
-  "originHash" : "182db11c87d1734fe53a6366b674339f70901a93290bd85def29b63e25e34c43",
+  "originHash" : "d57fb531223073ae88106b683d95068832883a0be547cff5cb8f890893d6a06f",
   "pins" : [
+    {
+      "identity" : "hero",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/HeroTransitions/Hero.git",
+      "state" : {
+        "revision" : "b307e2d48d582118e5101d04f5187c91595a1095",
+        "version" : "1.6.3"
+      }
+    },
     {
       "identity" : "realm-core",
       "kind" : "remoteSourceControl",

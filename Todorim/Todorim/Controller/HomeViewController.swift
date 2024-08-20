@@ -188,12 +188,23 @@ extension HomeViewController: GroupCollectionViewCellDelegate {
         todoStorage?.updateComplete(with: todo, isComplete: isComplete, completion: { [weak self] isSuccess in
             guard let self else { return }
             if isSuccess {
+                self.updateNotification(with: todo, isComplete: isComplete)
                 self.fetchTodo()
                 self.collectionView.reloadData()
             } else {
                 // TODO: - 오류 메시지
             }
         })
+    }
+    
+    func updateNotification(with todo: Todo, isComplete: Bool) {
+        if isComplete {
+            NotificationManager.shared.remove(id: todo.todoId)
+        } else {
+            if todo.isDateNoti || todo.isLocationNoti {
+                NotificationManager.shared.update(with: todo)
+            }
+        }
     }
     
     func moveGroupDetail(with group: Group?) {

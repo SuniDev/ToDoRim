@@ -175,6 +175,7 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
         todoStorage?.updateComplete(with: todo, isComplete: isComplete, completion: { [weak self] isSuccess in
             guard let self else { return }
             if isSuccess {
+                self.updateNotification(with: todo, isComplete: isComplete)
                 self.fetchTodos()
                 self.tableView.reloadRows(at: [indexPath], with: .none)
                 self.updateProgress()
@@ -182,6 +183,16 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
                 // TODO: - 오류 메시지
             }
         })
+    }
+    
+    func updateNotification(with todo: Todo, isComplete: Bool) {
+        if isComplete {
+            NotificationManager.shared.remove(id: todo.todoId)
+        } else {
+            if todo.isDateNoti || todo.isLocationNoti {
+                NotificationManager.shared.update(with: todo)
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -227,8 +238,10 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
                 return
             }
             let todo = todos[indexPath.row]
+            let todoId: Int = todo.todoId
             self.todoStorage?.deleteTodo(with: todo, completion: { [weak self] isSuccess in
                 if isSuccess {
+                    NotificationManager.shared.remove(id: todoId)
                     self?.fetchTodos()
                     self?.tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
                     self?.updateProgress()

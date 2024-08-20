@@ -150,6 +150,7 @@ class WriteTodoViewController: UIViewController {
                 todoStorage?.update(with: todo, writeTodo: writeTodo, completion: { [weak self] isSuccess, todo in
                     guard let self else { return }
                     if isSuccess {
+                        NotificationManager.shared.update(with: todo)
                         self.delegate?.completeWriteTodo(todo: todo)
                         self.navigationController?.hero.isEnabled = true
                         self.navigationController?.hero.navigationAnimationType = .uncover(direction: .down)
@@ -161,6 +162,7 @@ class WriteTodoViewController: UIViewController {
             } else {
                 // New Todo
                 todoStorage?.add(writeTodo)
+                NotificationManager.shared.update(with: writeTodo)
                 delegate?.completeWriteTodo(todo: writeTodo)
                 self.navigationController?.hero.isEnabled = true
                 self.navigationController?.hero.navigationAnimationType = .uncover(direction: .down)
@@ -290,8 +292,8 @@ class WriteTodoViewController: UIViewController {
                     dateTextField.text = dateFormatter.string(from: date)
                     datePicker?.selectedDate = date
                 } else {
-                    dateTextField.text = ""
-                    timePicker?.selectedDate = nil
+                    dateTextField.text = dateFormatter.string(from: Date())
+                    timePicker?.selectedDate = Date()
                 }
             case .daily:
                 dateTabButton.tappedButton(sender: dateNotiDailyButton)
@@ -498,8 +500,6 @@ extension WriteTodoViewController {
                 alert.addAction(defaultAction)
                 self.present(alert, animated: false, completion: nil)
                 return false
-            } else {
-                writeTodo.locationName = locationNameLabel.text ?? ""
             }
         }
         
