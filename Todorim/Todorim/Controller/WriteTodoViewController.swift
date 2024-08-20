@@ -143,8 +143,8 @@ extension WriteTodoViewController {
         let tapSearchLocation = UITapGestureRecognizer(target: self, action: #selector(tappedLocationSearch))
         locationSearchView.addGestureRecognizer(tapSearchLocation)
         
-        titleLabel.text = todo == nil ? "할일 추가" : "할일 수정"
-        completeButtonLabel.text = todo == nil ? "추가" : "수정"
+        titleLabel.text = todo == nil ? L10n.Todo.Write.title : L10n.Todo.Edit.title
+        completeButtonLabel.text = todo == nil ? L10n.Button.add : L10n.Button.edit
         
         DispatchQueue.main.async {
             self.titleTextField.text = self.writeTodo.title
@@ -266,7 +266,7 @@ extension WriteTodoViewController {
             dateTabButton.tappedButton(sender: dateNotiDailyButton)
         case .weekly:
             dateTabButton.tappedButton(sender: dateNotiWeeklyButton)
-            let row = writeTodo.weekType.rawValue - 1
+            let row = writeTodo.weekType.weekday - 1
             weekTextField.text = weekPicker?.array[row].title
             weekPicker?.selectedWeek = writeTodo.weekType
         case .monthly:
@@ -296,7 +296,7 @@ extension WriteTodoViewController {
     
     func configureLocationNotiUI() {
         if writeTodo.locationName.isEmpty || writeTodo.locationNotiType == .none {
-            locationNameLabel.text = "위치 선택"
+            locationNameLabel.text = L10n.Todo.SelectLocation.title
             locationNameLabel.textColor = .lightGray
         } else {
             locationNameLabel.text = "\(writeTodo.locationName) \(writeTodo.locationNotiType.title)"
@@ -372,7 +372,7 @@ extension WriteTodoViewController {
             writeTodo.isDateNoti = true
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { didAllow, _ in
                 if !didAllow {
-                    self.showAlert(message: "기기의 '설정 > ToDoRim' 에서 알림을 허용해 주세요.")
+                    self.showAlert(title: L10n.Alert.AuthNoti.title, message: L10n.Alert.AuthNoti.message)
                     self.writeTodo.isDateNoti = false
                 }
             }
@@ -387,7 +387,7 @@ extension WriteTodoViewController {
             writeTodo.isLocationNoti = true
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { didAllow, _ in
                 if !didAllow {
-                    self.showAlert(message: "기기의 '설정 > ToDoRim' 에서 알림을 허용해 주세요.")
+                    self.showAlert(title: L10n.Alert.AuthNoti.title, message: L10n.Alert.AuthNoti.message)
                     self.writeTodo.isLocationNoti = false
                 }
             }
@@ -397,11 +397,11 @@ extension WriteTodoViewController {
         configureLocationNotiUI()
     }
     
-    func showAlert(message: String) {
+    func showAlert(title: String = "", message: String = "") {
         DispatchQueue.main.async {
             self.dismissKeyboard()
-            let alert = UIAlertController(title: "알림 서비스를 이용할 수 없습니다.", message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "확인", style: .default))
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: L10n.Alert.Button.done, style: .default))
             self.present(alert, animated: false)
         }
     }
@@ -433,7 +433,7 @@ extension WriteTodoViewController {
                         self.delegate?.completeWriteTodo(todo: todo)
                         self.popViewControllerWithAnimation()
                     } else {
-                        self.showAlert(message: "할 일을 업데이트하는 데 실패했습니다.")
+                        // TODO: 오류 메시지
                     }
                 }
             } else {
@@ -479,7 +479,7 @@ extension WriteTodoViewController {
             return true
         } else {
             dismissKeyboard()
-            showAlert(message: "할일 이름을 입력하세요.")
+            showAlert(title: L10n.Alert.WriteTodo.EmptyName.title)
             return false
         }
     }
@@ -491,7 +491,7 @@ extension WriteTodoViewController {
         case .none:
             if dateTextField.text?.isEmpty ?? true {
                 dismissKeyboard()
-                showAlert(message: "알림 날짜를 선택하세요.")
+                showAlert(title: L10n.Alert.WriteTodo.EmptyDate.title)
                 return false
             }
         case .daily:
@@ -499,13 +499,13 @@ extension WriteTodoViewController {
         case .weekly:
             if weekTextField.text?.isEmpty ?? true {
                 dismissKeyboard()
-                showAlert(message: "알림 요일을 선택하세요.")
+                showAlert(title: L10n.Alert.WriteTodo.EmptyWeek.title)
                 return false
             }
         case .monthly:
             if dayTextField.text?.isEmpty ?? true {
                 dismissKeyboard()
-                showAlert(message: "알림 월을 선택하세요.")
+                showAlert(title: L10n.Alert.WriteTodo.EmptyMonth.title)
                 return false
             }
         }
@@ -514,7 +514,7 @@ extension WriteTodoViewController {
             saveDate()
         } else {
             dismissKeyboard()
-            showAlert(message: "알림 시간을 선택하세요.")
+            showAlert(title: L10n.Alert.WriteTodo.EmptyTime.title)
             return false
         }
         
@@ -524,9 +524,9 @@ extension WriteTodoViewController {
     private func checkLocationNotification() -> Bool {
         if !writeTodo.isLocationNoti { return true }
         
-        if locationNameLabel.text == "위치 선택" {
+        if locationNameLabel.text == L10n.Todo.SelectLocation.title {
             dismissKeyboard()
-            showAlert(message: "알림 위치를 선택하세요.")
+            showAlert(title: L10n.Alert.WriteTodo.EmptyLocation.title)
             return false
         }
         

@@ -45,14 +45,14 @@ class IntroViewController: UIViewController {
     
     func getInitGroup() -> Group {
         let group = Group()
-        group.title = "그룹을 커스텀해보세요!"
+        group.title = L10n.Group.Init.title
         group.appColorIndex = 1
         return group
     }
     
     func getInitTodo() -> Todo {
         let todo = Todo()
-        todo.title = "할일을 추가해보세요"
+        todo.title = L10n.Todo.Init.title
         return todo
     }
 }

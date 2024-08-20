@@ -52,7 +52,7 @@ class SearchLocationViewController: UIViewController {
             searchBar.delegate = self
             
             searchBar.barStyle = .default
-            searchBar.placeholder = "장소를 검색하세요."
+            searchBar.placeholder = L10n.Location.Search.placeholder
             
             searchBar.translatesAutoresizingMaskIntoConstraints = true
             searchBar.frame = searchView.bounds
@@ -70,8 +70,8 @@ class SearchLocationViewController: UIViewController {
         
         let status = locationManager.authorizationStatus
         if status == CLAuthorizationStatus.denied || status == CLAuthorizationStatus.restricted {
-            let alert = UIAlertController(title: "위치 서비스를 이용할 수 없습니다.", message: "기기의 '설정 > 개인정보보호' 에서 위치 접근을 허용해 주세요.", preferredStyle: UIAlertController.Style.alert)
-            let defaultAction = UIAlertAction(title: "확인", style: .default)
+            let alert = UIAlertController(title: L10n.Alert.AuthLocation.title, message: L10n.Alert.AuthLocation.message, preferredStyle: UIAlertController.Style.alert)
+            let defaultAction = UIAlertAction(title: L10n.Alert.Button.done, style: .default)
             alert.addAction(defaultAction)
             self.present(alert, animated: false, completion: nil)
         }

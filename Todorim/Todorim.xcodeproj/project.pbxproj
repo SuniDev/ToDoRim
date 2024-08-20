@@ -16,7 +16,6 @@
 		EA6B4FCD2C69D01200DC3254 /* TodoStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FCC2C69D01200DC3254 /* TodoStorage.swift */; };
 		EA6B4FCF2C69D03D00DC3254 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FCE2C69D03D00DC3254 /* Group.swift */; };
 		EA6B4FD12C69D0B300DC3254 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FD02C69D0B300DC3254 /* Todo.swift */; };
-		EA6B4FD82C69D29F00DC3254 /* LocationSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FD72C69D29F00DC3254 /* LocationSearch.swift */; };
 		EA6B4FDA2C69D34000DC3254 /* NotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FD92C69D34000DC3254 /* NotificationType.swift */; };
 		EA6B4FDC2C69D5D400DC3254 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FDB2C69D5D400DC3254 /* UIColor+Extension.swift */; };
 		EA6B4FDE2C69EA9F00DC3254 /* GroupColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FDD2C69EA9F00DC3254 /* GroupColor.swift */; };
@@ -115,7 +114,6 @@
 		EA6B4FCC2C69D01200DC3254 /* TodoStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoStorage.swift; sourceTree = "<group>"; };
 		EA6B4FCE2C69D03D00DC3254 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		EA6B4FD02C69D0B300DC3254 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
-		EA6B4FD72C69D29F00DC3254 /* LocationSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearch.swift; sourceTree = "<group>"; };
 		EA6B4FD92C69D34000DC3254 /* NotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationType.swift; sourceTree = "<group>"; };
 		EA6B4FDB2C69D5D400DC3254 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		EA6B4FDD2C69EA9F00DC3254 /* GroupColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupColor.swift; sourceTree = "<group>"; };
@@ -286,7 +284,6 @@
 			isa = PBXGroup;
 			children = (
 				EA6B4FD92C69D34000DC3254 /* NotificationType.swift */,
-				EA6B4FD72C69D29F00DC3254 /* LocationSearch.swift */,
 				EA6B4FDD2C69EA9F00DC3254 /* GroupColor.swift */,
 				EA8BB6FC2C6AF95B00779FF9 /* AppHero.swift */,
 			);
@@ -654,7 +651,6 @@
 			files = (
 				EA6B4FE92C69F52200DC3254 /* Date+Extension.swift in Sources */,
 				EA8BB7002C6B04BE00779FF9 /* GroupDetailViewController.swift in Sources */,
-				EA6B4FD82C69D29F00DC3254 /* LocationSearch.swift in Sources */,
 				EAA864812C6E487900A8CBCD /* SearchLocationMapViewController.swift in Sources */,
 				EABB9C692C6C34F200775657 /* GroupColorCollectionViewCell.swift in Sources */,
 				EA7C5DA22C69A7E20099AB7C /* Geotification.swift in Sources */,

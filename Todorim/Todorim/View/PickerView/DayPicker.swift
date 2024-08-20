@@ -20,7 +20,7 @@ class DayPicker: UIPickerView {
             array.append("\(day + 1)일")
         }
         
-        textField.placeholder = "반복할 일을 선택하세요."
+        textField.placeholder = L10n.Picker.Day.placeholder
     }
     
     func makeDone() -> UIToolbar {

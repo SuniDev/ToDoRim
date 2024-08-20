@@ -83,7 +83,7 @@ class SearchLocationMapViewController: UIViewController {
         let clampedRadius = min(radius, locationManager.maximumRegionMonitoringDistance)
         
         if let coordinate {
-            geotification = Geotification(coordinate: coordinate, radius: clampedRadius, identifier: UUID().uuidString, note: selectedPin?.name ?? "현재 위치", eventType: .onEntry)
+            geotification = Geotification(coordinate: coordinate, radius: clampedRadius, identifier: UUID().uuidString, note: selectedPin?.name ?? L10n.Location.current, eventType: .onEntry)
         }
         
         dropPinZoomIn()
@@ -127,15 +127,15 @@ extension SearchLocationMapViewController {
                     geotification?.radius = radius
                     addRadiusOverlay(forGeotification: geotification)
                 } else {
-                    let alert = UIAlertController(title: "반경은 최소 100m 이상 입니다.", message: "", preferredStyle: UIAlertController.Style.alert)
-                    let defaultAction = UIAlertAction(title: "확인", style: .default)
+                    let alert = UIAlertController(title: L10n.Alert.SearchLocation.RadiusWarning.title, message: "", preferredStyle: UIAlertController.Style.alert)
+                    let defaultAction = UIAlertAction(title: L10n.Alert.Button.done, style: .default)
                     alert.addAction(defaultAction)
                     self.present(alert, animated: false, completion: nil)
                     radiusTextField.text = "100"
                 }
             } else {
-                let alert = UIAlertController(title: "잘못된 입력입니다.", message: "", preferredStyle: UIAlertController.Style.alert)
-                let defaultAction = UIAlertAction(title: "확인", style: .default)
+                let alert = UIAlertController(title: L10n.Alert.SearchLocation.TextWarning.title, message: "", preferredStyle: UIAlertController.Style.alert)
+                let defaultAction = UIAlertAction(title: L10n.Alert.Button.done, style: .default)
                 alert.addAction(defaultAction)
                 self.present(alert, animated: false, completion: nil)
                 radiusTextField.text = "100"

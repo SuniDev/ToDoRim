@@ -17,7 +17,7 @@ class WeekPicker: UIPickerView {
         self.init(frame: CGRect.zero)
         self.textField = textField
         self.array = WeekType.allCases.filter { $0 != .none }
-        textField.placeholder = "반복할 요일을 선택하세요."
+        textField.placeholder = L10n.Picker.Week.placeholder
     }
     
     func makeDone() -> UIToolbar {

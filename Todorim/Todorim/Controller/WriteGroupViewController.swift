@@ -57,8 +57,8 @@ class WriteGroupViewController: UIViewController {
             groupStorage?.add(writeGroup)
             delegate?.completeWriteGroup(group: writeGroup)
         } else {
-            let alert = UIAlertController(title: "그룹 이름을 입력하세요.", message: "", preferredStyle: UIAlertController.Style.alert)
-            let defaultAction = UIAlertAction(title: "확인", style: .default)
+            let alert = UIAlertController(title: L10n.Alert.WriteGroup.EmptyName.title, message: "", preferredStyle: UIAlertController.Style.alert)
+            let defaultAction = UIAlertAction(title: L10n.Alert.Button.done, style: .default)
             alert.addAction(defaultAction)
             self.present(alert, animated: false, completion: nil)
         }
@@ -80,8 +80,8 @@ class WriteGroupViewController: UIViewController {
                     }
                 })
         } else {
-            let alert = UIAlertController(title: "그룹 이름을 입력하세요.", message: "", preferredStyle: UIAlertController.Style.alert)
-            let defaultAction = UIAlertAction(title: "확인", style: .default)
+            let alert = UIAlertController(title: L10n.Alert.WriteGroup.EmptyName.title, message: "", preferredStyle: UIAlertController.Style.alert)
+            let defaultAction = UIAlertAction(title: L10n.Alert.Button.done, style: .default)
             alert.addAction(defaultAction)
             self.present(alert, animated: false, completion: nil)
         }
@@ -89,8 +89,8 @@ class WriteGroupViewController: UIViewController {
     
     @IBAction private func tappedDeleteButton(_ sender: UIButton) {
         
-        let alert = UIAlertController(title: "그룹을 삭제하시겠습니까?", message: "그룹내 할일이 모두 삭제됩니다.", preferredStyle: UIAlertController.Style.alert)
-        let deleteAction = UIAlertAction(title: "삭제", style: .destructive) {  [weak self] _ in
+        let alert = UIAlertController(title: L10n.Alert.DeleteGroup.title, message: L10n.Alert.DeleteGroup.message, preferredStyle: UIAlertController.Style.alert)
+        let deleteAction = UIAlertAction(title: L10n.Alert.Button.delete, style: .destructive) {  [weak self] _ in
             guard let self, let group else { return }
             let id = group.groupId
             self.groupStorage?.delete(with: group, completion: { [weak self] isSuccess in
@@ -102,7 +102,7 @@ class WriteGroupViewController: UIViewController {
             })
             
         }
-        let cancleAction = UIAlertAction(title: "취소", style: .default)
+        let cancleAction = UIAlertAction(title: L10n.Alert.Button.cancel, style: .default)
         alert.addAction(cancleAction)
         alert.addAction(deleteAction)
         self.present(alert, animated: false, completion: nil)
@@ -132,14 +132,14 @@ class WriteGroupViewController: UIViewController {
         if let group {
             addButtonView.isHidden = true
             editButtonView.isHidden = false
-            titleLabel.text = "그룹 수정"
+            titleLabel.text = L10n.Group.Edit.title
             
             writeGroup.title = group.title
             writeGroup.appColorIndex = group.appColorIndex
         } else {
             addButtonView.isHidden = false
             editButtonView.isHidden = true
-            titleLabel.text = "그룹 추가"
+            titleLabel.text = L10n.Group.Write.title
             
             writeGroup.groupId = groupStorage?.getNextId() ?? 0
             writeGroup.order = groupStorage?.getNextOrder() ?? 0

@@ -10,23 +10,32 @@ import Foundation
 // MARK: - 위치 알림 타입
 enum LocationNotificationType: String {
     case none
-    case entry = "도착할 때"
-    case exit = "출발할 때"
+    case entry
+    case exit
     
     var title: String {
-        return self.rawValue
+        switch self {
+        case .none: return ""
+        case .entry: return L10n.Location.entry
+        case .exit: return L10n.Location.exit
+        }
     }
 }
 
 // MARK: - 반복 알림 타입
 enum RepeatNotificationType: String {
-    case none = "반복안함"
-    case daily = "매일"
-    case weekly = "매주"
-    case monthly = "매월"
+    case none
+    case daily
+    case weekly
+    case monthly
     
     var title: String {
-        return self.rawValue
+        switch self {
+        case .none: return L10n.Repeat.none
+        case .daily: return L10n.Repeat.daily
+        case .weekly: return L10n.Repeat.weekly
+        case .monthly: return L10n.Repeat.monthly
+        }
     }
 }
 
@@ -44,13 +53,13 @@ enum WeekType: Int, CaseIterable {
     var title: String {
         switch self {
         case .none: return ""
-        case .sunday: return "일요일"
-        case .monday: return "월요일"
-        case .tuesday: return "화요일"
-        case .wednesday: return "수요일"
-        case .thursday: return "목요일"
-        case .friday: return "금요일"
-        case .saturday: return "토요일"
+        case .sunday: return L10n.Week.sunday
+        case .monday: return L10n.Week.monday
+        case .tuesday: return L10n.Week.tuesday
+        case .wednesday: return L10n.Week.wednesday
+        case .thursday: return L10n.Week.thursday
+        case .friday: return L10n.Week.friday
+        case .saturday: return L10n.Week.saturday
         }
     }
     
