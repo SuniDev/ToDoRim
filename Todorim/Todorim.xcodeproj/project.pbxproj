@@ -58,6 +58,7 @@
 		EA9156422C74845800F3426A /* InitializationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156412C74845800F3426A /* InitializationService.swift */; };
 		EA9156442C7484FD00F3426A /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156432C7484FD00F3426A /* HomeService.swift */; };
 		EA9156462C74897500F3426A /* WriteGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156452C74897500F3426A /* WriteGroupService.swift */; };
+		EA9156482C748F3A00F3426A /* GroupDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156472C748F3A00F3426A /* GroupDetailService.swift */; };
 		EAA163D72C734398007417B9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA163D62C734398007417B9 /* NotificationManager.swift */; };
 		EAA8647C2C6E484300A8CBCD /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */; };
 		EAA8647F2C6E486100A8CBCD /* SearchLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */; };
@@ -159,6 +160,7 @@
 		EA9156412C74845800F3426A /* InitializationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitializationService.swift; sourceTree = "<group>"; };
 		EA9156432C7484FD00F3426A /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		EA9156452C74897500F3426A /* WriteGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteGroupService.swift; sourceTree = "<group>"; };
+		EA9156472C748F3A00F3426A /* GroupDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailService.swift; sourceTree = "<group>"; };
 		EAA163D62C734398007417B9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
 		EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewController.swift; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 				EA9156412C74845800F3426A /* InitializationService.swift */,
 				EA9156432C7484FD00F3426A /* HomeService.swift */,
 				EA9156452C74897500F3426A /* WriteGroupService.swift */,
+				EA9156472C748F3A00F3426A /* GroupDetailService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -710,6 +713,7 @@
 				EABB9C6F2C6C3E2900775657 /* GroupPicker.swift in Sources */,
 				EABB9C772C6C424200775657 /* WeekPicker.swift in Sources */,
 				EA7C5DDE2C69A7E20099AB7C /* MadokaTextField.swift in Sources */,
+				EA9156482C748F3A00F3426A /* GroupDetailService.swift in Sources */,
 				EA6B4FE12C69EB9700DC3254 /* Strings+Generated.swift in Sources */,
 				EA8BB6FD2C6AF95B00779FF9 /* AppHero.swift in Sources */,
 				EA8BB6F82C6AEF8600779FF9 /* AddGroupCollectionViewCell.swift in Sources */,

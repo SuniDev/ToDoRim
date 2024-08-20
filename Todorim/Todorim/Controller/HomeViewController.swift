@@ -109,12 +109,12 @@ class HomeViewController: UIViewController {
 // MARK: - Navigation
 extension HomeViewController {
     private func moveAddGroup() {
-        guard let groupStorage = homeService?.groupStorage, let todoStorage = homeService?.todoStorage else { return }
+        guard let groupStorage = homeService?.groupStorage else { return }
         let service = WriteGroupService(groupStorage: groupStorage)
         
         guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "WriteGroupViewController") as? WriteGroupViewController else { return }
         
-        viewController.inject(service: service)        
+        viewController.inject(service: service)
         viewController.delegate = self
         viewController.view.hero.id = AppHeroId.viewGroup.getId()
         
@@ -127,10 +127,12 @@ extension HomeViewController {
     }
     
     private func moveGroupDetail(with group: Group) {
+        guard let groupStorage = homeService?.groupStorage, let todoStorage = homeService?.todoStorage else { return }
+        let service = GroupDetailService(groupStorage: groupStorage, todoStorage: todoStorage)
+        
         guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "GroupDetailViewController") as? GroupDetailViewController else { return }
         
-        viewController.todoStorage = homeService?.todoStorage // 주입된 서비스의 스토리지 사용
-        viewController.groupStorage = homeService?.groupStorage
+        viewController.inject(service: service)
         viewController.group = group
         viewController.todos = todos.filter { $0.groupId == group.groupId }
         viewController.writeGroupDelegate = self

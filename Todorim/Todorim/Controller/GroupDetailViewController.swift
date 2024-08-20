@@ -6,16 +6,16 @@
 //
 
 import UIKit
-
 import Hero
 
 class GroupDetailViewController: UIViewController {
     
+    // MARK: - Dependencies
+    private var groupDetailService: GroupDetailService?
+    
+    
     // MARK: - Data
     weak var writeGroupDelegate: WriteGroupViewControllerDelegate?
-    var groupStorage: GroupStorage?
-    var todoStorage: TodoStorage?
-    
     var group: Group?
     var todos: [Todo] = []
     
@@ -25,6 +25,11 @@ class GroupDetailViewController: UIViewController {
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var addButtonView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    
+    // MARK: - 의존성 주입 메서드
+    func inject(service: GroupDetailService) {
+        self.groupDetailService = service
+    }
     
     // MARK: - Action
     @IBAction private func tappedCloseButton(_ sender: UIButton) {
@@ -38,61 +43,59 @@ class GroupDetailViewController: UIViewController {
     }
     
     @IBAction private func tappedAddTodoButton(_ sender: UIButton) {
-        guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "WriteTodoViewController") as? WriteTodoViewController else { return }
-        
-        viewController.todoStorage = todoStorage
-        viewController.group = group
-        viewController.groups = groupStorage?.getGroups() ?? []
-        viewController.delegate = self
-        
-        navigationController?.hero.isEnabled = true
-        navigationController?.hero.navigationAnimationType = .cover(direction: .up)
-        
-        DispatchQueue.main.async {
-            self.navigationController?.pushViewController(viewController, animated: true)
-        }
+        moveToWriteTodo()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         configureHeroID()
+        fetchTodosAndUpdateUI()
     }
     
+    // MARK: - UI 설정 및 데이터 로드
     func configureUI() {
         configureTableView()
-        
+        configureProgress()
+        configureAddButtonView()
+        updateGroupColor()
+    }
+    
+    private func configureProgress() {
         progress.transform = progress.transform.scaledBy(x: 1, y: 2)
         progress.layer.cornerRadius = progress.frame.height / 2
         progress.layer.masksToBounds = true
-        
-        addButtonView.layer.cornerRadius = addButtonView.bounds.height / 2
-        addButtonView.layer.masksToBounds = true
-        
-        updateGroupColor()
+    }
+    
+    func fetchTodosAndUpdateUI() {
+        guard let group else { return }
+        todos = groupDetailService?.fetchTodos(for: group) ?? []
         updateProgress()
         tableView.reloadData()
     }
     
+    private func configureAddButtonView() {
+        addButtonView.layer.cornerRadius = addButtonView.bounds.height / 2
+        addButtonView.layer.masksToBounds = true
+    }
+    
+    
     func updateGroupColor() {
-        if let group {
-            titleLabel.text = group.title
-            
-            let colors = [group.startColor, group.endColor]
-            
-            let progressLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 5.0), colors: colors)
-            progress.progressImage = progressLayer.createGradientImage()
-            
-            let buttonLayer = Utils.getVerticalLayer(frame: CGRect(x: 0, y: 0, width: 70, height: 70), colors: colors)
-            if let firstLayer = addButtonView.layer.sublayers?.first as? CAGradientLayer {
-                firstLayer.removeFromSuperlayer()  // 기존 레이어 제거
-            }
-            addButtonView.layer.insertSublayer(buttonLayer, at: 0)
-        }
+        guard let group else { return }
+        titleLabel.text = group.title
+        let colors = [group.startColor, group.endColor]
+        
+        let progressLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 5.0), colors: colors)
+        progress.progressImage = progressLayer.createGradientImage()
+        
+        let buttonLayer = Utils.getVerticalLayer(frame: CGRect(x: 0, y: 0, width: 70, height: 70), colors: colors)
+        addButtonView.layer.sublayers?.first?.removeFromSuperlayer()
+        addButtonView.layer.insertSublayer(buttonLayer, at: 0)
     }
     
     func configureHeroID() {
-        let id = group?.groupId ?? 0
+        guard let group else { return }
+        let id = group.groupId
         view.hero.id = AppHeroId.viewGroup.getId(id: id)
         titleLabel.hero.id = AppHeroId.title.getId(id: id)
         progress.hero.id = AppHeroId.progress.getId(id: id)
@@ -105,44 +108,68 @@ class GroupDetailViewController: UIViewController {
     }
     
     func updateProgress() {
-        
-        var percent: Float = 0.0
-        
         let completeTodos = todos.filter { $0.isComplete }
+        let percent = todos.isEmpty ? 0.0 : Float(completeTodos.count) / Float(todos.count)
         
-        if completeTodos.count > 0 {
-            percent = Float(completeTodos.count) / Float(todos.count)
-            percentLabel.text = "\(Int(percent * 100)) %"
-        } else {
-            percent = 0.0
-            percentLabel.text = "0 %"
-        }
+        percentLabel.text = "\(Int(percent * 100)) %"
         
         DispatchQueue.main.async {
             self.progress.setProgress(percent, animated: true)
         }
     }
-    
-    func fetchTodos() {
-        guard let group else { return }
-        todos = todoStorage?.getTodos(groupId: group.groupId) ?? []
+        
+    // MARK: - Navigation
+    func moveToWriteTodo() {
+        guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "WriteTodoViewController") as? WriteTodoViewController else { return }
+        
+        viewController.todoStorage = groupDetailService?.todoStorage
+        viewController.group = group
+        viewController.groups = groupDetailService?.groupStorage.getGroups() ?? []
+        viewController.delegate = self
+        
+        navigationController?.hero.isEnabled = true
+        navigationController?.hero.navigationAnimationType = .cover(direction: .up)
+        
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     
     func moveEditGroup() {
-        guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "WriteGroupViewController") as? WriteGroupViewController else { return }        
-//        viewController.delegate = self
-//        viewController.groupStorage = groupStorage
-//        viewController.group = group
-//        
-//        let groupId = group?.groupId ?? 0
-//        viewController.view.hero.id = AppHeroId.viewGroup.getId(id: groupId)
-//        
-//        navigationController?.hero.isEnabled = true
-//        navigationController?.hero.modalAnimationType = .cover(direction: .up)
-//        
-//        DispatchQueue.main.async {
-//            self.navigationController?.pushViewController(viewController, animated: true)
-//        }
+        guard let groupStorage = groupDetailService?.groupStorage else { return }
+        let service = WriteGroupService(groupStorage: groupStorage)
+        
+        guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "WriteGroupViewController") as? WriteGroupViewController else { return }
+        
+        viewController.inject(service: service)
+        viewController.delegate = self
+        viewController.group = group
+        
+        let groupId = group?.groupId ?? 0
+        viewController.view.hero.id = AppHeroId.viewGroup.getId(id: groupId)
+        
+        navigationController?.hero.isEnabled = true
+        navigationController?.hero.navigationAnimationType = .none
+        
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    private func moveToEditTodo(todo: Todo) {
+        guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "WriteTodoViewController") as? WriteTodoViewController else { return }
+        
+        viewController.todo = todo
+        viewController.group = group
+        viewController.groups = groupDetailService?.groupStorage.getGroups() ?? []
+        viewController.delegate = self
+        
+        navigationController?.hero.isEnabled = true
+        navigationController?.hero.navigationAnimationType = .cover(direction: .up)
+        
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
 
@@ -168,25 +195,13 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
         
         let todo = todos[indexPath.row]
         let isComplete = !todo.isComplete
-        todoStorage?.updateComplete(with: todo, isComplete: isComplete, completion: { [weak self] isSuccess in
-            guard let self else { return }
+        
+        groupDetailService?.updateTodoCompletion(todo: todo, isComplete: isComplete) { [weak self] isSuccess in
+            guard let self = self else { return }
             if isSuccess {
-                self.updateNotification(with: todo, isComplete: isComplete)
-                self.fetchTodos()
-                self.tableView.reloadRows(at: [indexPath], with: .none)
-                self.updateProgress()
+                self.fetchTodosAndUpdateUI()
             } else {
-                // TODO: - 오류 메시지
-            }
-        })
-    }
-    
-    func updateNotification(with todo: Todo, isComplete: Bool) {
-        if isComplete {
-            NotificationManager.shared.remove(id: todo.todoId)
-        } else {
-            if todo.isDateNoti || todo.isLocationNoti {
-                NotificationManager.shared.update(with: todo)
+                // TODO: - 오류 메시지 처리
             }
         }
     }
@@ -197,27 +212,10 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
         return UISwipeActionsConfiguration(actions: [deleteTodo, editTodo])
     }
     
-    func editTodoAction(at indexPath: IndexPath) -> UIContextualAction {
+    private func editTodoAction(at indexPath: IndexPath) -> UIContextualAction {
         let todo = todos[indexPath.row]
-        let action = UIContextualAction(style: .destructive, title: "") { [weak self] _, _, completion in
-            guard let self,
-                  let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "WriteTodoViewController") as? WriteTodoViewController else {
-                completion(false)
-                return
-            }
-            
-            viewController.todoStorage = self.todoStorage
-            viewController.todo = todo
-            viewController.group = self.group
-            viewController.groups = self.groupStorage?.getGroups() ?? []
-            viewController.delegate = self
-            
-            navigationController?.hero.isEnabled = true
-            navigationController?.hero.navigationAnimationType = .cover(direction: .up)
-            
-            DispatchQueue.main.async {
-                self.navigationController?.pushViewController(viewController, animated: true)
-            }
+        let action = UIContextualAction(style: .normal, title: "") { [weak self] _, _, completion in
+            self?.moveToEditTodo(todo: todo)
             completion(true)
         }
         action.image = Asset.Assets.editWhite.image
@@ -226,27 +224,17 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
         return action
     }
     
-    func deleteTodoAction(at indexPath: IndexPath) -> UIContextualAction {
+    private func deleteTodoAction(at indexPath: IndexPath) -> UIContextualAction {
+        let todo = todos[indexPath.row]
         let action = UIContextualAction(style: .destructive, title: "") { [weak self] _, _, completion in
-            guard let self,
-                  indexPath.row < self.todos.count else {
-                completion(false)
-                return
-            }
-            let todo = todos[indexPath.row]
-            let todoId: Int = todo.todoId
-            self.todoStorage?.deleteTodo(with: todo, completion: { [weak self] isSuccess in
+            self?.groupDetailService?.deleteTodo(todo: todo) { isSuccess in
                 if isSuccess {
-                    NotificationManager.shared.remove(id: todoId)
-                    self?.fetchTodos()
-                    self?.tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-                    self?.updateProgress()
+                    self?.fetchTodosAndUpdateUI()
                     completion(true)
                 } else {
-                    // TODO: 오류 메시지
                     completion(false)
                 }
-            })
+            }
         }
         action.image = Asset.Assets.deleteWhite.image
         action.backgroundColor = Asset.Color.red.color
@@ -257,30 +245,22 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
 
 // MARK: - WriteGroupViewControllerDelegate
 extension GroupDetailViewController: WriteGroupViewControllerDelegate {
-    func completeWriteGroup(group: Group) {
-        
-    }
+    func completeWriteGroup(group: Group) { /* Handle group write completion */ }
     
     func completeEditGroup(group: Group) {
-        navigationController?.hero.isEnabled = true
-        navigationController?.hero.navigationAnimationType = .none
-        navigationController?.popToViewController(self, animated: true)
-        
         self.group = group
-        self.titleLabel.text = group.title
-        self.updateGroupColor()
-        self.writeGroupDelegate?.completeEditGroup(group: group)
+        titleLabel.text = group.title
+        updateGroupColor()
+        writeGroupDelegate?.completeEditGroup(group: group)
     }
     
     func deleteGroup(groupId: Int) {
-        self.writeGroupDelegate?.deleteGroup(groupId: groupId)
+        writeGroupDelegate?.deleteGroup(groupId: groupId)
     }
 }
 
 extension GroupDetailViewController: WriteTodoViewControllerDelegate {
     func completeWriteTodo(todo: Todo) {
-        self.fetchTodos()
-        self.tableView.reloadData()
-        self.updateProgress()
+        fetchTodosAndUpdateUI()
     }
 }
