@@ -169,6 +169,9 @@ class WriteTodoViewController: BaseViewController {
     }
     
     private func configureUIWithData() {
+        let tapSearchLocation = UITapGestureRecognizer(target: self, action: #selector(tappedLocationSearch))
+        locationSearchView.addGestureRecognizer(tapSearchLocation)
+
         titleLabel.text = todo == nil ? L10n.Todo.Write.title : L10n.Todo.Edit.title
         completeButtonLabel.text = todo == nil ? L10n.Button.add : L10n.Button.edit
         
