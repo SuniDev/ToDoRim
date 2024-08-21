@@ -29,7 +29,7 @@ class BaseViewController: UIViewController {
     func configureHeroID() { }
     
     func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { 
             updates()
         }
     }

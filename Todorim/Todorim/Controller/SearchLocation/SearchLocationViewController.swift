@@ -105,27 +105,30 @@ extension SearchLocationViewController: CLLocationManagerDelegate {
 // MARK: - UISearchBarDelegate
 extension SearchLocationViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        // 높이를 먼저 줄이도록 애니메이션 설정
-        self.view.layoutIfNeeded() // 현재 상태를 먼저 렌더링
-
-        // alpha와 constant를 동시에 애니메이션
-        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
-            self.topViewHeight.constant = 0.0
-            self.view.layoutIfNeeded() // 변경된 레이아웃을 즉시 반영
-        }, completion: nil)
+        performUIUpdatesOnMain {
+            // 높이를 먼저 줄이도록 애니메이션 설정
+            self.view.layoutIfNeeded() // 현재 상태를 먼저 렌더링
+            
+            // alpha와 constant를 동시에 애니메이션
+            UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
+                self.topViewHeight.constant = 0.0
+                self.view.layoutIfNeeded() // 변경된 레이아웃을 즉시 반영
+            }, completion: nil)
+        }
         
         return true
     }
 
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
-        self.view.layoutIfNeeded() // 현재 상태를 먼저 렌더링
-
-        // alpha와 constant를 동시에 애니메이션
-        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
-            self.topViewHeight.constant = 70.0
-            self.view.layoutIfNeeded() // 변경된 레이아웃을 즉시 반영
-        }, completion: nil)
-        
+        performUIUpdatesOnMain {
+            self.view.layoutIfNeeded() // 현재 상태를 먼저 렌더링
+            
+            // alpha와 constant를 동시에 애니메이션
+            UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
+                self.topViewHeight.constant = 70.0
+                self.view.layoutIfNeeded() // 변경된 레이아웃을 즉시 반영
+            }, completion: nil)
+        }
         return true
     }
 }

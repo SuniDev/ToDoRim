@@ -20,6 +20,7 @@ class WriteTodoService {
         self.todoStorage = todoStorage
         self.notificationManager = notificationManager
     }
+    
     // Todo 데이터 초기 설정
     func initializeTodoData(todo: Todo?, group: Group?, groups: [Group]) -> Todo {
         let writeTodo = Todo()

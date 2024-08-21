@@ -13,8 +13,6 @@ class Group: Object {
     @objc dynamic var groupId: Int = 0          // 그룹 번호
     @objc dynamic var order: Int = 0            // 그룹 순서
     @objc dynamic var title: String = ""  // 그룹 이름
-    var countTodo: Int = 0          // 할일 개수
-    var countCompleteTodo: Int = 0  // 할일 완료 개수
     
     @objc private dynamic var startColorHax: String = ""
     var startColor: UIColor {

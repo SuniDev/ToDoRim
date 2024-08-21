@@ -133,8 +133,8 @@ class WriteTodoViewController: BaseViewController {
         configurePickers()
         configureTextFields()
         
-        configureUIWithData()
         configureUIWithColor()
+        configureUIWithData()
     }
     
     private func configurePickers() {
@@ -172,12 +172,12 @@ class WriteTodoViewController: BaseViewController {
         titleLabel.text = todo == nil ? L10n.Todo.Write.title : L10n.Todo.Edit.title
         completeButtonLabel.text = todo == nil ? L10n.Button.add : L10n.Button.edit
         
-        DispatchQueue.main.async {
+        performUIUpdatesOnMain {
             self.titleTextField.text = self.writeTodo.title
-        }
 
-        if let groupIndex = groups.firstIndex(where: { $0.groupId == writeTodo.groupId }) {
-            groupPickerView.selectRow(groupIndex, inComponent: 0, animated: false)
+            if let groupIndex = self.groups.firstIndex(where: { $0.groupId == self.writeTodo.groupId }) {
+                self.groupPickerView.selectRow(groupIndex, inComponent: 0, animated: false)
+            }
         }
 
         configureDateNotiUI()
@@ -189,7 +189,8 @@ class WriteTodoViewController: BaseViewController {
         
         performUIUpdatesOnMain {
             // Configure Time
-            if let date = self.writeTodo.date {
+            let writeTodo = self.writeTodo
+            if let date = writeTodo.date {
                 let timeFormatter = DateFormatter()
                 timeFormatter.locale = Locale(identifier: "ko_KR")
                 timeFormatter.timeStyle = .short
@@ -202,23 +203,23 @@ class WriteTodoViewController: BaseViewController {
             }
             
             // Configure RepeatType
-            switch self.writeTodo.repeatNotiType {
+            switch writeTodo.repeatNotiType {
             case .none:
                 self.dateTabButton.tappedButton(sender: self.dateNotiNoneButton)
             case .daily:
                 self.dateTabButton.tappedButton(sender: self.dateNotiDailyButton)
             case .weekly:
                 self.dateTabButton.tappedButton(sender: self.dateNotiWeeklyButton)
-                self.weekTextField.text = self.weekPicker?.array[self.writeTodo.weekType.weekday - 1].title
+                self.weekTextField.text = self.weekPicker?.array[writeTodo.weekType.weekday - 1].title
             case .monthly:
                 self.dateTabButton.tappedButton(sender: self.dateNotiMonthlyButton)
-                self.dayTextField.text = self.dayPicker?.array[self.writeTodo.day - 1]
+                self.dayTextField.text = self.dayPicker?.array[writeTodo.day - 1]
             }
             
             // Configure Date Select View
             self.view.layoutIfNeeded()
-            self.dateSelectView.isHidden = !self.writeTodo.isDateNoti
-            self.dateNotiViewHeight.constant = self.writeTodo.isDateNoti ? 210 : 0
+            self.dateSelectView.isHidden = !writeTodo.isDateNoti
+            self.dateNotiViewHeight.constant = writeTodo.isDateNoti ? 210 : 0
             UIView.animate(withDuration: 0.2, animations: {
                 self.view.layoutIfNeeded()
             })
@@ -226,33 +227,39 @@ class WriteTodoViewController: BaseViewController {
     }
     
     private func configureLocationNotiUI() {
-        locationNameLabel.text = writeTodo.locationName.isEmpty || writeTodo.locationNotiType == .none
+        performUIUpdatesOnMain {
+            let writeTodo = self.writeTodo
+            self.locationNameLabel.text = writeTodo.locationName.isEmpty || writeTodo.locationNotiType == .none
             ? L10n.Todo.SelectLocation.title
             : "\(writeTodo.locationName) \(writeTodo.locationNotiType.title)"
-        
-        locationNameLabel.textColor = writeTodo.locationName.isEmpty ? .lightGray : Asset.Color.default.color
-        locationNotiSwitch.isOn = writeTodo.isLocationNoti
-        
-        locationSearchView.isHidden = !writeTodo.isLocationNoti
-        locationSelectViewHeight.constant = writeTodo.isLocationNoti ? 170 : 0
-        
-        UIView.animate(withDuration: 0.2, animations: {
-            self.view.layoutIfNeeded()
-        })
+            
+            self.locationNameLabel.textColor = writeTodo.locationName.isEmpty ? .lightGray : Asset.Color.default.color
+            self.locationNotiSwitch.isOn = writeTodo.isLocationNoti
+            
+            self.locationSearchView.isHidden = !writeTodo.isLocationNoti
+            self.locationSelectViewHeight.constant = writeTodo.isLocationNoti ? 170 : 0
+            
+            UIView.animate(withDuration: 0.2, animations: {
+                self.view.layoutIfNeeded()
+            })
+        }
     }
     
     private func configureUIWithColor() {
-        completeButtonView.layer.cornerRadius = 15
-        completeButtonView.layer.masksToBounds = true
+        performUIUpdatesOnMain {
+            self.completeButtonView.layer.cornerRadius = 15
+            self.completeButtonView.layer.masksToBounds = true
+            
+            let colors = GroupColor.getColors(index: self.group?.appColorIndex ?? 0)
+            let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 70), colors: colors)
+            self.completeButtonView.layer.addSublayer(gradientLayer)
+            
+            self.dateNotiSwitch.onTintColor = colors[1]
+            self.locationNotiSwitch.onTintColor = colors[1]
+            
+            self.dateTabButton.initButton(type: .dateRepeat, color: colors[1], buttons: [self.dateNotiNoneButton, self.dateNotiDailyButton, self.dateNotiWeeklyButton, self.dateNotiMonthlyButton])
+        }
         
-        let colors = GroupColor.getColors(index: group?.appColorIndex ?? 0)
-        let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 70), colors: colors)
-        completeButtonView.layer.addSublayer(gradientLayer)
-        
-        dateNotiSwitch.onTintColor = colors[1]
-        locationNotiSwitch.onTintColor = colors[1]
-        
-        dateTabButton.initButton(type: .dateRepeat, color: colors[1], buttons: [dateNotiNoneButton, dateNotiDailyButton, dateNotiWeeklyButton, dateNotiMonthlyButton])
     }
     
     private func createKeyboardEvent() {
@@ -276,15 +283,19 @@ class WriteTodoViewController: BaseViewController {
         if let keyboardFrame = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
             let keyboardHeight = keyboardFrame.height
             
-            scrollViewBottomMargin.constant = keyboardHeight
-            view.layoutIfNeeded()
+            performUIUpdatesOnMain {
+                self.scrollViewBottomMargin.constant = keyboardHeight
+                self.view.layoutIfNeeded()
+            }
         }
     }
     
     @objc
     func keyboardWillHide(_ sender: Notification) {
-        scrollViewBottomMargin.constant = 50
-        view.layoutIfNeeded()
+        performUIUpdatesOnMain {
+            self.scrollViewBottomMargin.constant = 50
+            self.view.layoutIfNeeded()
+        }
     }
     
     @objc
@@ -293,7 +304,7 @@ class WriteTodoViewController: BaseViewController {
         
         viewController.delegate = self
         navigationController?.hero.isEnabled = false
-        DispatchQueue.main.async {
+        performUIUpdatesOnMain {
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }

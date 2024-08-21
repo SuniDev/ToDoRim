@@ -32,11 +32,7 @@ class GroupDetailViewController: BaseViewController {
     
     // MARK: - Action
     @IBAction private func tappedCloseButton(_ sender: UIButton) {
-        navigationController?.hero.isEnabled = true
-        navigationController?.hero.navigationAnimationType = .none
-        performUIUpdatesOnMain {
-            self.navigationController?.popViewController(animated: true)
-        }
+        pop()
     }
     
     @IBAction private func tappedEditGroupButton(_ sender: UIButton) {
@@ -124,6 +120,14 @@ class GroupDetailViewController: BaseViewController {
 
 // MARK: - Navigation
 extension GroupDetailViewController {
+    private func pop() {
+        navigationController?.hero.isEnabled = true
+        navigationController?.hero.navigationAnimationType = .none
+        performUIUpdatesOnMain {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     private func moveToWriteTodo() {
         guard let groupStorage = groupDetailService?.groupStorage, let todoStoreage = groupDetailService?.todoStorage else { return }
         let service = WriteTodoService(groupStoreage: groupStorage, todoStorage: todoStoreage)

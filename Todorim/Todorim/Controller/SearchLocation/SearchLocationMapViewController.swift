@@ -82,11 +82,13 @@ class SearchLocationMapViewController: BaseViewController {
         radiusTextField?.delegate = self
         locationManager.delegate = self
         
-        completeButton.layer.cornerRadius = 15
-        completeButton.layer.masksToBounds = true
-        
         tabButton.initButton(type: .locationType, color: Asset.Color.default.color, buttons: [entryButton, exitButton])
-        tabButton.selectButton(sender: entryButton)
+        
+        performUIUpdatesOnMain {
+            self.completeButton.layer.cornerRadius = 15
+            self.completeButton.layer.masksToBounds = true
+            self.tabButton.selectButton(sender: self.entryButton)
+        }
         
         let radius = 100.0
         let clampedRadius = min(radius, locationManager.maximumRegionMonitoringDistance)

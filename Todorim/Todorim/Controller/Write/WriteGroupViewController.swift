@@ -51,9 +51,7 @@ class WriteGroupViewController: BaseViewController {
     }
     
     @IBAction private func tappedCloseButton(_ sender: UIButton) {
-        self.navigationController?.hero.isEnabled = true
-        self.navigationController?.hero.navigationAnimationType = .none
-        self.navigationController?.popViewController(animated: true)
+        pop()
     }
     
     @IBAction private func tappedAddButton(_ sender: UIButton) {
@@ -62,8 +60,10 @@ class WriteGroupViewController: BaseViewController {
             writeGroup.appColorIndex = selectedColorIndex
             
             writeGroupService?.addGroup(writeGroup) { [weak self] isSuccess in
+                guard let self else { return }
                 if isSuccess {
-                    self?.delegate?.completeWriteGroup(group: self?.writeGroup ?? Group())
+                    self.delegate?.completeWriteGroup(group: self.writeGroup)
+                    self.pop()
                 } else {
                     // TODO: - 오류 메시지 처리
                 }
@@ -79,8 +79,10 @@ class WriteGroupViewController: BaseViewController {
             writeGroup.appColorIndex = selectedColorIndex
             
             writeGroupService?.updateGroup(group, with: writeGroup) { [weak self] isSuccess, updatedGroup in
+                guard let self else { return }
                 if isSuccess {
-                    self?.delegate?.completeEditGroup(group: updatedGroup)
+                    self.delegate?.completeEditGroup(group: updatedGroup)
+                    self.pop()
                 } else {
                     // TODO: 오류 메시지 처리
                 }
@@ -98,9 +100,10 @@ class WriteGroupViewController: BaseViewController {
         )
         let deleteAction = UIAlertAction(title: L10n.Alert.Button.delete, style: .destructive) { [weak self] _ in
             guard let self, let group else { return }
+            let id: Int = group.groupId
             self.writeGroupService?.deleteGroup(group) { [weak self] isSuccess in
                 if isSuccess {
-                    self?.delegate?.deleteGroup(groupId: group.groupId)
+                    self?.delegate?.deleteGroup(groupId: id)
                 } else {
                     // TODO: 오류 메시지 처리
                 }
@@ -110,7 +113,10 @@ class WriteGroupViewController: BaseViewController {
         
         alert.addAction(cancelAction)
         alert.addAction(deleteAction)
-        self.present(alert, animated: true, completion: nil)
+        
+        performUIUpdatesOnMain {
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     override func viewDidLoad() {
@@ -126,15 +132,7 @@ class WriteGroupViewController: BaseViewController {
     }
     
     override func fetchData() {
-        if let group {
-            writeGroup = group
-        } else {
-            writeGroup.groupId = writeGroupService?.groupStorage.getNextId() ?? 0
-            writeGroup.order = writeGroupService?.groupStorage.getNextOrder() ?? 0
-            writeGroup.startColor = GroupColor.getStart(index: 0)
-            writeGroup.endColor = GroupColor.getEnd(index: 0)
-            writeGroup.appColorIndex = 0
-        }
+        writeGroup = writeGroupService?.initializeGroupData(group: group) ?? Group()
     }
     
     // MARK: - UI 설정
@@ -147,20 +145,23 @@ class WriteGroupViewController: BaseViewController {
     }
     
     private func configureWithData() {
-        if group != nil {
-            addButtonView.isHidden = true
-            editButtonView.isHidden = false
-            titleLabel.text = L10n.Group.Edit.title
+        performUIUpdatesOnMain {
+            let writeGroup = self.writeGroup
+            if self.group != nil {
+                self.addButtonView.isHidden = true
+                self.editButtonView.isHidden = false
+                self.titleLabel.text = L10n.Group.Edit.title
+                
+                self.textfield.text = writeGroup.title
+                self.selectedColorIndex = writeGroup.appColorIndex
+            } else {
+                self.addButtonView.isHidden = false
+                self.editButtonView.isHidden = true
+                self.titleLabel.text = L10n.Group.Write.title
+            }
             
-            textfield.text = writeGroup.title
-            selectedColorIndex = writeGroup.appColorIndex
-        } else {
-            addButtonView.isHidden = false
-            editButtonView.isHidden = true
-            titleLabel.text = L10n.Group.Write.title
+            self.textfield.text = writeGroup.title
         }
-        
-        textfield.text = writeGroup.title
     }
     
     private func configureCollectionView() {
@@ -168,25 +169,27 @@ class WriteGroupViewController: BaseViewController {
     }
     
     private func updateButtonColor() {
-        let colors = GroupColor.getColors(index: selectedColorIndex)
-        if group != nil {
-            deleteButton.layer.cornerRadius = 15
-            deleteButton.layer.masksToBounds = true
-            editButton.layer.cornerRadius = 15
-            editButton.layer.masksToBounds = true
-            let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: (UIScreen.main.bounds.width - 32) / 2, height: 70), colors: colors)
-            if let firstLayer = editButton.layer.sublayers?.first as? CAGradientLayer {
-                firstLayer.removeFromSuperlayer()  // 기존 레이어 제거
+        performUIUpdatesOnMain {
+            let colors = GroupColor.getColors(index: self.selectedColorIndex)
+            if self.group != nil {
+                self.deleteButton.layer.cornerRadius = 15
+                self.deleteButton.layer.masksToBounds = true
+                self.editButton.layer.cornerRadius = 15
+                self.editButton.layer.masksToBounds = true
+                let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: (UIScreen.main.bounds.width - 32) / 2, height: 70), colors: colors)
+                if let firstLayer = self.editButton.layer.sublayers?.first as? CAGradientLayer {
+                    firstLayer.removeFromSuperlayer()  // 기존 레이어 제거
+                }
+                self.editButton.layer.insertSublayer(gradientLayer, at: 0)
+            } else {
+                self.addButton.layer.cornerRadius = 15
+                self.addButton.layer.masksToBounds = true
+                let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 70), colors: colors)
+                if let firstLayer = self.addButton.layer.sublayers?.first as? CAGradientLayer {
+                    firstLayer.removeFromSuperlayer()  // 기존 레이어 제거
+                }
+                self.addButton.layer.insertSublayer(gradientLayer, at: 0)
             }
-            editButton.layer.insertSublayer(gradientLayer, at: 0)
-        } else {
-            addButton.layer.cornerRadius = 15
-            addButton.layer.masksToBounds = true
-            let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 70), colors: colors)
-            if let firstLayer = addButton.layer.sublayers?.first as? CAGradientLayer {
-                firstLayer.removeFromSuperlayer()  // 기존 레이어 제거
-            }
-            addButton.layer.insertSublayer(gradientLayer, at: 0)
         }
     }
     
@@ -207,7 +210,10 @@ class WriteGroupViewController: BaseViewController {
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: L10n.Alert.Button.done, style: .default)
         alert.addAction(defaultAction)
-        self.present(alert, animated: true, completion: nil)
+        
+        performUIUpdatesOnMain {
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func isValidData() -> Bool {
@@ -215,6 +221,16 @@ class WriteGroupViewController: BaseViewController {
             return true
         } else {
             return false
+        }
+    }
+    
+    // MARK: - Navigation
+    private func pop() {
+        navigationController?.hero.isEnabled = true
+        self.navigationController?.hero.navigationAnimationType = .none
+        
+        performUIUpdatesOnMain {
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }

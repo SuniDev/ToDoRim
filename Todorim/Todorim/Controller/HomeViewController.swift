@@ -226,14 +226,16 @@ extension HomeViewController: WriteGroupViewControllerDelegate {
     func deleteGroup(groupId: Int) {
         popToSelf()
         
-        homeService?.deleteGroup(groupId: groupId, completion: { [weak self] isSuccess in
-            guard let self = self else { return }
-            if isSuccess {
-                self.reloadView()
-            } else {
-                // TODO: 오류 메시지
-            }
-        })
+        performUIUpdatesOnMain {
+            self.homeService?.deleteGroup(groupId: groupId, completion: { [weak self] isSuccess in
+                guard let self = self else { return }
+                if isSuccess {
+                    self.reloadView()
+                } else {
+                    // TODO: 오류 메시지
+                }
+            })
+        }
     }
     
     func completeEditGroup(group: Group) {
@@ -241,7 +243,6 @@ extension HomeViewController: WriteGroupViewControllerDelegate {
     }
     
     func completeWriteGroup(group: Group) {
-        popToSelf()
         reloadView()
     }
 }
