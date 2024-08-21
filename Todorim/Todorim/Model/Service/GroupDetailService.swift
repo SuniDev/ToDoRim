@@ -38,9 +38,10 @@ class GroupDetailService {
     }
     
     func deleteTodo(todo: Todo, completion: @escaping (Bool) -> Void) {
+        let id: Int = todo.todoId
         todoStorage.deleteTodo(with: todo) { isSuccess in
             if isSuccess {
-                self.notificationManager.remove(id: todo.todoId)
+                self.notificationManager.remove(id: id)
             }
             completion(isSuccess)
         }
