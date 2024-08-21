@@ -180,6 +180,13 @@ class WriteTodoViewController: BaseViewController {
             }
         }
 
+        configureNotiUI()
+    }
+    
+    private func configureNotiUI() {
+        dateNotiSwitch.isOn = writeTodo.isDateNoti
+        locationNotiSwitch.isOn = writeTodo.isLocationNoti
+        
         configureDateNotiUI()
         configureLocationNotiUI()
     }
@@ -205,15 +212,27 @@ class WriteTodoViewController: BaseViewController {
             // Configure RepeatType
             switch writeTodo.repeatNotiType {
             case .none:
+                let dateFormatter = DateFormatter()
+                dateFormatter.locale = Locale(identifier: "ko_KR")
+                dateFormatter.dateFormat = "yy년 M월 d일 (EEEE)"
                 self.dateTabButton.tappedButton(sender: self.dateNotiNoneButton)
+                if let date = writeTodo.date {
+                    self.dateTextField.text = dateFormatter.string(from: date)
+                    self.datePicker?.selectedDate = date
+                } else {
+                    self.dateTextField.text = dateFormatter.string(from: Date())
+                    self.datePicker?.selectedDate = Date()
+                }
             case .daily:
                 self.dateTabButton.tappedButton(sender: self.dateNotiDailyButton)
             case .weekly:
                 self.dateTabButton.tappedButton(sender: self.dateNotiWeeklyButton)
                 self.weekTextField.text = self.weekPicker?.array[writeTodo.weekType.weekday - 1].title
+                self.weekPicker?.selectedWeek = writeTodo.weekType
             case .monthly:
                 self.dateTabButton.tappedButton(sender: self.dateNotiMonthlyButton)
                 self.dayTextField.text = self.dayPicker?.array[writeTodo.day - 1]
+                self.dayPicker?.selectedDay = writeTodo.day
             }
             
             // Configure Date Select View
@@ -486,10 +505,12 @@ extension WriteTodoViewController {
         var dateComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
         switch writeTodo.repeatNotiType {
         case .none:
-            let noneDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: date)
-            dateComponents.year = noneDateComponents.year
-            dateComponents.month = noneDateComponents.month
-            dateComponents.day = noneDateComponents.day
+            if let noneDate = datePicker?.selectedDate {
+                let noneDateComponents = Calendar.current.dateComponents([.year, .month, .day], from: noneDate)
+                dateComponents.year = noneDateComponents.year
+                dateComponents.month = noneDateComponents.month
+                dateComponents.day = noneDateComponents.day
+            }
         case .weekly:
             writeTodo.weekType = weekPicker?.selectedWeek ?? .none
         case .monthly:
