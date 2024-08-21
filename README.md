@@ -12,7 +12,7 @@
   📆<br>
   개발 : 2019. 08 - 2019. 10<br>
   운영 : 2019. 11 - 2020. 02<br>
-  리팩토링 : 2024. 08. 10 - 진행중 -<br><br>
+  리팩토링 : 2024. 08. 10 - 2024. 08 23 -<br><br>
   
   ### [📱App Store 다운로드 바로가기](https://apps.apple.com/kr/app/todorim-할일관리-미리알림/id1483006749)
 
@@ -31,10 +31,10 @@
 ### 개발환경
 iOS, Xcode
 ### 언어 및 프레임워크
-Swift5, UIKit, MapKit, CoreLocation, UserNotifications
+Swift5, UIKit, MapKit, CoreLocation
 ### 아키텍처 및 디자인 패턴
 MVC
-### 라이브러리
+### 라이브러리 (SPM)
 Hero, FAPaginationLayout, RealmSwift 등
 
 <br>
