@@ -30,12 +30,28 @@ internal enum L10n {
       internal static let delete = L10n.tr("Localizable", "alert. button. delete", fallback: "삭제")
       /// 확인
       internal static let done = L10n.tr("Localizable", "alert. button. done", fallback: "확인")
+      /// 나중에
+      internal static let later = L10n.tr("Localizable", "alert. button. later", fallback: "나중에")
+      /// 업데이트
+      internal static let update = L10n.tr("Localizable", "alert. button. update", fallback: "업데이트")
     }
     internal enum DeleteGroup {
       /// 그룹내 할일이 모두 삭제됩니다.
       internal static let message = L10n.tr("Localizable", "alert. delete_group. message", fallback: "그룹내 할일이 모두 삭제됩니다.")
       /// 그룹을 삭제하시겠습니까?
       internal static let title = L10n.tr("Localizable", "alert. delete_group. title", fallback: "그룹을 삭제하시겠습니까?")
+    }
+    internal enum ForceUpdate {
+      /// ToDoRim을 계속 사용하려면 새로운 버전으로 업데이트해야 해요. 지금 바로 업데이트해 주세요!
+      internal static let message = L10n.tr("Localizable", "alert. force_update. message", fallback: "ToDoRim을 계속 사용하려면 새로운 버전으로 업데이트해야 해요. 지금 바로 업데이트해 주세요!")
+      /// 업데이트가 필요합니다.
+      internal static let title = L10n.tr("Localizable", "alert. force_update. title", fallback: "업데이트가 필요합니다.")
+    }
+    internal enum LatestUpdate {
+      /// ToDoRim의 새로운 기능과 개선된 성능을 경험할 수 있어요. 앱을 지금 최신 버전으로 업데이트해 보세요!
+      internal static let message = L10n.tr("Localizable", "alert. latest_update. message", fallback: "ToDoRim의 새로운 기능과 개선된 성능을 경험할 수 있어요. 앱을 지금 최신 버전으로 업데이트해 보세요!")
+      /// 새로운 버전 업데이트가 있어요
+      internal static let title = L10n.tr("Localizable", "alert. latest_update. title", fallback: "새로운 버전 업데이트가 있어요")
     }
     internal enum SearchLocation {
       internal enum RadiusWarning {

@@ -15,13 +15,53 @@ class IntroViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 홈 화면으로 이동
-        moveToHome()
+        checkAppStatus()
     }
     
     // MARK: - 의존성 주입 메서드
     func inject(initService: InitializationService) {
         self.initService = initService
+    }
+    
+    func checkAppStatus() {
+        if Utils.isJailbroken() {
+            showDoneAlert(
+                title: "",
+                message: "",
+                doneTitle: "앱 종료",
+                doneHandler: {
+                    exit(0)
+                })
+        } else {
+            Utils.initConfig()
+            Utils.checkForUpdate { [weak self] appUpdate, _ in
+                guard let self else { return }
+                switch appUpdate {
+                case .forceUpdate:
+                    showDoneAlert(
+                        title: L10n.Alert.ForceUpdate.title,
+                        message: L10n.Alert.ForceUpdate.message,
+                        doneTitle: L10n.Alert.Button.update,
+                        doneHandler: {
+                            Utils.moveAppStore()
+                        })
+                case .latestUpdate:
+                    showDoneAndCancelAlert(
+                        title: L10n.Alert.LatestUpdate.title,
+                        message: L10n.Alert.LatestUpdate.message,
+                        cancelTitle: L10n.Alert.Button.update,
+                        doneTitle: L10n.Alert.Button.later,
+                        cancelHandler: { [weak self] in
+                            self?.moveToHome()
+                            Utils.moveAppStore()
+                        }, doneHandler: { [weak self] in
+                            self?.moveToHome()
+                        })
+                case .none:
+                    moveToHome()
+                }
+            }
+        }
     }
     
     // MARK: - Data 설정
@@ -39,7 +79,46 @@ class IntroViewController: BaseViewController {
         viewController.inject(service: service)
         
         performUIUpdatesOnMain {
-            self.navigationController?.setViewControllers([viewController], animated: true)
+            self.navigationController?.setViewControllers([viewController], animated: false)
+        }
+    }
+    
+    private func showDoneAlert(title: String? = "",
+                               message: String? = "",
+                               doneTitle: String? = L10n.Alert.Button.done,
+                               doneHandler: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let doneAction = UIAlertAction(title: doneTitle, style: .default) { _ in
+            doneHandler?()
+        }
+        alert.addAction(doneAction)
+        
+        performUIUpdatesOnMain {
+            self.present(alert, animated: true)
+        }
+    }
+    
+    private func showDoneAndCancelAlert(title: String? = "",
+                                        message: String? = "",
+                                        cancelTitle: String = L10n.Alert.Button.cancel,
+                                        doneTitle: String = L10n.Alert.Button.done,
+                                        cancelHandler: (() -> Void)? = nil,
+                                        doneHandler: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel) { _ in
+            alert.dismiss(animated: true)
+            cancelHandler?()
+        }
+        let doneAction = UIAlertAction(title: doneTitle, style: .default) { _ in
+            doneHandler?()
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(doneAction)
+        
+        performUIUpdatesOnMain {
+            self.present(alert, animated: true)
         }
     }
 }

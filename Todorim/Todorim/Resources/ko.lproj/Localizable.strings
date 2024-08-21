@@ -39,6 +39,8 @@
 "alert. button. done" = "확인";
 "alert. button. delete" = "삭제";
 "alert. button. cancel" = "취소";
+"alert. button. update" = "업데이트";
+"alert. button. later" = "나중에";
 
 "alert. write_group. empty_name. title" = "그룹 이름을 입력하세요.";
 "alert. delete_group. title" = "그룹을 삭제하시겠습니까?";
@@ -62,3 +64,8 @@
 
 "button. add" = "추가";
 "button. edit" = "수정";
+
+"alert. force_update. title" = "업데이트가 필요합니다.";
+"alert. force_update. message" = "ToDoRim을 계속 사용하려면 새로운 버전으로 업데이트해야 해요. 지금 바로 업데이트해 주세요!";
+"alert. latest_update. title" = "새로운 버전 업데이트가 있어요";
+"alert. latest_update. message" = "ToDoRim의 새로운 기능과 개선된 성능을 경험할 수 있어요. 앱을 지금 최신 버전으로 업데이트해 보세요!";
