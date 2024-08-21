@@ -47,6 +47,10 @@ internal enum L10n {
       /// 업데이트가 필요합니다.
       internal static let title = L10n.tr("Localizable", "alert. force_update. title", fallback: "업데이트가 필요합니다.")
     }
+    internal enum Jalibroken {
+      /// 루팅된 기기에서는 ToDoRim을 이용 하실 수 없습니다.
+      internal static let title = L10n.tr("Localizable", "alert. jalibroken. title", fallback: "루팅된 기기에서는 ToDoRim을 이용 하실 수 없습니다.")
+    }
     internal enum LatestUpdate {
       /// ToDoRim의 새로운 기능과 개선된 성능을 경험할 수 있어요. 앱을 지금 최신 버전으로 업데이트해 보세요!
       internal static let message = L10n.tr("Localizable", "alert. latest_update. message", fallback: "ToDoRim의 새로운 기능과 개선된 성능을 경험할 수 있어요. 앱을 지금 최신 버전으로 업데이트해 보세요!")

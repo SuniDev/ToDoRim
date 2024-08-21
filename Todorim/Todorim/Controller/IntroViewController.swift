@@ -26,9 +26,7 @@ class IntroViewController: BaseViewController {
     func checkAppStatus() {
         if Utils.isJailbroken() {
             showDoneAlert(
-                title: "",
-                message: "",
-                doneTitle: "앱 종료",
+                title: L10n.Alert.Jalibroken.title,
                 doneHandler: {
                     exit(0)
                 })
