@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="GroupCollectionViewCell" reuseIdentifier="GroupCollectionViewCell" id="gTV-IL-0wX" customClass="GroupCollectionViewCell" customModule="Todorim" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="252" height="394"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="252" height="394"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gn7-K5-izB">
+                        <rect key="frame" x="0.0" y="0.0" width="252" height="394"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그룹이름" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="RZ5-Mc-HfO">
+                                <rect key="frame" x="20" y="30" width="104" height="36"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="center" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a6Y-6i-aN2">
+                                <rect key="frame" x="20" y="86" width="169" height="4"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="progressTintColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="trackTintColor" red="0.82745098039999998" green="0.83921568629999999" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvX-3w-3I1">
+                                <rect key="frame" x="197" y="80.666666666666671" width="35" height="14.666666666666671"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="BjB-oG-9fN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Thin" family="Apple SD Gothic Neo" pointSize="12"/>
+                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VRX-21-mVh">
+                                <rect key="frame" x="20" y="100" width="212" height="264"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mvX-3w-3I1" secondAttribute="trailing" constant="20" id="ESd-xu-BUY"/>
+                            <constraint firstItem="a6Y-6i-aN2" firstAttribute="leading" secondItem="gn7-K5-izB" secondAttribute="leading" constant="20" id="H5i-9x-Tzf"/>
+                            <constraint firstItem="VRX-21-mVh" firstAttribute="leading" secondItem="gn7-K5-izB" secondAttribute="leading" constant="20" id="JZf-K8-Hfz"/>
+                            <constraint firstItem="RZ5-Mc-HfO" firstAttribute="top" secondItem="gn7-K5-izB" secondAttribute="top" constant="30" id="Lsz-lW-HBo"/>
+                            <constraint firstItem="mvX-3w-3I1" firstAttribute="centerY" secondItem="a6Y-6i-aN2" secondAttribute="centerY" id="MqO-i7-2pc"/>
+                            <constraint firstItem="mvX-3w-3I1" firstAttribute="leading" secondItem="a6Y-6i-aN2" secondAttribute="trailing" constant="8" id="OA0-PF-eOT"/>
+                            <constraint firstItem="a6Y-6i-aN2" firstAttribute="top" secondItem="RZ5-Mc-HfO" secondAttribute="bottom" constant="20" id="boN-I0-dfL"/>
+                            <constraint firstAttribute="bottom" secondItem="VRX-21-mVh" secondAttribute="bottom" constant="30" id="n61-0c-gg6"/>
+                            <constraint firstItem="RZ5-Mc-HfO" firstAttribute="leading" secondItem="gn7-K5-izB" secondAttribute="leading" constant="20" id="tMI-3M-QgZ"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RZ5-Mc-HfO" secondAttribute="trailing" constant="20" id="wPj-Qi-Hgu"/>
+                            <constraint firstAttribute="trailing" secondItem="VRX-21-mVh" secondAttribute="trailing" constant="20" id="wt4-ty-Fjf"/>
+                            <constraint firstItem="VRX-21-mVh" firstAttribute="top" secondItem="a6Y-6i-aN2" secondAttribute="bottom" constant="10" id="yUx-Jr-avQ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="gn7-K5-izB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="4zv-VX-MUe"/>
+                <constraint firstItem="gn7-K5-izB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="PLp-o2-Kl3"/>
+                <constraint firstAttribute="bottom" secondItem="gn7-K5-izB" secondAttribute="bottom" id="tPB-ZN-zXh"/>
+                <constraint firstAttribute="trailing" secondItem="gn7-K5-izB" secondAttribute="trailing" id="uya-OO-EM8"/>
+            </constraints>
+            <size key="customSize" width="252" height="394"/>
+            <connections>
+                <outlet property="percentLabel" destination="mvX-3w-3I1" id="92a-mZ-YrX"/>
+                <outlet property="progress" destination="a6Y-6i-aN2" id="YvY-SC-hNH"/>
+                <outlet property="tableView" destination="VRX-21-mVh" id="dlP-rn-iDd"/>
+                <outlet property="titleLabel" destination="RZ5-Mc-HfO" id="Awy-RN-fGK"/>
+            </connections>
+            <point key="canvasLocation" x="126.71755725190839" y="141.5492957746479"/>
+        </collectionViewCell>
+    </objects>
+</document>

@@ -1,0 +1,64 @@
+/* 
+  Localizable.strings
+  Todorim
+
+  Created by suni on 8/12/24.
+  
+*/
+
+"location. entry" = "도착할 때";
+"location. exit" = "출발할 때";
+"location. current" = "현재 위치";
+
+"repeat. none" = "반복안함";
+"repeat. daily" = "매일";
+"repeat. weekly" = "매주";
+"repeat. monthly" = "매월";
+
+"week. sunday" = "일요일";
+"week. monday" = "월요일";
+"week. tuesday" = "화요일";
+"week. wednesday" = "수요일";
+"week. thursday" = "목요일";
+"week. friday" = "금요일";
+"week. saturday" = "토요일";
+
+"picker. day. placeholder" = "반복할 일을 선택하세요.";
+"picker. week. placeholder" = "반복할 요일을 선택하세요.";
+
+"location. search. placeholder" = "장소를 검색하세요.";
+
+"alert. auth_location. title" = "위치 서비스를 이용할 수 없습니다.";
+"alert. auth_location. message" = "기기의 '설정 > 개인정보보호' 에서 위치 접근을 허용해 주세요.";
+"alert. auth_noti. title" = "알림 서비스를 이용할 수 없습니다.";
+"alert. auth_noti. message" = "기기의 '설정 > ToDoRim' 에서 알림을 허용해 주세요.";
+
+"alert. search_location. radius_warning. title" = "반경은 최소 100m 이상 입니다.";
+"alert. search_location. text_warning. title" = "잘못된 입력입니다.";
+
+"alert. button. done" = "확인";
+"alert. button. delete" = "삭제";
+"alert. button. cancel" = "취소";
+
+"alert. write_group. empty_name. title" = "그룹 이름을 입력하세요.";
+"alert. delete_group. title" = "그룹을 삭제하시겠습니까?";
+"alert. delete_group. message" = "그룹내 할일이 모두 삭제됩니다.";
+
+"alert. write_todo. empty_name. title" = "할일 이름을 입력하세요.";
+"alert. write_todo. empty_date. title" = "알림 날짜를 선택하세요.";
+"alert. write_todo. empty_week. title" = "알림 요일을 선택하세요.";
+"alert. write_todo. empty_month. title" = "알림 월을 선택하세요.";
+"alert. write_todo. empty_time. title" = "알림 시간을 선택하세요.";
+"alert. write_todo. empty_location. title" = "알림 위치를 선택하세요.";
+
+"group. init. title" = "그룹을 커스텀해보세요!";
+"group. edit. title" = "그룹 수정";
+"group. write. title" = "그룹 추가";
+
+"todo. init. title" = "할일을 추가해보세요";
+"todo. edit. title" = "할일 수정";
+"todo. write. title" = "할일 추가";
+"todo. select_location. title" = "위치 선택";
+
+"button. add" = "추가";
+"button. edit" = "수정";
