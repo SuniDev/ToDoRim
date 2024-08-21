@@ -202,6 +202,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             moveToAddGroup()
         }
     }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let margin = collectionView.contentInset.left + collectionView.contentInset.right
+        currentGroupIndex = Int(round(targetContentOffset.pointee.x / (collectionView.bounds.size.width - margin)))
+        updateBackground()
+    }
 }
 // MARK: - GroupCollectionViewCellDelegate
 extension HomeViewController: GroupCollectionViewCellDelegate {
