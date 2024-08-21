@@ -329,43 +329,6 @@ class WriteTodoViewController: BaseViewController {
     }
 }
 
-//extension WriteTodoViewController {
-//    private func configureRepeatTypeUI(repeatNotiType: RepeatNotificationType) {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.locale = Locale(identifier: "ko_KR")
-//        dateFormatter.dateFormat = "yy년 M월 d일 (EEEE)"
-//        
-//        switch repeatNotiType {
-//        case .none:
-//            dateTabButton.tappedButton(sender: dateNotiNoneButton)
-//            if let date = writeTodo.date {
-//                dateTextField.text = dateFormatter.string(from: date)
-//                datePicker?.selectedDate = date
-//            } else {
-//                dateTextField.text = dateFormatter.string(from: Date())
-//                timePicker?.selectedDate = Date()
-//            }
-//        case .daily:
-//            dateTabButton.tappedButton(sender: dateNotiDailyButton)
-//        case .weekly:
-//            dateTabButton.tappedButton(sender: dateNotiWeeklyButton)
-//            let row = writeTodo.weekType.weekday - 1
-//            weekTextField.text = weekPicker?.array[row].title
-//            weekPicker?.selectedWeek = writeTodo.weekType
-//        case .monthly:
-//            dateTabButton.tappedButton(sender: dateNotiMonthlyButton)
-//            let row = writeTodo.day - 1
-//            dayTextField.text = dayPicker?.array[row]
-//            dayPicker?.selectedDay = writeTodo.day
-//        }
-//    }
-//    
-//    private func resetDateFields() {
-//        dateTabButton.tappedButton(sender: dateNotiNoneButton)
-//        dateTextField.text = ""
-//    }
-//}
-
 // MARK: - Notification 관련 로직
 extension WriteTodoViewController {
     private func handleDateNotificationChange(_ isOn: Bool) {
