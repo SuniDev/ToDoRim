@@ -9,7 +9,7 @@ import UIKit
 
 protocol GroupCollectionViewCellDelegate: AnyObject {
     func completeTodo(with todo: Todo?, isComplete: Bool)
-    func tappedGroup(with group: Group?)
+    func tappedGroup(with group: Group)
 }
 
 class GroupCollectionViewCell: UICollectionViewCell {
@@ -87,6 +87,7 @@ class GroupCollectionViewCell: UICollectionViewCell {
     
     @objc
     func tappedView() {
+        guard let group else { return }
         delegate?.tappedGroup(with: group)
     }
 }
@@ -108,6 +109,7 @@ extension GroupCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let group else { return }
         delegate?.tappedGroup(with: group)
     }
     

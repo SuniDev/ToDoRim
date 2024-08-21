@@ -14,13 +14,14 @@ protocol WriteGroupViewControllerDelegate: AnyObject {
     func deleteGroup(groupId: Int)
 }
 
-class WriteGroupViewController: UIViewController {
+class WriteGroupViewController: BaseViewController {
     
     // MARK: - Dependencies
     private var writeGroupService: WriteGroupService?
     
     // MARK: - Data
     weak var delegate: WriteGroupViewControllerDelegate?
+    
     var group: Group?
     var writeGroup: Group = Group()
     var selectedColorIndex: Int = 0
@@ -114,51 +115,59 @@ class WriteGroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.contentInsetAdjustmentBehavior = .never
         createKeyboardEvent()
-        configureHeroID()
-        configureData()
-        configureCollectionView()
-        collectionView.reloadData()
-        configureButtonColor()
     }
     
-    // MARK: - 데이터 초기화
-    func configureHeroID() {
+    // MARK: - Data 설정
+    override func configureHeroID() {
         if let group {
             editButton.hero.id = AppHeroId.button.getId(id: group.groupId)
         }
     }
     
-    func configureData() {
+    override func fetchData() {
         if let group {
-            addButtonView.isHidden = true
-            editButtonView.isHidden = false
-            titleLabel.text = L10n.Group.Edit.title
-            
             writeGroup = group
-            textfield.text = writeGroup.title
-            selectedColorIndex = writeGroup.appColorIndex
         } else {
-            addButtonView.isHidden = false
-            editButtonView.isHidden = true
-            titleLabel.text = L10n.Group.Write.title
-            
             writeGroup.groupId = writeGroupService?.groupStorage.getNextId() ?? 0
             writeGroup.order = writeGroupService?.groupStorage.getNextOrder() ?? 0
             writeGroup.startColor = GroupColor.getStart(index: 0)
             writeGroup.endColor = GroupColor.getEnd(index: 0)
             writeGroup.appColorIndex = 0
         }
+    }
+    
+    // MARK: - UI 설정
+    override func configureUI() {
+        scrollView.contentInsetAdjustmentBehavior = .never
+        configureWithData()
+        configureCollectionView()
+        collectionView.reloadData()
+        updateButtonColor()
+    }
+    
+    private func configureWithData() {
+        if group != nil {
+            addButtonView.isHidden = true
+            editButtonView.isHidden = false
+            titleLabel.text = L10n.Group.Edit.title
+            
+            textfield.text = writeGroup.title
+            selectedColorIndex = writeGroup.appColorIndex
+        } else {
+            addButtonView.isHidden = false
+            editButtonView.isHidden = true
+            titleLabel.text = L10n.Group.Write.title
+        }
         
         textfield.text = writeGroup.title
     }
     
-    func configureCollectionView() {
+    private func configureCollectionView() {
         collectionView.register(UINib(nibName: "GroupColorCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "GroupColorCollectionViewCell")
     }
     
-    func configureButtonColor() {
+    private func updateButtonColor() {
         let colors = GroupColor.getColors(index: selectedColorIndex)
         if group != nil {
             deleteButton.layer.cornerRadius = 15
@@ -181,6 +190,18 @@ class WriteGroupViewController: UIViewController {
         }
     }
     
+    private func createKeyboardEvent() {
+        // 화면 터치 시 키보드 숨김
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     // MARK: - Helper Methods
     func showAlert(title: String) {
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
@@ -196,20 +217,6 @@ class WriteGroupViewController: UIViewController {
             return false
         }
     }
-    
-    // 키보드 기본 처리
-    func createKeyboardEvent() {
-        // 화면 터치 시 키보드 숨김
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
-    
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
@@ -245,7 +252,7 @@ extension WriteGroupViewController: UICollectionViewDelegate, UICollectionViewDa
         }
         
         selectedColorIndex = indexPath.row
-        configureButtonColor()
+        updateButtonColor()
     }
 }
 

@@ -9,11 +9,11 @@ import UIKit
 
 import Hero
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
     
     // MARK: - Dependencies
     private var homeService: HomeService?
-
+    
     // MARK: - Data
     var groups: [Group] = []
     var todos: [Todo] = []
@@ -27,31 +27,21 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // MARK: - 의존성 주입
     func inject(service: HomeService) {
         self.homeService = service
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureUI()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        fetchGroupAndTodos()
-        collectionView.reloadData()
-        colorChange()
-    }
-    
-    // MARK: - 데이터 가져오기 및 UI 업데이트
-    private func fetchGroupAndTodos() {
+    // MARK: - Data 설정
+    override func fetchData() {
         guard let homeService = homeService else { return }
         groups = homeService.fetchGroups()
         todos = homeService.fetchTodos()
     }
     
-    private func configureUI() {
-        configureDate()
+    // MARK: - UI 설정
+    override func configureUI() {
+        configureDateLabel()
         configureCollectionView()
         
         if let firstGroup = groups.first {
@@ -61,7 +51,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    private func configureDate() {
+    private func configureDateLabel() {
         let now = Date()
         let weekFormatter = DateFormatter()
         weekFormatter.locale = Locale(identifier: "ko_KR")
@@ -69,9 +59,10 @@ class HomeViewController: UIViewController {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "M월 d일"
-        
-        weakLabel.text = weekFormatter.string(from: now)
-        dateLabel.text = dateFormatter.string(from: now)
+        performUIUpdatesOnMain {
+            self.weakLabel.text = weekFormatter.string(from: now)
+            self.dateLabel.text = dateFormatter.string(from: now)
+        }
     }
     
     private func configureCollectionView() {
@@ -83,10 +74,13 @@ class HomeViewController: UIViewController {
     
     private func configureBackground(colors: [UIColor]) {
         gradientLayer = Utils.getVerticalLayer(frame: UIScreen.main.bounds, colors: colors)
-        backgroundView.layer.addSublayer(gradientLayer)
+        
+        performUIUpdatesOnMain {
+            self.backgroundView.layer.addSublayer(self.gradientLayer)
+        }
     }
     
-    private func colorChange() {
+    private func updateBackground() {
         currentColors = []
         
         if currentGroupIndex < groups.count {
@@ -104,10 +98,25 @@ class HomeViewController: UIViewController {
         colorAnimation.delegate = self
         gradientLayer.add(colorAnimation, forKey: "colorChange")
     }
+    
+    private func reloadView() {
+        fetchData()
+        collectionView.reloadData()
+        updateBackground()
+    }
 }
 
 // MARK: - Navigation
 extension HomeViewController {
+    private func popToSelf() {
+        navigationController?.hero.isEnabled = true
+        navigationController?.hero.navigationAnimationType = .none
+        
+        performUIUpdatesOnMain {
+            self.navigationController?.popToViewController(self, animated: true)
+        }
+    }
+    
     private func moveToAddGroup() {
         guard let groupStorage = homeService?.groupStorage else { return }
         let service = WriteGroupService(groupStorage: groupStorage)
@@ -121,7 +130,7 @@ extension HomeViewController {
         navigationController?.hero.isEnabled = true
         navigationController?.hero.navigationAnimationType = .none
         
-        DispatchQueue.main.async {
+        performUIUpdatesOnMain {
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
@@ -140,11 +149,12 @@ extension HomeViewController {
         navigationController?.hero.isEnabled = true
         navigationController?.hero.navigationAnimationType = .none
         
-        DispatchQueue.main.async {
+        performUIUpdatesOnMain {
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
 }
+
 // MARK: - CAAnimationDelegate
 extension HomeViewController: CAAnimationDelegate {
     func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
@@ -152,8 +162,8 @@ extension HomeViewController: CAAnimationDelegate {
     }
 }
 
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return groups.count + 1
     }
@@ -199,17 +209,14 @@ extension HomeViewController: GroupCollectionViewCellDelegate {
         homeService?.completeTodo(todo: todo, isComplete: isComplete, completion: { [weak self] isSuccess in
             guard let self = self else { return }
             if isSuccess {
-                self.fetchGroupAndTodos()
-                self.collectionView.reloadData()
+                self.reloadView()
             } else {
                 // TODO: - 오류 메시지
             }
         })
     } 
     
-    func tappedGroup(with group: Group?) {
-        guard let group else { return }
-        
+    func tappedGroup(with group: Group) {
         moveToGroupDetail(with: group)
     }
 }
@@ -217,14 +224,12 @@ extension HomeViewController: GroupCollectionViewCellDelegate {
 // MARK: - WriteGroupViewControllerDelegate
 extension HomeViewController: WriteGroupViewControllerDelegate {
     func deleteGroup(groupId: Int) {
-        navigationController?.hero.isEnabled = true
-        navigationController?.hero.navigationAnimationType = .none
-        navigationController?.popToViewController(self, animated: true)
+        popToSelf()
         
         homeService?.deleteGroup(groupId: groupId, completion: { [weak self] isSuccess in
+            guard let self = self else { return }
             if isSuccess {
-                self?.fetchGroupAndTodos()
-                self?.collectionView.reloadData()
+                self.reloadView()
             } else {
                 // TODO: 오류 메시지
             }
@@ -232,15 +237,11 @@ extension HomeViewController: WriteGroupViewControllerDelegate {
     }
     
     func completeEditGroup(group: Group) {
-        fetchGroupAndTodos()
-        collectionView.reloadData()
+        reloadView()
     }
     
     func completeWriteGroup(group: Group) {
-        navigationController?.hero.isEnabled = true
-        navigationController?.hero.navigationAnimationType = .none
-        navigationController?.popToViewController(self, animated: true)
-        fetchGroupAndTodos()
-        collectionView.reloadData()
+        popToSelf()
+        reloadView()
     }
 }

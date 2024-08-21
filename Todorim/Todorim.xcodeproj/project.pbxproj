@@ -44,6 +44,7 @@
 		EA7C5DA22C69A7E20099AB7C /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D4D2C69A7E20099AB7C /* Geotification.swift */; };
 		EA7C5DDE2C69A7E20099AB7C /* MadokaTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D942C69A7E20099AB7C /* MadokaTextField.swift */; };
 		EA7C5DDF2C69A7E20099AB7C /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D962C69A7E20099AB7C /* TextFieldEffects.swift */; };
+		EA83B6E52C75743500657189 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA83B6E42C75743500657189 /* BaseViewController.swift */; };
 		EA8BB6F02C6AE40800779FF9 /* HomeTodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB6EE2C6AE40800779FF9 /* HomeTodoTableViewCell.swift */; };
 		EA8BB6F12C6AE40800779FF9 /* HomeTodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA8BB6EF2C6AE40800779FF9 /* HomeTodoTableViewCell.xib */; };
 		EA8BB6F52C6AEED400779FF9 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB6F42C6AEED400779FF9 /* UIView+Extension.swift */; };
@@ -60,7 +61,6 @@
 		EA9156462C74897500F3426A /* WriteGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156452C74897500F3426A /* WriteGroupService.swift */; };
 		EA9156482C748F3A00F3426A /* GroupDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156472C748F3A00F3426A /* GroupDetailService.swift */; };
 		EA91564A2C74939B00F3426A /* WriteTodoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156492C74939B00F3426A /* WriteTodoService.swift */; };
-		EA91564C2C74990C00F3426A /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA91564B2C74990C00F3426A /* Async.swift */; };
 		EAA163D72C734398007417B9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA163D62C734398007417B9 /* NotificationManager.swift */; };
 		EAA8647C2C6E484300A8CBCD /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */; };
 		EAA8647F2C6E486100A8CBCD /* SearchLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */; };
@@ -149,6 +149,7 @@
 		EA7C5D942C69A7E20099AB7C /* MadokaTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadokaTextField.swift; sourceTree = "<group>"; };
 		EA7C5D952C69A7E20099AB7C /* TextFieldEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldEffects.h; sourceTree = "<group>"; };
 		EA7C5D962C69A7E20099AB7C /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
+		EA83B6E42C75743500657189 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EA8BB6EE2C6AE40800779FF9 /* HomeTodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTodoTableViewCell.swift; sourceTree = "<group>"; };
 		EA8BB6EF2C6AE40800779FF9 /* HomeTodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTodoTableViewCell.xib; sourceTree = "<group>"; };
 		EA8BB6F42C6AEED400779FF9 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -164,7 +165,6 @@
 		EA9156452C74897500F3426A /* WriteGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteGroupService.swift; sourceTree = "<group>"; };
 		EA9156472C748F3A00F3426A /* GroupDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailService.swift; sourceTree = "<group>"; };
 		EA9156492C74939B00F3426A /* WriteTodoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteTodoService.swift; sourceTree = "<group>"; };
-		EA91564B2C74990C00F3426A /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		EAA163D62C734398007417B9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
 		EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewController.swift; sourceTree = "<group>"; };
@@ -223,7 +223,6 @@
 				EAC6829F2C690C040010ECCC /* SceneDelegate.swift */,
 				EA6B4FEA2C69F54B00DC3254 /* Utils.swift */,
 				EA6B4FB82C69B7DE00DC3254 /* Extension */,
-				EA91564B2C74990C00F3426A /* Async.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -272,12 +271,12 @@
 		EA6B4FBB2C69B7FB00DC3254 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EAA8647D2C6E484600A8CBCD /* SearchLocation */,
+				EA83B6E12C7573DE00657189 /* Base */,
 				EA6B4FBD2C69B8BA00DC3254 /* IntroViewController.swift */,
 				EA6B4FE62C69F1DF00DC3254 /* HomeViewController.swift */,
-				EA8BB6FA2C6AF19400779FF9 /* WriteGroupViewController.swift */,
 				EA8BB6FF2C6B04BE00779FF9 /* GroupDetailViewController.swift */,
-				EABB9C6B2C6C37BC00775657 /* WriteTodoViewController.swift */,
+				EA83B6E22C7573EC00657189 /* Write */,
+				EAA8647D2C6E484600A8CBCD /* SearchLocation */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -355,6 +354,23 @@
 				EA7C5D962C69A7E20099AB7C /* TextFieldEffects.swift */,
 			);
 			path = TextFieldEffects;
+			sourceTree = "<group>";
+		};
+		EA83B6E12C7573DE00657189 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				EA83B6E42C75743500657189 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		EA83B6E22C7573EC00657189 /* Write */ = {
+			isa = PBXGroup;
+			children = (
+				EABB9C6B2C6C37BC00775657 /* WriteTodoViewController.swift */,
+				EA8BB6FA2C6AF19400779FF9 /* WriteGroupViewController.swift */,
+			);
+			path = Write;
 			sourceTree = "<group>";
 		};
 		EA8BB6ED2C6AE3E500779FF9 /* TableViewCell */ = {
@@ -696,6 +712,7 @@
 				EA8BB6F52C6AEED400779FF9 /* UIView+Extension.swift in Sources */,
 				EA9156462C74897500F3426A /* WriteGroupService.swift in Sources */,
 				EA9156422C74845800F3426A /* InitializationService.swift in Sources */,
+				EA83B6E52C75743500657189 /* BaseViewController.swift in Sources */,
 				EABB9C6C2C6C37BC00775657 /* WriteTodoViewController.swift in Sources */,
 				EA6B4FE72C69F1E000DC3254 /* HomeViewController.swift in Sources */,
 				EABB9C712C6C404F00775657 /* TimePicker.swift in Sources */,
@@ -720,7 +737,6 @@
 				EABB9C6F2C6C3E2900775657 /* GroupPicker.swift in Sources */,
 				EABB9C772C6C424200775657 /* WeekPicker.swift in Sources */,
 				EA7C5DDE2C69A7E20099AB7C /* MadokaTextField.swift in Sources */,
-				EA91564C2C74990C00F3426A /* Async.swift in Sources */,
 				EA9156482C748F3A00F3426A /* GroupDetailService.swift in Sources */,
 				EA6B4FE12C69EB9700DC3254 /* Strings+Generated.swift in Sources */,
 				EA8BB6FD2C6AF95B00779FF9 /* AppHero.swift in Sources */,

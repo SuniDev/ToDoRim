@@ -13,7 +13,7 @@ protocol SelectLocationMapViewDelegate: AnyObject {
     func searchLocationMapView(didAddCoordinate coordinate: CLLocationCoordinate2D, radius: Double, locationType: LocationNotificationType, name: String)
 }
 
-class SearchLocationMapViewController: UIViewController {
+class SearchLocationMapViewController: BaseViewController {
     
     // MARK: - Data
     var locationManager = CLLocationManager()
@@ -63,25 +63,33 @@ class SearchLocationMapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        createKeyboardEvent()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    // MARK: - Data 설정
+    override func fetchData() {
+        selectLocationType = .entry
+        coordinate = selectedPin?.coordinate
+    }
+    
+    // MARK: - UI 설정
+    override func configureUI() {
         mapView?.delegate = self
         radiusTextField?.delegate = self
         locationManager.delegate = self
-                
-        createKeyboardEvent()
         
         completeButton.layer.cornerRadius = 15
         completeButton.layer.masksToBounds = true
         
-        selectLocationType = .entry
-        
         tabButton.initButton(type: .locationType, color: Asset.Color.default.color, buttons: [entryButton, exitButton])
         tabButton.selectButton(sender: entryButton)
         
-        coordinate = selectedPin?.coordinate
         let radius = 100.0
         let clampedRadius = min(radius, locationManager.maximumRegionMonitoringDistance)
-        
         if let coordinate {
             geotification = Geotification(coordinate: coordinate, radius: clampedRadius, identifier: UUID().uuidString, note: selectedPin?.name ?? L10n.Location.current, eventType: .onEntry)
         }
@@ -89,24 +97,6 @@ class SearchLocationMapViewController: UIViewController {
         dropPinZoomIn()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-    
-    // 키보드 기본 처리
-    func createKeyboardEvent() {
-        // 화면 터치 시 키보드 숨김
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
-extension SearchLocationMapViewController {
     func dropPinZoomIn() {
         // cache the pin
         if let placemark = selectedPin {
@@ -157,6 +147,18 @@ extension SearchLocationMapViewController {
         mapView.addOverlay(MKCircle(center: geotification.coordinate, radius: geotification.radius))
     }
     
+    // 키보드 기본 처리
+    func createKeyboardEvent() {
+        // 화면 터치 시 키보드 숨김
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 // MARK: - CLLocationManagerDelegate
@@ -184,13 +186,13 @@ extension SearchLocationMapViewController: MKMapViewDelegate {
             if selectLocationType == .entry {
                 let circleRenderer = MKCircleRenderer(overlay: overlay)
                 circleRenderer.lineWidth = 3.0
-                circleRenderer.strokeColor = UIColor(rgb: 0x47B8E0)
-                circleRenderer.fillColor = UIColor(rgb: 0x47B8E0).withAlphaComponent(0.4)
+                circleRenderer.strokeColor = Asset.Color.blue.color
+                circleRenderer.fillColor = Asset.Color.blue.color.withAlphaComponent(0.4)
                 return circleRenderer
             } else {
                 let circleRenderer = MKCircleRenderer(overlay: overlay)
                 circleRenderer.lineWidth = 3.0
-                circleRenderer.strokeColor = UIColor(rgb: 0x47B8E0)
+                circleRenderer.strokeColor = Asset.Color.blue.color
                 circleRenderer.fillColor = UIColor.clear
                 return circleRenderer
             }

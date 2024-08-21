@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class SearchLocationViewController: UIViewController {
+class SearchLocationViewController: BaseViewController {
     
     // MARK: - Data
     let locationManager = CLLocationManager()
@@ -29,17 +29,34 @@ class SearchLocationViewController: UIViewController {
     @IBAction private func tappedSearchPosition(_ sender: UIButton) {
         guard let coordinate = locationManager.location?.coordinate else { return }
         let pin = MKPlacemark(coordinate: coordinate)
-        moveMap(selectedPin: pin)
+        moveToMap(selectedPin: pin)
     }
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    
+    // MARK: - Data 설정
+    override func fetchData() {
         configureLocationManager()
+    }
+    
+    private func configureLocationManager() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        
+        let status = locationManager.authorizationStatus
+        if status == CLAuthorizationStatus.denied || status == CLAuthorizationStatus.restricted {
+            let alert = UIAlertController(title: L10n.Alert.AuthLocation.title, message: L10n.Alert.AuthLocation.message, preferredStyle: UIAlertController.Style.alert)
+            let defaultAction = UIAlertAction(title: L10n.Alert.Button.done, style: .default)
+            alert.addAction(defaultAction)
+            self.present(alert, animated: false, completion: nil)
+        }
+    }
+    
+    // MARK: - UI 설정
+    override func configureUI() {
         configureSearchView()
     }
     
-    func configureSearchView() {
+    private func configureSearchView() {
         if let searchTableViewController = storyboard?.instantiateViewController(withIdentifier: "SearchLocationTableViewController") as? SearchLocationTableViewController {
             searchTableViewController.delegate = self
             resultSearchController = UISearchController(searchResultsController: searchTableViewController)
@@ -63,27 +80,21 @@ class SearchLocationViewController: UIViewController {
         }
     }
     
-    func configureLocationManager() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        
-        let status = locationManager.authorizationStatus
-        if status == CLAuthorizationStatus.denied || status == CLAuthorizationStatus.restricted {
-            let alert = UIAlertController(title: L10n.Alert.AuthLocation.title, message: L10n.Alert.AuthLocation.message, preferredStyle: UIAlertController.Style.alert)
-            let defaultAction = UIAlertAction(title: L10n.Alert.Button.done, style: .default)
-            alert.addAction(defaultAction)
-            self.present(alert, animated: false, completion: nil)
+    // MARK: - Navigation
+    private func moveToMap(selectedPin: MKPlacemark) {
+        guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "SearchLocationMapViewController") as? SearchLocationMapViewController else { return }
+        viewController.selectedPin = selectedPin
+        viewController.delegate = delegate
+        performUIUpdatesOnMain {
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
+    
 }
 // MARK: - CLLocationManagerDelegate
 extension SearchLocationViewController: CLLocationManagerDelegate {
-    
     // 이 메서드는 사용자가 권한 대화 상자에 응답 할 때 호출됩니다.
-    private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-       
-    }
+    private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) { }
     
     // 오류를 인쇄합니다.
     private func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
@@ -93,7 +104,6 @@ extension SearchLocationViewController: CLLocationManagerDelegate {
 
 // MARK: - UISearchBarDelegate
 extension SearchLocationViewController: UISearchBarDelegate {
-    
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         // 높이를 먼저 줄이도록 애니메이션 설정
         self.view.layoutIfNeeded() // 현재 상태를 먼저 렌더링
@@ -118,20 +128,11 @@ extension SearchLocationViewController: UISearchBarDelegate {
         
         return true
     }
-    
-    func moveMap(selectedPin: MKPlacemark) {
-        guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "SearchLocationMapViewController") as? SearchLocationMapViewController else { return }
-        viewController.selectedPin = selectedPin
-        viewController.delegate = delegate
-        DispatchQueue.main.async {
-            self.navigationController?.pushViewController(viewController, animated: true)
-        }
-    }
 }
 
 // MARK: - SearchLocationTableViewDelegate
 extension SearchLocationViewController: SearchLocationTableViewDelegate {
     func didSelectLocation(_ tableView: UITableView, selectedItem: MKPlacemark) {        
-        moveMap(selectedPin: selectedItem)
+        moveToMap(selectedPin: selectedItem)
     }
 }

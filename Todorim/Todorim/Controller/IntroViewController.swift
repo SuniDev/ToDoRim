@@ -7,15 +7,13 @@
 
 import UIKit
 
-class IntroViewController: UIViewController {
+class IntroViewController: BaseViewController {
     
     // MARK: - Dependencies
     private var initService: InitializationService?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 초기 데이터 설정
-        initService?.initializeData()
         
         // 홈 화면으로 이동
         moveToHome()
@@ -26,6 +24,12 @@ class IntroViewController: UIViewController {
         self.initService = initService
     }
     
+    // MARK: - Data 설정
+    override func fetchData() {
+        initService?.initializeData()
+    }
+    
+    // MARK: - Navigation
     func moveToHome() {
         guard let groupStorage = initService?.groupStorage, let todoStorage = initService?.todoStorage else { return }
         let service = HomeService(groupStorage: groupStorage, todoStorage: todoStorage)
@@ -34,7 +38,7 @@ class IntroViewController: UIViewController {
         
         viewController.inject(service: service)
         
-        DispatchQueue.main.async {
+        performUIUpdatesOnMain {
             self.navigationController?.setViewControllers([viewController], animated: true)
         }
     }
