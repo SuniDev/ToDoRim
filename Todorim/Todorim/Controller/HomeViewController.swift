@@ -32,11 +32,19 @@ class HomeViewController: BaseViewController {
         self.homeService = service
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchDataAndUI()
+    }
+    
     // MARK: - Data 설정
-    override func fetchData() {
+    func fetchDataAndUI() {
         guard let homeService = homeService else { return }
         groups = homeService.fetchGroups()
         todos = homeService.fetchTodos()
+        
+        collectionView.reloadData()
+        updateBackground()
     }
     
     // MARK: - UI 설정
@@ -97,12 +105,6 @@ class HomeViewController: BaseViewController {
         colorAnimation.isRemovedOnCompletion = false
         colorAnimation.delegate = self
         gradientLayer.add(colorAnimation, forKey: "colorChange")
-    }
-    
-    private func reloadView() {
-        fetchData()
-        collectionView.reloadData()
-        updateBackground()
     }
 }
 
@@ -209,7 +211,7 @@ extension HomeViewController: GroupCollectionViewCellDelegate {
         homeService?.completeTodo(todo: todo, isComplete: isComplete, completion: { [weak self] isSuccess in
             guard let self = self else { return }
             if isSuccess {
-                self.reloadView()
+                self.fetchDataAndUI()
             } else {
                 // TODO: - 오류 메시지
             }
@@ -230,7 +232,7 @@ extension HomeViewController: WriteGroupViewControllerDelegate {
             self.homeService?.deleteGroup(groupId: groupId, completion: { [weak self] isSuccess in
                 guard let self = self else { return }
                 if isSuccess {
-                    self.reloadView()
+                    self.fetchDataAndUI()
                 } else {
                     // TODO: 오류 메시지
                 }
@@ -239,10 +241,10 @@ extension HomeViewController: WriteGroupViewControllerDelegate {
     }
     
     func completeEditGroup(group: Group) {
-        reloadView()
+        fetchDataAndUI()
     }
     
     func completeWriteGroup(group: Group) {
-        reloadView()
+        fetchDataAndUI()
     }
 }
