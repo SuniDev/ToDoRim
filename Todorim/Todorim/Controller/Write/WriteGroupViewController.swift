@@ -246,8 +246,6 @@ class WriteGroupViewController: BaseViewController {
             guard let self else { return }
             if let error = error {
                 print("Failed to load interstitial ad: \(error)")
-                delegate?.completeWriteGroup(group: writeGroup)
-                pop()
                 return
             }
             interstitial = ad
@@ -259,6 +257,8 @@ class WriteGroupViewController: BaseViewController {
         if let interstitial = interstitial {
             interstitial.present(fromRootViewController: self)
         } else {
+            delegate?.completeWriteGroup(group: writeGroup)
+            pop()
             print("Ad wasn't ready")
         }
     }
