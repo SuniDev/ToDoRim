@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseCore
 import FirebaseAnalytics
+import GoogleMobileAds
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         Analytics.setAnalyticsCollectionEnabled(true)
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         
         // UNUserNotificationCenterDelegate 설정
         UNUserNotificationCenter.current().delegate = self

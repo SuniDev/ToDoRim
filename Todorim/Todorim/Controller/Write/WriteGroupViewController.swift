@@ -7,6 +7,7 @@
 
 import UIKit
 import Hero
+import GoogleMobileAds
 
 protocol WriteGroupViewControllerDelegate: AnyObject {
     func completeWriteGroup(group: Group)
@@ -25,6 +26,7 @@ class WriteGroupViewController: BaseViewController {
     var group: Group?
     var writeGroup: Group = Group()
     var selectedColorIndex: Int = 0
+    var interstitial: GADInterstitialAd?
     
     // MARK: - Outlet
     @IBOutlet weak var scrollView: UIScrollView!
@@ -62,8 +64,9 @@ class WriteGroupViewController: BaseViewController {
             writeGroupService?.addGroup(writeGroup) { [weak self] isSuccess in
                 guard let self else { return }
                 if isSuccess {
-                    self.delegate?.completeWriteGroup(group: self.writeGroup)
-                    self.pop()
+                    self.showInterstitialAd()
+//                    self.delegate?.completeWriteGroup(group: self.writeGroup)
+//                    self.pop()
                 } else {
                     // TODO: - 오류 메시지 처리
                 }
@@ -78,11 +81,12 @@ class WriteGroupViewController: BaseViewController {
             writeGroup.title = textfield?.text ?? ""
             writeGroup.appColorIndex = selectedColorIndex
             
-            writeGroupService?.updateGroup(group, with: writeGroup) { [weak self] isSuccess, updatedGroup in
+            writeGroupService?.updateGroup(group, with: writeGroup) { [weak self] isSuccess in
                 guard let self else { return }
                 if isSuccess {
-                    self.delegate?.completeEditGroup(group: updatedGroup)
-                    self.pop()
+                    self.showInterstitialAd()
+//                    self.delegate?.completeEditGroup(group: self.writeGroup)
+//                    self.pop()
                 } else {
                     // TODO: 오류 메시지 처리
                 }
@@ -122,6 +126,7 @@ class WriteGroupViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createKeyboardEvent()
+        loadInterstitialAd()
     }
     
     // MARK: - Data 설정
@@ -232,6 +237,40 @@ class WriteGroupViewController: BaseViewController {
         performUIUpdatesOnMain {
             self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    // MARK: - 광고
+    func loadInterstitialAd() {
+        let request = GADRequest()
+        GADInterstitialAd.load(withAdUnitID: Constants.gadGroupID, request: request, completionHandler: { [weak self] ad, error in
+            guard let self else { return }
+            if let error = error {
+                print("Failed to load interstitial ad: \(error)")
+                delegate?.completeWriteGroup(group: writeGroup)
+                pop()
+                return
+            }
+            interstitial = ad
+            interstitial?.fullScreenContentDelegate = self
+        })
+    }
+    
+    func showInterstitialAd() {
+        if let interstitial = interstitial {
+            interstitial.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+        }
+    }
+}
+
+// MARK: - GADFullScreenContentDelegate
+extension WriteGroupViewController: GADFullScreenContentDelegate {
+    // 광고가 닫힐 때 호출되는 메서드
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad was dismissed.")
+        delegate?.completeWriteGroup(group: writeGroup)
+        pop()
     }
 }
 

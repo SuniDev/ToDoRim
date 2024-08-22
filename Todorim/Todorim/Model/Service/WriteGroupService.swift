@@ -38,9 +38,9 @@ class WriteGroupService {
         completion(true)  // 성공했음을 알림
     }
     
-    func updateGroup(_ group: Group, with newGroupData: Group, completion: @escaping (Bool, Group) -> Void) {
-        groupStorage.update(with: group, writeGroup: newGroupData, completion: { isSuccess, updatedGroup in
-            completion(isSuccess, updatedGroup)
+    func updateGroup(_ group: Group, with newGroupData: Group, completion: @escaping (Bool) -> Void) {
+        groupStorage.update(with: group, writeGroup: newGroupData, completion: { isSuccess in
+            completion(isSuccess)
         })
     }
     

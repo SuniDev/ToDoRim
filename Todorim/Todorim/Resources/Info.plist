@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>GADTodoId</key>
+	<string>$(GAD_ID_TODO)</string>
+	<key>GADGroupId</key>
+	<string>$(GAD_ID_GROUP)</string>
+	<key>GADApplicationIdentifier</key>
+	<string>$(GAD_ID)</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Intro</string>
 	<key>UIUserInterfaceStyle</key>

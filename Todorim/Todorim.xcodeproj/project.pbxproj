@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA62BD162C771B7400FC92ED /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = EA62BD152C771B7400FC92ED /* GoogleMobileAds */; };
+		EA62BD1F2C771DCD00FC92ED /* Secrets-Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EA62BD1C2C771DCD00FC92ED /* Secrets-Debug.xcconfig */; };
+		EA62BD202C771DCD00FC92ED /* Secrets-Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EA62BD1D2C771DCD00FC92ED /* Secrets-Release.xcconfig */; };
+		EA62BD222C7734E000FC92ED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA62BD212C7734E000FC92ED /* GoogleService-Info.plist */; };
 		EA6B4FAE2C69AD2F00DC3254 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EA6B4FAD2C69AD2F00DC3254 /* RealmSwift */; };
 		EA6B4FAF2C69ADB900DC3254 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = EA6B4FAD2C69AD2F00DC3254 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		EA6B4FBE2C69B8BA00DC3254 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FBD2C69B8BA00DC3254 /* IntroViewController.swift */; };
@@ -46,7 +50,6 @@
 		EA7C5DDF2C69A7E20099AB7C /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C5D962C69A7E20099AB7C /* TextFieldEffects.swift */; };
 		EA83B6E52C75743500657189 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA83B6E42C75743500657189 /* BaseViewController.swift */; };
 		EA83B6E72C75CD8600657189 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA83B6E62C75CD8600657189 /* Setting.storyboard */; };
-		EA83B6E92C75D6AC00657189 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA83B6E82C75D6AC00657189 /* GoogleService-Info.plist */; };
 		EA83B6EC2C75D75F00657189 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = EA83B6EB2C75D75F00657189 /* FirebaseAnalytics */; };
 		EA83B6EE2C75D75F00657189 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = EA83B6ED2C75D75F00657189 /* FirebaseCrashlytics */; };
 		EA83B6F02C75D75F00657189 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = EA83B6EF2C75D75F00657189 /* FirebaseRemoteConfig */; };
@@ -120,6 +123,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EA62BD1C2C771DCD00FC92ED /* Secrets-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Secrets-Debug.xcconfig"; sourceTree = "<group>"; };
+		EA62BD1D2C771DCD00FC92ED /* Secrets-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Secrets-Release.xcconfig"; sourceTree = "<group>"; };
+		EA62BD212C7734E000FC92ED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA6B4FBD2C69B8BA00DC3254 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		EA6B4FC32C69B96A00DC3254 /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		EA6B4FC62C69CB1700DC3254 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -158,7 +164,6 @@
 		EA7C5D962C69A7E20099AB7C /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
 		EA83B6E42C75743500657189 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		EA83B6E62C75CD8600657189 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
-		EA83B6E82C75D6AC00657189 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA83B6F12C75D7F000657189 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EA83B6F32C75DD5A00657189 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		EA8BB6EE2C6AE40800779FF9 /* HomeTodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTodoTableViewCell.swift; sourceTree = "<group>"; };
@@ -205,6 +210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA62BD162C771B7400FC92ED /* GoogleMobileAds in Frameworks */,
 				EA8BB7032C6B23EE00779FF9 /* Hero in Frameworks */,
 				EA83B6EE2C75D75F00657189 /* FirebaseCrashlytics in Frameworks */,
 				EA6B4FAE2C69AD2F00DC3254 /* RealmSwift in Frameworks */,
@@ -230,6 +236,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA62BD1E2C771DCD00FC92ED /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				EA62BD1C2C771DCD00FC92ED /* Secrets-Debug.xcconfig */,
+				EA62BD1D2C771DCD00FC92ED /* Secrets-Release.xcconfig */,
+			);
+			path = Secrets;
+			sourceTree = "<group>";
+		};
 		EA6B4FB72C69B7D100DC3254 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,7 +510,8 @@
 		EAC6829C2C690C040010ECCC /* Todorim */ = {
 			isa = PBXGroup;
 			children = (
-				EA83B6E82C75D6AC00657189 /* GoogleService-Info.plist */,
+				EA62BD212C7734E000FC92ED /* GoogleService-Info.plist */,
+				EA62BD1E2C771DCD00FC92ED /* Secrets */,
 				EA6B4FB72C69B7D100DC3254 /* Common */,
 				EA6B4FB92C69B7EB00DC3254 /* Model */,
 				EA6B4FBA2C69B7F100DC3254 /* View */,
@@ -547,6 +563,7 @@
 				EA83B6EB2C75D75F00657189 /* FirebaseAnalytics */,
 				EA83B6ED2C75D75F00657189 /* FirebaseCrashlytics */,
 				EA83B6EF2C75D75F00657189 /* FirebaseRemoteConfig */,
+				EA62BD152C771B7400FC92ED /* GoogleMobileAds */,
 			);
 			productName = Todorim;
 			productReference = EAC6829A2C690C040010ECCC /* Todorim.app */;
@@ -625,6 +642,7 @@
 				EA6B4FAC2C69AD2F00DC3254 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				EA8BB7012C6B23EE00779FF9 /* XCRemoteSwiftPackageReference "Hero" */,
 				EA83B6EA2C75D75F00657189 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				EA62BD142C771B7400FC92ED /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = EAC6829B2C690C040010ECCC /* Products */;
 			projectDirPath = "";
@@ -642,7 +660,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA83B6E92C75D6AC00657189 /* GoogleService-Info.plist in Resources */,
 				EA8BB6F12C6AE40800779FF9 /* HomeTodoTableViewCell.xib in Resources */,
 				EA6B4FF02C69FC5400DC3254 /* GroupCollectionViewCell.xib in Resources */,
 				EA7C5CC12C699B140099AB7C /* .swiftlint.yml in Resources */,
@@ -652,13 +669,16 @@
 				EA8BB7072C6B27D200779FF9 /* TodoTableViewCell.xib in Resources */,
 				EABB9C6A2C6C34F200775657 /* GroupColorCollectionViewCell.xib in Resources */,
 				EA83B6E72C75CD8600657189 /* Setting.storyboard in Resources */,
+				EA62BD222C7734E000FC92ED /* GoogleService-Info.plist in Resources */,
 				EA7C5CC72C699BA50099AB7C /* Localizable.strings in Resources */,
 				EA7C5D3C2C69A7DE0099AB7C /* LaunchScreen.storyboard in Resources */,
 				EAC682A72C690C050010ECCC /* Assets.xcassets in Resources */,
 				EA7C5D3A2C69A7DE0099AB7C /* Group.storyboard in Resources */,
 				EA7C5CC42C699B7C0099AB7C /* Color.xcassets in Resources */,
 				EA8BB6F92C6AEF8600779FF9 /* AddGroupCollectionViewCell.xib in Resources */,
+				EA62BD1F2C771DCD00FC92ED /* Secrets-Debug.xcconfig in Resources */,
 				EA7C5D3D2C69A7DE0099AB7C /* Main.storyboard in Resources */,
+				EA62BD202C771DCD00FC92ED /* Secrets-Release.xcconfig in Resources */,
 				EA7C5D3E2C69A7DE0099AB7C /* Todo.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -841,6 +861,7 @@
 /* Begin XCBuildConfiguration section */
 		EAC682C22C690C050010ECCC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA62BD1C2C771DCD00FC92ED /* Secrets-Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -905,6 +926,7 @@
 		};
 		EAC682C32C690C050010ECCC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA62BD1D2C771DCD00FC92ED /* Secrets-Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -962,6 +984,7 @@
 		};
 		EAC682C52C690C050010ECCC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA62BD1C2C771DCD00FC92ED /* Secrets-Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -970,6 +993,7 @@
 				DEVELOPMENT_TEAM = 3T5QFYSPG5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Todorim/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ToDoRim;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 알림을 위해 위치 서비스를 허용해야 합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -997,6 +1021,7 @@
 		};
 		EAC682C62C690C050010ECCC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA62BD1D2C771DCD00FC92ED /* Secrets-Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1005,6 +1030,7 @@
 				DEVELOPMENT_TEAM = 3T5QFYSPG5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Todorim/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ToDoRim;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 알림을 위해 위치 서비스를 허용해야 합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1148,6 +1174,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EA62BD142C771B7400FC92ED /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.8.0;
+			};
+		};
 		EA6B4FAC2C69AD2F00DC3254 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -1175,6 +1209,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EA62BD152C771B7400FC92ED /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA62BD142C771B7400FC92ED /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
 		EA6B4FAD2C69AD2F00DC3254 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EA6B4FAC2C69AD2F00DC3254 /* XCRemoteSwiftPackageReference "realm-swift" */;
