@@ -71,6 +71,7 @@
 		EA9156462C74897500F3426A /* WriteGroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156452C74897500F3426A /* WriteGroupService.swift */; };
 		EA9156482C748F3A00F3426A /* GroupDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156472C748F3A00F3426A /* GroupDetailService.swift */; };
 		EA91564A2C74939B00F3426A /* WriteTodoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156492C74939B00F3426A /* WriteTodoService.swift */; };
+		EA946D2D2C7820E0000243F4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946D2C2C7820E0000243F4 /* SettingViewController.swift */; };
 		EAA163D72C734398007417B9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA163D62C734398007417B9 /* NotificationManager.swift */; };
 		EAA8647C2C6E484300A8CBCD /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */; };
 		EAA8647F2C6E486100A8CBCD /* SearchLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */; };
@@ -181,6 +182,7 @@
 		EA9156452C74897500F3426A /* WriteGroupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteGroupService.swift; sourceTree = "<group>"; };
 		EA9156472C748F3A00F3426A /* GroupDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailService.swift; sourceTree = "<group>"; };
 		EA9156492C74939B00F3426A /* WriteTodoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteTodoService.swift; sourceTree = "<group>"; };
+		EA946D2C2C7820E0000243F4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		EAA163D62C734398007417B9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
 		EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewController.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 				EA8BB6FF2C6B04BE00779FF9 /* GroupDetailViewController.swift */,
 				EA83B6E22C7573EC00657189 /* Write */,
 				EAA8647D2C6E484600A8CBCD /* SearchLocation */,
+				EA946D2B2C7820CC000243F4 /* Setting */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -445,6 +448,14 @@
 				EA9156492C74939B00F3426A /* WriteTodoService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		EA946D2B2C7820CC000243F4 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				EA946D2C2C7820E0000243F4 /* SettingViewController.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		EAA163D52C732C77007417B9 /* TextField */ = {
@@ -785,6 +796,7 @@
 				EA7C5DDE2C69A7E20099AB7C /* MadokaTextField.swift in Sources */,
 				EA9156482C748F3A00F3426A /* GroupDetailService.swift in Sources */,
 				EA6B4FE12C69EB9700DC3254 /* Strings+Generated.swift in Sources */,
+				EA946D2D2C7820E0000243F4 /* SettingViewController.swift in Sources */,
 				EA8BB6FD2C6AF95B00779FF9 /* AppHero.swift in Sources */,
 				EA8BB6F82C6AEF8600779FF9 /* AddGroupCollectionViewCell.swift in Sources */,
 				EAC682A02C690C040010ECCC /* SceneDelegate.swift in Sources */,
