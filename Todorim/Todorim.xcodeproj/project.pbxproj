@@ -72,6 +72,7 @@
 		EA9156482C748F3A00F3426A /* GroupDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156472C748F3A00F3426A /* GroupDetailService.swift */; };
 		EA91564A2C74939B00F3426A /* WriteTodoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9156492C74939B00F3426A /* WriteTodoService.swift */; };
 		EA946D2D2C7820E0000243F4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946D2C2C7820E0000243F4 /* SettingViewController.swift */; };
+		EA946D312C7864CF000243F4 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946D302C7864CF000243F4 /* UIViewController+Extension.swift */; };
 		EAA163D72C734398007417B9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA163D62C734398007417B9 /* NotificationManager.swift */; };
 		EAA8647C2C6E484300A8CBCD /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */; };
 		EAA8647F2C6E486100A8CBCD /* SearchLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */; };
@@ -183,6 +184,7 @@
 		EA9156472C748F3A00F3426A /* GroupDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailService.swift; sourceTree = "<group>"; };
 		EA9156492C74939B00F3426A /* WriteTodoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteTodoService.swift; sourceTree = "<group>"; };
 		EA946D2C2C7820E0000243F4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		EA946D302C7864CF000243F4 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		EAA163D62C734398007417B9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
 		EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewController.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				EA6B4FE82C69F52200DC3254 /* Date+Extension.swift */,
 				EA8BB6F42C6AEED400779FF9 /* UIView+Extension.swift */,
 				EA7C5D472C69A7E20099AB7C /* String+Extension.swift */,
+				EA946D302C7864CF000243F4 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -755,6 +758,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA946D312C7864CF000243F4 /* UIViewController+Extension.swift in Sources */,
 				EA6B4FE92C69F52200DC3254 /* Date+Extension.swift in Sources */,
 				EA8BB7002C6B04BE00779FF9 /* GroupDetailViewController.swift in Sources */,
 				EAA864812C6E487900A8CBCD /* SearchLocationMapViewController.swift in Sources */,

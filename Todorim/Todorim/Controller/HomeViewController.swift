@@ -27,6 +27,16 @@ class HomeViewController: BaseViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // MARK: - Action
+    @IBAction private func tappedSettingButton(_ sender: Any) {
+        guard let viewController = UIStoryboard(name: "Setting", bundle: nil).instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else { return }
+        
+        navigationController?.hero.isEnabled = false
+        performUIUpdatesOnMain {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
     // MARK: - 의존성 주입
     func inject(service: HomeService) {
         self.homeService = service

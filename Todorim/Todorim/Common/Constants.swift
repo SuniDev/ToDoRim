@@ -8,8 +8,15 @@
 import Foundation
 
 class Constants {
-    static let appMail: String = "hyunsun819@gmail.com"
+    static let appMail: String = "suniapps919@gmail.com"
     static let appStoreId: String = "id1483006749"
+    static var appName: String {
+        if let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String {
+            return appName
+        } else {
+            return "ToDoRim"
+        }
+    }
     
     static var appVersion: String {
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.2"

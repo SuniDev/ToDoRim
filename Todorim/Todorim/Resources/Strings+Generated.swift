@@ -35,6 +35,17 @@ internal enum L10n {
       /// 업데이트
       internal static let update = L10n.tr("Localizable", "alert. button. update", fallback: "업데이트")
     }
+    internal enum ContractUs {
+      internal enum NotAvailableMail {
+        /// 더 많은 도움이 필요하시면 %@으로 문의해 주세요.
+        internal static func message(_ p1: Any) -> String {
+          return L10n.tr("Localizable", "alert. contractUs. not_available_mail. message", String(describing: p1), fallback: "더 많은 도움이 필요하시면 %@으로 문의해 주세요.")
+        }
+        /// 죄송합니다.
+        /// 메일을 보낼 수 없습니다. 메일 설정을 확인해 주세요.
+        internal static let title = L10n.tr("Localizable", "alert. contractUs. not_available_mail. title", fallback: "죄송합니다.\n메일을 보낼 수 없습니다. 메일 설정을 확인해 주세요.")
+      }
+    }
     internal enum DeleteGroup {
       /// 그룹내 할일이 모두 삭제됩니다.
       internal static let message = L10n.tr("Localizable", "alert. delete_group. message", fallback: "그룹내 할일이 모두 삭제됩니다.")
@@ -154,6 +165,16 @@ internal enum L10n {
     internal static let `none` = L10n.tr("Localizable", "repeat. none", fallback: "반복안함")
     /// 매주
     internal static let weekly = L10n.tr("Localizable", "repeat. weekly", fallback: "매주")
+  }
+  internal enum Toast {
+    internal enum ContractUs {
+      /// 메일이 성공적으로 전송되었습니다.
+      /// 문의해 주셔서 감사합니다.
+      internal static let complete = L10n.tr("Localizable", "toast. contractUs. complete", fallback: "메일이 성공적으로 전송되었습니다.\n문의해 주셔서 감사합니다.")
+      /// 메일 전송에 실패했습니다.
+      /// 인터넷 연결을 확인하고 다시 시도해 주세요.
+      internal static let error = L10n.tr("Localizable", "toast. contractUs. error", fallback: "메일 전송에 실패했습니다.\n인터넷 연결을 확인하고 다시 시도해 주세요.")
+    }
   }
   internal enum Todo {
     internal enum Edit {
