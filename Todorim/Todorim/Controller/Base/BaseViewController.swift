@@ -8,9 +8,25 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
+    
+    lazy var loadingView: LoadingView = {
+        let view = LoadingView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(loadingView)
+        NSLayoutConstraint.activate([
+            loadingView.topAnchor.constraint(equalTo: view.topAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            loadingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+        
+        loadingView.isLoading = false
+        
         configureHeroID()
         fetchData()
         configureUI()
@@ -31,6 +47,12 @@ class BaseViewController: UIViewController {
     func performUIUpdatesOnMain(_ updates: @escaping () -> Void) {
         DispatchQueue.main.async { 
             updates()
+        }
+    }
+    
+    func updateLoadingView(isLoading: Bool) {
+        performUIUpdatesOnMain {
+            self.loadingView.isLoading = isLoading
         }
     }
 }
