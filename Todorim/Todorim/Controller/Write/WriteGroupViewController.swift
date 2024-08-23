@@ -27,6 +27,9 @@ class WriteGroupViewController: BaseViewController {
     var writeGroup: Group = Group()
     var selectedColorIndex: Int = 0
     var interstitial: GADInterstitialAd?
+    var isNew: Bool {
+        return group == nil
+    }
     
     // MARK: - Outlet
     @IBOutlet weak var scrollView: UIScrollView!
@@ -152,17 +155,17 @@ class WriteGroupViewController: BaseViewController {
     private func configureWithData() {
         performUIUpdatesOnMain {
             let writeGroup = self.writeGroup
-            if self.group != nil {
+            if self.isNew {
+                self.addButtonView.isHidden = false
+                self.editButtonView.isHidden = true
+                self.titleLabel.text = L10n.Group.Write.title
+            } else {
                 self.addButtonView.isHidden = true
                 self.editButtonView.isHidden = false
                 self.titleLabel.text = L10n.Group.Edit.title
                 
                 self.textfield.text = writeGroup.title
                 self.selectedColorIndex = writeGroup.appColorIndex
-            } else {
-                self.addButtonView.isHidden = false
-                self.editButtonView.isHidden = true
-                self.titleLabel.text = L10n.Group.Write.title
             }
             
             self.textfield.text = writeGroup.title
@@ -176,7 +179,15 @@ class WriteGroupViewController: BaseViewController {
     private func updateButtonColor() {
         performUIUpdatesOnMain {
             let colors = GroupColor.getColors(index: self.selectedColorIndex)
-            if self.group != nil {
+            if self.isNew {
+                self.addButton.layer.cornerRadius = 15
+                self.addButton.layer.masksToBounds = true
+                let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 70), colors: colors)
+                if let firstLayer = self.addButton.layer.sublayers?.first as? CAGradientLayer {
+                    firstLayer.removeFromSuperlayer()  // 기존 레이어 제거
+                }
+                self.addButton.layer.insertSublayer(gradientLayer, at: 0)
+            } else {
                 self.deleteButton.layer.cornerRadius = 15
                 self.deleteButton.layer.masksToBounds = true
                 self.editButton.layer.cornerRadius = 15
@@ -186,14 +197,6 @@ class WriteGroupViewController: BaseViewController {
                     firstLayer.removeFromSuperlayer()  // 기존 레이어 제거
                 }
                 self.editButton.layer.insertSublayer(gradientLayer, at: 0)
-            } else {
-                self.addButton.layer.cornerRadius = 15
-                self.addButton.layer.masksToBounds = true
-                let gradientLayer = Utils.getHorizontalLayer(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width - 32, height: 70), colors: colors)
-                if let firstLayer = self.addButton.layer.sublayers?.first as? CAGradientLayer {
-                    firstLayer.removeFromSuperlayer()  // 기존 레이어 제거
-                }
-                self.addButton.layer.insertSublayer(gradientLayer, at: 0)
             }
         }
     }
@@ -271,7 +274,11 @@ extension WriteGroupViewController: GADFullScreenContentDelegate {
     // 광고가 닫힐 때 호출되는 메서드
     func adDidDismissFullScreenContent(_ gad: GADFullScreenPresentingAd) {
         print("Ad was dismissed.")
-        delegate?.completeWriteGroup(group: writeGroup)
+        if isNew {
+            delegate?.completeWriteGroup(group: writeGroup)
+        } else {
+            delegate?.completeEditGroup(group: writeGroup)
+        }
         pop()
     }
 }
