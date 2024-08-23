@@ -72,11 +72,11 @@ class IntroViewController: BaseViewController {
         guard let groupStorage = initService?.groupStorage, let todoStorage = initService?.todoStorage else { return }
         let service = HomeService(groupStorage: groupStorage, todoStorage: todoStorage)
         
-        guard let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else { return }
-        
-        viewController.inject(service: service)
-        
         performUIUpdatesOnMain {
+            guard let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController else { return }
+            
+            viewController.inject(service: service)
+        
             self.navigationController?.setViewControllers([viewController], animated: false)
         }
     }

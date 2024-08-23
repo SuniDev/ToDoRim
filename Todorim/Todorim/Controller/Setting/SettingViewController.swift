@@ -8,11 +8,12 @@
 import UIKit
 import StoreKit
 import MessageUI
+import SafariServices
 
 class SettingViewController: BaseViewController {
     
     // MARK: - DATA
-    let removeAdsProductID = Constants.appBundleId
+    let removeAdsProductID = Constants.appProductId
     var removeAdsProduct: SKProduct?
     
     // MARK: - Outlet
@@ -50,11 +51,11 @@ class SettingViewController: BaseViewController {
     }
     
     @IBAction private func tappedPrivacyPolicy(_ sender: Any) {
-        
+        openSafariViewController(urlString: Constants.privacyPolicyUrl)
     }
     
     @IBAction private func tappedTermsOfService(_ sender: Any) {
-        
+        openSafariViewController(urlString: Constants.termsOfServiceUrl)
     }
     
     private func purchaseRemoveAds() {
@@ -67,6 +68,8 @@ class SettingViewController: BaseViewController {
             print("User cannot make payments")
             return
         }
+        
+        updateLoadingView(isLoading: true)
 
         let payment = SKPayment(product: product)
         SKPaymentQueue.default().add(self)
@@ -148,6 +151,24 @@ class SettingViewController: BaseViewController {
     }
 }
 
+// MARK: - Navigation
+extension SettingViewController {
+    private func openSafariViewController(urlString: String) {
+        guard let url = URL(string: urlString),
+              UIApplication.shared.canOpenURL(url) else {
+            return
+        }
+        
+        if url.scheme == "http" || url.scheme == "https" {
+            let safariViewController = SFSafariViewController(url: url)
+            safariViewController.modalPresentationStyle = .pageSheet
+            performUIUpdatesOnMain {
+                self.present(safariViewController, animated: true, completion: nil)
+            }
+        }
+    }
+}
+
 // MARK: - SKProductsRequestDelegate, SKPaymentTransactionObserver
 extension SettingViewController: SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
@@ -164,6 +185,7 @@ extension SettingViewController: SKProductsRequestDelegate, SKPaymentTransaction
 
     // SKPaymentTransactionObserver
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        updateLoadingView(isLoading: false)
         for transaction in transactions {
             switch transaction.transactionState {
             case .purchased:
