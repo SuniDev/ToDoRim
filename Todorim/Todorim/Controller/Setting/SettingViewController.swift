@@ -22,6 +22,9 @@ class SettingViewController: BaseViewController {
     
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var updateLabel: UILabel!
+    @IBOutlet weak var updateButton: UIButton!
+    @IBOutlet weak var updateArrowImageWidth: NSLayoutConstraint!
+    @IBOutlet weak var updateArrowImage: UIImageView!
     @IBOutlet weak var gadLabel: UILabel!
     
     // MARK: - Action
@@ -47,7 +50,7 @@ class SettingViewController: BaseViewController {
     }
     
     @IBAction private func tappedUpdate(_ sender: Any) {
-        
+        Utils.moveAppStore()
     }
     
     @IBAction private func tappedPrivacyPolicy(_ sender: Any) {
@@ -116,6 +119,11 @@ class SettingViewController: BaseViewController {
         fetchProducts()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureVersionUpdate()
+    }
+    
     // MARK: - Data 설정
     private func fetchProducts() {
         let request = SKProductsRequest(productIdentifiers: [removeAdsProductID])
@@ -126,6 +134,32 @@ class SettingViewController: BaseViewController {
     // MARK: - UI 설정
     override func configureUI() {
         updatePurchaseUI()
+    }
+
+    func configureVersionUpdate() {
+        let currentVersion: String = Constants.appVersion
+        
+        Utils.checkForUpdate { [weak self] appUpdate, storeVersion in
+            guard let self else { return }
+            self.performUIUpdatesOnMain {
+                self.versionLabel.text = currentVersion
+                if appUpdate == .none {
+                    self.updateLabel.text = "최신 버전입니다."
+                    self.updateButton.isHidden = true
+                    self.updateArrowImage.isHidden = true
+                    self.updateArrowImageWidth.constant = 0
+                } else {
+                    if let storeVersion {
+                        self.updateLabel.text = "\(storeVersion)으로 업데이트 하러가기"
+                    } else {
+                        self.updateLabel.text = "업데이트 하러가기"
+                    }
+                    self.updateButton.isHidden = false
+                    self.updateArrowImage.isHidden = false
+                    self.updateArrowImageWidth.constant = 25
+                }
+            }
+        }
     }
     
     private func updatePurchaseUI() {

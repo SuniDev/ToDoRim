@@ -570,6 +570,9 @@ uOyalC4
                         <outlet property="gadLabel" destination="JxG-hB-I6i" id="5me-aD-8ZH"/>
                         <outlet property="gadSettingView" destination="7pL-dW-Fki" id="wuN-PR-0iV"/>
                         <outlet property="gadSettingViewHeight" destination="bqA-GX-4nY" id="f9T-yA-cWS"/>
+                        <outlet property="updateArrowImage" destination="Yk6-hA-Dcc" id="9PS-Zl-BPJ"/>
+                        <outlet property="updateArrowImageWidth" destination="gcs-y5-xZJ" id="g8f-ys-9sf"/>
+                        <outlet property="updateButton" destination="bKW-BO-U6D" id="IOM-Yq-9x0"/>
                         <outlet property="updateLabel" destination="TVU-x5-CEq" id="GXa-Sg-LvU"/>
                         <outlet property="versionLabel" destination="kzK-Ht-9Hi" id="uD7-4R-vXo"/>
                     </connections>
