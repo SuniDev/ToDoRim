@@ -188,8 +188,10 @@ class WriteTodoViewController: BaseViewController {
     }
     
     private func configureNotiUI() {
-        dateNotiSwitch.isOn = writeTodo.isDateNoti
-        locationNotiSwitch.isOn = writeTodo.isLocationNoti
+        performUIUpdatesOnMain {
+            self.dateNotiSwitch.isOn = self.writeTodo.isDateNoti
+            self.locationNotiSwitch.isOn = self.writeTodo.isLocationNoti
+        }
         
         configureDateNotiUI()
         configureLocationNotiUI()

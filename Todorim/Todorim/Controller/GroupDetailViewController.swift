@@ -150,19 +150,18 @@ extension GroupDetailViewController {
         guard let groupStorage = groupDetailService?.groupStorage else { return }
         let service = WriteGroupService(groupStorage: groupStorage)
         
-        guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "WriteGroupViewController") as? WriteGroupViewController else { return }
-        
-        viewController.inject(service: service)
-        viewController.delegate = self
-        viewController.group = group
-        
-        let groupId = group?.groupId ?? 0
-        viewController.view.hero.id = AppHeroId.viewGroup.getId(id: groupId)
-        
-        navigationController?.hero.isEnabled = true
-        navigationController?.hero.navigationAnimationType = .none
-        
         performUIUpdatesOnMain {
+            guard let viewController = UIStoryboard(name: "Group", bundle: nil).instantiateViewController(withIdentifier: "WriteGroupViewController") as? WriteGroupViewController else { return }
+            
+            viewController.inject(service: service)
+            viewController.delegate = self
+            viewController.group = self.group
+            
+            let groupId = self.group?.groupId ?? 0
+            viewController.view.hero.id = AppHeroId.viewGroup.getId(id: groupId)
+            
+            self.navigationController?.hero.isEnabled = true
+            self.navigationController?.hero.navigationAnimationType = .none
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
@@ -171,17 +170,16 @@ extension GroupDetailViewController {
         guard let groupStorage = groupDetailService?.groupStorage, let todoStoreage = groupDetailService?.todoStorage else { return }
         let service = WriteTodoService(groupStoreage: groupStorage, todoStorage: todoStoreage)
         
-        guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "WriteTodoViewController") as? WriteTodoViewController else { return }
-        
-        viewController.inject(service: service)
-        viewController.delegate = self
-        viewController.group = group
-        viewController.todo = todo
-        
-        navigationController?.hero.isEnabled = true
-        navigationController?.hero.navigationAnimationType = .cover(direction: .up)
-        
         performUIUpdatesOnMain {
+            guard let viewController = UIStoryboard(name: "Todo", bundle: nil).instantiateViewController(withIdentifier: "WriteTodoViewController") as? WriteTodoViewController else { return }
+            
+            viewController.inject(service: service)
+            viewController.delegate = self
+            viewController.group = self.group
+            viewController.todo = todo
+            
+            self.navigationController?.hero.isEnabled = true
+            self.navigationController?.hero.navigationAnimationType = .cover(direction: .up)
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }

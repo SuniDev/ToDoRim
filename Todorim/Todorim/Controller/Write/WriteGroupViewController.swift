@@ -169,7 +169,6 @@ class WriteGroupViewController: BaseViewController {
             }
             
             self.textfield.text = writeGroup.title
-            self.view.layoutIfNeeded()
         }
     }
     

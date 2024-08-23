@@ -95,7 +95,7 @@ open class MadokaTextField: TextFieldEffects {
     
     override open func animateViewsForTextDisplay() {
         
-        if text!.isEmpty {
+        if text?.isEmpty ?? true {
             borderLayer.strokeEnd = percentageForBottomBorder()
             
             UIView.animate(withDuration: 0.2, animations: {
@@ -137,18 +137,20 @@ open class MadokaTextField: TextFieldEffects {
         placeholderLabel.sizeToFit()
         layoutPlaceholderInTextRect()
         
-        if isFirstResponder || text!.isNotEmpty {
-            animateViewsForTextEntry()
+        DispatchQueue.main.async {
+            if self.isFirstResponder || self.text?.isNotEmpty ?? false {
+                self.animateViewsForTextEntry()
+            }
         }
     }
     
-    private func placeholderFontFromFont(_ font: UIFont) -> UIFont! {
+    private func placeholderFontFromFont(_ font: UIFont) -> UIFont {
         let smallerFont = UIFont(name: font.fontName, size: font.pointSize * placeholderFontScale)
-        return smallerFont
+        return smallerFont ?? .systemFont(ofSize: 17 )
     }
     
     private func rectForBorder(_ bounds: CGRect) -> CGRect {
-        let newRect = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - font!.lineHeight + textFieldInsets.y - 10)
+        let newRect = CGRect(x: 0, y: 0, width: bounds.size.width, height: bounds.size.height - (font ?? .systemFont(ofSize: 17)).lineHeight + textFieldInsets.y - 10)
         
         return newRect
     }
