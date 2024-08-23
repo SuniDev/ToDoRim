@@ -42,7 +42,7 @@ class SettingViewController: BaseViewController {
     }
     
     @IBAction private func tappedGoReview(_ sender: Any) {
-        
+        Utils.moveAppReviewInStore()
     }
     
     @IBAction private func tappedContactUs(_ sender: Any) {
