@@ -146,13 +146,14 @@ class WriteGroupViewController: BaseViewController {
     // MARK: - UI 설정
     override func configureUI() {
         scrollView.contentInsetAdjustmentBehavior = .never
-        configureWithData()
         configureCollectionView()
         collectionView.reloadData()
+        
+        configureUIWithData()
         updateButtonColor()
     }
     
-    private func configureWithData() {
+    private func configureUIWithData() {
         performUIUpdatesOnMain {
             let writeGroup = self.writeGroup
             if self.isNew {
@@ -164,11 +165,11 @@ class WriteGroupViewController: BaseViewController {
                 self.editButtonView.isHidden = false
                 self.titleLabel.text = L10n.Group.Edit.title
                 
-                self.textfield.text = writeGroup.title
                 self.selectedColorIndex = writeGroup.appColorIndex
             }
             
             self.textfield.text = writeGroup.title
+            self.view.layoutIfNeeded()
         }
     }
     

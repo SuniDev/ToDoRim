@@ -171,11 +171,12 @@ class WriteTodoViewController: BaseViewController {
     private func configureUIWithData() {
         let tapSearchLocation = UITapGestureRecognizer(target: self, action: #selector(tappedLocationSearch))
         locationSearchView.addGestureRecognizer(tapSearchLocation)
-
-        titleLabel.text = todo == nil ? L10n.Todo.Write.title : L10n.Todo.Edit.title
-        completeButtonLabel.text = todo == nil ? L10n.Button.add : L10n.Button.edit
         
         performUIUpdatesOnMain {
+            let todo = self.todo
+            self.titleLabel.text = todo == nil ? L10n.Todo.Write.title : L10n.Todo.Edit.title
+            self.completeButtonLabel.text = todo == nil ? L10n.Button.add : L10n.Button.edit
+        
             self.titleTextField.text = self.writeTodo.title
 
             if let groupIndex = self.groups.firstIndex(where: { $0.groupId == self.writeTodo.groupId }) {
