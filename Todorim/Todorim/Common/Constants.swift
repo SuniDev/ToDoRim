@@ -15,6 +15,10 @@ class Constants {
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.2"
     }
     
+    static var appBundleId: String {
+        return Bundle.main.bundleIdentifier ?? "com.adcapsule.ToDoRim"
+    }
+    
     static let gadID: String = Bundle.main.object(forInfoDictionaryKey: "GADApplicationIdentifier") as? String ?? ""
     static let gadGroupID: String = Bundle.main.object(forInfoDictionaryKey: "GADGroupId") as? String ?? ""
     static let gadTodoID: String = Bundle.main.object(forInfoDictionaryKey: "GADTodoId") as? String ?? ""

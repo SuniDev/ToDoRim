@@ -241,20 +241,22 @@ class WriteGroupViewController: BaseViewController {
     
     // MARK: - 광고
     func loadInterstitialAd() {
-        let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID: Constants.gadGroupID, request: request, completionHandler: { [weak self] ad, error in
-            guard let self else { return }
-            if let error = error {
-                print("Failed to load interstitial ad: \(error)")
-                return
-            }
-            interstitial = ad
-            interstitial?.fullScreenContentDelegate = self
-        })
+        if !Utils.isAdsRemoved {
+            let request = GADRequest()
+            GADInterstitialAd.load(withAdUnitID: Constants.gadGroupID, request: request, completionHandler: { [weak self] gad, error in
+                guard let self else { return }
+                if let error = error {
+                    print("Failed to load interstitial ad: \(error)")
+                    return
+                }
+                interstitial = gad
+                interstitial?.fullScreenContentDelegate = self
+            })
+        }
     }
     
     func showInterstitialAd() {
-        if let interstitial = interstitial {
+        if let interstitial = interstitial, !Utils.isAdsRemoved {
             interstitial.present(fromRootViewController: self)
         } else {
             delegate?.completeWriteGroup(group: writeGroup)
@@ -267,7 +269,7 @@ class WriteGroupViewController: BaseViewController {
 // MARK: - GADFullScreenContentDelegate
 extension WriteGroupViewController: GADFullScreenContentDelegate {
     // 광고가 닫힐 때 호출되는 메서드
-    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    func adDidDismissFullScreenContent(_ gad: GADFullScreenPresentingAd) {
         print("Ad was dismissed.")
         delegate?.completeWriteGroup(group: writeGroup)
         pop()

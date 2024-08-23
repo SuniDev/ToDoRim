@@ -237,4 +237,7 @@ class Utils {
         }
     }
     
+    static var isAdsRemoved: Bool {
+        return UserDefaultStorage.getObject(forKey: .isAdsRemoved) as? Bool ?? false
+    }
 }

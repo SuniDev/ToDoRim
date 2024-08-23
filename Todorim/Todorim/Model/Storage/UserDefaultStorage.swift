@@ -12,6 +12,7 @@ class UserDefaultStorage {
     enum UserDefaultsKey: String {
         case isInit
         case isShowRequestIDAFAuth
+        case isAdsRemoved
     }
     
     /**
