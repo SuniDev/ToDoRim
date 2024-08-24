@@ -31,6 +31,7 @@
 		EA6B4FEB2C69F54B00DC3254 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FEA2C69F54B00DC3254 /* Utils.swift */; };
 		EA6B4FEF2C69FC5400DC3254 /* GroupCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B4FED2C69FC5400DC3254 /* GroupCollectionViewCell.swift */; };
 		EA6B4FF02C69FC5400DC3254 /* GroupCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA6B4FEE2C69FC5400DC3254 /* GroupCollectionViewCell.xib */; };
+		EA6BCECB2C79C450004FAF12 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6BCECA2C79C450004FAF12 /* Alert.swift */; };
 		EA7C5CC12C699B140099AB7C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5CC02C699B140099AB7C /* .swiftlint.yml */; };
 		EA7C5CC42C699B7C0099AB7C /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5CC32C699B7C0099AB7C /* Color.xcassets */; };
 		EA7C5CC72C699BA50099AB7C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EA7C5CC52C699BA50099AB7C /* Localizable.strings */; };
@@ -147,6 +148,7 @@
 		EA6B4FEA2C69F54B00DC3254 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		EA6B4FED2C69FC5400DC3254 /* GroupCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA6B4FEE2C69FC5400DC3254 /* GroupCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupCollectionViewCell.xib; sourceTree = "<group>"; };
+		EA6BCECA2C79C450004FAF12 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		EA7C5CC02C699B140099AB7C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		EA7C5CC32C699B7C0099AB7C /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		EA7C5CCD2C69A5EB0099AB7C /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 		EA6B4FBA2C69B7F100DC3254 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EA6BCEC92C79C43F004FAF12 /* Alert */,
 				EA946D322C786FDC000243F4 /* LoadingView */,
 				EAA163D52C732C77007417B9 /* TextField */,
 				EABB9C782C6C54BF00775657 /* Button */,
@@ -354,6 +357,14 @@
 				EABB9C682C6C34F200775657 /* GroupColorCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		EA6BCEC92C79C43F004FAF12 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				EA6BCECA2C79C450004FAF12 /* Alert.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		EA7C5CC22C699B400099AB7C /* Resources */ = {
@@ -775,6 +786,7 @@
 				EA946D342C786FEC000243F4 /* LoadingView.swift in Sources */,
 				EAA864812C6E487900A8CBCD /* SearchLocationMapViewController.swift in Sources */,
 				EABB9C692C6C34F200775657 /* GroupColorCollectionViewCell.swift in Sources */,
+				EA6BCECB2C79C450004FAF12 /* Alert.swift in Sources */,
 				EA7C5DA22C69A7E20099AB7C /* Geotification.swift in Sources */,
 				EAA163D72C734398007417B9 /* NotificationManager.swift in Sources */,
 				EABB9C732C6C410900775657 /* DatePicker.swift in Sources */,
