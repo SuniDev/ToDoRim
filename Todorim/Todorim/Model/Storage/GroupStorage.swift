@@ -32,10 +32,6 @@ class GroupStorage {
         }
     }
     
-    func getGroup(id: Int) -> Group? {
-        return realmManager.fetch(Group.self)?.filter("groupId == %@", id).first
-    }
-    
     func getGroups() -> [Group] {
         if let groupList = realmManager.fetch(Group.self)?.sorted(byKeyPath: "order") {
             var groups: [Group] = []

@@ -55,10 +55,6 @@ class TodoStorage {
         }
     }
     
-    func getTodo(id: Int) -> Todo? {
-        return realmManager.fetch(Todo.self)?.filter("todoId == %@", id).first
-    }
-    
     func add(_ todo: Todo) {
         realmManager.add(todo)
     }
@@ -84,15 +80,11 @@ class TodoStorage {
     }
     
     func updateComplete(with todo: Todo, isComplete: Bool, completion: @escaping (Bool) -> Void) {
-        if let updateTodo = getTodo(id: todo.todoId) {
-            realmManager.update(block: {
-                updateTodo.isComplete = isComplete
-            }, completion: { isSuccess, _ in
-                completion(isSuccess)
-            })
-        } else {
-            completion(false)
-        }
+        realmManager.update(block: {
+            todo.isComplete = isComplete
+        }, completion: { isSuccess, _ in
+            completion(isSuccess)
+        })
     }
     
     func deleteTodo(with todo: Todo, completion: @escaping (Bool) -> Void) {
