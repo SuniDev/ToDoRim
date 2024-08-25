@@ -25,26 +25,29 @@ class IntroViewController: BaseViewController {
     
     func checkAppStatus() {
         if Utils.isJailbroken() {
-            showDoneAlert(
+            Alert.showDone(
+                self,
                 title: L10n.Alert.Jalibroken.title,
                 doneHandler: {
                     exit(0)
-                })
+                }, withDismiss: false)
         } else {
             Utils.initConfig()
             Utils.checkForUpdate { [weak self] appUpdate, _ in
                 guard let self else { return }
                 switch appUpdate {
                 case .forceUpdate:
-                    showDoneAlert(
+                    Alert.showDone(
+                        self,
                         title: L10n.Alert.ForceUpdate.title,
                         message: L10n.Alert.ForceUpdate.message,
                         doneTitle: L10n.Alert.Button.update,
                         doneHandler: {
                             Utils.moveAppStore()
-                        })
+                        }, withDismiss: false)
                 case .latestUpdate:
-                    showDoneAndCancelAlert(
+                    Alert.showCancelAndDone(
+                        self,
                         title: L10n.Alert.LatestUpdate.title,
                         message: L10n.Alert.LatestUpdate.message,
                         cancelTitle: L10n.Alert.Button.update,
@@ -78,45 +81,6 @@ class IntroViewController: BaseViewController {
             viewController.inject(service: service)
         
             self.navigationController?.setViewControllers([viewController], animated: false)
-        }
-    }
-    
-    private func showDoneAlert(title: String? = "",
-                               message: String? = "",
-                               doneTitle: String? = L10n.Alert.Button.done,
-                               doneHandler: (() -> Void)? = nil) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        let doneAction = UIAlertAction(title: doneTitle, style: .default) { _ in
-            doneHandler?()
-        }
-        alert.addAction(doneAction)
-        
-        performUIUpdatesOnMain {
-            self.present(alert, animated: true)
-        }
-    }
-    
-    private func showDoneAndCancelAlert(title: String? = "",
-                                        message: String? = "",
-                                        cancelTitle: String = L10n.Alert.Button.cancel,
-                                        doneTitle: String = L10n.Alert.Button.done,
-                                        cancelHandler: (() -> Void)? = nil,
-                                        doneHandler: (() -> Void)? = nil) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel) { _ in
-            alert.dismiss(animated: true)
-            cancelHandler?()
-        }
-        let doneAction = UIAlertAction(title: doneTitle, style: .default) { _ in
-            doneHandler?()
-        }
-        alert.addAction(cancelAction)
-        alert.addAction(doneAction)
-        
-        performUIUpdatesOnMain {
-            self.present(alert, animated: true)
         }
     }
 }

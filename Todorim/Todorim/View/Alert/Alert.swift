@@ -8,8 +8,7 @@
 import UIKit
 
 class Alert {
-        
-    func showDestructive(_ viewController: UIViewController,
+    static func showDestructive(_ viewController: UIViewController,
                          title: String? = "",
                          message: String? = "",
                          cancelTitle: String = L10n.Alert.Button.cancel,
@@ -33,7 +32,7 @@ class Alert {
         }
     }
     
-    func showCancelAndDone(_ viewController: UIViewController,
+    static func showCancelAndDone(_ viewController: UIViewController,
                            title: String? = "",
                            message: String? = "",
                            cancelTitle: String = L10n.Alert.Button.cancel,
@@ -57,16 +56,19 @@ class Alert {
         }
     }
     
-    func showDone(_ viewController: UIViewController,
+    static func showDone(_ viewController: UIViewController,
                   title: String? = "",
                   message: String? = "",
                   doneTitle: String? = L10n.Alert.Button.done,
-                  doneHandler: (() -> Void)? = nil) {
+                  doneHandler: (() -> Void)? = nil,
+                  withDismiss: Bool = true) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             
             let doneAction = UIAlertAction(title: doneTitle, style: .default) { _ in
-                alert.dismiss(animated: true)
+                if withDismiss {
+                    alert.dismiss(animated: true)
+                }
                 doneHandler?()
             }
             alert.addAction(doneAction)
