@@ -9,12 +9,12 @@ import UIKit
 
 class Alert {
     static func showDestructive(_ viewController: UIViewController,
-                         title: String? = "",
-                         message: String? = "",
-                         cancelTitle: String = L10n.Alert.Button.cancel,
-                         destructiveTitle: String = L10n.Alert.Button.delete,
-                         cancelHandler: (() -> Void)? = nil,
-                         destructiveHandler: (() -> Void)? = nil) {
+                                title: String? = "",
+                                message: String? = "",
+                                cancelTitle: String = L10n.Alert.Button.cancel,
+                                destructiveTitle: String = L10n.Alert.Button.delete,
+                                cancelHandler: (() -> Void)? = nil,
+                                destructiveHandler: (() -> Void)? = nil) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             
@@ -33,12 +33,12 @@ class Alert {
     }
     
     static func showCancelAndDone(_ viewController: UIViewController,
-                           title: String? = "",
-                           message: String? = "",
-                           cancelTitle: String = L10n.Alert.Button.cancel,
-                           doneTitle: String = L10n.Alert.Button.done,
-                           cancelHandler: (() -> Void)? = nil,
-                           doneHandler: (() -> Void)? = nil) {
+                                  title: String? = "",
+                                  message: String? = "",
+                                  cancelTitle: String = L10n.Alert.Button.cancel,
+                                  doneTitle: String = L10n.Alert.Button.done,
+                                  cancelHandler: (() -> Void)? = nil,
+                                  doneHandler: (() -> Void)? = nil) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             
@@ -57,11 +57,11 @@ class Alert {
     }
     
     static func showDone(_ viewController: UIViewController,
-                  title: String? = "",
-                  message: String? = "",
-                  doneTitle: String? = L10n.Alert.Button.done,
-                  doneHandler: (() -> Void)? = nil,
-                  withDismiss: Bool = true) {
+                         title: String? = "",
+                         message: String? = "",
+                         doneTitle: String? = L10n.Alert.Button.done,
+                         doneHandler: (() -> Void)? = nil,
+                         withDismiss: Bool = true) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
             
