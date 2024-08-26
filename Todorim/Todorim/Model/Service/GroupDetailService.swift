@@ -24,7 +24,7 @@ class GroupDetailService {
         return todoStorage.getTodos(groupId: group.groupId)
     }
     
-    func updateTodoCompletion(todo: Todo, isComplete: Bool, completion: @escaping (Bool) -> Void) {
+    func completeTodo(todo: Todo, isComplete: Bool, completion: @escaping (Bool) -> Void) {
         todoStorage.updateComplete(with: todo, isComplete: isComplete) { isSuccess in
             if isSuccess {
                 if isComplete {

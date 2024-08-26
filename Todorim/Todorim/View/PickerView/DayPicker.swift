@@ -32,7 +32,7 @@ class DayPicker: UIPickerView {
         toolbar.sizeToFit()
 
         let flexButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(donePressed))
+        let doneButton = UIBarButtonItem(title: L10n.Button.complete, style: .plain, target: self, action: #selector(donePressed))
         toolbar.setItems([flexButton, doneButton], animated: false)
         
         return toolbar

@@ -229,7 +229,7 @@ extension HomeViewController: GroupCollectionViewCellDelegate {
             if isSuccess {
                 self.fetchDataAndUI()
             } else {
-                // TODO: - 오류 메시지
+                Alert.showError(self, title: "할 일 완료")
             }
         })
     } 
@@ -250,7 +250,7 @@ extension HomeViewController: WriteGroupViewControllerDelegate {
                 if isSuccess {
                     self.fetchDataAndUI()
                 } else {
-                    // TODO: 오류 메시지
+                    Alert.showError(self, title: "그룹 삭제")
                 }
             })
         }

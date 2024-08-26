@@ -77,4 +77,15 @@ class Alert {
         }
     }
     
+    static func showError(_ viewController: UIViewController,
+                          title: String? = "",
+                          doneHandler: (() -> Void)? = nil) {
+        Alert.showDone(
+            viewController,
+            title: L10n.Alert.Error.title(title),
+            message: L10n.Alert.Error.message,
+            doneHandler: doneHandler
+        )
+    }
+    
 }

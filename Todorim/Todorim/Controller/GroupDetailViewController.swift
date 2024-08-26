@@ -208,13 +208,13 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
         let todo = todos[indexPath.row]
         let isComplete = !todo.isComplete
         
-        groupDetailService?.updateTodoCompletion(todo: todo, isComplete: isComplete) { [weak self] isSuccess in
+        groupDetailService?.completeTodo(todo: todo, isComplete: isComplete) { [weak self] isSuccess in
             guard let self = self else { return }
             if isSuccess {
                 self.fetchData()
                 self.updateTodosUI()
             } else {
-                // TODO: - 오류 메시지 처리
+                Alert.showError(self, title: "할일 완료")
             }
         }
     }

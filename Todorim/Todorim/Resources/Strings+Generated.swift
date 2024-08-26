@@ -128,6 +128,8 @@ internal enum L10n {
   internal enum Button {
     /// 추가
     internal static let add = L10n.tr("Localizable", "button.add", fallback: "추가")
+    /// 완료
+    internal static let complete = L10n.tr("Localizable", "button.complete", fallback: "완료")
     /// 수정
     internal static let edit = L10n.tr("Localizable", "button.edit", fallback: "수정")
   }
@@ -164,6 +166,10 @@ internal enum L10n {
     internal enum Day {
       /// 반복할 일을 선택하세요.
       internal static let placeholder = L10n.tr("Localizable", "picker.day.placeholder", fallback: "반복할 일을 선택하세요.")
+    }
+    internal enum Group {
+      /// 그룹을 선택하세요.
+      internal static let placeholder = L10n.tr("Localizable", "picker.group.placeholder", fallback: "그룹을 선택하세요.")
     }
     internal enum Week {
       /// 반복할 요일을 선택하세요.

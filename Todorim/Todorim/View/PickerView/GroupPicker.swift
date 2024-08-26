@@ -18,7 +18,7 @@ class GroupPicker: UIPickerView {
         self.groups = groups
         self.selectedGroup = selectedGroup
         
-        textField.text = selectedGroup?.title ?? "그룹을 선택하세요."
+        textField.text = selectedGroup?.title ?? L10n.Picker.Group.placeholder
     }
     
     func makeDone() -> UIToolbar {
@@ -29,7 +29,7 @@ class GroupPicker: UIPickerView {
         toolbar.sizeToFit()
 
         let flexButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(donePressed))
+        let doneButton = UIBarButtonItem(title: L10n.Button.complete, style: .plain, target: self, action: #selector(donePressed))
         toolbar.setItems([flexButton, doneButton], animated: false)
         
         return toolbar
