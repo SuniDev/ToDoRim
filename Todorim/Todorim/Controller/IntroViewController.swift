@@ -27,7 +27,7 @@ class IntroViewController: BaseViewController {
         if Utils.isJailbroken() {
             Alert.showDone(
                 self,
-                title: L10n.Alert.Jalibroken.title,
+                title: L10n.Alert.Jailbroken.title,
                 doneHandler: {
                     exit(0)
                 }, withDismiss: false)

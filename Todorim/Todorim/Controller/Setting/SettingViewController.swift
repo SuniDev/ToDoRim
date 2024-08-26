@@ -259,11 +259,11 @@ extension SettingViewController: MFMailComposeViewControllerDelegate {
         case .saved:
             print("Mail saved")
         case .sent:
-            showToast(message: L10n.Toast.ContractUs.complete)
+            showToast(message: L10n.Toast.ContactUs.complete)
         case .failed:
-            showToast(message: L10n.Toast.ContractUs.error)
+            showToast(message: L10n.Toast.ContactUs.error)
         @unknown default:
-            showToast(message: L10n.Toast.ContractUs.error)
+            showToast(message: L10n.Toast.ContactUs.error)
         }
     }
 }
