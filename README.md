@@ -59,6 +59,15 @@
 
 ### 아키텍처 및 디자인 패턴
 - MVC
+  <br><br>
+![MVC](https://github.com/user-attachments/assets/4f46e6ad-529b-49a1-ba3d-cc95a2e67727)
+  <br><br>
+- 각 Model/View/Controller의 역할 및 구조
+  <br><br>
+![View](https://github.com/user-attachments/assets/eb24c526-719e-44f7-a59b-2b9afd7b4d24)
+![Controller](https://github.com/user-attachments/assets/f06b2c9c-055b-4e9b-ac82-b9f01d20fee5)
+![Model](https://github.com/user-attachments/assets/4f7cdcf7-9254-4836-b136-3510e6f88cea)
+<br><br>
 
 ### SPM(Swift Package Manager)으로 라이브러리 관리
 - Realm: 데이터베이스 관리 시스템을 사용하여 오프라인 데이터 관리 및 동기화 기능 구현.
