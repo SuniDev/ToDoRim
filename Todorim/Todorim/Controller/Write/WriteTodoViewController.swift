@@ -359,7 +359,7 @@ class WriteTodoViewController: BaseViewController {
     func loadInterstitialAd() {
         if Utils.checkShowAds() {
             let request = GADRequest()
-            GADInterstitialAd.load(withAdUnitID: Constants.gadGroupID, request: request, completionHandler: { [weak self] gad, error in
+            GADInterstitialAd.load(withAdUnitID: Constants.gadTodoID, request: request, completionHandler: { [weak self] gad, error in
                 guard let self else { return }
                 if let error = error {
                     print("Failed to load interstitial ad: \(error)")
