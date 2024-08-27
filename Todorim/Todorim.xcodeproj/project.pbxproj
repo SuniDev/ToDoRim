@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA1D43C02C7D6C86006B6961 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1D43BF2C7D6C86006B6961 /* AnalyticsManager.swift */; };
 		EA62BD162C771B7400FC92ED /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = EA62BD152C771B7400FC92ED /* GoogleMobileAds */; };
 		EA62BD1F2C771DCD00FC92ED /* Secrets-Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EA62BD1C2C771DCD00FC92ED /* Secrets-Debug.xcconfig */; };
 		EA62BD202C771DCD00FC92ED /* Secrets-Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = EA62BD1D2C771DCD00FC92ED /* Secrets-Release.xcconfig */; };
@@ -127,6 +128,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EA1D43BF2C7D6C86006B6961 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		EA62BD1C2C771DCD00FC92ED /* Secrets-Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Secrets-Debug.xcconfig"; sourceTree = "<group>"; };
 		EA62BD1D2C771DCD00FC92ED /* Secrets-Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = "Secrets-Release.xcconfig"; sourceTree = "<group>"; };
 		EA62BD212C7734E000FC92ED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 			children = (
 				EAA163D62C734398007417B9 /* NotificationManager.swift */,
 				EA6B4FC62C69CB1700DC3254 /* RealmManager.swift */,
+				EA1D43BF2C7D6C86006B6961 /* AnalyticsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -831,6 +834,7 @@
 				EA6B4FE52C69ED0400DC3254 /* UserDefaultStorage.swift in Sources */,
 				EA7C5D9B2C69A7E20099AB7C /* CAGradientLayer+Extension.swift in Sources */,
 				EA7C5DA02C69A7E20099AB7C /* UITextField+Extension.swift in Sources */,
+				EA1D43C02C7D6C86006B6961 /* AnalyticsManager.swift in Sources */,
 				EA6B4FEB2C69F54B00DC3254 /* Utils.swift in Sources */,
 				EA8BB6F02C6AE40800779FF9 /* HomeTodoTableViewCell.swift in Sources */,
 				EA6B4FBE2C69B8BA00DC3254 /* IntroViewController.swift in Sources */,

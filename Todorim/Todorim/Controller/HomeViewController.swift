@@ -42,8 +42,14 @@ class HomeViewController: BaseViewController {
         self.homeService = service
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        Utils.requestTrackingAuthorization { }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        AnalyticsManager.shared.logEvent(.VIEW_HOME)
         fetchDataAndUI()
     }
     
@@ -130,6 +136,8 @@ extension HomeViewController {
     }
     
     private func moveToAddGroup() {
+        AnalyticsManager.shared.logEvent(.TAP_HOME_WRITE_GROUP)
+        
         guard let groupStorage = homeService?.groupStorage else { return }
         let service = WriteGroupService(groupStorage: groupStorage)
         
@@ -222,6 +230,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 // MARK: - GroupCollectionViewCellDelegate
 extension HomeViewController: GroupCollectionViewCellDelegate {
     func completeTodo(with todo: Todo?, isComplete: Bool) {
+        if isComplete {
+            AnalyticsManager.shared.logEvent(.TAP_HOME_COMPLETE_TODO)
+        } else {
+            AnalyticsManager.shared.logEvent(.TAP_HOME_UNCOMPLETE_TODO)
+        }
+        
         guard let todo else { return }
         
         homeService?.completeTodo(todo: todo, isComplete: isComplete, completion: { [weak self] isSuccess in

@@ -43,6 +43,7 @@ class IntroViewController: BaseViewController {
                         message: L10n.Alert.ForceUpdate.message,
                         doneTitle: L10n.Alert.Button.update,
                         doneHandler: {
+                            AnalyticsManager.shared.logEvent(.TAP_UPDATE_GO)
                             Utils.moveAppStore()
                         }, withDismiss: false)
                 case .latestUpdate:
@@ -53,9 +54,11 @@ class IntroViewController: BaseViewController {
                         cancelTitle: L10n.Alert.Button.update,
                         doneTitle: L10n.Alert.Button.later,
                         cancelHandler: { [weak self] in
+                            AnalyticsManager.shared.logEvent(.TAP_UPDATE_GO)
                             self?.moveToHome()
                             Utils.moveAppStore()
                         }, doneHandler: { [weak self] in
+                            AnalyticsManager.shared.logEvent(.TAP_UPDATE_LATER)
                             self?.moveToHome()
                         })
                 case .none:

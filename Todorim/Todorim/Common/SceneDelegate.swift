@@ -69,6 +69,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         message: L10n.Alert.ForceUpdate.message,
                         doneTitle: L10n.Alert.Button.update,
                         doneHandler: {
+                            AnalyticsManager.shared.logEvent(.TAP_UPDATE_GO)
                             Utils.moveAppStore()
                         }, withDismiss: false)
                 }

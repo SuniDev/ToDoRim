@@ -81,6 +81,10 @@ class Alert {
     static func showError(_ viewController: UIViewController,
                           title: String = "",
                           doneHandler: (() -> Void)? = nil) {
+        AnalyticsManager.shared.logEvent(
+            .ALERT_ERROR,
+            parameters: [.ERROR_TITLE: title]
+        )
         Alert.showDone(
             viewController,
             title: L10n.Alert.Error.title(title),

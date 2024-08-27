@@ -100,18 +100,26 @@ class WriteTodoViewController: BaseViewController {
     }
     
     @IBAction private func tappedDateNotiNoneButton(_ sender: UIButton) {
+        AnalyticsManager.shared.logEvent(.TAP_DATE_NOTI_REPEAT,
+                                         parameters: [.REPEAT_TYPE: RepeatNotificationType.none.log])
         selectRepeat(type: .none)
     }
     
     @IBAction private func tappedDateNotiDailyButton(_ sender: UIButton) {
+        AnalyticsManager.shared.logEvent(.TAP_DATE_NOTI_REPEAT,
+                                         parameters: [.REPEAT_TYPE: RepeatNotificationType.daily.log])
         selectRepeat(type: .daily)
     }
     
     @IBAction private func tappepDateNotiWeeklyButton(_ sender: UIButton) {
+        AnalyticsManager.shared.logEvent(.TAP_DATE_NOTI_REPEAT,
+                                         parameters: [.REPEAT_TYPE: RepeatNotificationType.weekly.log])
         selectRepeat(type: .weekly)
     }
     
     @IBAction private func tappepDateNotiMonthlyButton(_ sender: UIButton) {
+        AnalyticsManager.shared.logEvent(.TAP_DATE_NOTI_REPEAT,
+                                         parameters: [.REPEAT_TYPE: RepeatNotificationType.monthly.log])
         selectRepeat(type: .monthly)
     }
     
@@ -133,6 +141,12 @@ class WriteTodoViewController: BaseViewController {
         guard let writeTodoService = writeTodoService else { return }
         writeTodo = writeTodoService.initializeTodoData(todo: todo, group: group, groups: groups)
         groups = writeTodoService.getGroups()
+        
+        if let todo {
+            AnalyticsManager.shared.logEvent(.VIEW_EDIT_TODO, parameters: [.IS_COMPLETE: todo.isComplete])
+        } else {
+            AnalyticsManager.shared.logEvent(.VIEW_WRITE_TODO)
+        }
     }
     
     // MARK: - UI 설정
@@ -359,6 +373,7 @@ class WriteTodoViewController: BaseViewController {
     
     func showInterstitialAd() {
         if let interstitial = interstitial, Utils.checkShowAds() {
+            AnalyticsManager.shared.logEvent(.VIEW_ADS)
             interstitial.present(fromRootViewController: self)
         } else {
             completeWriteTodo()
@@ -370,8 +385,14 @@ class WriteTodoViewController: BaseViewController {
         Utils.increaseShowAdsCount()
         
         if isNew {
+            AnalyticsManager.shared.logEvent(.SUCCESS_WRITE_TODO,
+                                             parameters: [.IS_DATE_NOTI: writeTodo.isDateNoti,
+                                                          .IS_LOCATION_NOTI: writeTodo.isLocationNoti])
             delegate?.completeWriteTodo(todo: writeTodo)
         } else {
+            AnalyticsManager.shared.logEvent(.SUCCESS_EDIT_TODO,
+                                             parameters: [.IS_DATE_NOTI: writeTodo.isDateNoti,
+                                                          .IS_LOCATION_NOTI: writeTodo.isLocationNoti])
             delegate?.completeEditTodo(todo: writeTodo)
         }
         pop()
@@ -391,11 +412,13 @@ extension WriteTodoViewController: GADFullScreenContentDelegate {
 extension WriteTodoViewController {
     private func handleDateNotificationChange(_ isOn: Bool) {
         if isOn {
+            AnalyticsManager.shared.logEvent(.TAP_DATE_NOTI_ON)
             writeTodoService?.requestNotificationAuthorization { [weak self] didAllow in
                 guard let self = self else { return }
                 if didAllow {
                     self.writeTodo.isDateNoti = true
                 } else {
+                    AnalyticsManager.shared.logEvent(.ALERT_REQUEST_PERMISSION_PUSH)
                     Alert.showCancelAndDone(
                         self,
                         title: L10n.Alert.AuthNoti.title,
@@ -409,6 +432,7 @@ extension WriteTodoViewController {
                 self.configureDateNotiUI()
             }
         } else {
+            AnalyticsManager.shared.logEvent(.TAP_DATE_NOTI_OFF)
             writeTodoService?.resetDateNotificationSettings(for: writeTodo)
             configureDateNotiUI()
         }
@@ -416,11 +440,13 @@ extension WriteTodoViewController {
     
     private func handleLocationNotificationChange(_ isOn: Bool) {
         if isOn {
+            AnalyticsManager.shared.logEvent(.TAP_LOCATION_NOTI_ON)
             writeTodoService?.requestNotificationAuthorization { [weak self] didAllow in
                 guard let self = self else { return }
                 if didAllow {
                     self.writeTodo.isLocationNoti = true
                 } else {
+                    AnalyticsManager.shared.logEvent(.ALERT_REQUEST_PERMISSION_PUSH)
                     Alert.showCancelAndDone(
                         self,
                         title: L10n.Alert.AuthNoti.title,
@@ -434,6 +460,7 @@ extension WriteTodoViewController {
                 self.configureLocationNotiUI()
             }
         } else {
+            AnalyticsManager.shared.logEvent(.TAP_LOCATION_NOTI_OFF)
             writeTodoService?.resetLocationNotificationSettings(for: writeTodo)
             configureLocationNotiUI()
         }

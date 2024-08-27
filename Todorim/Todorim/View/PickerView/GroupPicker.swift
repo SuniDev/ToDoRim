@@ -56,6 +56,7 @@ extension GroupPicker: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        AnalyticsManager.shared.logEvent(.TAP_SELECT_TODO_GROUP)
         textField?.text = groups[row].title
         selectedGroup = groups[row]
     }

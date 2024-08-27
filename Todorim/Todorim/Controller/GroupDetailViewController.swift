@@ -42,7 +42,7 @@ class GroupDetailViewController: BaseViewController {
     @IBAction private func tappedAddTodoButton(_ sender: UIButton) {
         moveToWriteTodo()
     }
-    
+        
     // MARK: - Data 설정
     override func configureHeroID() {
         guard let group else { return }
@@ -67,6 +67,8 @@ class GroupDetailViewController: BaseViewController {
         
         updateGroupUI()
         updateTodosUI()
+        
+        AnalyticsManager.shared.logEvent(.VIEW_GROUP_DETAIL, parameters: [.TODO_COUNT: todos.count])
     }
     
     private func configureTableView() {
@@ -208,6 +210,11 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
         let todo = todos[indexPath.row]
         let isComplete = !todo.isComplete
         
+        if isComplete {
+            AnalyticsManager.shared.logEvent(.TAP_DETAIL_COMPLETE_TODO)
+        } else {
+            AnalyticsManager.shared.logEvent(.TAP_DETAIL_UNCOMPLETE_TODO)
+        }
         groupDetailService?.completeTodo(todo: todo, isComplete: isComplete) { [weak self] isSuccess in
             guard let self = self else { return }
             if isSuccess {
@@ -253,12 +260,14 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     private func deleteTodo(todo: Todo, completion: @escaping (Bool) -> Void) {
+        let isComplete: Bool = todo.isComplete
         groupDetailService?.deleteTodo(todo: todo) { [weak self] isSuccess in
             guard let self else {
                 completion(false)
                 return
             }
             if isSuccess {
+                AnalyticsManager.shared.logEvent(.SUCCESS_DELETE_TODO, parameters: [.IS_COMPLETE: isComplete])
                 self.fetchData()
                 self.updateTodosUI()
                 completion(true)

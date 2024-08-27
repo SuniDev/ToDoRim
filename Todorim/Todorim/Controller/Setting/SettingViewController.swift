@@ -34,22 +34,27 @@ class SettingViewController: BaseViewController {
     }
     
     @IBAction private func tappedPurchaseRemoveAds(_ sender: Any) {
+        AnalyticsManager.shared.logEvent(.TAP_PURCHASE)
         purchaseRemoveAds()
     }
     
     @IBAction private func tappedRestorePurchases(_ sender: Any) {
+        AnalyticsManager.shared.logEvent(.TAP_RESTORE)
         restorePurchases()
     }
     
     @IBAction private func tappedGoReview(_ sender: Any) {
+        AnalyticsManager.shared.logEvent(.TAP_APPREVIEW_GO)
         Utils.moveAppReviewInStore()
     }
     
     @IBAction private func tappedContactUs(_ sender: Any) {
+        AnalyticsManager.shared.logEvent(.TAP_CONTACTUS)
         showContractUsMail()
     }
     
     @IBAction private func tappedUpdate(_ sender: Any) {
+        AnalyticsManager.shared.logEvent(.TAP_UPDATE_GO)
         Utils.moveAppStore()
     }
     
@@ -116,6 +121,7 @@ class SettingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        AnalyticsManager.shared.logEvent(.VIEW_SETTING)
         fetchProducts()
     }
     

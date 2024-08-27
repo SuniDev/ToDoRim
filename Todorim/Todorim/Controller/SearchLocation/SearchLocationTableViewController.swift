@@ -22,6 +22,7 @@ class SearchLocationTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        AnalyticsManager.shared.logEvent(.VIEW_SEARCH_LOCATION_TABLE)
         
         tableView.contentInsetAdjustmentBehavior = .never
         

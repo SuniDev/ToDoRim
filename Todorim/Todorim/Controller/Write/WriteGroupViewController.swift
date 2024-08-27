@@ -145,6 +145,12 @@ class WriteGroupViewController: BaseViewController {
     override func fetchData() {
         writeGroup = writeGroupService?.initializeGroupData(group: group) ?? Group()
         selectedColorIndex = writeGroup.appColorIndex
+        
+        if isNew {
+            AnalyticsManager.shared.logEvent(.VIEW_WRITE_GROUP)
+        } else {
+            AnalyticsManager.shared.logEvent(.VIEW_EDIT_GROUP)
+        }
     }
     
     // MARK: - UI 설정
@@ -254,6 +260,7 @@ class WriteGroupViewController: BaseViewController {
     
     func showInterstitialAd() {
         if let interstitial = interstitial, Utils.checkShowAds() {
+            AnalyticsManager.shared.logEvent(.VIEW_ADS)
             interstitial.present(fromRootViewController: self)
         } else {
             completeWriteGroup()
@@ -265,8 +272,12 @@ class WriteGroupViewController: BaseViewController {
         Utils.increaseShowAdsCount()
         
         if isNew {
+            AnalyticsManager.shared.logEvent(.SUCCESS_WRITE_GROUP,
+                                             parameters: [.COLOR_INDEX: writeGroup.appColorIndex])
             delegate?.completeWriteGroup(group: writeGroup)
         } else {
+            AnalyticsManager.shared.logEvent(.SUCCESS_EDIT_GROUP,
+                                             parameters: [.COLOR_INDEX: writeGroup.appColorIndex])
             delegate?.completeEditGroup(group: writeGroup)
         }
         pop()
@@ -316,6 +327,12 @@ extension WriteGroupViewController: UICollectionViewDelegate, UICollectionViewDa
         
         selectedColorIndex = indexPath.row
         updateButtonColor()
+        
+        if isNew {
+            AnalyticsManager.shared.logEvent(.TAP_WRITE_GROUP_COLOR, parameters: [.COLOR_INDEX: indexPath.row])
+        } else {
+            AnalyticsManager.shared.logEvent(.TAP_EDIT_GROUP_COLOR, parameters: [.COLOR_INDEX: indexPath.row])
+        }
     }
 }
 

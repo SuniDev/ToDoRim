@@ -20,6 +20,14 @@ enum LocationNotificationType: String {
         case .exit: return L10n.Location.exit
         }
     }
+    
+    var log: String {
+        switch self {
+        case .none: return ""
+        case .entry: return "ENTRY"
+        case .exit: return "EXIT"
+        }
+    }
 }
 
 // MARK: - 반복 알림 타입
@@ -35,6 +43,15 @@ enum RepeatNotificationType: String {
         case .daily: return L10n.Repeat.daily
         case .weekly: return L10n.Repeat.weekly
         case .monthly: return L10n.Repeat.monthly
+        }
+    }
+    
+    var log: String {
+        switch self {
+        case .none: return "NONE"
+        case .daily: return "DAILY"
+        case .weekly: return "WEEKLY"
+        case .monthly: return "MONTHLY"
         }
     }
 }

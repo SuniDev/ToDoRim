@@ -72,8 +72,25 @@ class WriteTodoService {
     
     // 알림 권한 요청 및 처리
     func requestNotificationAuthorization(completion: @escaping (Bool) -> Void) {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { didAllow, _ in
-            completion(didAllow)
+        getNotificationSettingStatus(completion: { status in
+            if status == .notDetermined {
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { didAllow, _ in 
+                    if didAllow {
+                        AnalyticsManager.shared.logEvent(.TAP_PERMISSION_PUSH_YES)
+                    } else {
+                        AnalyticsManager.shared.logEvent(.TAP_PERMISSION_PUSH_NO)
+                    }
+                    completion(didAllow)
+                }
+            } else {
+                completion(status == .authorized)
+            }
+        })
+    } 
+    
+    private func getNotificationSettingStatus(completion: @escaping (UNAuthorizationStatus) -> Void) {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            completion(settings.authorizationStatus)
         }
     }
     

@@ -50,6 +50,8 @@ class HomeService {
     func deleteGroup(groupId: Int, completion: @escaping (Bool) -> Void) {
         let todoIds = todoStorage.getTodos().filter { $0.groupId == groupId }.map { $0.todoId }
         
+        AnalyticsManager.shared.logEvent(.SUCCESS_DELETE_GROUP, parameters: [.TODO_COUNT: todoIds.count])
+        
         todoStorage.deleteTodos(groupId: groupId, completion: { isSuccess in
             if isSuccess {
                 todoIds.forEach { self.notificationManager.remove(id: $0) }

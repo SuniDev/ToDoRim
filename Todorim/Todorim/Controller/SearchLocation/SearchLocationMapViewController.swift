@@ -47,22 +47,32 @@ class SearchLocationMapViewController: BaseViewController {
            let radius = geotification?.radius,
            let selectLocationType,
            let name = geotification?.note {
+            AnalyticsManager.shared.logEvent(.TAP_COMPLETE_SEARCH_LOCATION,
+                                             parameters: [
+                                                .LOCATION_TYPE: selectLocationType.log,
+                                                .RADIUS: radius
+                                             ])
             delegate?.searchLocationMapView(didAddCoordinate: coordinate, radius: radius, locationType: selectLocationType, name: name)
         }
     }
     
     @IBAction private func tapEntry(_ sender: UIButton) {
+        AnalyticsManager.shared.logEvent(.TAP_LOCATION_TYPE,
+                                         parameters: [.LOCATION_TYPE: LocationNotificationType.entry.log])
         selectLocationType = .entry
         addRadiusOverlay(forGeotification: geotification)
     }
     
     @IBAction private func tapExit(_ sender: UIButton) {
+        AnalyticsManager.shared.logEvent(.TAP_LOCATION_TYPE,
+                                         parameters: [.LOCATION_TYPE: LocationNotificationType.exit.log])
         selectLocationType = .exit
         addRadiusOverlay(forGeotification: geotification)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        AnalyticsManager.shared.logEvent(.VIEW_SEARCH_LOCATION_MAP)
         createKeyboardEvent()
     }
     

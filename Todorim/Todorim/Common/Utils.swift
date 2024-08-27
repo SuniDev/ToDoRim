@@ -27,6 +27,13 @@ class Utils {
         return attribute
     }
     
+    static func getCurrentKSTTimestamp() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul")
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.string(from: Date())
+    }
+    
     static func moveAppStore() {
         if let appStoreURL = URL(string: "https://apps.apple.com/app/\(Constants.appStoreId)") {
             DispatchQueue.main.async {
@@ -191,12 +198,14 @@ class Utils {
             switch status {
             case .authorized:
                 if !(isShowRequestIDAFAuth as? Bool ?? false) {
+                    AnalyticsManager.shared.logEvent(.TAP_PERMISSION_IDAF_YES)
                     UserDefaultStorage.set(true, forKey: .isShowRequestIDAFAuth)
                 }
                 Analytics.setAnalyticsCollectionEnabled(true)
                 completion()
             case.denied:
                 if !(isShowRequestIDAFAuth as? Bool ?? false) {
+                    AnalyticsManager.shared.logEvent(.TAP_PERMISSION_IDAF_NO)
                     UserDefaultStorage.set(true, forKey: .isShowRequestIDAFAuth)
                 }
                 Analytics.setAnalyticsCollectionEnabled(false)
@@ -220,11 +229,13 @@ class Utils {
             switch status {
             case .authorized:
                 if !(isShowRequestIDAFAuth as? Bool ?? false) {
+                    AnalyticsManager.shared.logEvent(.TAP_PERMISSION_IDAF_YES)
                     UserDefaultStorage.set(true, forKey: .isShowRequestIDAFAuth)
                 }
                 Analytics.setAnalyticsCollectionEnabled(true)
             case .denied:
                 if !(isShowRequestIDAFAuth as? Bool ?? false) {
+                    AnalyticsManager.shared.logEvent(.TAP_PERMISSION_IDAF_NO)
                     UserDefaultStorage.set(true, forKey: .isShowRequestIDAFAuth)
                 }
                 Analytics.setAnalyticsCollectionEnabled(false)

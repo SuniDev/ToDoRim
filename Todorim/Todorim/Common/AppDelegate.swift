@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // UNUserNotificationCenterDelegate 설정
         UNUserNotificationCenter.current().delegate = self
+        
+        AnalyticsManager.shared.logEvent(.OPEN_APP)
         return true
     }
 }
@@ -34,5 +36,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         
         // 여기서 원하는 알림 옵션을 지정합니다.
         completionHandler([.banner, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        AnalyticsManager.shared.logEvent(.OPEN_APP_PUSH)
+        completionHandler()
     }
 }

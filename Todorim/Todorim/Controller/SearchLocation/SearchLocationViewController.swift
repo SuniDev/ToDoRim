@@ -27,9 +27,15 @@ class SearchLocationViewController: BaseViewController {
     }
     
     @IBAction private func tappedSearchPosition(_ sender: UIButton) {
+        AnalyticsManager.shared.logEvent(.TAP_SEARCH_POSITION)
         guard let coordinate = locationManager.location?.coordinate else { return }
         let pin = MKPlacemark(coordinate: coordinate)
         moveToMap(selectedPin: pin)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        AnalyticsManager.shared.logEvent(.VIEW_SEARCH_LOCATION)
     }
     
     // MARK: - Data 설정
@@ -44,6 +50,7 @@ class SearchLocationViewController: BaseViewController {
         
         let status = locationManager.authorizationStatus
         if status == CLAuthorizationStatus.denied || status == CLAuthorizationStatus.restricted {
+            AnalyticsManager.shared.logEvent(.ALERT_REQUEST_PERMISSION_LOCATION)
             Alert.showCancelAndDone(
                 self,
                 title: L10n.Alert.AuthLocation.title,
