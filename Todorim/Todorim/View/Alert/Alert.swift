@@ -47,6 +47,7 @@ class Alert {
                 cancelHandler?()
             }
             let doneAction = UIAlertAction(title: doneTitle, style: .default) { _ in
+                alert.dismiss(animated: true)
                 doneHandler?()
             }
             alert.addAction(cancelAction)
@@ -78,7 +79,7 @@ class Alert {
     }
     
     static func showError(_ viewController: UIViewController,
-                          title: String? = "",
+                          title: String = "",
                           doneHandler: (() -> Void)? = nil) {
         Alert.showDone(
             viewController,

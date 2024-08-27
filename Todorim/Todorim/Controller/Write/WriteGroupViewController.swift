@@ -68,14 +68,15 @@ class WriteGroupViewController: BaseViewController {
                 guard let self else { return }
                 if isSuccess {
                     self.showInterstitialAd()
-//                    self.delegate?.completeWriteGroup(group: self.writeGroup)
-//                    self.pop()
                 } else {
-                    // TODO: - 오류 메시지 처리
+                    Alert.showError(self, title: "그룹 추가")
                 }
             }
         } else {
-            showAlert(title: L10n.Alert.WriteGroup.EmptyName.title)
+            Alert.showDone(
+                self,
+                title: L10n.Alert.WriteGroup.EmptyName.title
+            )
         }
     }
     
@@ -88,14 +89,15 @@ class WriteGroupViewController: BaseViewController {
                 guard let self else { return }
                 if isSuccess {
                     self.showInterstitialAd()
-//                    self.delegate?.completeEditGroup(group: self.writeGroup)
-//                    self.pop()
                 } else {
-                    // TODO: 오류 메시지 처리
+                    Alert.showError(self, title: "그룹 수정")
                 }
             }
         } else {
-            showAlert(title: L10n.Alert.WriteGroup.EmptyName.title)
+            Alert.showDone(
+                self,
+                title: L10n.Alert.WriteGroup.EmptyName.title
+            )
         }
     }
     
@@ -109,10 +111,11 @@ class WriteGroupViewController: BaseViewController {
             guard let self, let group else { return }
             let id: Int = group.groupId
             self.writeGroupService?.deleteGroup(group) { [weak self] isSuccess in
+                guard let self else { return }
                 if isSuccess {
-                    self?.delegate?.deleteGroup(groupId: id)
+                    self.delegate?.deleteGroup(groupId: id)
                 } else {
-                    // TODO: 오류 메시지 처리
+                    Alert.showError(self, title: "그룹 삭제")
                 }
             }
         }
@@ -214,16 +217,6 @@ class WriteGroupViewController: BaseViewController {
     }
     
     // MARK: - Helper Methods
-    func showAlert(title: String) {
-        let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
-        let defaultAction = UIAlertAction(title: L10n.Alert.Button.done, style: .default)
-        alert.addAction(defaultAction)
-        
-        performUIUpdatesOnMain {
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
     func isValidData() -> Bool {
         if let text = textfield.text, text.isNotEmpty {
             return true

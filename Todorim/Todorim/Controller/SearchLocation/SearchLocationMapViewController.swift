@@ -119,17 +119,17 @@ class SearchLocationMapViewController: BaseViewController {
                     geotification?.radius = radius
                     addRadiusOverlay(forGeotification: geotification)
                 } else {
-                    let alert = UIAlertController(title: L10n.Alert.SearchLocation.RadiusWarning.title, message: "", preferredStyle: UIAlertController.Style.alert)
-                    let defaultAction = UIAlertAction(title: L10n.Alert.Button.done, style: .default)
-                    alert.addAction(defaultAction)
-                    self.present(alert, animated: false, completion: nil)
+                    Alert.showDone(
+                        self,
+                        title: L10n.Alert.SearchLocation.RadiusWarning.title
+                    )
                     radiusTextField.text = "100"
                 }
             } else {
-                let alert = UIAlertController(title: L10n.Alert.SearchLocation.TextWarning.title, message: "", preferredStyle: UIAlertController.Style.alert)
-                let defaultAction = UIAlertAction(title: L10n.Alert.Button.done, style: .default)
-                alert.addAction(defaultAction)
-                self.present(alert, animated: false, completion: nil)
+                Alert.showDone(
+                    self,
+                    title: L10n.Alert.SearchLocation.TextWarning.title
+                )
                 radiusTextField.text = "100"
             }
             

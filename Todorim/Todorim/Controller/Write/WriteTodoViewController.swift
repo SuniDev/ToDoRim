@@ -243,6 +243,7 @@ class WriteTodoViewController: BaseViewController {
             
             // Configure Date Select View
             self.view.layoutIfNeeded()
+            self.dateNotiSwitch.isOn = writeTodo.isDateNoti
             self.dateSelectView.isHidden = !writeTodo.isDateNoti
             self.dateNotiViewHeight.constant = writeTodo.isDateNoti ? 210 : 0
             UIView.animate(withDuration: 0.2, animations: {
@@ -344,7 +345,14 @@ extension WriteTodoViewController {
                 if didAllow {
                     self.writeTodo.isDateNoti = true
                 } else {
-                    self.showAlert(title: L10n.Alert.AuthNoti.title, message: L10n.Alert.AuthNoti.message)
+                    Alert.showCancelAndDone(
+                        self,
+                        title: L10n.Alert.AuthNoti.title,
+                        message: L10n.Alert.AuthNoti.message,
+                        cancelTitle: L10n.Alert.Button.moveSetting,
+                        cancelHandler: {
+                            Utils.moveAppSetting()
+                        })
                     self.writeTodoService?.resetDateNotificationSettings(for: self.writeTodo)
                 }
                 self.configureDateNotiUI()
@@ -362,7 +370,14 @@ extension WriteTodoViewController {
                 if didAllow {
                     self.writeTodo.isLocationNoti = true
                 } else {
-                    self.showAlert(title: L10n.Alert.AuthNoti.title, message: L10n.Alert.AuthNoti.message)
+                    Alert.showCancelAndDone(
+                        self,
+                        title: L10n.Alert.AuthNoti.title,
+                        message: L10n.Alert.AuthNoti.message,
+                        cancelTitle: L10n.Alert.Button.moveSetting,
+                        cancelHandler: {
+                            Utils.moveAppSetting()
+                        })
                     self.writeTodoService?.resetLocationNotificationSettings(for: self.writeTodo)
                 }
                 self.configureLocationNotiUI()
@@ -396,6 +411,8 @@ extension WriteTodoViewController {
                     if isSuccess {
                         self.delegate?.completeWriteTodo(todo: updatedTodo)
                         self.pop()
+                    } else {
+                        Alert.showError(self, title: "할 일 수정")
                     }
                 }
             } else {
@@ -428,7 +445,10 @@ extension WriteTodoViewController {
             writeTodo.title = title
             return true
         } else {
-            showAlert(title: L10n.Alert.WriteTodo.EmptyName.title)
+            Alert.showDone(
+                self,
+                title: L10n.Alert.WriteTodo.EmptyName.title
+            )
             return false
         }
     }
@@ -437,19 +457,31 @@ extension WriteTodoViewController {
         if writeTodo.isDateNoti {
             switch writeTodo.repeatNotiType {
             case .none where dateTextField.text?.isEmpty ?? true:
-                showAlert(title: L10n.Alert.WriteTodo.EmptyDate.title)
+                Alert.showDone(
+                    self,
+                    title: L10n.Alert.WriteTodo.EmptyDate.title
+                )
                 return false
             case .weekly where weekTextField.text?.isEmpty ?? true:
-                showAlert(title: L10n.Alert.WriteTodo.EmptyWeek.title)
+                Alert.showDone(
+                    self,
+                    title: L10n.Alert.WriteTodo.EmptyWeek.title
+                )
                 return false
             case .monthly where dayTextField.text?.isEmpty ?? true:
-                showAlert(title: L10n.Alert.WriteTodo.EmptyMonth.title)
+                Alert.showDone(
+                    self,
+                    title: L10n.Alert.WriteTodo.EmptyMonth.title
+                )
                 return false
             default:
                 break
             }
             if timeTextField.text?.isEmpty ?? true {
-                showAlert(title: L10n.Alert.WriteTodo.EmptyTime.title)
+                Alert.showDone(
+                    self,
+                    title: L10n.Alert.WriteTodo.EmptyTime.title
+                )
                 return false
             }
             saveDate()
@@ -459,7 +491,10 @@ extension WriteTodoViewController {
     
     private func checkLocationNotification() -> Bool {
         if writeTodo.isLocationNoti && locationNameLabel.text == L10n.Todo.SelectLocation.title {
-            showAlert(title: L10n.Alert.WriteTodo.EmptyLocation.title)
+            Alert.showDone(
+                self,
+                title: L10n.Alert.WriteTodo.EmptyLocation.title
+            )
             return false
         }
         return true
@@ -488,14 +523,6 @@ extension WriteTodoViewController {
             break
         }
         return Calendar.current.date(from: dateComponents) ?? date
-    }
-    
-    private func showAlert(title: String = "", message: String = "") {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: L10n.Alert.Button.done, style: .default))
-        performUIUpdatesOnMain {
-            self.present(alert, animated: true)
-        }
     }
 }
 

@@ -44,10 +44,15 @@ class SearchLocationViewController: BaseViewController {
         
         let status = locationManager.authorizationStatus
         if status == CLAuthorizationStatus.denied || status == CLAuthorizationStatus.restricted {
-            let alert = UIAlertController(title: L10n.Alert.AuthLocation.title, message: L10n.Alert.AuthLocation.message, preferredStyle: UIAlertController.Style.alert)
-            let defaultAction = UIAlertAction(title: L10n.Alert.Button.done, style: .default)
-            alert.addAction(defaultAction)
-            self.present(alert, animated: false, completion: nil)
+            Alert.showCancelAndDone(
+                self,
+                title: L10n.Alert.AuthLocation.title,
+                message: L10n.Alert.AuthLocation.message,
+                cancelTitle: L10n.Alert.Button.moveSetting,
+                cancelHandler: {
+                    Utils.moveAppSetting()
+                }
+            )
         }
     }
     

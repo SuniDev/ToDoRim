@@ -214,7 +214,7 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
                 self.fetchData()
                 self.updateTodosUI()
             } else {
-                Alert.showError(self, title: "할일 완료")
+                Alert.showError(self, title: "할 일 완료")
             }
         }
     }
@@ -263,6 +263,7 @@ extension GroupDetailViewController: UITableViewDelegate, UITableViewDataSource 
                 self.updateTodosUI()
                 completion(true)
             } else {
+                Alert.showError(self, title: "할 일 삭제")
                 completion(false)
             }
         }
