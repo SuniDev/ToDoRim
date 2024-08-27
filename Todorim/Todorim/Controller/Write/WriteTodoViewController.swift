@@ -10,6 +10,7 @@ import CoreLocation
 import Hero
 
 protocol WriteTodoViewControllerDelegate: AnyObject {
+    func completeEditTodo(todo: Todo)
     func completeWriteTodo(todo: Todo)
 }
 
@@ -409,7 +410,7 @@ extension WriteTodoViewController {
                 writeTodoService?.updateTodo(with: todo, newTodo: writeTodo) { [weak self] isSuccess, updatedTodo in
                     guard let self = self else { return }
                     if isSuccess {
-                        self.delegate?.completeWriteTodo(todo: updatedTodo)
+                        self.delegate?.completeEditTodo(todo: updatedTodo)
                         self.pop()
                     } else {
                         Alert.showError(self, title: "할 일 수정")

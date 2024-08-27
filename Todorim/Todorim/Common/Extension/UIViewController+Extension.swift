@@ -18,7 +18,7 @@ extension UIViewController {
             
             let toastLabel = UILabel()
             toastLabel.textColor = .white
-            toastLabel.font = UIFont(name: "AppleSDGothicNeo-Medium", size: 13.0)
+            toastLabel.font = UIFont(name: "AppleSDGothicNeo-Medium", size: 15.0)
             toastLabel.text = message
             toastLabel.numberOfLines = 0
             toastLabel.textAlignment = .center
@@ -40,7 +40,7 @@ extension UIViewController {
                 toastLabel.trailingAnchor.constraint(equalTo: frameView.trailingAnchor, constant: -8)
             ])
             
-            UIView.animate(withDuration: 2.0,
+            UIView.animate(withDuration: 1.5,
                            delay: 1.5,
                            options: .curveEaseOut,
                            animations: {

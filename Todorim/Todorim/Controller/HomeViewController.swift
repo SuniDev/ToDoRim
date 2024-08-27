@@ -248,6 +248,7 @@ extension HomeViewController: WriteGroupViewControllerDelegate {
             self.homeService?.deleteGroup(groupId: groupId, completion: { [weak self] isSuccess in
                 guard let self = self else { return }
                 if isSuccess {
+                    self.showToast(message: L10n.Toast.DeleteGroup.complete)
                     self.fetchDataAndUI()
                 } else {
                     Alert.showError(self, title: "그룹 삭제")
@@ -261,6 +262,7 @@ extension HomeViewController: WriteGroupViewControllerDelegate {
     }
     
     func completeWriteGroup(group: Group) {
+        self.showToast(message: L10n.Toast.WriteGroup.complete)
         fetchDataAndUI()
     }
 }

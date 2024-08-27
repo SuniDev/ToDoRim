@@ -287,8 +287,14 @@ extension GroupDetailViewController: WriteGroupViewControllerDelegate {
 }
 
 extension GroupDetailViewController: WriteTodoViewControllerDelegate {
+    func completeEditTodo(todo: Todo) {
+        self.fetchData()
+        self.updateTodosUI()
+    }
+    
     func completeWriteTodo(todo: Todo) {
         self.fetchData()
         self.updateTodosUI()
+        self.showToast(message: L10n.Toast.WriteTodo.complete)
     }
 }
