@@ -13,7 +13,8 @@
   운영 : 2019. 11 - 2020. 02<br>
   리팩토링 : 2024. 08. 10 - 2024. 08 27
   <br><br>
-  
+  [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FSuniDev%2FToDoRim&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+    
   ### [📱App Store 다운로드 바로가기](https://apps.apple.com/kr/app/todorim-할일관리-미리알림/id1483006749)
 
 <br><br>
