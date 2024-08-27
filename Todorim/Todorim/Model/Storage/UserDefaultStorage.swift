@@ -14,6 +14,8 @@ class UserDefaultStorage {
         case isShowRequestIDAFAuth
         case isAdsRemoved
         case showAdsCount
+        case requestAppReviewCount
+        case writeTodoCount
     }
     
     /**

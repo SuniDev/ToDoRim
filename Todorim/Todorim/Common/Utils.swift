@@ -246,22 +246,34 @@ class Utils {
     }
     
     static func checkShowAdsWithCount() -> Bool {
-        if let count = UserDefaultStorage.getObject(forKey: .showAdsCount) as? Int {
-            if count % 3 == 0 {
-                return true
-            } else {
-                return false
-            }
-        } else {
-            return false
-        }
+        guard let count = UserDefaultStorage.getObject(forKey: .showAdsCount) as? Int else { return false }
+        return count % 5 == 0
     }
     
     static func increaseShowAdsCount() {
-        if let count = UserDefaultStorage.getObject(forKey: .showAdsCount) as? Int {
-            UserDefaultStorage.set(count + 1, forKey: .showAdsCount)
-        } else {
-            UserDefaultStorage.set(1, forKey: .showAdsCount)
+        let count = UserDefaultStorage.getObject(forKey: .showAdsCount) as? Int ?? 0
+        UserDefaultStorage.set(count + 1, forKey: .showAdsCount)
+    }
+        
+    static func increaseWriteTodoCount() {
+        let count = UserDefaultStorage.getObject(forKey: .writeTodoCount) as? Int ?? 0
+        UserDefaultStorage.set(count + 1, forKey: .writeTodoCount)
+    }
+    
+    static func requestAppReviewWithWriteTodo() {
+        let writeTodoCount = UserDefaultStorage.getObject(forKey: .writeTodoCount) as? Int ?? 0
+        let requestCount = UserDefaultStorage.getObject(forKey: .requestAppReviewCount) as? Int ?? 0
+
+        if writeTodoCount > 0 &&
+            writeTodoCount % 3 == 0 &&
+            requestCount < 3 {
+            DispatchQueue.main.async {
+                if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                    SKStoreReviewController.requestReview(in: scene)
+                    
+                    UserDefaultStorage.set(requestCount + 1, forKey: .requestAppReviewCount)
+                }
+            }
         }
     }
 }

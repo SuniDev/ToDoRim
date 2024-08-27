@@ -296,5 +296,8 @@ extension GroupDetailViewController: WriteTodoViewControllerDelegate {
         self.fetchData()
         self.updateTodosUI()
         self.showToast(message: L10n.Toast.WriteTodo.complete)
+        
+        Utils.increaseWriteTodoCount()
+        Utils.requestAppReviewWithWriteTodo()
     }
 }
