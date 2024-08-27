@@ -53,8 +53,8 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "alert.delete_group.title", fallback: "그룹을 삭제하시겠습니까?")
     }
     internal enum Error {
-      /// 문제가 지속되면 '설정 > 불편신고 및 개선요청'에 문의해 주세요.
-      internal static let message = L10n.tr("Localizable", "alert.error.message", fallback: "문제가 지속되면 '설정 > 불편신고 및 개선요청'에 문의해 주세요.")
+      /// 문제가 지속되면 '설정 > 불편 신고 및 개선 요청'에 문의해 주세요.
+      internal static let message = L10n.tr("Localizable", "alert.error.message", fallback: "문제가 지속되면 '설정 > 불편 신고 및 개선 요청'에 문의해 주세요.")
       /// %@에 실패했습니다. 다시 시도해 주세요.
       internal static func title(_ p1: Any) -> String {
         return L10n.tr("Localizable", "alert.error.title", String(describing: p1), fallback: "%@에 실패했습니다. 다시 시도해 주세요.")
@@ -189,8 +189,8 @@ internal enum L10n {
   internal enum Toast {
     internal enum ContactUs {
       /// 메일이 성공적으로 전송되었습니다.
-      /// 불편신고 및 개선요청을 해주셔서 감사합니다.
-      internal static let complete = L10n.tr("Localizable", "toast.contact_us.complete", fallback: "메일이 성공적으로 전송되었습니다.\n불편신고 및 개선요청을 해주셔서 감사합니다.")
+      /// 불편 신고 및 개선 요청을 해주셔서 감사합니다.
+      internal static let complete = L10n.tr("Localizable", "toast.contact_us.complete", fallback: "메일이 성공적으로 전송되었습니다.\n불편 신고 및 개선 요청을 해주셔서 감사합니다.")
       /// 메일 전송에 실패했습니다.
       /// 인터넷 연결을 확인하고 다시 시도해 주세요.
       internal static let error = L10n.tr("Localizable", "toast.contact_us.error", fallback: "메일 전송에 실패했습니다.\n인터넷 연결을 확인하고 다시 시도해 주세요.")
