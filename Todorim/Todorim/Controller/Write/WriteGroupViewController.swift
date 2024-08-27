@@ -144,6 +144,7 @@ class WriteGroupViewController: BaseViewController {
     
     override func fetchData() {
         writeGroup = writeGroupService?.initializeGroupData(group: group) ?? Group()
+        selectedColorIndex = writeGroup.appColorIndex
     }
     
     // MARK: - UI 설정
