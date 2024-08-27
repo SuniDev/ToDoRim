@@ -26,24 +26,24 @@
 - 그룹별 할 일 관리
 - 그룹마다 감성적인 그라데이션 배경을 선택 가능
 - 그룹별 할 일 완료 상태를 퍼센트로 확인
-<image src="https://github.com/user-attachments/assets/3941b26c-933f-46d9-806f-761ea16a0a4b" width=300 />
+<image src="https://github.com/user-attachments/assets/3941b26c-933f-46d9-806f-761ea16a0a4b" width=200 />
 
 ### [그룹 상세]
 - 쉽고 간편한 할 일 관리
 - 한 번의 탭으로 할 일 완료 체크
 - (+)버튼을 눌러 새 할 일 추가
 - 왼쪽으로 스와이프하여 수정 또는 삭제
-<image src="https://github.com/user-attachments/assets/43afcbc6-c66f-4376-9dcf-b5e0e30d7cb5" width=300 />
+<image src="https://github.com/user-attachments/assets/43afcbc6-c66f-4376-9dcf-b5e0e30d7cb5" width=200 />
 
 ### [그룹 추가]
 - 그라데이션 배경으로 나만의 감성적인 테마 그룹 만들기
-<image src="https://github.com/user-attachments/assets/201a2e90-bea9-4c5a-b4dd-e0f81647ddab" width=300 />
+<image src="https://github.com/user-attachments/assets/201a2e90-bea9-4c5a-b4dd-e0f81647ddab" width=200 />
 
 ### [할일 추가]
 - 시간 알림 설정 : 매일, 매주, 매월 반복 알림 설정 가능
 - 위치 알림 설정 : 특정 장소에 도착하거나 출발할 때 알림 설정 가능 / 반경을 지정하여 세부 설정 가능
-<image src="https://github.com/user-attachments/assets/0fd4fe96-0a22-48ef-8dc7-a0f8efdf254f" width=300 />
-<image src="https://github.com/user-attachments/assets/18ab7ee9-809a-4e89-8bc0-6c0f9b05c6b2" width=300 />
+<image src="https://github.com/user-attachments/assets/0fd4fe96-0a22-48ef-8dc7-a0f8efdf254f" width=200 />
+<image src="https://github.com/user-attachments/assets/18ab7ee9-809a-4e89-8bc0-6c0f9b05c6b2" width=200 />
 
 <br>
 
