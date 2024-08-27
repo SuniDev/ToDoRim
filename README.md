@@ -26,36 +26,50 @@
 - 그룹별 할 일 관리
 - 그룹마다 감성적인 그라데이션 배경을 선택 가능
 - 그룹별 할 일 완료 상태를 퍼센트로 확인
-<image src="https://github.com/user-attachments/assets/3941b26c-933f-46d9-806f-761ea16a0a4b" width=200 />
+<image src="https://github.com/user-attachments/assets/3941b26c-933f-46d9-806f-761ea16a0a4b" width=300 />
 
 ### [그룹 상세]
 - 쉽고 간편한 할 일 관리
 - 한 번의 탭으로 할 일 완료 체크
 - (+)버튼을 눌러 새 할 일 추가
 - 왼쪽으로 스와이프하여 수정 또는 삭제
-<image src="https://github.com/user-attachments/assets/43afcbc6-c66f-4376-9dcf-b5e0e30d7cb5" width=200 />
+<image src="https://github.com/user-attachments/assets/43afcbc6-c66f-4376-9dcf-b5e0e30d7cb5" width=300 />
 
 ### [그룹 추가]
 - 그라데이션 배경으로 나만의 감성적인 테마 그룹 만들기
-<image src="https://github.com/user-attachments/assets/201a2e90-bea9-4c5a-b4dd-e0f81647ddab" width=200 />
+<image src="https://github.com/user-attachments/assets/201a2e90-bea9-4c5a-b4dd-e0f81647ddab" width=300 />
 
 ### [할일 추가]
 - 시간 알림 설정 : 매일, 매주, 매월 반복 알림 설정 가능
 - 위치 알림 설정 : 특정 장소에 도착하거나 출발할 때 알림 설정 가능 / 반경을 지정하여 세부 설정 가능
-<image src="https://github.com/user-attachments/assets/0fd4fe96-0a22-48ef-8dc7-a0f8efdf254f" width=200 />
-<image src="https://github.com/user-attachments/assets/18ab7ee9-809a-4e89-8bc0-6c0f9b05c6b2" width=200 />
+<image src="https://github.com/user-attachments/assets/0fd4fe96-0a22-48ef-8dc7-a0f8efdf254f" width=300 />
+<image src="https://github.com/user-attachments/assets/18ab7ee9-809a-4e89-8bc0-6c0f9b05c6b2" width=300 />
 
 <br>
 
 ## ⚒️ 사용 기술
 ### 개발환경
-iOS, Xcode
+<img src="https://img.shields.io/badge/iOS-000000?style=flat-square&logo=apple&logoColor=white"/> <img src="https://img.shields.io/badge/Xcode-147EFB?style=flat-square&logo=xcode&logoColor=white"/>
+<br>
+
 ### 언어 및 프레임워크
-Swift5, UIKit, MapKit, CoreLocation, StoreKit, AppTrackingTransparency, MessageUI, SafariServices
+<img src="https://img.shields.io/badge/Swift5-F05138?style=flat-square&logo=swift&logoColor=white"/> <img src="https://img.shields.io/badge/UIKit-2396F3?style=flat-square&logo=uikit&logoColor=white"/>
+<br>
+- MapKit, CoreLocation, StoreKit, AppTrackingTransparency, MessageUI, SafariServices
+
 ### 아키텍처 및 디자인 패턴
-MVC
-### SPM(Swift Package Manager)로 라이브러리 관리
-Realm, Firebase, Hero, GoogleMobileAds
+- MVC
+
+### SPM(Swift Package Manager)으로 라이브러리 관리
+- Realm: 데이터베이스 관리 시스템을 사용하여 오프라인 데이터 관리 및 동기화 기능 구현.
+- Firebase: Google Analytics 및 Crashlytics를 활용하여 앱 모니터링 및 오류 추적 기능 개발. / RemoteConfig를 사용하여 앱 버전 관리 및 동적 구성 지원.
+- Hero: 뷰 간 전환 애니메이션을 간소화하고 시각적 전환 효과를 강화하여 사용자 경험 향상.
+- GoogleMobileAds: Google AdMob을 사용한 광고 통합을 통해 수익 창출 기능 개발.
+
+### Github 오픈 소스 라이브러리 커스텀
+- Geotify: 위치 기반 알림 기능을 구현하여 사용자에게 특정 위치에서 알림을 전송하는 기능 추가.
+- TextFieldEffects: 시각적으로 매력적인 텍스트 필드 효과를 적용하여 UI/UX 개선.
+- FAPaginationLayout: 커스터마이징된 페이징 레이아웃을 통해 사용자에게 보다 매끄러운 스크롤 경험 제공.
 
 <br>
 
