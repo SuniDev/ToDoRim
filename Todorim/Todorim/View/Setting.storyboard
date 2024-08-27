@@ -207,7 +207,7 @@ uOyalC4
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xaV-Qr-Yhk" userLabel="line">
                                                         <rect key="frame" x="0.0" y="252" width="414" height="3"/>
-                                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="3" id="Myg-Z5-U7G"/>
                                                         </constraints>
