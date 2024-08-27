@@ -24,6 +24,7 @@ class GroupCollectionViewCell: UICollectionViewCell {
     weak var delegate: GroupCollectionViewCellDelegate?
     var group: Group?
     var todos: [Todo] = []
+    var decompleteTodos: [Todo] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,6 +43,7 @@ class GroupCollectionViewCell: UICollectionViewCell {
     func configure(with group: Group, todos: [Todo], delegate: GroupCollectionViewCellDelegate) {
         self.group = group
         self.todos = todos
+        self.decompleteTodos = todos.filter { !$0.isComplete }
         self.delegate = delegate
         
         titleLabel.text = group.title
@@ -95,14 +97,14 @@ class GroupCollectionViewCell: UICollectionViewCell {
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension GroupCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todos.count
+        return decompleteTodos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTodoTableViewCell", for: indexPath) as? HomeTodoTableViewCell,
-              indexPath.row < todos.count else { return UITableViewCell() }
+              indexPath.row < decompleteTodos.count else { return UITableViewCell() }
         
-        let todo = todos[indexPath.row]
+        let todo = decompleteTodos[indexPath.row]
         cell.configure(with: todo, delegate: self)
         
         return cell
