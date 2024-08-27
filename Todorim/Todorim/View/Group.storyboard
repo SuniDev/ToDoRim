@@ -142,6 +142,11 @@
                                         <state key="normal" title="추가">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="tappedAddButton:" destination="p8H-1N-9lT" eventType="touchUpInside" id="u1l-Tq-Jgj"/>
                                         </connections>
@@ -156,7 +161,7 @@
                                     <constraint firstAttribute="height" constant="70" id="YvY-E3-4yE"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="379-qR-KAh" userLabel="Edit Button View">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="379-qR-KAh" userLabel="Edit Button View">
                                 <rect key="frame" x="16" y="708" width="343" height="70"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8V-5A-1vX">
@@ -166,6 +171,11 @@
                                         <state key="normal" title="수정">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="tappedEditButton:" destination="p8H-1N-9lT" eventType="touchUpInside" id="sMU-GG-ANF"/>
                                         </connections>
@@ -177,6 +187,11 @@
                                         <state key="normal" title="그룹 삭제">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="tappedDeleteButton:" destination="p8H-1N-9lT" eventType="touchUpInside" id="SiH-fP-3U1"/>
                                         </connections>
@@ -379,7 +394,7 @@
     </scenes>
     <designables>
         <designable name="pkT-7v-ZHH">
-            <size key="intrinsicContentSize" width="172" height="47"/>
+            <size key="intrinsicContentSize" width="160" height="22.333333333333332"/>
         </designable>
     </designables>
     <resources>
