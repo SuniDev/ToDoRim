@@ -32,8 +32,10 @@ class HomeViewController: BaseViewController {
         guard let viewController = UIStoryboard(name: "Setting", bundle: nil).instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else { return }
         
         navigationController?.hero.isEnabled = false
+        
+        viewController.modalPresentationStyle = .pageSheet
         performUIUpdatesOnMain {
-            self.navigationController?.pushViewController(viewController, animated: true)
+            self.present(viewController, animated: true, completion: nil)
         }
     }
     

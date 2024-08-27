@@ -28,9 +28,8 @@ class SettingViewController: BaseViewController {
     @IBOutlet weak var gadLabel: UILabel!
     
     // MARK: - Action
-    @IBAction private func tappedBackButton(_ sender: Any) {
-        navigationController?.hero.isEnabled = false
-        navigationController?.popViewController(animated: true)
+    @IBAction private func tappedCloseButton(_ sender: Any) {
+        dismiss(animated: true)
     }
     
     @IBAction private func tappedPurchaseRemoveAds(_ sender: Any) {
@@ -97,7 +96,7 @@ class SettingViewController: BaseViewController {
                 앱 버전 : \(Constants.appVersion)
                                 
                 💡 문의 내용 💡
-                - 오류 문의 시, 발생 시각을 함께 적어주시면 원활한 해결이 가능해요!
+                - 오류 신고 시, 발생 시각을 함께 적어주시면 원활한 해결이 가능해요!
                 - 이곳에 문의하실 내용을 적어 주세요.
                 
                 
@@ -115,7 +114,9 @@ class SettingViewController: BaseViewController {
             
             self.present(mailComposeVC, animated: true, completion: nil)
         } else {
-            // TODO: 메일을 보낼 수 없는 경우 경고 표시
+            Alert.showDone(self,
+                           title: L10n.Alert.ContactUs.NotAvailableMail.title,
+                           message: L10n.Alert.ContactUs.NotAvailableMail.message)
         }
     }
     

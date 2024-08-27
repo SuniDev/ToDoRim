@@ -189,8 +189,8 @@ internal enum L10n {
   internal enum Toast {
     internal enum ContactUs {
       /// 메일이 성공적으로 전송되었습니다.
-      /// 문의해 주셔서 감사합니다.
-      internal static let complete = L10n.tr("Localizable", "toast.contact_us.complete", fallback: "메일이 성공적으로 전송되었습니다.\n문의해 주셔서 감사합니다.")
+      /// 불편신고 및 개선요청을 해주셔서 감사합니다.
+      internal static let complete = L10n.tr("Localizable", "toast.contact_us.complete", fallback: "메일이 성공적으로 전송되었습니다.\n불편신고 및 개선요청을 해주셔서 감사합니다.")
       /// 메일 전송에 실패했습니다.
       /// 인터넷 연결을 확인하고 다시 시도해 주세요.
       internal static let error = L10n.tr("Localizable", "toast.contact_us.error", fallback: "메일 전송에 실패했습니다.\n인터넷 연결을 확인하고 다시 시도해 주세요.")

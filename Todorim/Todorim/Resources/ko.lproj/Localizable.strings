@@ -65,7 +65,7 @@
 "alert.contact_us.not_available_mail.title" = "죄송합니다.\n메일을 보낼 수 없습니다. 메일 설정을 확인해 주세요.";
 "alert.contact_us.not_available_mail.message" = "더 많은 도움이 필요하시면 'suniapps919@gmail.com'으로 문의해 주세요.";
 
-"toast.contact_us.complete" = "메일이 성공적으로 전송되었습니다.\n문의해 주셔서 감사합니다.";
+"toast.contact_us.complete" = "메일이 성공적으로 전송되었습니다.\n불편신고 및 개선요청을 해주셔서 감사합니다.";
 "toast.contact_us.error" = "메일 전송에 실패했습니다.\n인터넷 연결을 확인하고 다시 시도해 주세요.";
 
 "toast.write_group.complete" = "그룹 추가 완료! ✨";
