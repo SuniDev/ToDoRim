@@ -237,7 +237,31 @@ class Utils {
         }
     }
     
+    static func checkShowAds() -> Bool {
+        return !Utils.isAdsRemoved && Utils.checkShowAdsWithCount()
+    }
+    
     static var isAdsRemoved: Bool {
         return UserDefaultStorage.getObject(forKey: .isAdsRemoved) as? Bool ?? false
+    }
+    
+    static func checkShowAdsWithCount() -> Bool {
+        if let count = UserDefaultStorage.getObject(forKey: .showAdsCount) as? Int {
+            if count % 3 == 0 {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+    
+    static func increaseShowAdsCount() {
+        if let count = UserDefaultStorage.getObject(forKey: .showAdsCount) as? Int {
+            UserDefaultStorage.set(count + 1, forKey: .showAdsCount)
+        } else {
+            UserDefaultStorage.set(1, forKey: .showAdsCount)
+        }
     }
 }

@@ -55,12 +55,12 @@ class WriteTodoService {
     }
     
     // 저장된 Todo를 새롭게 업데이트
-    func updateTodo(with todo: Todo, newTodo: Todo, completion: @escaping (Bool, Todo) -> Void) {
-        todoStorage.update(with: todo, writeTodo: newTodo) { isSuccess, updatedTodo in
+    func updateTodo(with todo: Todo, updateTodo: Todo, completion: @escaping (Bool) -> Void) {
+        todoStorage.update(with: todo, writeTodo: updateTodo) { isSuccess in
             if isSuccess {
-                self.notificationManager.update(with: updatedTodo)
+                self.notificationManager.update(with: updateTodo)
             }
-            completion(isSuccess, updatedTodo)
+            completion(isSuccess)
         }
     }
     

@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 import Hero
+import GoogleMobileAds
 
 protocol WriteTodoViewControllerDelegate: AnyObject {
     func completeEditTodo(todo: Todo)
@@ -24,6 +25,10 @@ class WriteTodoViewController: BaseViewController {
     var group: Group?
     var writeTodo: Todo = Todo()
     var groups: [Group] = []
+    var isNew: Bool {
+        return todo == nil
+    }
+    var interstitial: GADInterstitialAd?
     
     // MARK: - UI Elements
     var groupPicker: GroupPicker?
@@ -117,6 +122,7 @@ class WriteTodoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createKeyboardEvent()
+        loadInterstitialAd()
     }
     // MARK: - Data 설정
     override func configureHeroID() {
@@ -174,9 +180,8 @@ class WriteTodoViewController: BaseViewController {
         locationSearchView.addGestureRecognizer(tapSearchLocation)
         
         performUIUpdatesOnMain {
-            let todo = self.todo
-            self.titleLabel.text = todo == nil ? L10n.Todo.Write.title : L10n.Todo.Edit.title
-            self.completeButtonLabel.text = todo == nil ? L10n.Button.add : L10n.Button.edit
+            self.titleLabel.text = self.isNew ? L10n.Todo.Write.title : L10n.Todo.Edit.title
+            self.completeButtonLabel.text = self.isNew ? L10n.Button.add : L10n.Button.edit
         
             self.titleTextField.text = self.writeTodo.title
 
@@ -335,6 +340,51 @@ class WriteTodoViewController: BaseViewController {
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
+    
+    // MARK: - 광고
+    func loadInterstitialAd() {
+        if Utils.checkShowAds() {
+            let request = GADRequest()
+            GADInterstitialAd.load(withAdUnitID: Constants.gadGroupID, request: request, completionHandler: { [weak self] gad, error in
+                guard let self else { return }
+                if let error = error {
+                    print("Failed to load interstitial ad: \(error)")
+                    return
+                }
+                interstitial = gad
+                interstitial?.fullScreenContentDelegate = self
+            })
+        }
+    }
+    
+    func showInterstitialAd() {
+        if let interstitial = interstitial, Utils.checkShowAds() {
+            interstitial.present(fromRootViewController: self)
+        } else {
+            completeWriteTodo()
+            print("Ad wasn't ready")
+        }
+    }
+    
+    private func completeWriteTodo() {
+        Utils.increaseShowAdsCount()
+        
+        if isNew {
+            delegate?.completeWriteTodo(todo: writeTodo)
+        } else {
+            delegate?.completeEditTodo(todo: writeTodo)
+        }
+        pop()
+    }
+}
+
+// MARK: - GADFullScreenContentDelegate
+extension WriteTodoViewController: GADFullScreenContentDelegate {
+    // 광고가 닫힐 때 호출되는 메서드
+    func adDidDismissFullScreenContent(_ gad: GADFullScreenPresentingAd) {
+        print("Ad was dismissed.")
+        completeWriteTodo()
+    }
 }
 
 // MARK: - Notification 관련 로직
@@ -407,19 +457,17 @@ extension WriteTodoViewController {
     private func handleCompleteAction() {
         if checkValidData() {
             if let todo = self.todo {
-                writeTodoService?.updateTodo(with: todo, newTodo: writeTodo) { [weak self] isSuccess, updatedTodo in
+                writeTodoService?.updateTodo(with: todo, updateTodo: writeTodo) { [weak self] isSuccess in
                     guard let self = self else { return }
                     if isSuccess {
-                        self.delegate?.completeEditTodo(todo: updatedTodo)
-                        self.pop()
+                        self.showInterstitialAd()
                     } else {
                         Alert.showError(self, title: "할 일 수정")
                     }
                 }
             } else {
                 writeTodoService?.addTodo(writeTodo)
-                delegate?.completeWriteTodo(todo: writeTodo)
-                pop()
+                showInterstitialAd()
             }
         }
     }

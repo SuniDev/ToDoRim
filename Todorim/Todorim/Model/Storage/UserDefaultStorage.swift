@@ -13,6 +13,7 @@ class UserDefaultStorage {
         case isInit
         case isShowRequestIDAFAuth
         case isAdsRemoved
+        case showAdsCount
     }
     
     /**

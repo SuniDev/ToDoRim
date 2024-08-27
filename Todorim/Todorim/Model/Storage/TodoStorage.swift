@@ -59,7 +59,7 @@ class TodoStorage {
         realmManager.add(todo)
     }
     
-    func update(with todo: Todo, writeTodo: Todo, completion: @escaping (_ isSuccess: Bool, _ updateTodo: Todo) -> Void) {
+    func update(with todo: Todo, writeTodo: Todo, completion: @escaping (_ isSuccess: Bool) -> Void) {
         realmManager.update(block: {
             todo.groupId = writeTodo.groupId
             todo.title = writeTodo.title
@@ -75,7 +75,7 @@ class TodoStorage {
             todo.longitude = writeTodo.longitude
             todo.radius = writeTodo.radius
         }, completion: { isSuccess, _ in
-            completion(isSuccess, todo)
+            completion(isSuccess)
         })
     }
     
