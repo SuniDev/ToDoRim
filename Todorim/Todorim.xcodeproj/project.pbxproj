@@ -76,6 +76,9 @@
 		EA946D2D2C7820E0000243F4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946D2C2C7820E0000243F4 /* SettingViewController.swift */; };
 		EA946D312C7864CF000243F4 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946D302C7864CF000243F4 /* UIViewController+Extension.swift */; };
 		EA946D342C786FEC000243F4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA946D332C786FEC000243F4 /* LoadingView.swift */; };
+		EAA09E012C7EB2C5006B5F9E /* DataTaskv2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA09E002C7EB2C5006B5F9E /* DataTaskv2.swift */; };
+		EAA09E032C7EB2E5006B5F9E /* DataGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA09E022C7EB2E5006B5F9E /* DataGroup.swift */; };
+		EAA09E052C7EB7B4006B5F9E /* OldConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA09E042C7EB7B4006B5F9E /* OldConfig.swift */; };
 		EAA163D72C734398007417B9 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA163D62C734398007417B9 /* NotificationManager.swift */; };
 		EAA8647C2C6E484300A8CBCD /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */; };
 		EAA8647F2C6E486100A8CBCD /* SearchLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */; };
@@ -191,6 +194,9 @@
 		EA946D2C2C7820E0000243F4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		EA946D302C7864CF000243F4 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		EA946D332C786FEC000243F4 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		EAA09E002C7EB2C5006B5F9E /* DataTaskv2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskv2.swift; sourceTree = "<group>"; };
+		EAA09E022C7EB2E5006B5F9E /* DataGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGroup.swift; sourceTree = "<group>"; };
+		EAA09E042C7EB7B4006B5F9E /* OldConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldConfig.swift; sourceTree = "<group>"; };
 		EAA163D62C734398007417B9 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		EAA8647B2C6E484300A8CBCD /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
 		EAA8647E2C6E486100A8CBCD /* SearchLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationTableViewController.swift; sourceTree = "<group>"; };
@@ -339,6 +345,7 @@
 		EA6B4FD22C69D24600DC3254 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				EAA09DFF2C7EB2B7006B5F9E /* Old */,
 				EA6B4FCE2C69D03D00DC3254 /* Group.swift */,
 				EA6B4FD02C69D0B300DC3254 /* Todo.swift */,
 				EA6B4FD92C69D34000DC3254 /* NotificationType.swift */,
@@ -484,6 +491,16 @@
 				EA946D332C786FEC000243F4 /* LoadingView.swift */,
 			);
 			path = LoadingView;
+			sourceTree = "<group>";
+		};
+		EAA09DFF2C7EB2B7006B5F9E /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				EAA09E002C7EB2C5006B5F9E /* DataTaskv2.swift */,
+				EAA09E022C7EB2E5006B5F9E /* DataGroup.swift */,
+				EAA09E042C7EB7B4006B5F9E /* OldConfig.swift */,
+			);
+			path = Old;
 			sourceTree = "<group>";
 		};
 		EAA163D52C732C77007417B9 /* TextField */ = {
@@ -839,6 +856,7 @@
 				EA6B4FDA2C69D34000DC3254 /* NotificationType.swift in Sources */,
 				EA6B4FDE2C69EA9F00DC3254 /* GroupColor.swift in Sources */,
 				EA6B4FC72C69CB1700DC3254 /* RealmManager.swift in Sources */,
+				EAA09E032C7EB2E5006B5F9E /* DataGroup.swift in Sources */,
 				EA7C5D9E2C69A7E20099AB7C /* String+Extension.swift in Sources */,
 				EA7C5CF52C69A7D40099AB7C /* AppDelegate.swift in Sources */,
 				EABB9C752C6C416400775657 /* DayPicker.swift in Sources */,
@@ -863,7 +881,9 @@
 				EA8BB6F02C6AE40800779FF9 /* HomeTodoTableViewCell.swift in Sources */,
 				EA6B4FBE2C69B8BA00DC3254 /* IntroViewController.swift in Sources */,
 				EABB9C7A2C6C54CA00775657 /* TabButton.swift in Sources */,
+				EAA09E012C7EB2C5006B5F9E /* DataTaskv2.swift in Sources */,
 				EA6B4FE22C69EB9700DC3254 /* XCAssets+Generated.swift in Sources */,
+				EAA09E052C7EB7B4006B5F9E /* OldConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1058,7 +1078,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3T5QFYSPG5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Todorim/Resources/Info.plist;
@@ -1097,7 +1117,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3T5QFYSPG5;
 				GENERATE_INFOPLIST_FILE = YES;
