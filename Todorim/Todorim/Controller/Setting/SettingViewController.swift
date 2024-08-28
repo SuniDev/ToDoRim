@@ -169,14 +169,14 @@ class SettingViewController: BaseViewController {
         }
     }
     
-    private func updatePurchaseUI() {
+    private func updatePurchaseUI(isAdsRemove: Bool = false) {
         performUIUpdatesOnMain {
-            if Utils.isAdsRemoved {
+            if Utils.isAdsRemoved || isAdsRemove {
                 self.gadSettingView.isHidden = true
                 self.gadSettingViewHeight.constant = 0
             } else {
                 self.gadSettingView.isHidden = false
-                self.gadSettingViewHeight.constant = 220
+                self.gadSettingViewHeight.constant = 255
             }
         }
     }
@@ -219,8 +219,10 @@ extension SettingViewController: SKProductsRequestDelegate, SKPaymentTransaction
             removeAdsProduct = product
             print("Product is available: \(product.localizedTitle)")
             // Here you can update UI to display purchase options
+            updatePurchaseUI(isAdsRemove: false)
         } else {
             print("Product not found")
+            updatePurchaseUI(isAdsRemove: true)
         }
     }
 
