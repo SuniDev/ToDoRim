@@ -95,6 +95,8 @@ class NotificationManager {
     }
     
     func update(with todo: Todo) {
+        oldRemove(groupNo: todo.groupId, taskNo: todo.todoId)
+        
         if todo.isDateNoti {
             addDate(with: todo)
         } else {
@@ -107,6 +109,26 @@ class NotificationManager {
             removeLocation(id: todo.todoId)
         }
     }
+    
+    // MARK: - Start - Old Version: 삭제 예정
+    func oldRemove(groupNo: Int, taskNo: Int) {
+        oldRemoveDate(groupNo: groupNo, taskNo: taskNo)
+        oldRemoveLocation(groupNo: groupNo, taskNo: taskNo)
+    }
+    
+    private func oldRemoveDate(groupNo: Int, taskNo: Int) {
+        let identifier = "dateNoti\(groupNo)_\(taskNo)"
+        
+        self.center.removePendingNotificationRequests(withIdentifiers: [identifier])
+        
+    }
+    
+    private func oldRemoveLocation(groupNo: Int, taskNo: Int) {
+        let identifier = "locNoti\(groupNo)_\(taskNo)"
+        
+        self.center.removePendingNotificationRequests(withIdentifiers: [identifier])
+    }
+    // MARK: - End - Old Version: 삭제 예정
     
     func remove(id: Int) {
         removeDate(id: id)
