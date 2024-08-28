@@ -18,13 +18,16 @@ class InitializationService {
     }
     
     func initializeData() {
-        let isInit = UserDefaultStorage.getObject(forKey: .isInit) as? Bool ?? true
-        
-        if isInit {
-            // 초기 그룹과 할일 데이터를 추가
-            groupStorage.add(getInitGroup())
-            todoStorage.add(getInitTodo())
-            UserDefaultStorage.set(false, forKey: .isInit)
+        // MARK: Old Version: isInitYn 삭제 예정
+        let isInitYn = UserDefaultStorage.getObject(forKey: .isInitYn) as? String ?? "N"
+        if isInitYn == "N" {
+            let isInit = UserDefaultStorage.getObject(forKey: .isInit) as? Bool ?? true            
+            if isInit {
+                // 초기 그룹과 할일 데이터를 추가
+                groupStorage.add(getInitGroup())
+                todoStorage.add(getInitTodo())
+                UserDefaultStorage.set(false, forKey: .isInit)
+            }
         }
     }
     

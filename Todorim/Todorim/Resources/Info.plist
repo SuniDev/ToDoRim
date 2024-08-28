@@ -2,20 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>앱 사용 패턴을 분석하여 많이 사용하는 기능을 확인하고 이를 기반으로 기능을 개선하고 업데이트하기 위해 사용자의 앱 사용 데이터를 수집합니다. (예: 자주 사용하는 기능을 파악하여 기능 업데이트)</string>
-	<key>GADTodoId</key>
-	<string>$(GAD_ID_TODO)</string>
-	<key>GADGroupId</key>
-	<string>$(GAD_ID_GROUP)</string>
 	<key>GADApplicationIdentifier</key>
 	<string>$(GAD_ID)</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Intro</string>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>위치 알림을 위해 위치 서비스를 허용해야 합니다.</string>
+	<key>GADGroupId</key>
+	<string>$(GAD_ID_GROUP)</string>
+	<key>GADTodoId</key>
+	<string>$(GAD_ID_TODO)</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

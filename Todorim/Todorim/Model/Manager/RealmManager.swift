@@ -19,6 +19,7 @@ class RealmManager {
     
     static let shared = RealmManager()
     
+    // MARK: - Start - Old Version: 삭제 예정
     private static func initializeRealm() -> Realm {
         do {
             let config = Realm.Configuration(
@@ -35,26 +36,23 @@ class RealmManager {
     
     private static func performMigration(migration: Migration, oldSchemaVersion: UInt64) {
         if oldSchemaVersion < 3 {
-//            // 1. DataTaskv2 -> Todo로 변환
-//            migration.enumerateObjects(ofType: DataTaskv2.className()) { oldObject, newObject in
-//                guard let oldObject = oldObject, let newObject = newObject else {
-//                    return
-//                }
-//                self.mapDataTaskv2ToTodo(oldObject: oldObject, newObject: newObject)
-//            }
-//            
-            // 2. DataGroup -> Group으로 변환
-            migration.enumerateObjects(ofType: DataGroup.className()) { oldObject, newObject in
-                guard let oldObject = oldObject, let newObject = newObject else {
+            // 2. DataGroup -> Group으로 변환 및 listTask 내 DataTaskv2 -> Todo로 변환
+            migration.enumerateObjects(ofType: DataGroup.className()) { oldObject, _ in
+                guard let oldObject = oldObject else {
                     return
                 }
-                self.mapDataGroupToGroup(oldObject: oldObject, newObject: newObject)
+                // 새로운 Group 객체 생성
+                let newGroup = migration.create(Group.className())
+                
+                self.mapDataGroupToGroup(oldObject: oldObject, newObject: newGroup)
                 
                 // DataGroup 내 listTask를 Todo 목록으로 변환
                 if let listTask = oldObject["listTask"] as? List<MigrationObject> {
                     for task in listTask {
                         let todo = migration.create(Todo.className())
                         self.mapDataTaskv2ToTodo(oldObject: task, newObject: todo)
+                        
+                        // groupId는 DataGroup의 groupNo를 사용합니다
                         todo["groupId"] = oldObject["groupNo"] as? Int
                     }
                 }
@@ -64,7 +62,6 @@ class RealmManager {
     
     private static func mapDataTaskv2ToTodo(oldObject: MigrationObject, newObject: MigrationObject) {
         if let taskNo = oldObject["taskNo"] as? Int { newObject["todoId"] = taskNo }
-//        if let groupNo = oldObject["groupNo"] as? Int { newObject["groupId"] = groupNo }
         if let title = oldObject["title"] as? String { newObject["title"] = title }
         if let isCheck = oldObject["isCheck"] as? Bool { newObject["isComplete"] = isCheck }
         if let tOrder = oldObject["tOrder"] as? Int { newObject["order"] = tOrder }
@@ -93,6 +90,7 @@ class RealmManager {
             newObject["endColorHax"] = GroupColor.getEnd(index: colorIndex).toHexString()
         }
     }
+    // MARK: - End - Old Version: 삭제 예정
     
     func add<T: Object>(_ object: T, update: Realm.UpdatePolicy = .error) {
         do {

@@ -10,6 +10,7 @@ import Foundation
 class UserDefaultStorage {
     
     enum UserDefaultsKey: String {
+        case isInitYn // Old
         case isInit
         case isShowRequestIDAFAuth
         case isAdsRemoved
