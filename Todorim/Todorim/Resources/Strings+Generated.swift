@@ -139,8 +139,8 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "group.edit.title", fallback: "그룹 수정")
     }
     internal enum Init {
-      /// 그룹을 커스텀해 보세요!
-      internal static let title = L10n.tr("Localizable", "group.init.title", fallback: "그룹을 커스텀해 보세요!")
+      /// 그룹을 커스텀해 보세요 💫
+      internal static let title = L10n.tr("Localizable", "group.init.title", fallback: "그룹을 커스텀해 보세요 💫")
     }
     internal enum Write {
       /// 그룹 추가
@@ -214,8 +214,8 @@ internal enum L10n {
       internal static let title = L10n.tr("Localizable", "todo.edit.title", fallback: "할 일 수정")
     }
     internal enum Init {
-      /// 할 일을 추가해 보세요.
-      internal static let title = L10n.tr("Localizable", "todo.init.title", fallback: "할 일을 추가해 보세요.")
+      /// 첫 할 일을 추가해 보세요 👋
+      internal static let title = L10n.tr("Localizable", "todo.init.title", fallback: "첫 할 일을 추가해 보세요 👋")
     }
     internal enum SelectLocation {
       /// 위치 선택

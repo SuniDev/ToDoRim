@@ -73,11 +73,11 @@
 
 "toast.delete_group.complete" = "그룹이 삭제되었습니다.";
 
-"group.init.title" = "그룹을 커스텀해 보세요!";
+"group.init.title" = "그룹을 커스텀해 보세요 💫";
 "group.edit.title" = "그룹 수정";
 "group.write.title" = "그룹 추가";
 
-"todo.init.title" = "할 일을 추가해 보세요.";
+"todo.init.title" = "첫 할 일을 추가해 보세요 👋";
 "todo.edit.title" = "할 일 수정";
 "todo.write.title" = "할 일 추가";
 "todo.select_location.title" = "위치 선택";
