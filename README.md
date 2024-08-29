@@ -45,6 +45,10 @@
 <image src="https://github.com/user-attachments/assets/0fd4fe96-0a22-48ef-8dc7-a0f8efdf254f" width=200 />
 <image src="https://github.com/user-attachments/assets/18ab7ee9-809a-4e89-8bc0-6c0f9b05c6b2" width=200 />
 
+### [설정]
+- 프리미엄 결제로 광고 기능 제거
+<image src="https://github.com/user-attachments/assets/d34a68bf-9f88-4a30-8259-9626ca21dc4e" width=200 />
+
 <br>
 
 ## ⚒️ 사용 기술
