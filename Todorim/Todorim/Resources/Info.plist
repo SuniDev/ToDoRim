@@ -8,6 +8,8 @@
 	<string>$(GAD_ID_GROUP)</string>
 	<key>GADTodoId</key>
 	<string>$(GAD_ID_TODO)</string>
+	<key>AppProductId</key>
+	<string>com.suniapps.ToDoRim.product</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

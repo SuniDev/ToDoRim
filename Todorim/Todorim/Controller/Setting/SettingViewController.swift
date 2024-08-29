@@ -236,6 +236,10 @@ extension SettingViewController: SKProductsRequestDelegate, SKPaymentTransaction
                 if transaction.payment.productIdentifier == removeAdsProductID {
                     // 광고 제거 상태 저장
                     UserDefaultStorage.set(true, forKey: .isAdsRemoved)
+                    Alert.showDone(
+                        self,
+                        title: L10n.Alert.Purchase.Complete.title,
+                        message: L10n.Alert.Purchase.Complete.message)
                     animateUpdatePurchaseUI()
                 }
                 SKPaymentQueue.default().finishTransaction(transaction)
@@ -247,6 +251,10 @@ extension SettingViewController: SKProductsRequestDelegate, SKPaymentTransaction
                 if transaction.payment.productIdentifier == removeAdsProductID {
                     // 구매 복원: 광고 제거 상태 복원
                     UserDefaultStorage.set(true, forKey: .isAdsRemoved)
+                    Alert.showDone(
+                        self,
+                        title: L10n.Alert.Restore.Complete.title,
+                        message: L10n.Alert.Restore.Complete.message)
                     animateUpdatePurchaseUI()
                 }
                 SKPaymentQueue.default().finishTransaction(transaction)

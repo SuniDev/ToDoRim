@@ -76,6 +76,22 @@ internal enum L10n {
       /// 새로운 버전 업데이트가 있습니다.
       internal static let title = L10n.tr("Localizable", "alert.latest_update.title", fallback: "새로운 버전 업데이트가 있습니다.")
     }
+    internal enum Purchase {
+      internal enum Complete {
+        /// 구매해주셔서 감사합니다. 이제 'ToDoRim'을 광고 없이 즐기실 수 있습니다!
+        internal static let message = L10n.tr("Localizable", "alert.purchase.complete.message", fallback: "구매해주셔서 감사합니다. 이제 'ToDoRim'을 광고 없이 즐기실 수 있습니다!")
+        /// 결제가 완료되었습니다! 🎉
+        internal static let title = L10n.tr("Localizable", "alert.purchase.complete.title", fallback: "결제가 완료되었습니다! 🎉")
+      }
+    }
+    internal enum Restore {
+      internal enum Complete {
+        /// 구매해주셔서 감사합니다. 이제 'ToDoRim'을 광고 없이 즐기실 수 있습니다!
+        internal static let message = L10n.tr("Localizable", "alert.restore.complete.message", fallback: "구매해주셔서 감사합니다. 이제 'ToDoRim'을 광고 없이 즐기실 수 있습니다!")
+        /// 복원이 완료되었습니다! 🎉
+        internal static let title = L10n.tr("Localizable", "alert.restore.complete.title", fallback: "복원이 완료되었습니다! 🎉")
+      }
+    }
     internal enum SearchLocation {
       internal enum RadiusWarning {
         /// 반경은 최소 100m 이상이어야 합니다.

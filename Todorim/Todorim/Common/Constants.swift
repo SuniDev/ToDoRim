@@ -27,7 +27,7 @@ class Constants {
     }
     
     static var appProductId: String {
-        return Bundle.main.bundleIdentifier ?? "com.suniapps.ToDoRim.product"
+        return  Bundle.main.object(forInfoDictionaryKey: "AppProductId") as? String ?? "com.suniapps.ToDoRim.product"
     }
     
     static let gadID: String = Bundle.main.object(forInfoDictionaryKey: "GADApplicationIdentifier") as? String ?? ""
