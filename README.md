@@ -6,12 +6,12 @@
 
   ToDoRim은 감성적인 테마를 더한 **할 일 관리 및 시간·위치 알림 설정 앱** 입니다. <br>
   iOS 개발 1년 차에 처음으로 기획부터 개발, 배포까지 혼자 진행한 앱 프로젝트입니다. <br>
-  2019년에 MVC 아키텍처로 개발한 이 프로젝트를 2024년에 버그 수정과 성능 개선 리팩토링 작업을 진행하였습니다. <br><br>
+  2019년에 MVC 아키텍처로 개발한 이 프로젝트를 2024년에 버그 수정과 성능 개선 리팩토링 작업을 하여 재운영 중입니다! <br><br>
 
   📆<br>
   개발 : 2019. 08 - 2019. 10<br>
-  운영 : 2019. 11 - 2020. 02<br>
-  리팩토링 : 2024. 08. 10 - 2024. 08 27
+  리팩토링 : 2024. 08 <br>
+  운영 : 2019. 11 - 2020. 02 / 2024. 08 - 진행중 <br>
   <br><br>
   [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FSuniDev%2FToDoRim&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
     
