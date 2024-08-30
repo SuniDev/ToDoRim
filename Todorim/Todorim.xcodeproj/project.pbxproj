@@ -57,6 +57,7 @@
 		EA83B6F02C75D75F00657189 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = EA83B6EF2C75D75F00657189 /* FirebaseRemoteConfig */; };
 		EA83B6F22C75D7F000657189 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA83B6F12C75D7F000657189 /* Constants.swift */; };
 		EA83B6F42C75DD5A00657189 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA83B6F32C75DD5A00657189 /* RemoteConfigDefaults.plist */; };
+		EA8539B92C81FFC800A22F5C /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8539B82C81FFC800A22F5C /* StoreKit.framework */; };
 		EA8BB6F02C6AE40800779FF9 /* HomeTodoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB6EE2C6AE40800779FF9 /* HomeTodoTableViewCell.swift */; };
 		EA8BB6F12C6AE40800779FF9 /* HomeTodoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA8BB6EF2C6AE40800779FF9 /* HomeTodoTableViewCell.xib */; };
 		EA8BB6F52C6AEED400779FF9 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8BB6F42C6AEED400779FF9 /* UIView+Extension.swift */; };
@@ -98,6 +99,20 @@
 		EAC682BF2C690C050010ECCC /* TodorimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682BE2C690C050010ECCC /* TodorimUITests.swift */; };
 		EAC682C12C690C050010ECCC /* TodorimUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC682C02C690C050010ECCC /* TodorimUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		EA8539B62C81FFB700A22F5C /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			inputFiles = (
+			);
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
 		EAC682B12C690C050010ECCC /* PBXContainerItemProxy */ = {
@@ -176,6 +191,7 @@
 		EA83B6E62C75CD8600657189 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		EA83B6F12C75D7F000657189 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EA83B6F32C75DD5A00657189 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
+		EA8539B82C81FFC800A22F5C /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EA8BB6EE2C6AE40800779FF9 /* HomeTodoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTodoTableViewCell.swift; sourceTree = "<group>"; };
 		EA8BB6EF2C6AE40800779FF9 /* HomeTodoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTodoTableViewCell.xib; sourceTree = "<group>"; };
 		EA8BB6F42C6AEED400779FF9 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -227,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA62BD162C771B7400FC92ED /* GoogleMobileAds in Frameworks */,
+				EA8539B92C81FFC800A22F5C /* StoreKit.framework in Frameworks */,
 				EA8BB7032C6B23EE00779FF9 /* Hero in Frameworks */,
 				EA83B6EE2C75D75F00657189 /* FirebaseCrashlytics in Frameworks */,
 				EA6B4FAE2C69AD2F00DC3254 /* RealmSwift in Frameworks */,
@@ -434,6 +451,14 @@
 			path = Write;
 			sourceTree = "<group>";
 		};
+		EA8539B72C81FFC800A22F5C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA8539B82C81FFC800A22F5C /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EA8BB6ED2C6AE3E500779FF9 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,6 +575,7 @@
 				EAC682B32C690C050010ECCC /* TodorimTests */,
 				EAC682BD2C690C050010ECCC /* TodorimUITests */,
 				EAC6829B2C690C040010ECCC /* Products */,
+				EA8539B72C81FFC800A22F5C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -610,6 +636,7 @@
 				EA1D43C62C7DB600006B6961 /* Crashlytics */,
 			);
 			buildRules = (
+				EA8539B62C81FFB700A22F5C /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -1078,7 +1105,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3T5QFYSPG5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Todorim/Resources/Info.plist;
@@ -1096,7 +1123,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adcapsule.ToDoRim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1118,7 +1145,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3T5QFYSPG5;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1137,7 +1164,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adcapsule.ToDoRim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
