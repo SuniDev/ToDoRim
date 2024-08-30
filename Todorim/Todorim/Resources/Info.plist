@@ -9,7 +9,7 @@
 	<key>GADTodoId</key>
 	<string>$(GAD_ID_TODO)</string>
 	<key>AppProductId</key>
-	<string>com.suniapps.ToDoRim.product</string>
+	<string>com.adcapsule.ToDoRim.product</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
