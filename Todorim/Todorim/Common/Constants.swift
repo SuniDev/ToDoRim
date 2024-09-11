@@ -19,7 +19,7 @@ class Constants {
     }
     
     static var appVersion: String {
-        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.1.1"
+        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.1.3"
     }
     
     static var appBundleId: String {
