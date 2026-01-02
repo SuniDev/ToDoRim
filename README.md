@@ -54,17 +54,27 @@
 
 <br/>
 
-## 📱 Screenshots
+## 📱 Screenshots & Features
 
-| 메인 화면 | 그룹 상세 | 그룹 추가 |
-|:---:|:---:|:---:|
-| <img src="https://github.com/user-attachments/assets/3941b26c-933f-46d9-806f-761ea16a0a4b" width="200"/> | <img src="https://github.com/user-attachments/assets/43afcbc6-c66f-4376-9dcf-b5e0e30d7cb5" width="200"/> | <img src="https://github.com/user-attachments/assets/201a2e90-bea9-4c5a-b4dd-e0f81647ddab" width="200"/> |
-| 그룹별 완료율 시각화 | 스와이프로 수정/삭제 | 그라데이션 테마 선택 |
+| 메인 |
+|:---:|
+| <img src="https://github.com/user-attachments/assets/3941b26c-933f-46d9-806f-761ea16a0a4b" width="200"/> |
+| <div align=left> • 그룹별 할 일 관리<br/>• 그룹마다 감성적인 그라데이션 배경 선택 가능<br/>• 그룹별 할 일 완료 상태를 퍼센트로 확인 </div> |
 
-| 시간 알림 설정 | 위치 알림 설정 | 설정 |
-|:---:|:---:|:---:|
-| <img src="https://github.com/user-attachments/assets/0fd4fe96-0a22-48ef-8dc7-a0f8efdf254f" width="200"/> | <img src="https://github.com/user-attachments/assets/18ab7ee9-809a-4e89-8bc0-6c0f9b05c6b2" width="200"/> | <img src="https://github.com/user-attachments/assets/d34a68bf-9f88-4a30-8259-9626ca21dc4e" width="200"/> |
-| 매일/매주/매월 반복 | Geofencing 반경 설정 | 프리미엄 구독 |
+| 그룹 상세 | 그룹 추가 |
+|:---:|:---:|
+| <img src="https://github.com/user-attachments/assets/43afcbc6-c66f-4376-9dcf-b5e0e30d7cb5" width="200"/> | <img src="https://github.com/user-attachments/assets/201a2e90-bea9-4c5a-b4dd-e0f81647ddab" width="200"/> |
+| <div align=left> • 쉽고 간편한 할 일 관리<br/>• 한 번의 탭으로 할 일 완료 체크<br/>• (+)버튼을 눌러 새 할 일 추가<br/>• 왼쪽으로 스와이프하여 수정 또는 삭제 </div> | <div align=left> • 그라데이션 배경으로 나만의 감성적인 테마 그룹 만들기 </div> |
+
+| 할일 추가 (시간 알림) | 할일 추가 (위치 알림) |
+|:---:|:---:|
+| <image src="https://github.com/user-attachments/assets/0fd4fe96-0a22-48ef-8dc7-a0f8efdf254f" width=200 /> | <image src="https://github.com/user-attachments/assets/3a179199-3464-4fce-9b68-bf54e32556bc" width=200 /> |
+| <div align=left> • 시간 알림 설정<br/>• 매일, 매주, 매월 반복 알림 설정 가능 </div> | <div align=left> • 위치 알림 설정<br/>• 특정 장소에 도착하거나 출발할 때 알림 설정 가능<br/>• 반경을 지정하여 세부 설정 가능 </div> |
+
+| 설정 |
+|:---:|
+| <image src="https://github.com/user-attachments/assets/c0ff4c20-736d-461f-a3a4-b5c929b05e3c" width=200 /> |
+| <div align=left> • 프리미엄 결제로 광고 기능 제거 </div> |
 
 <br/>
 
